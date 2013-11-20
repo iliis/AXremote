@@ -8019,7 +8019,7 @@ type RDH, grid 15 mm</description>
 <parts>
 <part name="U1" library="axsem_v4-11" deviceset="AX8052F143" device="HS"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="Q2" library="crystal" deviceset="CRYSTAL" device="SM49"/>
+<part name="Q2" library="crystal" deviceset="CRYSTAL" device="SM49" value="32kHz"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
@@ -8029,7 +8029,7 @@ type RDH, grid 15 mm</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="C2" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C3" library="resistor" deviceset="C-EU" device="C0805"/>
+<part name="C3" library="resistor" deviceset="C-EU" device="C0805" value="4.7u"/>
 <part name="C4" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="C5" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="C6" library="resistor" deviceset="C-EU" device="C0805"/>
@@ -8054,10 +8054,20 @@ type RDH, grid 15 mm</description>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0805" value="1n"/>
 <part name="C12" library="resistor" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
+<part name="C13" library="resistor" deviceset="C-EU" device="C0805" value="39pF"/>
+<part name="GND16" library="supply1" deviceset="GND" device=""/>
+<part name="P+2" library="supply1" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<text x="-45.72" y="58.42" size="1.778" layer="91">Normaler Quartz hier?</text>
+<text x="-137.16" y="0" size="1.778" layer="91">lambda / 2
+868.3 MHz -&gt; 35cm wavelength
+Antenna: 35/2 = 17.5cm = 2*8.75cm</text>
+<text x="-93.98" y="12.7" size="1.778" layer="91" rot="R90">8.75cm</text>
+<text x="-93.98" y="-20.32" size="1.778" layer="91" rot="R90">8.75cm</text>
+<text x="-81.28" y="12.7" size="1.778" layer="91">match values?!</text>
 </plain>
 <instances>
 <instance part="U1" gate="IC" x="0" y="0"/>
@@ -8067,13 +8077,13 @@ type RDH, grid 15 mm</description>
 <instance part="GND2" gate="1" x="-7.62" y="30.48" rot="R180"/>
 <instance part="GND3" gate="1" x="0" y="48.26" rot="R180"/>
 <instance part="GND4" gate="1" x="5.08" y="48.26" rot="R180"/>
-<instance part="GND5" gate="1" x="27.94" y="40.64"/>
+<instance part="GND5" gate="1" x="27.94" y="27.94" rot="R90"/>
 <instance part="GND6" gate="1" x="33.02" y="7.62" rot="R90"/>
 <instance part="GND7" gate="1" x="-53.34" y="-22.86"/>
 <instance part="GND8" gate="1" x="-53.34" y="22.86" rot="R180"/>
 <instance part="C1" gate="G$1" x="0" y="40.64"/>
 <instance part="C2" gate="G$1" x="5.08" y="40.64"/>
-<instance part="C3" gate="G$1" x="27.94" y="48.26"/>
+<instance part="C3" gate="G$1" x="17.78" y="27.94" rot="R90"/>
 <instance part="C4" gate="G$1" x="-40.64" y="10.16"/>
 <instance part="C5" gate="G$1" x="-40.64" y="-7.62"/>
 <instance part="C6" gate="G$1" x="-68.58" y="-2.54" rot="R90"/>
@@ -8098,6 +8108,9 @@ type RDH, grid 15 mm</description>
 <instance part="C11" gate="G$1" x="-20.32" y="45.72"/>
 <instance part="C12" gate="G$1" x="-55.88" y="55.88"/>
 <instance part="GND15" gate="1" x="-55.88" y="63.5" rot="R180"/>
+<instance part="C13" gate="G$1" x="-22.86" y="-27.94" rot="R90"/>
+<instance part="GND16" gate="1" x="-27.94" y="-35.56"/>
+<instance part="P+2" gate="VCC" x="27.94" y="55.88" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -8177,6 +8190,7 @@ type RDH, grid 15 mm</description>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="22.86" y1="27.94" x2="25.4" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="GND3"/>
@@ -8243,6 +8257,7 @@ type RDH, grid 15 mm</description>
 <pinref part="QG1" gate="G$1" pin="S2"/>
 <wire x1="-30.48" y1="35.56" x2="-27.94" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="35.56" x2="-27.94" y2="38.1" width="0.1524" layer="91"/>
+<junction x="-30.48" y="35.56"/>
 </segment>
 <segment>
 <pinref part="QG1" gate="G$1" pin="GND"/>
@@ -8261,6 +8276,12 @@ type RDH, grid 15 mm</description>
 <pinref part="C12" gate="G$1" pin="1"/>
 <pinref part="GND15" gate="1" pin="GND"/>
 <wire x1="-55.88" y1="60.96" x2="-55.88" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C13" gate="G$1" pin="1"/>
+<pinref part="GND16" gate="1" pin="GND"/>
+<wire x1="-25.4" y1="-27.94" x2="-27.94" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="-27.94" x2="-27.94" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -8358,31 +8379,17 @@ type RDH, grid 15 mm</description>
 <wire x1="-10.16" y1="-30.48" x2="-10.16" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="U1" gate="IC" pin="VDD_IO2"/>
-<wire x1="-5.08" y1="22.86" x2="-5.08" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="-5.08" y1="55.88" x2="12.7" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="55.88" x2="27.94" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="55.88" x2="27.94" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="U1" gate="IC" pin="VDD_IO1"/>
-<wire x1="12.7" y1="22.86" x2="12.7" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="55.88" x2="78.74" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="2"/>
-<junction x="-5.08" y="55.88"/>
-</segment>
-</net>
-<net name="N$2" class="0">
+<net name="TX0" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="8"/>
 <wire x1="73.66" y1="5.08" x2="58.42" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="5.08" x2="58.42" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="U1" gate="IC" pin="PB4"/>
 <wire x1="58.42" y1="-7.62" x2="27.94" y2="-7.62" width="0.1524" layer="91"/>
+<label x="30.48" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="RX0" class="0">
 <segment>
 <pinref part="U1" gate="IC" pin="PB5"/>
 <wire x1="27.94" y1="-5.08" x2="55.88" y2="-5.08" width="0.1524" layer="91"/>
@@ -8391,27 +8398,30 @@ type RDH, grid 15 mm</description>
 <wire x1="88.9" y1="17.78" x2="88.9" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="7"/>
 <wire x1="88.9" y1="5.08" x2="81.28" y2="5.08" width="0.1524" layer="91"/>
+<label x="30.48" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="DBG_DATA" class="0">
 <segment>
 <pinref part="U1" gate="IC" pin="DBG_DATA/PB6"/>
 <wire x1="27.94" y1="-2.54" x2="53.34" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="-2.54" x2="53.34" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="6"/>
 <wire x1="53.34" y1="2.54" x2="73.66" y2="2.54" width="0.1524" layer="91"/>
+<label x="30.48" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$16" class="0">
+<net name="DBG_EN" class="0">
 <segment>
 <wire x1="73.66" y1="0" x2="50.8" y2="0" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="0" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="U1" gate="IC" pin="DBG_EN"/>
 <wire x1="50.8" y1="2.54" x2="27.94" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="4"/>
+<label x="30.48" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="DBG_CLK" class="0">
 <segment>
 <pinref part="U1" gate="IC" pin="DBG_CLK/PB7"/>
 <wire x1="27.94" y1="0" x2="48.26" y2="0" width="0.1524" layer="91"/>
@@ -8420,6 +8430,7 @@ type RDH, grid 15 mm</description>
 <wire x1="91.44" y1="20.32" x2="91.44" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="5"/>
 <wire x1="91.44" y1="2.54" x2="81.28" y2="2.54" width="0.1524" layer="91"/>
+<label x="30.48" y="0" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -8431,7 +8442,7 @@ type RDH, grid 15 mm</description>
 <wire x1="96.52" y1="7.62" x2="81.28" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="RST_N" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="3"/>
 <wire x1="81.28" y1="0" x2="93.98" y2="0" width="0.1524" layer="91"/>
@@ -8440,6 +8451,7 @@ type RDH, grid 15 mm</description>
 <wire x1="45.72" y1="22.86" x2="45.72" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="U1" gate="IC" pin="RST_N"/>
 <wire x1="45.72" y1="5.08" x2="27.94" y2="5.08" width="0.1524" layer="91"/>
+<label x="48.26" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -8448,6 +8460,22 @@ type RDH, grid 15 mm</description>
 <wire x1="91.44" y1="-5.08" x2="91.44" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="1"/>
 <wire x1="91.44" y1="-2.54" x2="81.28" y2="-2.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="IC" pin="VDD_IO2"/>
+<wire x1="-5.08" y1="22.86" x2="-5.08" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="55.88" x2="12.7" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="U1" gate="IC" pin="VDD_IO1"/>
+<wire x1="12.7" y1="22.86" x2="12.7" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="27.94" x2="12.7" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="55.88" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<junction x="-5.08" y="55.88"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="27.94" x2="12.7" y2="27.94" width="0.1524" layer="91"/>
+<junction x="12.7" y="27.94"/>
+<junction x="12.7" y="55.88"/>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 <net name="VDD_TCXO" class="0">
@@ -8475,6 +8503,7 @@ type RDH, grid 15 mm</description>
 <wire x1="-10.16" y1="33.02" x2="-10.16" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="-10.16" y1="38.1" x2="-10.16" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-10.16" y="38.1"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -8486,6 +8515,7 @@ type RDH, grid 15 mm</description>
 <wire x1="-20.32" y1="33.02" x2="-20.32" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="2"/>
 <wire x1="-20.32" y1="38.1" x2="-20.32" y2="40.64" width="0.1524" layer="91"/>
+<junction x="-20.32" y="38.1"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -8496,9 +8526,23 @@ type RDH, grid 15 mm</description>
 <wire x1="-20.32" y1="48.26" x2="-20.32" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U1" gate="IC" pin="FILT"/>
+<wire x1="-15.24" y1="-25.4" x2="-15.24" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="C13" gate="G$1" pin="2"/>
+<wire x1="-15.24" y1="-27.94" x2="-17.78" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
