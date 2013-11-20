@@ -8061,7 +8061,7 @@ type RDH, grid 15 mm</description>
 <sheets>
 <sheet>
 <plain>
-<text x="-45.72" y="58.42" size="1.778" layer="91">Normaler Quartz hier?</text>
+<text x="-76.2" y="33.02" size="1.778" layer="91">Normaler Quartz (crystal, XTAL) hier?</text>
 <text x="-137.16" y="0" size="1.778" layer="91">lambda / 2
 868.3 MHz -&gt; 35cm wavelength
 Antenna: 35/2 = 17.5cm = 2*8.75cm</text>

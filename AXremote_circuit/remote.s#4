@@ -8055,17 +8055,17 @@ Source: www.sumida.com/products/pdf/CEP125.pdf</description>
 <part name="C5" library="resistor" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="C6" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="C7" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C8" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C14" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C15" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C16" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C17" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="L1" library="resistor" deviceset="L-US" device="L4035M"/>
-<part name="L2" library="resistor" deviceset="L-US" device="L4035M"/>
+<part name="C8" library="resistor" deviceset="C-EU" device="C0805" value="2.7pF"/>
+<part name="C14" library="resistor" deviceset="C-EU" device="C0805" value="2.7pF"/>
+<part name="C15" library="resistor" deviceset="C-EU" device="C0805" value="2.7pF"/>
+<part name="C16" library="resistor" deviceset="C-EU" device="C0805" value="3.6"/>
+<part name="C17" library="resistor" deviceset="C-EU" device="C0805" value="6.2"/>
+<part name="L1" library="resistor" deviceset="L-US" device="L4035M" value="18nH"/>
+<part name="L2" library="resistor" deviceset="L-US" device="L4035M" value="18nH"/>
 <part name="L3" library="resistor" deviceset="L-US" device="L4035M"/>
 <part name="L4" library="resistor" deviceset="L-US" device="L4035M"/>
-<part name="L5" library="resistor" deviceset="L-US" device="L4035M"/>
-<part name="L6" library="resistor" deviceset="L-US" device="L4035M"/>
+<part name="L5" library="resistor" deviceset="L-US" device="L4035M" value="12nH"/>
+<part name="L6" library="resistor" deviceset="L-US" device="L4035M" value="12nH"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
