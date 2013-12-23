@@ -7916,8 +7916,11 @@ Source: www.sumida.com/products/pdf/CEP125.pdf</description>
 - battery measurement
 - low power led
 - status (tx)/debug led
-- battery, ev. regulator
+- battery, ev. regulator, ev. buffer (C)?
 - on/off switch</text>
+<text x="81.28" y="-17.78" size="1.778" layer="91">not necessary:
+- RX/TX
+- PB3</text>
 </plain>
 <instances>
 <instance part="U1" gate="IC" x="0" y="0"/>
@@ -8126,7 +8129,7 @@ Source: www.sumida.com/products/pdf/CEP125.pdf</description>
 <wire x1="-177.8" y1="5.08" x2="-177.8" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="-177.8" y1="10.16" x2="-203.2" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="-203.2" y1="10.16" x2="-203.2" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-203.2" y1="15.24" x2="-165.1" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-203.2" y1="15.24" x2="-185.42" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="-203.2" y1="-20.32" x2="-203.2" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="-203.2" y1="-25.4" x2="-157.48" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="GND20" gate="1" pin="GND"/>

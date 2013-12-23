@@ -10,18 +10,12 @@ AutoSaveProject=1
 UsedLibrary="/home/samuel/projects/elektronik/AXremote/libraries/axsem_v4-11.lbr"
 
 [Win_1]
-Type="Control Panel"
-Loc="0 87 1028 788"
-State=1
-Number=0
-
-[Win_2]
 Type="Board Editor"
-Loc="0 0 1279 799"
-State=2
+Loc="0 0 599 399"
+State=0
 Number=2
 File="remote.brd"
-View="-0.527338 26.6963 75.8437 85.3873"
+View="-1.16599 26.6941 108.415 85.5026"
 WireWidths=" 0 0.254 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -59,15 +53,15 @@ SwapLevel=0
 ArcDirection=0
 AddLevel=2
 PadsSameType=0
-Layer=1
+Layer=16
 
-[Win_3]
+[Win_2]
 Type="Schematic Editor"
-Loc="-4 -22 1275 777"
+Loc="0 0 1279 799"
 State=2
 Number=1
 File="remote.sch"
-View="-75.4358 -54.5778 83.8806 53.9018"
+View="-176.996 -71.5667 54.254 68.7071"
 WireWidths=" 0 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -106,8 +100,14 @@ ArcDirection=0
 AddLevel=2
 PadsSameType=0
 Layer=91
-Views=" 1: -75.4358 -54.5778 83.8806 53.9018"
+Views=" 1: -176.996 -71.5667 54.254 68.7071"
 Sheet=1
+
+[Win_3]
+Type="Control Panel"
+Loc="0 87 1028 788"
+State=1
+Number=0
 
 [Desktop]
 Screen="1280 800"
