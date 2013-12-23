@@ -3425,7 +3425,7 @@
                     0007   3425 	C$easyax5043.c$238$1$203 ==.
                            3426 ;	..\COMMON\easyax5043.c:238: axradio_timeanchor.timer0 = wtimer0_curtime();
    0851 C0 07              3427 	push	ar7
-   0853 12 54 63           3428 	lcall	_wtimer0_curtime
+   0853 12 54 61           3428 	lcall	_wtimer0_curtime
    0856 AB 82              3429 	mov	r3,dpl
    0858 AC 83              3430 	mov	r4,dph
    085A AD F0              3431 	mov	r5,b
@@ -3446,7 +3446,7 @@
                     0023   3446 	C$easyax5043.c$239$1$203 ==.
                            3447 ;	..\COMMON\easyax5043.c:239: axradio_timeanchor.radiotimer = radio_read24((uint16_t)&AX5043_TIMER2);
    086D 90 40 59           3448 	mov	dptr,#_AX5043_TIMER2
-   0870 12 45 A3           3449 	lcall	_radio_read24
+   0870 12 45 A1           3449 	lcall	_radio_read24
    0873 AB 82              3450 	mov	r3,dpl
    0875 AC 83              3451 	mov	r4,dph
    0877 AD F0              3452 	mov	r5,b
@@ -3517,7 +3517,7 @@
    08AD 8C 82              3517 	mov	dpl,r4
    08AF 8D 83              3518 	mov	dph,r5
    08B1 8E F0              3519 	mov	b,r6
-   08B3 12 54 5D           3520 	lcall	_signextend24
+   08B3 12 54 5B           3520 	lcall	_signextend24
    08B6 12 05 6E           3521 	lcall	_axradio_conv_timeinterval_totimer0
    08B9 AC 82              3522 	mov	r4,dpl
    08BB AD 83              3523 	mov	r5,dph
@@ -3715,7 +3715,7 @@
    095C 12 08 4A           3715 	lcall	_update_timeanchor
                     0115   3716 	C$easyax5043.c$290$2$216 ==.
                            3717 ;	..\COMMON\easyax5043.c:290: if(axradio_framing_enable_sfdcallback)
-   095F 90 56 3E           3718 	mov	dptr,#_axradio_framing_enable_sfdcallback
+   095F 90 56 3C           3718 	mov	dptr,#_axradio_framing_enable_sfdcallback
    0962 E4                 3719 	clr	a
    0963 93                 3720 	movc	a,@a+dptr
    0964 FE                 3721 	mov	r6,a
@@ -3723,7 +3723,7 @@
                     011D   3723 	C$easyax5043.c$292$3$217 ==.
                            3724 ;	..\COMMON\easyax5043.c:292: wtimer_remove_callback(&axradio_cb_receivesfd.cb);
    0967 90 02 54           3725 	mov	dptr,#_axradio_cb_receivesfd
-   096A 12 50 75           3726 	lcall	_wtimer_remove_callback
+   096A 12 50 73           3726 	lcall	_wtimer_remove_callback
                     0123   3727 	C$easyax5043.c$293$3$217 ==.
                            3728 ;	..\COMMON\easyax5043.c:293: axradio_cb_receivesfd.st.error = AXRADIO_ERR_NOERROR;
    096D 90 02 59           3729 	mov	dptr,#(_axradio_cb_receivesfd + 0x0005)
@@ -3758,7 +3758,7 @@
                     0144   3758 	C$easyax5043.c$295$3$217 ==.
                            3759 ;	..\COMMON\easyax5043.c:295: wtimer_add_callback(&axradio_cb_receivesfd.cb);
    098E 90 02 54           3760 	mov	dptr,#_axradio_cb_receivesfd
-   0991 12 44 4A           3761 	lcall	_wtimer_add_callback
+   0991 12 44 48           3761 	lcall	_wtimer_add_callback
                     014A   3762 	C$easyax5043.c$307$1$215 ==.
                            3763 ;	..\COMMON\easyax5043.c:307: while (AX5043_IRQREQUEST0 & 0x01) {    // while fifo not empty
    0994                    3764 00162$:
@@ -3834,7 +3834,7 @@
    09E3 C0 07              3834 	push	ar7
    09E5 90 01 2E           3835 	mov	dptr,#_axradio_rxbuffer
    09E8 75 F0 00           3836 	mov	b,#0x00
-   09EB 12 4D 06           3837 	lcall	_ax5043_readfifo
+   09EB 12 4D 04           3837 	lcall	_ax5043_readfifo
    09EE 15 81              3838 	dec	sp
    09F0 D0 07              3839 	pop	ar7
                     01A8   3840 	C$easyax5043.c$326$3$219 ==.
@@ -3899,7 +3899,7 @@
                            3899 ;	..\COMMON\easyax5043.c:337: wtimer_remove_callback(&axradio_cb_receive.cb);
    0A37 90 02 32           3900 	mov	dptr,#_axradio_cb_receive
    0A3A C0 07              3901 	push	ar7
-   0A3C 12 50 75           3902 	lcall	_wtimer_remove_callback
+   0A3C 12 50 73           3902 	lcall	_wtimer_remove_callback
    0A3F D0 07              3903 	pop	ar7
                     01F7   3904 	C$easyax5043.c$338$3$219 ==.
                            3905 ;	..\COMMON\easyax5043.c:338: axradio_cb_receive.st.error = AXRADIO_ERR_NOERROR;
@@ -3959,7 +3959,7 @@
    0A7E 33                 3959 	rlc	a
    0A7F 95 E0              3960 	subb	a,acc
    0A81 FD                 3961 	mov	r5,a
-   0A82 90 56 1A           3962 	mov	dptr,#_axradio_phy_rssioffset
+   0A82 90 56 18           3962 	mov	dptr,#_axradio_phy_rssioffset
    0A85 E4                 3963 	clr	a
    0A86 93                 3964 	movc	a,@a+dptr
    0A87 FC                 3965 	mov	r4,a
@@ -3982,8 +3982,8 @@
                     0251   3982 	C$easyax5043.c$349$4$221 ==.
                            3983 ;	..\COMMON\easyax5043.c:349: axradio_cb_receive.st.rx.phy.offset.o = signextend20(radio_read24((uint16_t)&AX5043_TRKRFFREQ2));
    0A9B 90 40 4D           3984 	mov	dptr,#_AX5043_TRKRFFREQ2
-   0A9E 12 45 A3           3985 	lcall	_radio_read24
-   0AA1 12 53 39           3986 	lcall	_signextend20
+   0A9E 12 45 A1           3985 	lcall	_radio_read24
+   0AA1 12 53 37           3986 	lcall	_signextend20
    0AA4 AB 82              3987 	mov	r3,dpl
    0AA6 AC 83              3988 	mov	r4,dph
    0AA8 AD F0              3989 	mov	r5,b
@@ -4003,14 +4003,14 @@
                     026F   4003 	C$easyax5043.c$350$4$221 ==.
                            4004 ;	..\COMMON\easyax5043.c:350: wtimer_add_callback(&axradio_cb_receive.cb);
    0AB9 90 02 32           4005 	mov	dptr,#_axradio_cb_receive
-   0ABC 12 44 4A           4006 	lcall	_wtimer_add_callback
+   0ABC 12 44 48           4006 	lcall	_wtimer_add_callback
                     0275   4007 	C$easyax5043.c$351$4$221 ==.
                            4008 ;	..\COMMON\easyax5043.c:351: break;
    0ABF 02 09 94           4009 	ljmp	00147$
    0AC2                    4010 00118$:
                     0278   4011 	C$easyax5043.c$353$3$219 ==.
                            4012 ;	..\COMMON\easyax5043.c:353: axradio_cb_receive.st.rx.pktdata = &axradio_rxbuffer[axradio_framing_maclen];
-   0AC2 90 56 30           4013 	mov	dptr,#_axradio_framing_maclen
+   0AC2 90 56 2E           4013 	mov	dptr,#_axradio_framing_maclen
    0AC5 E4                 4014 	clr	a
    0AC6 93                 4015 	movc	a,@a+dptr
    0AC7 FE                 4016 	mov	r6,a
@@ -4058,7 +4058,7 @@
                     02AA   4058 	C$easyax5043.c$360$4$224 ==.
                            4059 ;	..\COMMON\easyax5043.c:360: wtimer_add_callback(&axradio_cb_receive.cb);
    0AF4 90 02 32           4060 	mov	dptr,#_axradio_cb_receive
-   0AF7 12 44 4A           4061 	lcall	_wtimer_add_callback
+   0AF7 12 44 48           4061 	lcall	_wtimer_add_callback
                     02B0   4062 	C$easyax5043.c$361$4$224 ==.
                            4063 ;	..\COMMON\easyax5043.c:361: if (axradio_mode == AXRADIO_MODE_SYNC_SLAVE ||
    0AFA 74 22              4064 	mov	a,#0x22
@@ -4077,7 +4077,7 @@
                     02C1   4077 	C$easyax5043.c$363$4$224 ==.
                            4078 ;	..\COMMON\easyax5043.c:363: wtimer_remove(&axradio_timer);
    0B0B 90 02 89           4079 	mov	dptr,#_axradio_timer
-   0B0E 12 4D 5A           4080 	lcall	_wtimer_remove
+   0B0E 12 4D 58           4080 	lcall	_wtimer_remove
                     02C7   4081 	C$easyax5043.c$365$3$219 ==.
                            4082 ;	..\COMMON\easyax5043.c:365: break;
    0B11 02 09 94           4083 	ljmp	00147$
@@ -4158,7 +4158,7 @@
    0B5E 33                 4158 	rlc	a
    0B5F 95 E0              4159 	subb	a,acc
    0B61 FD                 4160 	mov	r5,a
-   0B62 90 56 1A           4161 	mov	dptr,#_axradio_phy_rssioffset
+   0B62 90 56 18           4161 	mov	dptr,#_axradio_phy_rssioffset
    0B65 E4                 4162 	clr	a
    0B66 93                 4163 	movc	a,@a+dptr
    0B67 FC                 4164 	mov	r4,a
@@ -4234,7 +4234,7 @@
                     0368   4234 	C$easyax5043.c$403$3$219 ==.
                            4235 ;	..\COMMON\easyax5043.c:403: wtimer_remove_callback(&axradio_cb_channelstate.cb);
    0BB2 90 02 5E           4236 	mov	dptr,#_axradio_cb_channelstate
-   0BB5 12 50 75           4237 	lcall	_wtimer_remove_callback
+   0BB5 12 50 73           4237 	lcall	_wtimer_remove_callback
                     036E   4238 	C$easyax5043.c$404$3$219 ==.
                            4239 ;	..\COMMON\easyax5043.c:404: axradio_cb_channelstate.st.error = AXRADIO_ERR_NOERROR;
    0BB8 90 02 63           4240 	mov	dptr,#(_axradio_cb_channelstate + 0x0005)
@@ -4251,7 +4251,7 @@
    0BC3 33                 4251 	rlc	a
    0BC4 95 E0              4252 	subb	a,acc
    0BC6 FD                 4253 	mov	r5,a
-   0BC7 90 56 1A           4254 	mov	dptr,#_axradio_phy_rssioffset
+   0BC7 90 56 18           4254 	mov	dptr,#_axradio_phy_rssioffset
    0BCA E4                 4255 	clr	a
    0BCB 93                 4256 	movc	a,@a+dptr
    0BCC FB                 4257 	mov	r3,a
@@ -4273,7 +4273,7 @@
    0BDF F0                 4273 	movx	@dptr,a
                     0396   4274 	C$easyax5043.c$408$4$226 ==.
                            4275 ;	..\COMMON\easyax5043.c:408: axradio_cb_channelstate.st.cs.busy = r >= axradio_phy_channelbusy;
-   0BE0 90 56 1C           4276 	mov	dptr,#_axradio_phy_channelbusy
+   0BE0 90 56 1A           4276 	mov	dptr,#_axradio_phy_channelbusy
    0BE3 E4                 4277 	clr	a
    0BE4 93                 4278 	movc	a,@a+dptr
    0BE5 FD                 4279 	mov	r5,a
@@ -4317,7 +4317,7 @@
                     03CA   4317 	C$easyax5043.c$411$3$219 ==.
                            4318 ;	..\COMMON\easyax5043.c:411: wtimer_add_callback(&axradio_cb_channelstate.cb);
    0C14 90 02 5E           4319 	mov	dptr,#_axradio_cb_channelstate
-   0C17 12 44 4A           4320 	lcall	_wtimer_add_callback
+   0C17 12 44 48           4320 	lcall	_wtimer_add_callback
    0C1A D0 07              4321 	pop	ar7
                     03D2   4322 	C$easyax5043.c$412$3$219 ==.
                            4323 ;	..\COMMON\easyax5043.c:412: --len;
@@ -4424,7 +4424,7 @@
    0C6B                    4424 00104$:
                     0421   4425 	C$easyax5043.c$441$4$232 ==.
                            4426 ;	..\COMMON\easyax5043.c:441: axradio_txbuffer_cnt = axradio_phy_preamble_wor_len;
-   0C6B 90 56 26           4427 	mov	dptr,#_axradio_phy_preamble_wor_len
+   0C6B 90 56 24           4427 	mov	dptr,#_axradio_phy_preamble_wor_len
    0C6E E4                 4428 	clr	a
    0C6F 93                 4429 	movc	a,@a+dptr
    0C70 FB                 4430 	mov	r3,a
@@ -4441,7 +4441,7 @@
    0C7F                    4441 00105$:
                     0435   4442 	C$easyax5043.c$443$4$232 ==.
                            4443 ;	..\COMMON\easyax5043.c:443: axradio_txbuffer_cnt = axradio_phy_preamble_len;
-   0C7F 90 56 2A           4444 	mov	dptr,#_axradio_phy_preamble_len
+   0C7F 90 56 28           4444 	mov	dptr,#_axradio_phy_preamble_len
    0C82 E4                 4445 	clr	a
    0C83 93                 4446 	movc	a,@a+dptr
    0C84 FB                 4447 	mov	r3,a
@@ -4513,7 +4513,7 @@
    0CCA F0                 4513 	movx	@dptr,a
                     0481   4514 	C$easyax5043.c$454$3$231 ==.
                            4515 ;	..\COMMON\easyax5043.c:454: AX5043_FIFODATA = axradio_phy_preamble_flags;
-   0CCB 90 56 2D           4516 	mov	dptr,#_axradio_phy_preamble_flags
+   0CCB 90 56 2B           4516 	mov	dptr,#_axradio_phy_preamble_flags
    0CCE E4                 4517 	clr	a
    0CCF 93                 4518 	movc	a,@a+dptr
    0CD0 90 40 29           4519 	mov	dptr,#_AX5043_FIFODATA
@@ -4525,7 +4525,7 @@
    0CD8 F0                 4525 	movx	@dptr,a
                     048F   4526 	C$easyax5043.c$456$3$231 ==.
                            4527 ;	..\COMMON\easyax5043.c:456: AX5043_FIFODATA = axradio_phy_preamble_byte;
-   0CD9 90 56 2C           4528 	mov	dptr,#_axradio_phy_preamble_byte
+   0CD9 90 56 2A           4528 	mov	dptr,#_axradio_phy_preamble_byte
    0CDC E4                 4529 	clr	a
    0CDD 93                 4530 	movc	a,@a+dptr
    0CDE FE                 4531 	mov	r6,a
@@ -4558,7 +4558,7 @@
    0CFC                    4558 00231$:
                     04B2   4559 	C$easyax5043.c$464$4$233 ==.
                            4560 ;	..\COMMON\easyax5043.c:464: if (axradio_phy_preamble_appendbits) {
-   0CFC 90 56 2E           4561 	mov	dptr,#_axradio_phy_preamble_appendbits
+   0CFC 90 56 2C           4561 	mov	dptr,#_axradio_phy_preamble_appendbits
    0CFF E4                 4562 	clr	a
    0D00 93                 4563 	movc	a,@a+dptr
    0D01 FC                 4564 	mov	r4,a
@@ -4574,7 +4574,7 @@
    0D0C F0                 4574 	movx	@dptr,a
                     04C3   4575 	C$easyax5043.c$468$5$234 ==.
                            4576 ;	..\COMMON\easyax5043.c:468: byte = axradio_phy_preamble_appendpattern;
-   0D0D 90 56 2F           4577 	mov	dptr,#_axradio_phy_preamble_appendpattern
+   0D0D 90 56 2D           4577 	mov	dptr,#_axradio_phy_preamble_appendpattern
    0D10 E4                 4578 	clr	a
    0D11 93                 4579 	movc	a,@a+dptr
    0D12 FB                 4580 	mov	r3,a
@@ -4663,7 +4663,7 @@
    0D77 FC                 4663 	mov	r4,a
    0D78 53 04 0E           4664 	anl	ar4,#0x0E
    0D7B BC 06 48           4665 	cjne	r4,#0x06,00124$
-   0D7E 90 56 38           4666 	mov	dptr,#_axradio_framing_synclen
+   0D7E 90 56 36           4666 	mov	dptr,#_axradio_framing_synclen
    0D81 E4                 4667 	clr	a
    0D82 93                 4668 	movc	a,@a+dptr
    0D83 FC                 4669 	mov	r4,a
@@ -4703,7 +4703,7 @@
    0DA5 F0                 4703 	movx	@dptr,a
                     055C   4704 	C$easyax5043.c$492$5$237 ==.
                            4705 ;	..\COMMON\easyax5043.c:492: AX5043_FIFODATA = axradio_framing_syncflags | i;
-   0DA6 90 56 3D           4706 	mov	dptr,#_axradio_framing_syncflags
+   0DA6 90 56 3B           4706 	mov	dptr,#_axradio_framing_syncflags
    0DA9 E4                 4707 	clr	a
    0DAA 93                 4708 	movc	a,@a+dptr
    0DAB FA                 4709 	mov	r2,a
@@ -4722,7 +4722,7 @@
                     056F   4722 	C$easyax5043.c$495$6$238 ==.
                            4723 ;	..\COMMON\easyax5043.c:495: AX5043_FIFODATA = axradio_framing_syncword[i];
    0DB9 EB                 4724 	mov	a,r3
-   0DBA 90 56 39           4725 	mov	dptr,#_axradio_framing_syncword
+   0DBA 90 56 37           4725 	mov	dptr,#_axradio_framing_syncword
    0DBD 93                 4726 	movc	a,@a+dptr
    0DBE FA                 4727 	mov	r2,a
    0DBF 90 40 29           4728 	mov	dptr,#_AX5043_FIFODATA
@@ -4818,7 +4818,7 @@
    0E1E F0                 4818 	movx	@dptr,a
                     05D5   4819 	C$easyax5043.c$513$4$239 ==.
                            4820 ;	..\COMMON\easyax5043.c:513: AX5043_FIFODATA = axradio_phy_preamble_flags;
-   0E1F 90 56 2D           4821 	mov	dptr,#_axradio_phy_preamble_flags
+   0E1F 90 56 2B           4821 	mov	dptr,#_axradio_phy_preamble_flags
    0E22 E4                 4822 	clr	a
    0E23 93                 4823 	movc	a,@a+dptr
    0E24 90 40 29           4824 	mov	dptr,#_AX5043_FIFODATA
@@ -4830,7 +4830,7 @@
    0E2C F0                 4830 	movx	@dptr,a
                     05E3   4831 	C$easyax5043.c$515$4$239 ==.
                            4832 ;	..\COMMON\easyax5043.c:515: AX5043_FIFODATA = axradio_phy_preamble_byte;
-   0E2D 90 56 2C           4833 	mov	dptr,#_axradio_phy_preamble_byte
+   0E2D 90 56 2A           4833 	mov	dptr,#_axradio_phy_preamble_byte
    0E30 E4                 4834 	clr	a
    0E31 93                 4835 	movc	a,@a+dptr
    0E32 FE                 4836 	mov	r6,a
@@ -4842,7 +4842,7 @@
    0E3A                    4842 00133$:
                     05F0   4843 	C$easyax5043.c$519$4$231 ==.
                            4844 ;	..\COMMON\easyax5043.c:519: uint8_t byte = axradio_phy_preamble_byte;
-   0E3A 90 56 2C           4845 	mov	dptr,#_axradio_phy_preamble_byte
+   0E3A 90 56 2A           4845 	mov	dptr,#_axradio_phy_preamble_byte
    0E3D E4                 4846 	clr	a
    0E3E 93                 4847 	movc	a,@a+dptr
    0E3F FE                 4848 	mov	r6,a
@@ -5060,7 +5060,7 @@
    0F26 8C 82              5060 	mov	dpl,r4
    0F28 8D 83              5061 	mov	dph,r5
    0F2A 8B F0              5062 	mov	b,r3
-   0F2C 12 50 E4           5063 	lcall	_ax5043_writefifo
+   0F2C 12 50 E2           5063 	lcall	_ax5043_writefifo
    0F2F 15 81              5064 	dec	sp
    0F31 D0 06              5065 	pop	ar6
    0F33 D0 07              5066 	pop	ar7
@@ -5326,7 +5326,7 @@
                     07E6   5326 	C$easyax5043.c$629$2$248 ==.
                            5327 ;	..\COMMON\easyax5043.c:629: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    1030 90 02 6B           5328 	mov	dptr,#_axradio_cb_transmitstart
-   1033 12 50 75           5329 	lcall	_wtimer_remove_callback
+   1033 12 50 73           5329 	lcall	_wtimer_remove_callback
                     07EC   5330 	C$easyax5043.c$630$2$248 ==.
                            5331 ;	..\COMMON\easyax5043.c:630: switch (axradio_mode) {
    1036 AF 0A              5332 	mov	r7,_axradio_mode
@@ -5342,7 +5342,7 @@
    1040 90 00 0E           5342 	mov	dptr,#_axradio_ack_count
    1043 E0                 5343 	movx	a,@dptr
    1044 FF                 5344 	mov	r7,a
-   1045 90 56 47           5345 	mov	dptr,#_axradio_framing_ack_retransmissions
+   1045 90 56 45           5345 	mov	dptr,#_axradio_framing_ack_retransmissions
    1048 E4                 5346 	clr	a
    1049 93                 5347 	movc	a,@a+dptr
    104A FE                 5348 	mov	r6,a
@@ -5398,7 +5398,7 @@
                     0830   5398 	C$easyax5043.c$643$2$248 ==.
                            5399 ;	..\COMMON\easyax5043.c:643: wtimer_add_callback(&axradio_cb_transmitstart.cb);
    107A 90 02 6B           5400 	mov	dptr,#_axradio_cb_transmitstart
-   107D 12 44 4A           5401 	lcall	_wtimer_add_callback
+   107D 12 44 48           5401 	lcall	_wtimer_add_callback
                     0836   5402 	C$easyax5043.c$644$2$248 ==.
                            5403 ;	..\COMMON\easyax5043.c:644: break;
    1080 02 13 24           5404 	ljmp	00164$
@@ -5539,7 +5539,7 @@
    1100                    5539 00129$:
                     08B6   5540 	C$easyax5043.c$687$3$252 ==.
                            5541 ;	..\COMMON\easyax5043.c:687: axradio_txbuffer_len = axradio_framing_minpayloadlen;
-   1100 90 56 49           5542 	mov	dptr,#_axradio_framing_minpayloadlen
+   1100 90 56 47           5542 	mov	dptr,#_axradio_framing_minpayloadlen
    1103 E4                 5543 	clr	a
    1104 93                 5544 	movc	a,@a+dptr
    1105 FF                 5545 	mov	r7,a
@@ -5560,10 +5560,10 @@
                     08C9   5560 	C$easyax5043.c$694$3$252 ==.
                            5561 ;	..\COMMON\easyax5043.c:694: wtimer_remove(&axradio_timer);
    1113 90 02 89           5562 	mov	dptr,#_axradio_timer
-   1116 12 4D 5A           5563 	lcall	_wtimer_remove
+   1116 12 4D 58           5563 	lcall	_wtimer_remove
                     08CF   5564 	C$easyax5043.c$695$3$252 ==.
                            5565 ;	..\COMMON\easyax5043.c:695: axradio_timer.time = axradio_framing_ack_timeout;
-   1119 90 56 3F           5566 	mov	dptr,#_axradio_framing_ack_timeout
+   1119 90 56 3D           5566 	mov	dptr,#_axradio_framing_ack_timeout
    111C E4                 5567 	clr	a
    111D 93                 5568 	movc	a,@a+dptr
    111E FC                 5569 	mov	r4,a
@@ -5591,7 +5591,7 @@
                     08EF   5591 	C$easyax5043.c$696$3$252 ==.
                            5592 ;	..\COMMON\easyax5043.c:696: wtimer0_addrelative(&axradio_timer);
    1139 90 02 89           5593 	mov	dptr,#_axradio_timer
-   113C 12 44 64           5594 	lcall	_wtimer0_addrelative
+   113C 12 44 62           5594 	lcall	_wtimer0_addrelative
                     08F5   5595 	C$easyax5043.c$697$3$252 ==.
                            5596 ;	..\COMMON\easyax5043.c:697: break;
                     08F5   5597 	C$easyax5043.c$699$3$252 ==.
@@ -5600,7 +5600,7 @@
    1141                    5600 00132$:
                     08F7   5601 	C$easyax5043.c$700$3$252 ==.
                            5602 ;	..\COMMON\easyax5043.c:700: axradio_txbuffer_len = axradio_framing_minpayloadlen;
-   1141 90 56 49           5603 	mov	dptr,#_axradio_framing_minpayloadlen
+   1141 90 56 47           5603 	mov	dptr,#_axradio_framing_minpayloadlen
    1144 E4                 5604 	clr	a
    1145 93                 5605 	movc	a,@a+dptr
    1146 FF                 5606 	mov	r7,a
@@ -5654,7 +5654,7 @@
                     092B   5654 	C$easyax5043.c$713$2$248 ==.
                            5655 ;	..\COMMON\easyax5043.c:713: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    1175 90 02 75           5656 	mov	dptr,#_axradio_cb_transmitend
-   1178 12 50 75           5657 	lcall	_wtimer_remove_callback
+   1178 12 50 73           5657 	lcall	_wtimer_remove_callback
                     0931   5658 	C$easyax5043.c$714$2$248 ==.
                            5659 ;	..\COMMON\easyax5043.c:714: axradio_cb_transmitend.st.error = AXRADIO_ERR_NOERROR;
    117B 90 02 7A           5660 	mov	dptr,#(_axradio_cb_transmitend + 0x0005)
@@ -5712,7 +5712,7 @@
                     096B   5712 	C$easyax5043.c$720$2$248 ==.
                            5713 ;	..\COMMON\easyax5043.c:720: wtimer_add_callback(&axradio_cb_transmitend.cb);
    11B5 90 02 75           5714 	mov	dptr,#_axradio_cb_transmitend
-   11B8 12 44 4A           5715 	lcall	_wtimer_add_callback
+   11B8 12 44 48           5715 	lcall	_wtimer_add_callback
                     0971   5716 	C$easyax5043.c$721$2$248 ==.
                            5717 ;	..\COMMON\easyax5043.c:721: break;
    11BB 02 13 24           5718 	ljmp	00164$
@@ -5742,7 +5742,7 @@
                     0989   5742 	C$easyax5043.c$730$2$248 ==.
                            5743 ;	..\COMMON\easyax5043.c:730: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    11D3 90 02 6B           5744 	mov	dptr,#_axradio_cb_transmitstart
-   11D6 12 50 75           5745 	lcall	_wtimer_remove_callback
+   11D6 12 50 73           5745 	lcall	_wtimer_remove_callback
                     098F   5746 	C$easyax5043.c$731$2$248 ==.
                            5747 ;	..\COMMON\easyax5043.c:731: axradio_cb_transmitstart.st.error = AXRADIO_ERR_NOERROR;
    11D9 90 02 70           5748 	mov	dptr,#(_axradio_cb_transmitstart + 0x0005)
@@ -5777,7 +5777,7 @@
                     09B0   5777 	C$easyax5043.c$733$2$248 ==.
                            5778 ;	..\COMMON\easyax5043.c:733: wtimer_add_callback(&axradio_cb_transmitstart.cb);
    11FA 90 02 6B           5779 	mov	dptr,#_axradio_cb_transmitstart
-   11FD 12 44 4A           5780 	lcall	_wtimer_add_callback
+   11FD 12 44 48           5780 	lcall	_wtimer_add_callback
                     09B6   5781 	C$easyax5043.c$734$2$248 ==.
                            5782 ;	..\COMMON\easyax5043.c:734: break;
    1200 02 13 24           5783 	ljmp	00164$
@@ -5844,7 +5844,7 @@
                            5844 ;	..\COMMON\easyax5043.c:752: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    123E 90 02 75           5845 	mov	dptr,#_axradio_cb_transmitend
    1241 C0 07              5846 	push	ar7
-   1243 12 50 75           5847 	lcall	_wtimer_remove_callback
+   1243 12 50 73           5847 	lcall	_wtimer_remove_callback
                     09FC   5848 	C$easyax5043.c$753$4$257 ==.
                            5849 ;	..\COMMON\easyax5043.c:753: axradio_cb_transmitend.st.error = AXRADIO_ERR_NOERROR;
    1246 90 02 7A           5850 	mov	dptr,#(_axradio_cb_transmitend + 0x0005)
@@ -5879,7 +5879,7 @@
                     0A1D   5879 	C$easyax5043.c$755$4$257 ==.
                            5880 ;	..\COMMON\easyax5043.c:755: wtimer_add_callback(&axradio_cb_transmitend.cb);
    1267 90 02 75           5881 	mov	dptr,#_axradio_cb_transmitend
-   126A 12 44 4A           5882 	lcall	_wtimer_add_callback
+   126A 12 44 48           5882 	lcall	_wtimer_add_callback
    126D D0 07              5883 	pop	ar7
    126F                    5884 00152$:
                     0A25   5885 	C$easyax5043.c$757$3$256 ==.
@@ -5889,7 +5889,7 @@
                     0A29   5889 	C$easyax5043.c$758$4$258 ==.
                            5890 ;	..\COMMON\easyax5043.c:758: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    1273 90 02 6B           5891 	mov	dptr,#_axradio_cb_transmitstart
-   1276 12 50 75           5892 	lcall	_wtimer_remove_callback
+   1276 12 50 73           5892 	lcall	_wtimer_remove_callback
                     0A2F   5893 	C$easyax5043.c$759$4$258 ==.
                            5894 ;	..\COMMON\easyax5043.c:759: axradio_cb_transmitstart.st.error = AXRADIO_ERR_NOERROR;
    1279 90 02 70           5895 	mov	dptr,#(_axradio_cb_transmitstart + 0x0005)
@@ -5924,7 +5924,7 @@
                     0A50   5924 	C$easyax5043.c$761$4$258 ==.
                            5925 ;	..\COMMON\easyax5043.c:761: wtimer_add_callback(&axradio_cb_transmitstart.cb);
    129A 90 02 6B           5926 	mov	dptr,#_axradio_cb_transmitstart
-   129D 12 44 4A           5927 	lcall	_wtimer_add_callback
+   129D 12 44 48           5927 	lcall	_wtimer_add_callback
                     0A56   5928 	C$easyax5043.c$764$2$248 ==.
                            5929 ;	..\COMMON\easyax5043.c:764: txstreamdatacb:
    12A0                    5930 00155$:
@@ -5950,7 +5950,7 @@
                     0A6E   5950 	C$easyax5043.c$768$3$259 ==.
                            5951 ;	..\COMMON\easyax5043.c:768: wtimer_remove_callback(&axradio_cb_transmitdata.cb);
    12B8 90 02 7F           5952 	mov	dptr,#_axradio_cb_transmitdata
-   12BB 12 50 75           5953 	lcall	_wtimer_remove_callback
+   12BB 12 50 73           5953 	lcall	_wtimer_remove_callback
                     0A74   5954 	C$easyax5043.c$769$3$259 ==.
                            5955 ;	..\COMMON\easyax5043.c:769: axradio_cb_transmitdata.st.error = AXRADIO_ERR_NOERROR;
    12BE 90 02 84           5956 	mov	dptr,#(_axradio_cb_transmitdata + 0x0005)
@@ -5985,7 +5985,7 @@
                     0A95   5985 	C$easyax5043.c$771$3$259 ==.
                            5986 ;	..\COMMON\easyax5043.c:771: wtimer_add_callback(&axradio_cb_transmitdata.cb);
    12DF 90 02 7F           5987 	mov	dptr,#_axradio_cb_transmitdata
-   12E2 12 44 4A           5988 	lcall	_wtimer_add_callback
+   12E2 12 44 48           5988 	lcall	_wtimer_add_callback
                     0A9B   5989 	C$easyax5043.c$773$2$248 ==.
                            5990 ;	..\COMMON\easyax5043.c:773: break;
                     0A9B   5991 	C$easyax5043.c$775$2$248 ==.
@@ -6086,7 +6086,7 @@
    134A E4                 6086 	clr	a
    134B                    6087 00128$:
    134B FF                 6088 	mov	r7,a
-   134C 90 56 3E           6089 	mov	dptr,#_axradio_framing_enable_sfdcallback
+   134C 90 56 3C           6089 	mov	dptr,#_axradio_framing_enable_sfdcallback
    134F E4                 6090 	clr	a
    1350 93                 6091 	movc	a,@a+dptr
    1351 FE                 6092 	mov	r6,a
@@ -6112,7 +6112,7 @@
    136A                    6112 00102$:
                     0B20   6113 	C$easyax5043.c$803$1$263 ==.
                            6114 ;	..\COMMON\easyax5043.c:803: AX5043_RSSIREFERENCE = axradio_phy_rssireference;
-   136A 90 56 1B           6115 	mov	dptr,#_axradio_phy_rssireference
+   136A 90 56 19           6115 	mov	dptr,#_axradio_phy_rssireference
    136D E4                 6116 	clr	a
    136E 93                 6117 	movc	a,@a+dptr
    136F FE                 6118 	mov	r6,a
@@ -6149,7 +6149,7 @@
    1395                    6149 00103$:
                     0B4B   6150 	C$easyax5043.c$809$2$264 ==.
                            6151 ;	..\COMMON\easyax5043.c:809: AX5043_TMGRXPREAMBLE1 = axradio_phy_tmgrxpreamble1_cont;
-   1395 90 56 23           6152 	mov	dptr,#_axradio_phy_tmgrxpreamble1_cont
+   1395 90 56 21           6152 	mov	dptr,#_axradio_phy_tmgrxpreamble1_cont
    1398 E4                 6153 	clr	a
    1399 93                 6154 	movc	a,@a+dptr
    139A 90 42 29           6155 	mov	dptr,#_AX5043_TMGRXPREAMBLE1
@@ -6233,7 +6233,7 @@
    13E0 F0                 6233 	movx	@dptr,a
                     0B97   6234 	C$easyax5043.c$828$1$267 ==.
                            6235 ;	..\COMMON\easyax5043.c:828: if(axradio_framing_enable_sfdcallback)
-   13E1 90 56 3E           6236 	mov	dptr,#_axradio_framing_enable_sfdcallback
+   13E1 90 56 3C           6236 	mov	dptr,#_axradio_framing_enable_sfdcallback
    13E4 E4                 6237 	clr	a
    13E5 93                 6238 	movc	a,@a+dptr
    13E6 FF                 6239 	mov	r7,a
@@ -6256,14 +6256,14 @@
    13FA F0                 6256 	movx	@dptr,a
                     0BB1   6257 	C$easyax5043.c$832$1$267 ==.
                            6258 ;	..\COMMON\easyax5043.c:832: AX5043_TMGRXPREAMBLE1 = axradio_phy_tmgrxpreamble1_wor;
-   13FB 90 56 22           6259 	mov	dptr,#_axradio_phy_tmgrxpreamble1_wor
+   13FB 90 56 20           6259 	mov	dptr,#_axradio_phy_tmgrxpreamble1_wor
    13FE E4                 6260 	clr	a
    13FF 93                 6261 	movc	a,@a+dptr
    1400 90 42 29           6262 	mov	dptr,#_AX5043_TMGRXPREAMBLE1
    1403 F0                 6263 	movx	@dptr,a
                     0BBA   6264 	C$easyax5043.c$833$1$267 ==.
                            6265 ;	..\COMMON\easyax5043.c:833: AX5043_RSSIREFERENCE = axradio_phy_rssireference;
-   1404 90 56 1B           6266 	mov	dptr,#_axradio_phy_rssireference
+   1404 90 56 19           6266 	mov	dptr,#_axradio_phy_rssireference
    1407 E4                 6267 	clr	a
    1408 93                 6268 	movc	a,@a+dptr
    1409 FE                 6269 	mov	r6,a
@@ -6301,7 +6301,7 @@
    142D F0                 6301 	movx	@dptr,a
                     0BE4   6302 	C$easyax5043.c$842$2$267 ==.
                            6303 ;	..\COMMON\easyax5043.c:842: uint16_t wp = axradio_wor_period;
-   142E 90 56 4A           6304 	mov	dptr,#_axradio_wor_period
+   142E 90 56 48           6304 	mov	dptr,#_axradio_wor_period
    1431 E4                 6305 	clr	a
    1432 93                 6306 	movc	a,@a+dptr
    1433 FE                 6307 	mov	r6,a
@@ -6323,7 +6323,7 @@
                     0BFB   6323 	C$easyax5043.c$845$2$268 ==.
                            6324 ;	..\COMMON\easyax5043.c:845: wp += radio_read16((uint16_t)&AX5043_WAKEUPTIMER1);
    1445 90 40 68           6325 	mov	dptr,#_AX5043_WAKEUPTIMER1
-   1448 12 46 DC           6326 	lcall	_radio_read16
+   1448 12 46 DA           6326 	lcall	_radio_read16
    144B AC 82              6327 	mov	r4,dpl
    144D AD 83              6328 	mov	r5,dph
    144F EC                 6329 	mov	a,r4
@@ -6493,13 +6493,13 @@
                            6493 ;	..\COMMON\easyax5043.c:887: wtimer_idle(WTFLAG_CANSTANDBY);
    14C2 75 82 02           6494 	mov	dpl,#0x02
    14C5 C0 07              6495 	push	ar7
-   14C7 12 43 57           6496 	lcall	_wtimer_idle
+   14C7 12 43 55           6496 	lcall	_wtimer_idle
                     0C80   6497 	C$easyax5043.c$888$2$277 ==.
                            6498 ;	..\COMMON\easyax5043.c:888: EA = 1;
    14CA D2 AF              6499 	setb	_EA
                     0C82   6500 	C$easyax5043.c$889$2$277 ==.
                            6501 ;	..\COMMON\easyax5043.c:889: wtimer_runcallbacks();
-   14CC 12 42 D3           6502 	lcall	_wtimer_runcallbacks
+   14CC 12 42 D1           6502 	lcall	_wtimer_runcallbacks
    14CF D0 07              6503 	pop	ar7
    14D1 80 E6              6504 	sjmp	00104$
    14D3                    6505 00105$:
@@ -6573,14 +6573,14 @@
    1516 F0                 6573 	movx	@dptr,a
                     0CCD   6574 	C$easyax5043.c$906$1$279 ==.
                            6575 ;	..\COMMON\easyax5043.c:906: if (axradio_phy_pn9 && axradio_framing_addrlen) {
-   1517 90 56 0F           6576 	mov	dptr,#_axradio_phy_pn9
+   1517 90 56 0D           6576 	mov	dptr,#_axradio_phy_pn9
    151A E4                 6577 	clr	a
    151B 93                 6578 	movc	a,@a+dptr
    151C FF                 6579 	mov	r7,a
    151D 70 03              6580 	jnz	00114$
    151F 02 16 01           6581 	ljmp	00106$
    1522                    6582 00114$:
-   1522 90 56 31           6583 	mov	dptr,#_axradio_framing_addrlen
+   1522 90 56 2F           6583 	mov	dptr,#_axradio_framing_addrlen
    1525 E4                 6584 	clr	a
    1526 93                 6585 	movc	a,@a+dptr
    1527 FF                 6586 	mov	r7,a
@@ -6603,7 +6603,7 @@
    153C FD                 6603 	mov	r5,a
                     0CF3   6604 	C$easyax5043.c$909$2$280 ==.
                            6605 ;	..\COMMON\easyax5043.c:909: if (axradio_framing_destaddrpos != 0xff)
-   153D 90 56 32           6606 	mov	dptr,#_axradio_framing_destaddrpos
+   153D 90 56 30           6606 	mov	dptr,#_axradio_framing_destaddrpos
    1540 E4                 6607 	clr	a
    1541 93                 6608 	movc	a,@a+dptr
    1542 FC                 6609 	mov	r4,a
@@ -6629,7 +6629,7 @@
    1559 C0 04              6629 	push	ar4
    155B C0 03              6630 	push	ar3
    155D 90 01 FF           6631 	mov	dptr,#0x01FF
-   1560 12 51 B7           6632 	lcall	_pn9_advance_bits
+   1560 12 51 B5           6632 	lcall	_pn9_advance_bits
    1563 AE 82              6633 	mov	r6,dpl
    1565 AF 83              6634 	mov	r7,dph
    1567 15 81              6635 	dec	sp
@@ -6660,7 +6660,7 @@
    1587 8F 83              6660 	mov	dph,r7
    1589 C0 05              6661 	push	ar5
    158B C0 04              6662 	push	ar4
-   158D 12 53 05           6663 	lcall	_pn9_advance_byte
+   158D 12 53 03           6663 	lcall	_pn9_advance_byte
    1590 AE 82              6664 	mov	r6,dpl
    1592 AF 83              6665 	mov	r7,dph
    1594 D0 04              6666 	pop	ar4
@@ -6688,7 +6688,7 @@
    15B0 8F 83              6688 	mov	dph,r7
    15B2 C0 05              6689 	push	ar5
    15B4 C0 04              6690 	push	ar4
-   15B6 12 53 05           6691 	lcall	_pn9_advance_byte
+   15B6 12 53 03           6691 	lcall	_pn9_advance_byte
    15B9 AE 82              6692 	mov	r6,dpl
    15BB AF 83              6693 	mov	r7,dph
    15BD D0 04              6694 	pop	ar4
@@ -6716,7 +6716,7 @@
    15D9 8F 83              6716 	mov	dph,r7
    15DB C0 05              6717 	push	ar5
    15DD C0 04              6718 	push	ar4
-   15DF 12 53 05           6719 	lcall	_pn9_advance_byte
+   15DF 12 53 03           6719 	lcall	_pn9_advance_byte
    15E2 AE 82              6720 	mov	r6,dpl
    15E4 AF 83              6721 	mov	r7,dph
    15E6 D0 04              6722 	pop	ar4
@@ -6756,7 +6756,7 @@
    1602 12 01 52           6756 	lcall	_ax5043_set_registers
                     0DBB   6757 	C$easyax5043.c$928$1$282 ==.
                            6758 ;	..\COMMON\easyax5043.c:928: AX5043_PKTLENOFFSET += axradio_framing_swcrclen; // add len offs for software CRC16 (used for both, fixed and variable length packets
-   1605 90 56 37           6759 	mov	dptr,#_axradio_framing_swcrclen
+   1605 90 56 35           6759 	mov	dptr,#_axradio_framing_swcrclen
    1608 E4                 6760 	clr	a
    1609 93                 6761 	movc	a,@a+dptr
    160A FF                 6762 	mov	r7,a
@@ -7030,7 +7030,7 @@
    16FF A3                 7030 	inc	dptr
    1700 E0                 7031 	movx	a,@dptr
    1701 FB                 7032 	mov	r3,a
-   1702 90 56 60           7033 	mov	dptr,#_axradio_sync_slave_maxperiod
+   1702 90 56 5E           7033 	mov	dptr,#_axradio_sync_slave_maxperiod
    1705 E4                 7034 	clr	a
    1706 93                 7035 	movc	a,@a+dptr
    1707 C0 E0              7036 	push	acc
@@ -7039,7 +7039,7 @@
    170C C0 E0              7039 	push	acc
    170E 8A 82              7040 	mov	dpl,r2
    1710 8B 83              7041 	mov	dph,r3
-   1712 12 4B D1           7042 	lcall	_checksignedlimit16
+   1712 12 4B CF           7042 	lcall	_checksignedlimit16
    1715 AB 82              7043 	mov	r3,dpl
    1717 15 81              7044 	dec	sp
    1719 15 81              7045 	dec	sp
@@ -7180,7 +7180,7 @@
    17B6 A3                 7180 	inc	dptr
    17B7 E0                 7181 	movx	a,@dptr
    17B8 FF                 7182 	mov	r7,a
-   17B9 90 56 60           7183 	mov	dptr,#_axradio_sync_slave_maxperiod
+   17B9 90 56 5E           7183 	mov	dptr,#_axradio_sync_slave_maxperiod
    17BC E4                 7184 	clr	a
    17BD 93                 7185 	movc	a,@a+dptr
    17BE C0 E0              7186 	push	acc
@@ -7189,7 +7189,7 @@
    17C3 C0 E0              7189 	push	acc
    17C5 8E 82              7190 	mov	dpl,r6
    17C7 8F 83              7191 	mov	dph,r7
-   17C9 12 4C A9           7192 	lcall	_signedlimit16
+   17C9 12 4C A7           7192 	lcall	_signedlimit16
    17CC AE 82              7193 	mov	r6,dpl
    17CE AF 83              7194 	mov	r7,dph
    17D0 15 81              7195 	dec	sp
@@ -7217,7 +7217,7 @@
    17DD                    7217 _axradio_sync_slave_nextperiod:
                     0F93   7218 	C$easyax5043.c$972$1$293 ==.
                            7219 ;	..\COMMON\easyax5043.c:972: axradio_sync_addtime(axradio_sync_period);
-   17DD 90 56 4C           7220 	mov	dptr,#_axradio_sync_period
+   17DD 90 56 4A           7220 	mov	dptr,#_axradio_sync_period
    17E0 E4                 7221 	clr	a
    17E1 93                 7222 	movc	a,@a+dptr
    17E2 FC                 7223 	mov	r4,a
@@ -7241,7 +7241,7 @@
    17FC A3                 7241 	inc	dptr
    17FD E0                 7242 	movx	a,@dptr
    17FE FF                 7243 	mov	r7,a
-   17FF 90 56 60           7244 	mov	dptr,#_axradio_sync_slave_maxperiod
+   17FF 90 56 5E           7244 	mov	dptr,#_axradio_sync_slave_maxperiod
    1802 E4                 7245 	clr	a
    1803 93                 7246 	movc	a,@a+dptr
    1804 C0 E0              7247 	push	acc
@@ -7250,7 +7250,7 @@
    1809 C0 E0              7250 	push	acc
    180B 8E 82              7251 	mov	dpl,r6
    180D 8F 83              7252 	mov	dph,r7
-   180F 12 4B D1           7253 	lcall	_checksignedlimit16
+   180F 12 4B CF           7253 	lcall	_checksignedlimit16
    1812 AF 82              7254 	mov	r7,dpl
    1814 15 81              7255 	dec	sp
    1816 15 81              7256 	dec	sp
@@ -7404,13 +7404,13 @@
                     1052   7404 	C$easyax5043.c$994$2$297 ==.
                            7405 ;	..\COMMON\easyax5043.c:994: wtimer_remove(&axradio_timer);
    189C 90 02 89           7406 	mov	dptr,#_axradio_timer
-   189F 12 4D 5A           7407 	lcall	_wtimer_remove
+   189F 12 4D 58           7407 	lcall	_wtimer_remove
                     1058   7408 	C$easyax5043.c$995$2$297 ==.
                            7409 ;	..\COMMON\easyax5043.c:995: rearmcstimer:
    18A2                    7410 00108$:
                     1058   7411 	C$easyax5043.c$996$2$297 ==.
                            7412 ;	..\COMMON\easyax5043.c:996: axradio_timer.time = axradio_phy_cs_period;
-   18A2 90 56 1D           7413 	mov	dptr,#_axradio_phy_cs_period
+   18A2 90 56 1B           7413 	mov	dptr,#_axradio_phy_cs_period
    18A5 E4                 7414 	clr	a
    18A6 93                 7415 	movc	a,@a+dptr
    18A7 FE                 7416 	mov	r6,a
@@ -7434,7 +7434,7 @@
                     1074   7434 	C$easyax5043.c$997$2$297 ==.
                            7435 ;	..\COMMON\easyax5043.c:997: wtimer0_addrelative(&axradio_timer);
    18BE 90 02 89           7436 	mov	dptr,#_axradio_timer
-   18C1 12 44 64           7437 	lcall	_wtimer0_addrelative
+   18C1 12 44 62           7437 	lcall	_wtimer0_addrelative
                     107A   7438 	C$easyax5043.c$998$2$297 ==.
                            7439 ;	..\COMMON\easyax5043.c:998: chanstatecb:
    18C4                    7440 00109$:
@@ -7444,7 +7444,7 @@
                     107D   7444 	C$easyax5043.c$1000$2$297 ==.
                            7445 ;	..\COMMON\easyax5043.c:1000: wtimer_remove_callback(&axradio_cb_channelstate.cb);
    18C7 90 02 5E           7446 	mov	dptr,#_axradio_cb_channelstate
-   18CA 12 50 75           7447 	lcall	_wtimer_remove_callback
+   18CA 12 50 73           7447 	lcall	_wtimer_remove_callback
                     1083   7448 	C$easyax5043.c$1001$2$297 ==.
                            7449 ;	..\COMMON\easyax5043.c:1001: axradio_cb_channelstate.st.error = AXRADIO_ERR_NOERROR;
    18CD 90 02 63           7450 	mov	dptr,#(_axradio_cb_channelstate + 0x0005)
@@ -7461,7 +7461,7 @@
    18D8 33                 7461 	rlc	a
    18D9 95 E0              7462 	subb	a,acc
    18DB FE                 7463 	mov	r6,a
-   18DC 90 56 1A           7464 	mov	dptr,#_axradio_phy_rssioffset
+   18DC 90 56 18           7464 	mov	dptr,#_axradio_phy_rssioffset
    18DF E4                 7465 	clr	a
    18E0 93                 7466 	movc	a,@a+dptr
    18E1 FC                 7467 	mov	r4,a
@@ -7483,7 +7483,7 @@
    18F4 F0                 7483 	movx	@dptr,a
                     10AB   7484 	C$easyax5043.c$1005$3$298 ==.
                            7485 ;	..\COMMON\easyax5043.c:1005: axradio_cb_channelstate.st.cs.busy = r >= axradio_phy_channelbusy;
-   18F5 90 56 1C           7486 	mov	dptr,#_axradio_phy_channelbusy
+   18F5 90 56 1A           7486 	mov	dptr,#_axradio_phy_channelbusy
    18F8 E4                 7487 	clr	a
    18F9 93                 7488 	movc	a,@a+dptr
    18FA FE                 7489 	mov	r6,a
@@ -7527,7 +7527,7 @@
                     10DF   7527 	C$easyax5043.c$1008$2$297 ==.
                            7528 ;	..\COMMON\easyax5043.c:1008: wtimer_add_callback(&axradio_cb_channelstate.cb);
    1929 90 02 5E           7529 	mov	dptr,#_axradio_cb_channelstate
-   192C 12 44 4A           7530 	lcall	_wtimer_add_callback
+   192C 12 44 48           7530 	lcall	_wtimer_add_callback
                     10E5   7531 	C$easyax5043.c$1009$2$297 ==.
                            7532 ;	..\COMMON\easyax5043.c:1009: break;
    192F 02 20 74           7533 	ljmp	00173$
@@ -7556,13 +7556,13 @@
                     10F5   7556 	C$easyax5043.c$1016$2$297 ==.
                            7557 ;	..\COMMON\easyax5043.c:1016: wtimer_remove(&axradio_timer);
    193F 90 02 89           7558 	mov	dptr,#_axradio_timer
-   1942 12 4D 5A           7559 	lcall	_wtimer_remove
+   1942 12 4D 58           7559 	lcall	_wtimer_remove
                     10FB   7560 	C$easyax5043.c$1017$2$297 ==.
                            7561 ;	..\COMMON\easyax5043.c:1017: if ((int8_t)AX5043_RSSI < axradio_phy_channelbusy ||
    1945 90 40 40           7562 	mov	dptr,#_AX5043_RSSI
    1948 E0                 7563 	movx	a,@dptr
    1949 FF                 7564 	mov	r7,a
-   194A 90 56 1C           7565 	mov	dptr,#_axradio_phy_channelbusy
+   194A 90 56 1A           7565 	mov	dptr,#_axradio_phy_channelbusy
    194D E4                 7566 	clr	a
    194E 93                 7567 	movc	a,@a+dptr
    194F FE                 7568 	mov	r6,a
@@ -7579,7 +7579,7 @@
    1960 E0                 7579 	movx	a,@dptr
    1961 FF                 7580 	mov	r7,a
    1962 70 25              7581 	jnz	00116$
-   1964 90 56 21           7582 	mov	dptr,#_axradio_phy_lbt_forcetx
+   1964 90 56 1F           7582 	mov	dptr,#_axradio_phy_lbt_forcetx
    1967 E4                 7583 	clr	a
    1968 93                 7584 	movc	a,@a+dptr
    1969 FE                 7585 	mov	r6,a
@@ -7592,7 +7592,7 @@
    1970 F0                 7592 	movx	@dptr,a
                     1127   7593 	C$easyax5043.c$1020$3$299 ==.
                            7594 ;	..\COMMON\easyax5043.c:1020: axradio_txbuffer_cnt = axradio_phy_preamble_longlen;
-   1971 90 56 28           7595 	mov	dptr,#_axradio_phy_preamble_longlen
+   1971 90 56 26           7595 	mov	dptr,#_axradio_phy_preamble_longlen
    1974 E4                 7596 	clr	a
    1975 93                 7597 	movc	a,@a+dptr
    1976 FD                 7598 	mov	r5,a
@@ -7632,7 +7632,7 @@
                     1150   7632 	C$easyax5043.c$1029$2$297 ==.
                            7633 ;	..\COMMON\easyax5043.c:1029: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    199A 90 02 6B           7634 	mov	dptr,#_axradio_cb_transmitstart
-   199D 12 50 75           7635 	lcall	_wtimer_remove_callback
+   199D 12 50 73           7635 	lcall	_wtimer_remove_callback
                     1156   7636 	C$easyax5043.c$1030$2$297 ==.
                            7637 ;	..\COMMON\easyax5043.c:1030: axradio_cb_transmitstart.st.error = AXRADIO_ERR_TIMEOUT;
    19A0 90 02 70           7638 	mov	dptr,#(_axradio_cb_transmitstart + 0x0005)
@@ -7667,7 +7667,7 @@
                     1178   7667 	C$easyax5043.c$1032$2$297 ==.
                            7668 ;	..\COMMON\easyax5043.c:1032: wtimer_add_callback(&axradio_cb_transmitstart.cb);
    19C2 90 02 6B           7669 	mov	dptr,#_axradio_cb_transmitstart
-   19C5 12 44 4A           7670 	lcall	_wtimer_add_callback
+   19C5 12 44 48           7670 	lcall	_wtimer_add_callback
                     117E   7671 	C$easyax5043.c$1033$2$297 ==.
                            7672 ;	..\COMMON\easyax5043.c:1033: break;
    19C8 02 20 74           7673 	ljmp	00173$
@@ -7700,7 +7700,7 @@
                     1199   7700 	C$easyax5043.c$1042$3$300 ==.
                            7701 ;	..\COMMON\easyax5043.c:1042: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    19E3 90 02 75           7702 	mov	dptr,#_axradio_cb_transmitend
-   19E6 12 50 75           7703 	lcall	_wtimer_remove_callback
+   19E6 12 50 73           7703 	lcall	_wtimer_remove_callback
                     119F   7704 	C$easyax5043.c$1043$3$300 ==.
                            7705 ;	..\COMMON\easyax5043.c:1043: axradio_cb_transmitend.st.error = AXRADIO_ERR_TIMEOUT;
    19E9 90 02 7A           7706 	mov	dptr,#(_axradio_cb_transmitend + 0x0005)
@@ -7735,7 +7735,7 @@
                     11C1   7735 	C$easyax5043.c$1045$3$300 ==.
                            7736 ;	..\COMMON\easyax5043.c:1045: wtimer_add_callback(&axradio_cb_transmitend.cb);
    1A0B 90 02 75           7737 	mov	dptr,#_axradio_cb_transmitend
-   1A0E 12 44 4A           7738 	lcall	_wtimer_add_callback
+   1A0E 12 44 48           7738 	lcall	_wtimer_add_callback
                     11C7   7739 	C$easyax5043.c$1046$3$300 ==.
                            7740 ;	..\COMMON\easyax5043.c:1046: break;
    1A11 02 20 74           7741 	ljmp	00173$
@@ -7748,7 +7748,7 @@
    1A19 F0                 7748 	movx	@dptr,a
                     11D0   7749 	C$easyax5043.c$1049$2$297 ==.
                            7750 ;	..\COMMON\easyax5043.c:1049: axradio_txbuffer_cnt = axradio_phy_preamble_longlen;
-   1A1A 90 56 28           7751 	mov	dptr,#_axradio_phy_preamble_longlen
+   1A1A 90 56 26           7751 	mov	dptr,#_axradio_phy_preamble_longlen
    1A1D E4                 7752 	clr	a
    1A1E 93                 7753 	movc	a,@a+dptr
    1A1F FE                 7754 	mov	r6,a
@@ -7823,7 +7823,7 @@
    1A63 75 0B 0A           7823 	mov	_axradio_trxstate,#0x0A
                     121C   7824 	C$easyax5043.c$1066$2$297 ==.
                            7825 ;	..\COMMON\easyax5043.c:1066: axradio_txbuffer_cnt = axradio_phy_preamble_longlen;
-   1A66 90 56 28           7826 	mov	dptr,#_axradio_phy_preamble_longlen
+   1A66 90 56 26           7826 	mov	dptr,#_axradio_phy_preamble_longlen
    1A69 E4                 7827 	clr	a
    1A6A 93                 7828 	movc	a,@a+dptr
    1A6B FE                 7829 	mov	r6,a
@@ -7872,7 +7872,7 @@
                     1251   7872 	C$easyax5043.c$1081$2$297 ==.
                            7873 ;	..\COMMON\easyax5043.c:1081: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    1A9B 90 02 6B           7874 	mov	dptr,#_axradio_cb_transmitstart
-   1A9E 12 50 75           7875 	lcall	_wtimer_remove_callback
+   1A9E 12 50 73           7875 	lcall	_wtimer_remove_callback
                     1257   7876 	C$easyax5043.c$1082$2$297 ==.
                            7877 ;	..\COMMON\easyax5043.c:1082: axradio_cb_transmitstart.st.error = AXRADIO_ERR_NOERROR;
    1AA1 90 02 70           7878 	mov	dptr,#(_axradio_cb_transmitstart + 0x0005)
@@ -7907,7 +7907,7 @@
                     1278   7907 	C$easyax5043.c$1084$2$297 ==.
                            7908 ;	..\COMMON\easyax5043.c:1084: wtimer_add_callback(&axradio_cb_transmitstart.cb);
    1AC2 90 02 6B           7909 	mov	dptr,#_axradio_cb_transmitstart
-   1AC5 12 44 4A           7910 	lcall	_wtimer_add_callback
+   1AC5 12 44 48           7910 	lcall	_wtimer_add_callback
                     127E   7911 	C$easyax5043.c$1085$2$297 ==.
                            7912 ;	..\COMMON\easyax5043.c:1085: break;
    1AC8 02 20 74           7913 	ljmp	00173$
@@ -7944,7 +7944,7 @@
                     12A0   7944 	C$easyax5043.c$1094$3$302 ==.
                            7945 ;	..\COMMON\easyax5043.c:1094: wtimer_remove_callback(&axradio_cb_transmitdata.cb);
    1AEA 90 02 7F           7946 	mov	dptr,#_axradio_cb_transmitdata
-   1AED 12 50 75           7947 	lcall	_wtimer_remove_callback
+   1AED 12 50 73           7947 	lcall	_wtimer_remove_callback
                     12A6   7948 	C$easyax5043.c$1095$3$302 ==.
                            7949 ;	..\COMMON\easyax5043.c:1095: axradio_cb_transmitdata.st.error = AXRADIO_ERR_NOERROR;
    1AF0 90 02 84           7950 	mov	dptr,#(_axradio_cb_transmitdata + 0x0005)
@@ -7964,11 +7964,11 @@
                     12B6   7964 	C$easyax5043.c$1097$3$302 ==.
                            7965 ;	..\COMMON\easyax5043.c:1097: wtimer_add_callback(&axradio_cb_transmitdata.cb);
    1B00 90 02 7F           7966 	mov	dptr,#_axradio_cb_transmitdata
-   1B03 12 44 4A           7967 	lcall	_wtimer_add_callback
+   1B03 12 44 48           7967 	lcall	_wtimer_add_callback
                     12BC   7968 	C$easyax5043.c$1098$3$302 ==.
                            7969 ;	..\COMMON\easyax5043.c:1098: wtimer_remove(&axradio_timer);
    1B06 90 02 89           7970 	mov	dptr,#_axradio_timer
-   1B09 12 4D 5A           7971 	lcall	_wtimer_remove
+   1B09 12 4D 58           7971 	lcall	_wtimer_remove
                     12C2   7972 	C$easyax5043.c$1099$3$302 ==.
                            7973 ;	..\COMMON\easyax5043.c:1099: axradio_timer.time = axradio_sync_time;
    1B0C 90 00 10           7974 	mov	dptr,#_axradio_sync_time
@@ -7998,7 +7998,7 @@
                     12DE   7998 	C$easyax5043.c$1100$3$302 ==.
                            7999 ;	..\COMMON\easyax5043.c:1100: wtimer0_addabsolute(&axradio_timer);
    1B28 90 02 89           8000 	mov	dptr,#_axradio_timer
-   1B2B 12 45 77           8001 	lcall	_wtimer0_addabsolute
+   1B2B 12 45 75           8001 	lcall	_wtimer0_addabsolute
                     12E4   8002 	C$easyax5043.c$1101$3$302 ==.
                            8003 ;	..\COMMON\easyax5043.c:1101: break;
    1B2E 02 20 74           8004 	ljmp	00173$
@@ -8041,7 +8041,7 @@
    1B54 75 0B 0A           8041 	mov	_axradio_trxstate,#0x0A
                     130D   8042 	C$easyax5043.c$1111$3$302 ==.
                            8043 ;	..\COMMON\easyax5043.c:1111: axradio_txbuffer_cnt = axradio_phy_preamble_longlen;
-   1B57 90 56 28           8044 	mov	dptr,#_axradio_phy_preamble_longlen
+   1B57 90 56 26           8044 	mov	dptr,#_axradio_phy_preamble_longlen
    1B5A E4                 8045 	clr	a
    1B5B 93                 8046 	movc	a,@a+dptr
    1B5C FE                 8047 	mov	r6,a
@@ -8082,7 +8082,7 @@
                     1339   8082 	C$easyax5043.c$1124$3$302 ==.
                            8083 ;	..\COMMON\easyax5043.c:1124: wtimer_remove(&axradio_timer);
    1B83 90 02 89           8084 	mov	dptr,#_axradio_timer
-   1B86 12 4D 5A           8085 	lcall	_wtimer_remove
+   1B86 12 4D 58           8085 	lcall	_wtimer_remove
                     133F   8086 	C$easyax5043.c$1125$3$302 ==.
                            8087 ;	..\COMMON\easyax5043.c:1125: update_timeanchor();
    1B89 12 08 4A           8088 	lcall	_update_timeanchor
@@ -8093,7 +8093,7 @@
    1B91 F0                 8093 	movx	@dptr,a
                     1348   8094 	C$easyax5043.c$1127$3$302 ==.
                            8095 ;	..\COMMON\easyax5043.c:1127: axradio_sync_addtime(axradio_sync_period);
-   1B92 90 56 4C           8096 	mov	dptr,#_axradio_sync_period
+   1B92 90 56 4A           8096 	mov	dptr,#_axradio_sync_period
    1B95 E4                 8097 	clr	a
    1B96 93                 8098 	movc	a,@a+dptr
    1B97 FC                 8099 	mov	r4,a
@@ -8127,7 +8127,7 @@
    1BBE F0                 8127 	movx	@dptr,a
                     1375   8128 	C$easyax5043.c$1131$4$304 ==.
                            8129 ;	..\COMMON\easyax5043.c:1131: axradio_sync_settimeradv(axradio_sync_xoscstartup);
-   1BBF 90 56 50           8130 	mov	dptr,#_axradio_sync_xoscstartup
+   1BBF 90 56 4E           8130 	mov	dptr,#_axradio_sync_xoscstartup
    1BC2 E4                 8131 	clr	a
    1BC3 93                 8132 	movc	a,@a+dptr
    1BC4 FC                 8133 	mov	r4,a
@@ -8146,12 +8146,12 @@
                     138F   8146 	C$easyax5043.c$1132$4$304 ==.
                            8147 ;	..\COMMON\easyax5043.c:1132: wtimer0_addabsolute(&axradio_timer);
    1BD9 90 02 89           8148 	mov	dptr,#_axradio_timer
-   1BDC 12 45 77           8149 	lcall	_wtimer0_addabsolute
+   1BDC 12 45 75           8149 	lcall	_wtimer0_addabsolute
    1BDF                    8150 00147$:
                     1395   8151 	C$easyax5043.c$1134$3$302 ==.
                            8152 ;	..\COMMON\easyax5043.c:1134: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    1BDF 90 02 6B           8153 	mov	dptr,#_axradio_cb_transmitstart
-   1BE2 12 50 75           8154 	lcall	_wtimer_remove_callback
+   1BE2 12 50 73           8154 	lcall	_wtimer_remove_callback
                     139B   8155 	C$easyax5043.c$1135$3$302 ==.
                            8156 ;	..\COMMON\easyax5043.c:1135: axradio_cb_transmitstart.st.error = AXRADIO_ERR_NOERROR;
    1BE5 90 02 70           8157 	mov	dptr,#(_axradio_cb_transmitstart + 0x0005)
@@ -8186,7 +8186,7 @@
                     13BC   8186 	C$easyax5043.c$1137$3$302 ==.
                            8187 ;	..\COMMON\easyax5043.c:1137: wtimer_add_callback(&axradio_cb_transmitstart.cb);
    1C06 90 02 6B           8188 	mov	dptr,#_axradio_cb_transmitstart
-   1C09 12 44 4A           8189 	lcall	_wtimer_add_callback
+   1C09 12 44 48           8189 	lcall	_wtimer_add_callback
                     13C2   8190 	C$easyax5043.c$1138$3$302 ==.
                            8191 ;	..\COMMON\easyax5043.c:1138: break;
    1C0C 02 20 74           8192 	ljmp	00173$
@@ -8204,10 +8204,10 @@
                     13CE   8204 	C$easyax5043.c$1143$3$302 ==.
                            8205 ;	..\COMMON\easyax5043.c:1143: wtimer_remove(&axradio_timer);
    1C18 90 02 89           8206 	mov	dptr,#_axradio_timer
-   1C1B 12 4D 5A           8207 	lcall	_wtimer_remove
+   1C1B 12 4D 58           8207 	lcall	_wtimer_remove
                     13D4   8208 	C$easyax5043.c$1144$3$302 ==.
                            8209 ;	..\COMMON\easyax5043.c:1144: axradio_sync_settimeradv(axradio_sync_xoscstartup);
-   1C1E 90 56 50           8210 	mov	dptr,#_axradio_sync_xoscstartup
+   1C1E 90 56 4E           8210 	mov	dptr,#_axradio_sync_xoscstartup
    1C21 E4                 8211 	clr	a
    1C22 93                 8212 	movc	a,@a+dptr
    1C23 FC                 8213 	mov	r4,a
@@ -8226,14 +8226,14 @@
                     13EE   8226 	C$easyax5043.c$1145$3$302 ==.
                            8227 ;	..\COMMON\easyax5043.c:1145: wtimer0_addabsolute(&axradio_timer);
    1C38 90 02 89           8228 	mov	dptr,#_axradio_timer
-   1C3B 12 45 77           8229 	lcall	_wtimer0_addabsolute
+   1C3B 12 45 75           8229 	lcall	_wtimer0_addabsolute
                     13F4   8230 	C$easyax5043.c$1146$3$302 ==.
                            8231 ;	..\COMMON\easyax5043.c:1146: update_timeanchor();
    1C3E 12 08 4A           8232 	lcall	_update_timeanchor
                     13F7   8233 	C$easyax5043.c$1147$3$302 ==.
                            8234 ;	..\COMMON\easyax5043.c:1147: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    1C41 90 02 75           8235 	mov	dptr,#_axradio_cb_transmitend
-   1C44 12 50 75           8236 	lcall	_wtimer_remove_callback
+   1C44 12 50 73           8236 	lcall	_wtimer_remove_callback
                     13FD   8237 	C$easyax5043.c$1148$3$302 ==.
                            8238 ;	..\COMMON\easyax5043.c:1148: axradio_cb_transmitend.st.error = AXRADIO_ERR_TIMEOUT;
    1C47 90 02 7A           8239 	mov	dptr,#(_axradio_cb_transmitend + 0x0005)
@@ -8268,7 +8268,7 @@
                     141F   8268 	C$easyax5043.c$1150$3$302 ==.
                            8269 ;	..\COMMON\easyax5043.c:1150: wtimer_add_callback(&axradio_cb_transmitend.cb);
    1C69 90 02 75           8270 	mov	dptr,#_axradio_cb_transmitend
-   1C6C 12 44 4A           8271 	lcall	_wtimer_add_callback
+   1C6C 12 44 48           8271 	lcall	_wtimer_add_callback
                     1425   8272 	C$easyax5043.c$1153$2$297 ==.
                            8273 ;	..\COMMON\easyax5043.c:1153: break;
    1C6F 02 20 74           8274 	ljmp	00173$
@@ -8320,7 +8320,7 @@
    1CB1 F0                 8320 	movx	@dptr,a
                     1468   8321 	C$easyax5043.c$1162$3$305 ==.
                            8322 ;	..\COMMON\easyax5043.c:1162: axradio_sync_addtime(axradio_sync_slave_syncpause);
-   1CB2 90 56 5C           8323 	mov	dptr,#_axradio_sync_slave_syncpause
+   1CB2 90 56 5A           8323 	mov	dptr,#_axradio_sync_slave_syncpause
    1CB5 E4                 8324 	clr	a
    1CB6 93                 8325 	movc	a,@a+dptr
    1CB7 FC                 8326 	mov	r4,a
@@ -8339,7 +8339,7 @@
                     1482   8339 	C$easyax5043.c$1163$3$305 ==.
                            8340 ;	..\COMMON\easyax5043.c:1163: wtimer_remove(&axradio_timer);
    1CCC 90 02 89           8341 	mov	dptr,#_axradio_timer
-   1CCF 12 4D 5A           8342 	lcall	_wtimer_remove
+   1CCF 12 4D 58           8342 	lcall	_wtimer_remove
                     1488   8343 	C$easyax5043.c$1164$3$305 ==.
                            8344 ;	..\COMMON\easyax5043.c:1164: axradio_timer.time = axradio_sync_time;
    1CD2 90 00 10           8345 	mov	dptr,#_axradio_sync_time
@@ -8369,11 +8369,11 @@
                     14A4   8369 	C$easyax5043.c$1165$3$305 ==.
                            8370 ;	..\COMMON\easyax5043.c:1165: wtimer0_addabsolute(&axradio_timer);
    1CEE 90 02 89           8371 	mov	dptr,#_axradio_timer
-   1CF1 12 45 77           8372 	lcall	_wtimer0_addabsolute
+   1CF1 12 45 75           8372 	lcall	_wtimer0_addabsolute
                     14AA   8373 	C$easyax5043.c$1166$3$305 ==.
                            8374 ;	..\COMMON\easyax5043.c:1166: wtimer_remove_callback(&axradio_cb_receive.cb);
    1CF4 90 02 32           8375 	mov	dptr,#_axradio_cb_receive
-   1CF7 12 50 75           8376 	lcall	_wtimer_remove_callback
+   1CF7 12 50 73           8376 	lcall	_wtimer_remove_callback
                     14B0   8377 	C$easyax5043.c$1167$3$305 ==.
                            8378 ;	..\COMMON\easyax5043.c:1167: memset_xdata(&axradio_cb_receive.st, 0, sizeof(axradio_cb_receive.st));
    1CFA 75 36 00           8379 	mov	_memset_PARM_2,#0x00
@@ -8381,7 +8381,7 @@
    1D00 75 38 00           8381 	mov	(_memset_PARM_3 + 1),#0x00
    1D03 90 02 36           8382 	mov	dptr,#(_axradio_cb_receive + 0x0004)
    1D06 75 F0 00           8383 	mov	b,#0x00
-   1D09 12 43 D6           8384 	lcall	_memset
+   1D09 12 43 D4           8384 	lcall	_memset
                     14C2   8385 	C$easyax5043.c$1168$3$305 ==.
                            8386 ;	..\COMMON\easyax5043.c:1168: axradio_cb_receive.st.time.t = axradio_timeanchor.radiotimer;
    1D0C 90 00 1A           8387 	mov	dptr,#(_axradio_timeanchor + 0x0004)
@@ -8416,7 +8416,7 @@
                     14E4   8416 	C$easyax5043.c$1170$3$305 ==.
                            8417 ;	..\COMMON\easyax5043.c:1170: wtimer_add_callback(&axradio_cb_receive.cb);
    1D2E 90 02 32           8418 	mov	dptr,#_axradio_cb_receive
-   1D31 12 44 4A           8419 	lcall	_wtimer_add_callback
+   1D31 12 44 48           8419 	lcall	_wtimer_add_callback
                     14EA   8420 	C$easyax5043.c$1171$3$305 ==.
                            8421 ;	..\COMMON\easyax5043.c:1171: break;
    1D34 02 20 74           8422 	ljmp	00173$
@@ -8433,7 +8433,7 @@
    1D3F F0                 8433 	movx	@dptr,a
                     14F6   8434 	C$easyax5043.c$1176$3$305 ==.
                            8435 ;	..\COMMON\easyax5043.c:1176: axradio_sync_addtime(axradio_sync_slave_syncwindow);
-   1D40 90 56 54           8436 	mov	dptr,#_axradio_sync_slave_syncwindow
+   1D40 90 56 52           8436 	mov	dptr,#_axradio_sync_slave_syncwindow
    1D43 E4                 8437 	clr	a
    1D44 93                 8438 	movc	a,@a+dptr
    1D45 FC                 8439 	mov	r4,a
@@ -8452,7 +8452,7 @@
                     1510   8452 	C$easyax5043.c$1177$3$305 ==.
                            8453 ;	..\COMMON\easyax5043.c:1177: wtimer_remove(&axradio_timer);
    1D5A 90 02 89           8454 	mov	dptr,#_axradio_timer
-   1D5D 12 4D 5A           8455 	lcall	_wtimer_remove
+   1D5D 12 4D 58           8455 	lcall	_wtimer_remove
                     1516   8456 	C$easyax5043.c$1178$3$305 ==.
                            8457 ;	..\COMMON\easyax5043.c:1178: axradio_timer.time = axradio_sync_time;
    1D60 90 00 10           8458 	mov	dptr,#_axradio_sync_time
@@ -8482,14 +8482,14 @@
                     1532   8482 	C$easyax5043.c$1179$3$305 ==.
                            8483 ;	..\COMMON\easyax5043.c:1179: wtimer0_addabsolute(&axradio_timer);
    1D7C 90 02 89           8484 	mov	dptr,#_axradio_timer
-   1D7F 12 45 77           8485 	lcall	_wtimer0_addabsolute
+   1D7F 12 45 75           8485 	lcall	_wtimer0_addabsolute
                     1538   8486 	C$easyax5043.c$1180$3$305 ==.
                            8487 ;	..\COMMON\easyax5043.c:1180: update_timeanchor();
    1D82 12 08 4A           8488 	lcall	_update_timeanchor
                     153B   8489 	C$easyax5043.c$1181$3$305 ==.
                            8490 ;	..\COMMON\easyax5043.c:1181: wtimer_remove_callback(&axradio_cb_receive.cb);
    1D85 90 02 32           8491 	mov	dptr,#_axradio_cb_receive
-   1D88 12 50 75           8492 	lcall	_wtimer_remove_callback
+   1D88 12 50 73           8492 	lcall	_wtimer_remove_callback
                     1541   8493 	C$easyax5043.c$1182$3$305 ==.
                            8494 ;	..\COMMON\easyax5043.c:1182: memset_xdata(&axradio_cb_receive.st, 0, sizeof(axradio_cb_receive.st));
    1D8B 75 36 00           8495 	mov	_memset_PARM_2,#0x00
@@ -8497,7 +8497,7 @@
    1D91 75 38 00           8497 	mov	(_memset_PARM_3 + 1),#0x00
    1D94 90 02 36           8498 	mov	dptr,#(_axradio_cb_receive + 0x0004)
    1D97 75 F0 00           8499 	mov	b,#0x00
-   1D9A 12 43 D6           8500 	lcall	_memset
+   1D9A 12 43 D4           8500 	lcall	_memset
                     1553   8501 	C$easyax5043.c$1183$3$305 ==.
                            8502 ;	..\COMMON\easyax5043.c:1183: axradio_cb_receive.st.time.t = axradio_timeanchor.radiotimer;
    1D9D 90 00 1A           8503 	mov	dptr,#(_axradio_timeanchor + 0x0004)
@@ -8532,7 +8532,7 @@
                     1575   8532 	C$easyax5043.c$1185$3$305 ==.
                            8533 ;	..\COMMON\easyax5043.c:1185: wtimer_add_callback(&axradio_cb_receive.cb);
    1DBF 90 02 32           8534 	mov	dptr,#_axradio_cb_receive
-   1DC2 12 44 4A           8535 	lcall	_wtimer_add_callback
+   1DC2 12 44 48           8535 	lcall	_wtimer_add_callback
                     157B   8536 	C$easyax5043.c$1186$3$305 ==.
                            8537 ;	..\COMMON\easyax5043.c:1186: break;
    1DC5 02 20 74           8538 	ljmp	00173$
@@ -8552,7 +8552,7 @@
                     158A   8552 	C$easyax5043.c$1191$3$305 ==.
                            8553 ;	..\COMMON\easyax5043.c:1191: wtimer_remove(&axradio_timer);
    1DD4 90 02 89           8554 	mov	dptr,#_axradio_timer
-   1DD7 12 4D 5A           8555 	lcall	_wtimer_remove
+   1DD7 12 4D 58           8555 	lcall	_wtimer_remove
                     1590   8556 	C$easyax5043.c$1192$3$305 ==.
                            8557 ;	..\COMMON\easyax5043.c:1192: axradio_timer.time += axradio_sync_xoscstartup;
    1DDA 90 02 8D           8558 	mov	dptr,#(_axradio_timer + 0x0004)
@@ -8567,7 +8567,7 @@
    1DE5 A3                 8567 	inc	dptr
    1DE6 E0                 8568 	movx	a,@dptr
    1DE7 FF                 8569 	mov	r7,a
-   1DE8 90 56 50           8570 	mov	dptr,#_axradio_sync_xoscstartup
+   1DE8 90 56 4E           8570 	mov	dptr,#_axradio_sync_xoscstartup
    1DEB E4                 8571 	clr	a
    1DEC 93                 8572 	movc	a,@a+dptr
    1DED F8                 8573 	mov	r0,a
@@ -8607,7 +8607,7 @@
                     15CA   8607 	C$easyax5043.c$1193$3$305 ==.
                            8608 ;	..\COMMON\easyax5043.c:1193: wtimer0_addabsolute(&axradio_timer);
    1E14 90 02 89           8609 	mov	dptr,#_axradio_timer
-   1E17 12 45 77           8610 	lcall	_wtimer0_addabsolute
+   1E17 12 45 75           8610 	lcall	_wtimer0_addabsolute
                     15D0   8611 	C$easyax5043.c$1194$3$305 ==.
                            8612 ;	..\COMMON\easyax5043.c:1194: break;
    1E1A 02 20 74           8613 	ljmp	00173$
@@ -8628,7 +8628,7 @@
                     15DF   8628 	C$easyax5043.c$1200$3$305 ==.
                            8629 ;	..\COMMON\easyax5043.c:1200: wtimer_remove_callback(&axradio_cb_receive.cb);
    1E29 90 02 32           8630 	mov	dptr,#_axradio_cb_receive
-   1E2C 12 50 75           8631 	lcall	_wtimer_remove_callback
+   1E2C 12 50 73           8631 	lcall	_wtimer_remove_callback
                     15E5   8632 	C$easyax5043.c$1201$3$305 ==.
                            8633 ;	..\COMMON\easyax5043.c:1201: memset_xdata(&axradio_cb_receive.st, 0, sizeof(axradio_cb_receive.st));
    1E2F 75 36 00           8634 	mov	_memset_PARM_2,#0x00
@@ -8636,7 +8636,7 @@
    1E35 75 38 00           8636 	mov	(_memset_PARM_3 + 1),#0x00
    1E38 90 02 36           8637 	mov	dptr,#(_axradio_cb_receive + 0x0004)
    1E3B 75 F0 00           8638 	mov	b,#0x00
-   1E3E 12 43 D6           8639 	lcall	_memset
+   1E3E 12 43 D4           8639 	lcall	_memset
                     15F7   8640 	C$easyax5043.c$1202$3$305 ==.
                            8641 ;	..\COMMON\easyax5043.c:1202: axradio_cb_receive.st.time.t = axradio_timeanchor.radiotimer;
    1E41 90 00 1A           8642 	mov	dptr,#(_axradio_timeanchor + 0x0004)
@@ -8671,11 +8671,11 @@
                     1619   8671 	C$easyax5043.c$1204$3$305 ==.
                            8672 ;	..\COMMON\easyax5043.c:1204: wtimer_add_callback(&axradio_cb_receive.cb);
    1E63 90 02 32           8673 	mov	dptr,#_axradio_cb_receive
-   1E66 12 44 4A           8674 	lcall	_wtimer_add_callback
+   1E66 12 44 48           8674 	lcall	_wtimer_add_callback
                     161F   8675 	C$easyax5043.c$1205$3$305 ==.
                            8676 ;	..\COMMON\easyax5043.c:1205: wtimer_remove(&axradio_timer);
    1E69 90 02 89           8677 	mov	dptr,#_axradio_timer
-   1E6C 12 4D 5A           8678 	lcall	_wtimer_remove
+   1E6C 12 4D 58           8678 	lcall	_wtimer_remove
                     1625   8679 	C$easyax5043.c$1207$4$305 ==.
                            8680 ;	..\COMMON\easyax5043.c:1207: uint8_t __autodata idx = axradio_sync_seqnr;
    1E6F 90 00 0F           8681 	mov	dptr,#_axradio_ack_seqnr
@@ -8683,7 +8683,7 @@
    1E73 FF                 8683 	mov	r7,a
                     162A   8684 	C$easyax5043.c$1208$4$306 ==.
                            8685 ;	..\COMMON\easyax5043.c:1208: if (idx >= axradio_sync_slave_nrrx)
-   1E74 90 56 63           8686 	mov	dptr,#_axradio_sync_slave_nrrx
+   1E74 90 56 61           8686 	mov	dptr,#_axradio_sync_slave_nrrx
    1E77 E4                 8687 	clr	a
    1E78 93                 8688 	movc	a,@a+dptr
    1E79 FE                 8689 	mov	r6,a
@@ -8714,7 +8714,7 @@
    1E90 EF                 8714 	mov	a,r7
    1E91 75 F0 04           8715 	mov	b,#0x04
    1E94 A4                 8716 	mul	ab
-   1E95 24 70              8717 	add	a,#_axradio_sync_slave_rxwindow
+   1E95 24 6E              8717 	add	a,#_axradio_sync_slave_rxwindow
    1E97 F5 82              8718 	mov	dpl,a
    1E99 74 56              8719 	mov	a,#(_axradio_sync_slave_rxwindow >> 8)
    1E9B 35 F0              8720 	addc	a,b
@@ -8761,7 +8761,7 @@
                     167E   8761 	C$easyax5043.c$1212$3$305 ==.
                            8762 ;	..\COMMON\easyax5043.c:1212: wtimer0_addabsolute(&axradio_timer);
    1EC8 90 02 89           8763 	mov	dptr,#_axradio_timer
-   1ECB 12 45 77           8764 	lcall	_wtimer0_addabsolute
+   1ECB 12 45 75           8764 	lcall	_wtimer0_addabsolute
                     1684   8765 	C$easyax5043.c$1213$3$305 ==.
                            8766 ;	..\COMMON\easyax5043.c:1213: break;
    1ECE 02 20 74           8767 	ljmp	00173$
@@ -8786,7 +8786,7 @@
                     1699   8786 	C$easyax5043.c$1218$4$307 ==.
                            8787 ;	..\COMMON\easyax5043.c:1218: wtimer_remove(&axradio_timer);
    1EE3 90 02 89           8788 	mov	dptr,#_axradio_timer
-   1EE6 12 4D 5A           8789 	lcall	_wtimer_remove
+   1EE6 12 4D 58           8789 	lcall	_wtimer_remove
                     169F   8790 	C$easyax5043.c$1219$4$307 ==.
                            8791 ;	..\COMMON\easyax5043.c:1219: axradio_timer.time += axradio_sync_slave_rxtimeout;
    1EE9 90 02 8D           8792 	mov	dptr,#(_axradio_timer + 0x0004)
@@ -8801,7 +8801,7 @@
    1EF4 A3                 8801 	inc	dptr
    1EF5 E0                 8802 	movx	a,@dptr
    1EF6 FF                 8803 	mov	r7,a
-   1EF7 90 56 7C           8804 	mov	dptr,#_axradio_sync_slave_rxtimeout
+   1EF7 90 56 7A           8804 	mov	dptr,#_axradio_sync_slave_rxtimeout
    1EFA E4                 8805 	clr	a
    1EFB 93                 8806 	movc	a,@a+dptr
    1EFC F8                 8807 	mov	r0,a
@@ -8841,7 +8841,7 @@
                     16D9   8841 	C$easyax5043.c$1220$4$307 ==.
                            8842 ;	..\COMMON\easyax5043.c:1220: wtimer0_addabsolute(&axradio_timer);
    1F23 90 02 89           8843 	mov	dptr,#_axradio_timer
-   1F26 12 45 77           8844 	lcall	_wtimer0_addabsolute
+   1F26 12 45 75           8844 	lcall	_wtimer0_addabsolute
                     16DF   8845 	C$easyax5043.c$1221$4$307 ==.
                            8846 ;	..\COMMON\easyax5043.c:1221: break;
    1F29 02 20 74           8847 	ljmp	00173$
@@ -8875,7 +8875,7 @@
                     16FC   8875 	C$easyax5043.c$1231$3$305 ==.
                            8876 ;	..\COMMON\easyax5043.c:1231: wtimer_remove_callback(&axradio_cb_receive.cb);
    1F46 90 02 32           8877 	mov	dptr,#_axradio_cb_receive
-   1F49 12 50 75           8878 	lcall	_wtimer_remove_callback
+   1F49 12 50 73           8878 	lcall	_wtimer_remove_callback
                     1702   8879 	C$easyax5043.c$1232$3$305 ==.
                            8880 ;	..\COMMON\easyax5043.c:1232: memset_xdata(&axradio_cb_receive.st, 0, sizeof(axradio_cb_receive.st));
    1F4C 75 36 00           8881 	mov	_memset_PARM_2,#0x00
@@ -8883,7 +8883,7 @@
    1F52 75 38 00           8883 	mov	(_memset_PARM_3 + 1),#0x00
    1F55 90 02 36           8884 	mov	dptr,#(_axradio_cb_receive + 0x0004)
    1F58 75 F0 00           8885 	mov	b,#0x00
-   1F5B 12 43 D6           8886 	lcall	_memset
+   1F5B 12 43 D4           8886 	lcall	_memset
                     1714   8887 	C$easyax5043.c$1233$3$305 ==.
                            8888 ;	..\COMMON\easyax5043.c:1233: axradio_cb_receive.st.time.t = axradio_timeanchor.radiotimer;
    1F5E 90 00 1A           8889 	mov	dptr,#(_axradio_timeanchor + 0x0004)
@@ -8920,7 +8920,7 @@
    1F80 90 00 0F           8920 	mov	dptr,#_axradio_ack_seqnr
    1F83 E0                 8921 	movx	a,@dptr
    1F84 FF                 8922 	mov	r7,a
-   1F85 90 56 62           8923 	mov	dptr,#_axradio_sync_slave_resyncloss
+   1F85 90 56 60           8923 	mov	dptr,#_axradio_sync_slave_resyncloss
    1F88 E4                 8924 	clr	a
    1F89 93                 8925 	movc	a,@a+dptr
    1F8A FE                 8926 	mov	r6,a
@@ -8930,7 +8930,7 @@
                     1745   8930 	C$easyax5043.c$1236$4$308 ==.
                            8931 ;	..\COMMON\easyax5043.c:1236: wtimer_add_callback(&axradio_cb_receive.cb);
    1F8F 90 02 32           8932 	mov	dptr,#_axradio_cb_receive
-   1F92 12 44 4A           8933 	lcall	_wtimer_add_callback
+   1F92 12 44 48           8933 	lcall	_wtimer_add_callback
                     174B   8934 	C$easyax5043.c$1237$4$308 ==.
                            8935 ;	..\COMMON\easyax5043.c:1237: axradio_sync_slave_nextperiod();
    1F95 12 17 DD           8936 	lcall	_axradio_sync_slave_nextperiod
@@ -8942,7 +8942,7 @@
                     1754   8942 	C$easyax5043.c$1239$4$308 ==.
                            8943 ;	..\COMMON\easyax5043.c:1239: wtimer_remove(&axradio_timer);
    1F9E 90 02 89           8944 	mov	dptr,#_axradio_timer
-   1FA1 12 4D 5A           8945 	lcall	_wtimer_remove
+   1FA1 12 4D 58           8945 	lcall	_wtimer_remove
                     175A   8946 	C$easyax5043.c$1241$5$308 ==.
                            8947 ;	..\COMMON\easyax5043.c:1241: uint8_t __autodata idx = axradio_sync_seqnr;
    1FA4 90 00 0F           8948 	mov	dptr,#_axradio_ack_seqnr
@@ -8950,7 +8950,7 @@
    1FA8 FF                 8950 	mov	r7,a
                     175F   8951 	C$easyax5043.c$1242$5$309 ==.
                            8952 ;	..\COMMON\easyax5043.c:1242: if (idx >= axradio_sync_slave_nrrx)
-   1FA9 90 56 63           8953 	mov	dptr,#_axradio_sync_slave_nrrx
+   1FA9 90 56 61           8953 	mov	dptr,#_axradio_sync_slave_nrrx
    1FAC E4                 8954 	clr	a
    1FAD 93                 8955 	movc	a,@a+dptr
    1FAE FE                 8956 	mov	r6,a
@@ -8969,7 +8969,7 @@
    1FB7 EF                 8969 	mov	a,r7
    1FB8 75 F0 04           8970 	mov	b,#0x04
    1FBB A4                 8971 	mul	ab
-   1FBC 24 64              8972 	add	a,#_axradio_sync_slave_rxadvance
+   1FBC 24 62              8972 	add	a,#_axradio_sync_slave_rxadvance
    1FBE F5 82              8973 	mov	dpl,a
    1FC0 74 56              8974 	mov	a,#(_axradio_sync_slave_rxadvance >> 8)
    1FC2 35 F0              8975 	addc	a,b
@@ -8995,7 +8995,7 @@
                     1793   8995 	C$easyax5043.c$1246$4$308 ==.
                            8996 ;	..\COMMON\easyax5043.c:1246: wtimer0_addabsolute(&axradio_timer);
    1FDD 90 02 89           8997 	mov	dptr,#_axradio_timer
-   1FE0 12 45 77           8998 	lcall	_wtimer0_addabsolute
+   1FE0 12 45 75           8998 	lcall	_wtimer0_addabsolute
                     1799   8999 	C$easyax5043.c$1247$4$308 ==.
                            9000 ;	..\COMMON\easyax5043.c:1247: break;
    1FE3 02 20 74           9001 	ljmp	00173$
@@ -9008,7 +9008,7 @@
                     17A2   9008 	C$easyax5043.c$1250$3$305 ==.
                            9009 ;	..\COMMON\easyax5043.c:1250: wtimer_add_callback(&axradio_cb_receive.cb);
    1FEC 90 02 32           9010 	mov	dptr,#_axradio_cb_receive
-   1FEF 12 44 4A           9011 	lcall	_wtimer_add_callback
+   1FEF 12 44 48           9011 	lcall	_wtimer_add_callback
                     17A8   9012 	C$easyax5043.c$1251$3$305 ==.
                            9013 ;	..\COMMON\easyax5043.c:1251: ax5043_receiver_on_continuous();
    1FF2 12 13 41           9014 	lcall	_ax5043_receiver_on_continuous
@@ -9020,10 +9020,10 @@
                     17B1   9020 	C$easyax5043.c$1253$3$305 ==.
                            9021 ;	..\COMMON\easyax5043.c:1253: wtimer_remove(&axradio_timer);
    1FFB 90 02 89           9022 	mov	dptr,#_axradio_timer
-   1FFE 12 4D 5A           9023 	lcall	_wtimer_remove
+   1FFE 12 4D 58           9023 	lcall	_wtimer_remove
                     17B7   9024 	C$easyax5043.c$1254$3$305 ==.
                            9025 ;	..\COMMON\easyax5043.c:1254: axradio_timer.time = axradio_sync_slave_syncwindow;
-   2001 90 56 54           9026 	mov	dptr,#_axradio_sync_slave_syncwindow
+   2001 90 56 52           9026 	mov	dptr,#_axradio_sync_slave_syncwindow
    2004 E4                 9027 	clr	a
    2005 93                 9028 	movc	a,@a+dptr
    2006 FC                 9029 	mov	r4,a
@@ -9051,7 +9051,7 @@
                     17D7   9051 	C$easyax5043.c$1255$3$305 ==.
                            9052 ;	..\COMMON\easyax5043.c:1255: wtimer0_addrelative(&axradio_timer);
    2021 90 02 89           9053 	mov	dptr,#_axradio_timer
-   2024 12 44 64           9054 	lcall	_wtimer0_addrelative
+   2024 12 44 62           9054 	lcall	_wtimer0_addrelative
                     17DD   9055 	C$easyax5043.c$1256$3$305 ==.
                            9056 ;	..\COMMON\easyax5043.c:1256: axradio_sync_time = axradio_timer.time;
    2027 90 02 8D           9057 	mov	dptr,#(_axradio_timer + 0x0004)
@@ -9092,10 +9092,10 @@
                     1801   9092 	C$easyax5043.c$1261$3$305 ==.
                            9093 ;	..\COMMON\easyax5043.c:1261: wtimer_remove(&axradio_timer);
    204B 90 02 89           9094 	mov	dptr,#_axradio_timer
-   204E 12 4D 5A           9095 	lcall	_wtimer_remove
+   204E 12 4D 58           9095 	lcall	_wtimer_remove
                     1807   9096 	C$easyax5043.c$1262$3$305 ==.
                            9097 ;	..\COMMON\easyax5043.c:1262: axradio_sync_settimeradv(axradio_sync_slave_rxadvance[1]);
-   2051 90 56 68           9098 	mov	dptr,#(_axradio_sync_slave_rxadvance + 0x0004)
+   2051 90 56 66           9098 	mov	dptr,#(_axradio_sync_slave_rxadvance + 0x0004)
    2054 E4                 9099 	clr	a
    2055 93                 9100 	movc	a,@a+dptr
    2056 FC                 9101 	mov	r4,a
@@ -9117,7 +9117,7 @@
                     1821   9117 	C$easyax5043.c$1263$3$305 ==.
                            9118 ;	..\COMMON\easyax5043.c:1263: wtimer0_addabsolute(&axradio_timer);
    206B 90 02 89           9119 	mov	dptr,#_axradio_timer
-   206E 12 45 77           9120 	lcall	_wtimer0_addabsolute
+   206E 12 45 75           9120 	lcall	_wtimer0_addabsolute
                     1827   9121 	C$easyax5043.c$1264$3$305 ==.
                            9122 ;	..\COMMON\easyax5043.c:1264: goto transmitack;
    2071 02 1A 3D           9123 	ljmp	00131$
@@ -9191,7 +9191,7 @@
    2097                    9191 00102$:
                     184D   9192 	C$easyax5043.c$1292$1$313 ==.
                            9193 ;	..\COMMON\easyax5043.c:1292: if (axradio_phy_pn9 && !(axradio_mode == AXRADIO_MODE_STREAM_RECEIVE ||
-   2097 90 56 0F           9194 	mov	dptr,#_axradio_phy_pn9
+   2097 90 56 0D           9194 	mov	dptr,#_axradio_phy_pn9
    209A E4                 9195 	clr	a
    209B 93                 9196 	movc	a,@a+dptr
    209C FF                 9197 	mov	r7,a
@@ -9222,7 +9222,7 @@
    20BB FF                 9222 	mov	r7,a
                     1872   9223 	C$easyax5043.c$1296$2$315 ==.
                            9224 ;	..\COMMON\easyax5043.c:1296: len += axradio_framing_maclen;
-   20BC 90 56 30           9225 	mov	dptr,#_axradio_framing_maclen
+   20BC 90 56 2E           9225 	mov	dptr,#_axradio_framing_maclen
    20BF E4                 9226 	clr	a
    20C0 93                 9227 	movc	a,@a+dptr
    20C1 7C 00              9228 	mov	r4,#0x00
@@ -9258,14 +9258,14 @@
    20EC 8B 82              9258 	mov	dpl,r3
    20EE 8C 83              9259 	mov	dph,r4
    20F0 8A F0              9260 	mov	b,r2
-   20F2 12 45 CA           9261 	lcall	_pn9_buffer
+   20F2 12 45 C8           9261 	lcall	_pn9_buffer
    20F5 E5 81              9262 	mov	a,sp
    20F7 24 FB              9263 	add	a,#0xfb
    20F9 F5 81              9264 	mov	sp,a
    20FB                    9265 00104$:
                     18B1   9266 	C$easyax5043.c$1299$1$313 ==.
                            9267 ;	..\COMMON\easyax5043.c:1299: if (axradio_framing_swcrclen && !(axradio_mode == AXRADIO_MODE_STREAM_RECEIVE ||
-   20FB 90 56 37           9268 	mov	dptr,#_axradio_framing_swcrclen
+   20FB 90 56 35           9268 	mov	dptr,#_axradio_framing_swcrclen
    20FE E4                 9269 	clr	a
    20FF 93                 9270 	movc	a,@a+dptr
    2100 FF                 9271 	mov	r7,a
@@ -9296,7 +9296,7 @@
    211F FF                 9296 	mov	r7,a
                     18D6   9297 	C$easyax5043.c$1303$2$316 ==.
                            9298 ;	..\COMMON\easyax5043.c:1303: len += axradio_framing_maclen;
-   2120 90 56 30           9299 	mov	dptr,#_axradio_framing_maclen
+   2120 90 56 2E           9299 	mov	dptr,#_axradio_framing_maclen
    2123 E4                 9300 	clr	a
    2124 93                 9301 	movc	a,@a+dptr
    2125 7C 00              9302 	mov	r4,#0x00
@@ -9333,7 +9333,7 @@
    2150 A3                 9333 	inc	dptr
    2151 E0                 9334 	movx	a,@dptr
    2152 FF                 9335 	mov	r7,a
-   2153 90 56 37           9336 	mov	dptr,#_axradio_framing_swcrclen
+   2153 90 56 35           9336 	mov	dptr,#_axradio_framing_swcrclen
    2156 E4                 9337 	clr	a
    2157 93                 9338 	movc	a,@a+dptr
    2158 FD                 9339 	mov	r5,a
@@ -9389,7 +9389,7 @@
                     1944   9389 	C$easyax5043.c$1318$2$318 ==.
                            9390 ;	..\COMMON\easyax5043.c:1318: wtimer_remove(&axradio_timer);
    218E 90 02 89           9391 	mov	dptr,#_axradio_timer
-   2191 12 4D 5A           9392 	lcall	_wtimer_remove
+   2191 12 4D 58           9392 	lcall	_wtimer_remove
                     194A   9393 	C$easyax5043.c$1319$2$318 ==.
                            9394 ;	..\COMMON\easyax5043.c:1319: if (axradio_mode == AXRADIO_MODE_SYNC_ACK_MASTER) {
    2194 74 21              9395 	mov	a,#0x21
@@ -9401,7 +9401,7 @@
    219E F0                 9401 	movx	@dptr,a
                     1955   9402 	C$easyax5043.c$1321$3$319 ==.
                            9403 ;	..\COMMON\easyax5043.c:1321: axradio_sync_settimeradv(axradio_sync_xoscstartup);
-   219F 90 56 50           9404 	mov	dptr,#_axradio_sync_xoscstartup
+   219F 90 56 4E           9404 	mov	dptr,#_axradio_sync_xoscstartup
    21A2 E4                 9405 	clr	a
    21A3 93                 9406 	movc	a,@a+dptr
    21A4 FC                 9407 	mov	r4,a
@@ -9420,12 +9420,12 @@
                     196F   9420 	C$easyax5043.c$1322$3$319 ==.
                            9421 ;	..\COMMON\easyax5043.c:1322: wtimer0_addabsolute(&axradio_timer);
    21B9 90 02 89           9422 	mov	dptr,#_axradio_timer
-   21BC 12 45 77           9423 	lcall	_wtimer0_addabsolute
+   21BC 12 45 75           9423 	lcall	_wtimer0_addabsolute
    21BF                    9424 00116$:
                     1975   9425 	C$easyax5043.c$1324$2$318 ==.
                            9426 ;	..\COMMON\easyax5043.c:1324: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    21BF 90 02 75           9427 	mov	dptr,#_axradio_cb_transmitend
-   21C2 12 50 75           9428 	lcall	_wtimer_remove_callback
+   21C2 12 50 73           9428 	lcall	_wtimer_remove_callback
                     197B   9429 	C$easyax5043.c$1325$2$318 ==.
                            9430 ;	..\COMMON\easyax5043.c:1325: axradio_cb_transmitend.st.error = AXRADIO_ERR_NOERROR;
    21C5 90 02 7A           9431 	mov	dptr,#(_axradio_cb_transmitend + 0x0005)
@@ -9434,7 +9434,7 @@
                     1980   9434 	C$easyax5043.c$1326$2$318 ==.
                            9435 ;	..\COMMON\easyax5043.c:1326: axradio_cb_transmitend.st.time.t = radio_read24((uint16_t)&AX5043_TIMER2);
    21CA 90 40 59           9436 	mov	dptr,#_AX5043_TIMER2
-   21CD 12 45 A3           9437 	lcall	_radio_read24
+   21CD 12 45 A1           9437 	lcall	_radio_read24
    21D0 AC 82              9438 	mov	r4,dpl
    21D2 AD 83              9439 	mov	r5,dph
    21D4 AE F0              9440 	mov	r6,b
@@ -9454,11 +9454,11 @@
                     199B   9454 	C$easyax5043.c$1327$2$318 ==.
                            9455 ;	..\COMMON\easyax5043.c:1327: wtimer_add_callback(&axradio_cb_transmitend.cb);
    21E5 90 02 75           9456 	mov	dptr,#_axradio_cb_transmitend
-   21E8 12 44 4A           9457 	lcall	_wtimer_add_callback
+   21E8 12 44 48           9457 	lcall	_wtimer_add_callback
    21EB                    9458 00118$:
                     19A1   9459 	C$easyax5043.c$1329$1$313 ==.
                            9460 ;	..\COMMON\easyax5043.c:1329: if (axradio_framing_destaddrpos != 0xff)
-   21EB 90 56 32           9461 	mov	dptr,#_axradio_framing_destaddrpos
+   21EB 90 56 30           9461 	mov	dptr,#_axradio_framing_destaddrpos
    21EE E4                 9462 	clr	a
    21EF 93                 9463 	movc	a,@a+dptr
    21F0 FF                 9464 	mov	r7,a
@@ -9482,7 +9482,7 @@
    2204 8F 36              9482 	mov	_memcpy_PARM_2,r7
    2206 8C 37              9483 	mov	(_memcpy_PARM_2 + 1),r4
    2208 75 38 00           9484 	mov	(_memcpy_PARM_2 + 2),#0x00
-   220B 90 56 31           9485 	mov	dptr,#_axradio_framing_addrlen
+   220B 90 56 2F           9485 	mov	dptr,#_axradio_framing_addrlen
    220E E4                 9486 	clr	a
    220F 93                 9487 	movc	a,@a+dptr
    2210 FF                 9488 	mov	r7,a
@@ -9490,11 +9490,11 @@
    2213 75 3A 00           9490 	mov	(_memcpy_PARM_3 + 1),#0x00
    2216 90 02 4A           9491 	mov	dptr,#(_axradio_cb_receive + 0x0018)
    2219 75 F0 00           9492 	mov	b,#0x00
-   221C 12 43 F5           9493 	lcall	_memcpy
+   221C 12 43 F3           9493 	lcall	_memcpy
    221F                    9494 00122$:
                     19D5   9495 	C$easyax5043.c$1331$1$313 ==.
                            9496 ;	..\COMMON\easyax5043.c:1331: if (axradio_framing_sourceaddrpos != 0xff)
-   221F 90 56 33           9497 	mov	dptr,#_axradio_framing_sourceaddrpos
+   221F 90 56 31           9497 	mov	dptr,#_axradio_framing_sourceaddrpos
    2222 E4                 9498 	clr	a
    2223 93                 9499 	movc	a,@a+dptr
    2224 FF                 9500 	mov	r7,a
@@ -9518,7 +9518,7 @@
    2238 8F 36              9518 	mov	_memcpy_PARM_2,r7
    223A 8C 37              9519 	mov	(_memcpy_PARM_2 + 1),r4
    223C 75 38 00           9520 	mov	(_memcpy_PARM_2 + 2),#0x00
-   223F 90 56 31           9521 	mov	dptr,#_axradio_framing_addrlen
+   223F 90 56 2F           9521 	mov	dptr,#_axradio_framing_addrlen
    2242 E4                 9522 	clr	a
    2243 93                 9523 	movc	a,@a+dptr
    2244 FF                 9524 	mov	r7,a
@@ -9526,7 +9526,7 @@
    2247 75 3A 00           9526 	mov	(_memcpy_PARM_3 + 1),#0x00
    224A 90 02 46           9527 	mov	dptr,#(_axradio_cb_receive + 0x0014)
    224D 75 F0 00           9528 	mov	b,#0x00
-   2250 12 43 F5           9529 	lcall	_memcpy
+   2250 12 43 F3           9529 	lcall	_memcpy
    2253                    9530 00124$:
                     1A09   9531 	C$easyax5043.c$1333$1$313 ==.
                            9532 ;	..\COMMON\easyax5043.c:1333: if (axradio_mode == AXRADIO_MODE_ACK_RECEIVE ||
@@ -9556,13 +9556,13 @@
    226F F0                 9556 	movx	@dptr,a
                     1A26   9557 	C$easyax5043.c$1337$2$320 ==.
                            9558 ;	..\COMMON\easyax5043.c:1337: axradio_txbuffer_len = axradio_framing_maclen + axradio_framing_minpayloadlen;
-   2270 90 56 30           9559 	mov	dptr,#_axradio_framing_maclen
+   2270 90 56 2E           9559 	mov	dptr,#_axradio_framing_maclen
    2273 E4                 9560 	clr	a
    2274 93                 9561 	movc	a,@a+dptr
    2275 FF                 9562 	mov	r7,a
    2276 FD                 9563 	mov	r5,a
    2277 7E 00              9564 	mov	r6,#0x00
-   2279 90 56 49           9565 	mov	dptr,#_axradio_framing_minpayloadlen
+   2279 90 56 47           9565 	mov	dptr,#_axradio_framing_minpayloadlen
    227C E4                 9566 	clr	a
    227D 93                 9567 	movc	a,@a+dptr
    227E FC                 9568 	mov	r4,a
@@ -9582,10 +9582,10 @@
    2290 75 36 00           9582 	mov	_memset_PARM_2,#0x00
    2293 90 00 2A           9583 	mov	dptr,#_axradio_txbuffer
    2296 75 F0 00           9584 	mov	b,#0x00
-   2299 12 43 D6           9585 	lcall	_memset
+   2299 12 43 D4           9585 	lcall	_memset
                     1A52   9586 	C$easyax5043.c$1339$2$320 ==.
                            9587 ;	..\COMMON\easyax5043.c:1339: if (axradio_framing_ack_seqnrpos != 0xff) {
-   229C 90 56 48           9588 	mov	dptr,#_axradio_framing_ack_seqnrpos
+   229C 90 56 46           9588 	mov	dptr,#_axradio_framing_ack_seqnrpos
    229F E4                 9589 	clr	a
    22A0 93                 9590 	movc	a,@a+dptr
    22A1 FF                 9591 	mov	r7,a
@@ -9641,7 +9641,7 @@
    22DC                    9641 00129$:
                     1A92   9642 	C$easyax5043.c$1347$2$320 ==.
                            9643 ;	..\COMMON\easyax5043.c:1347: if (axradio_framing_destaddrpos != 0xff) {
-   22DC 90 56 32           9644 	mov	dptr,#_axradio_framing_destaddrpos
+   22DC 90 56 30           9644 	mov	dptr,#_axradio_framing_destaddrpos
    22DF E4                 9645 	clr	a
    22E0 93                 9646 	movc	a,@a+dptr
    22E1 FF                 9647 	mov	r7,a
@@ -9650,7 +9650,7 @@
    22E7                    9650 00282$:
                     1A9D   9651 	C$easyax5043.c$1348$3$322 ==.
                            9652 ;	..\COMMON\easyax5043.c:1348: if (axradio_framing_sourceaddrpos != 0xff)
-   22E7 90 56 33           9653 	mov	dptr,#_axradio_framing_sourceaddrpos
+   22E7 90 56 31           9653 	mov	dptr,#_axradio_framing_sourceaddrpos
    22EA E4                 9654 	clr	a
    22EB 93                 9655 	movc	a,@a+dptr
    22EC FE                 9656 	mov	r6,a
@@ -9669,7 +9669,7 @@
    22FC 75 36 46           9669 	mov	_memcpy_PARM_2,#(_axradio_cb_receive + 0x0014)
    22FF 75 37 02           9670 	mov	(_memcpy_PARM_2 + 1),#((_axradio_cb_receive + 0x0014) >> 8)
    2302 75 38 00           9671 	mov	(_memcpy_PARM_2 + 2),#0x00
-   2305 90 56 31           9672 	mov	dptr,#_axradio_framing_addrlen
+   2305 90 56 2F           9672 	mov	dptr,#_axradio_framing_addrlen
    2308 E4                 9673 	clr	a
    2309 93                 9674 	movc	a,@a+dptr
    230A FB                 9675 	mov	r3,a
@@ -9678,7 +9678,7 @@
    2310 8D 82              9678 	mov	dpl,r5
    2312 8E 83              9679 	mov	dph,r6
    2314 8C F0              9680 	mov	b,r4
-   2316 12 43 F5           9681 	lcall	_memcpy
+   2316 12 43 F3           9681 	lcall	_memcpy
    2319 80 27              9682 	sjmp	00134$
    231B                    9683 00131$:
                     1AD1   9684 	C$easyax5043.c$1351$3$322 ==.
@@ -9693,7 +9693,7 @@
    2325 75 36 26           9693 	mov	_memcpy_PARM_2,#_axradio_default_remoteaddr
    2328 75 37 00           9694 	mov	(_memcpy_PARM_2 + 1),#(_axradio_default_remoteaddr >> 8)
    232B 75 38 00           9695 	mov	(_memcpy_PARM_2 + 2),#0x00
-   232E 90 56 31           9696 	mov	dptr,#_axradio_framing_addrlen
+   232E 90 56 2F           9696 	mov	dptr,#_axradio_framing_addrlen
    2331 E4                 9697 	clr	a
    2332 93                 9698 	movc	a,@a+dptr
    2333 FC                 9699 	mov	r4,a
@@ -9702,11 +9702,11 @@
    2339 8F 82              9702 	mov	dpl,r7
    233B 8E 83              9703 	mov	dph,r6
    233D 8D F0              9704 	mov	b,r5
-   233F 12 43 F5           9705 	lcall	_memcpy
+   233F 12 43 F3           9705 	lcall	_memcpy
    2342                    9706 00134$:
                     1AF8   9707 	C$easyax5043.c$1353$2$320 ==.
                            9708 ;	..\COMMON\easyax5043.c:1353: if (axradio_framing_sourceaddrpos != 0xff)
-   2342 90 56 33           9709 	mov	dptr,#_axradio_framing_sourceaddrpos
+   2342 90 56 31           9709 	mov	dptr,#_axradio_framing_sourceaddrpos
    2345 E4                 9710 	clr	a
    2346 93                 9711 	movc	a,@a+dptr
    2347 FF                 9712 	mov	r7,a
@@ -9725,7 +9725,7 @@
    2357 75 36 1E           9725 	mov	_memcpy_PARM_2,#_axradio_localaddr
    235A 75 37 00           9726 	mov	(_memcpy_PARM_2 + 1),#(_axradio_localaddr >> 8)
    235D 75 38 00           9727 	mov	(_memcpy_PARM_2 + 2),#0x00
-   2360 90 56 31           9728 	mov	dptr,#_axradio_framing_addrlen
+   2360 90 56 2F           9728 	mov	dptr,#_axradio_framing_addrlen
    2363 E4                 9729 	clr	a
    2364 93                 9730 	movc	a,@a+dptr
    2365 FC                 9731 	mov	r4,a
@@ -9734,11 +9734,11 @@
    236B 8F 82              9734 	mov	dpl,r7
    236D 8E 83              9735 	mov	dph,r6
    236F 8D F0              9736 	mov	b,r5
-   2371 12 43 F5           9737 	lcall	_memcpy
+   2371 12 43 F3           9737 	lcall	_memcpy
    2374                    9738 00136$:
                     1B2A   9739 	C$easyax5043.c$1355$2$320 ==.
                            9740 ;	..\COMMON\easyax5043.c:1355: if (axradio_framing_lenmask) {
-   2374 90 56 36           9741 	mov	dptr,#_axradio_framing_lenmask
+   2374 90 56 34           9741 	mov	dptr,#_axradio_framing_lenmask
    2377 E4                 9742 	clr	a
    2378 93                 9743 	movc	a,@a+dptr
    2379 FF                 9744 	mov	r7,a
@@ -9750,7 +9750,7 @@
    2380 FD                 9750 	mov	r5,a
    2381 A3                 9751 	inc	dptr
    2382 E0                 9752 	movx	a,@dptr
-   2383 90 56 35           9753 	mov	dptr,#_axradio_framing_lenoffs
+   2383 90 56 33           9753 	mov	dptr,#_axradio_framing_lenoffs
    2386 E4                 9754 	clr	a
    2387 93                 9755 	movc	a,@a+dptr
    2388 FE                 9756 	mov	r6,a
@@ -9761,7 +9761,7 @@
    238D FE                 9761 	mov	r6,a
                     1B44   9762 	C$easyax5043.c$1357$3$323 ==.
                            9763 ;	..\COMMON\easyax5043.c:1357: axradio_txbuffer[axradio_framing_lenpos] = (axradio_txbuffer[axradio_framing_lenpos] & (uint8_t)~axradio_framing_lenmask) | len_byte;
-   238E 90 56 34           9764 	mov	dptr,#_axradio_framing_lenpos
+   238E 90 56 32           9764 	mov	dptr,#_axradio_framing_lenpos
    2391 E4                 9765 	clr	a
    2392 93                 9766 	movc	a,@a+dptr
    2393 24 2A              9767 	add	a,#_axradio_txbuffer
@@ -9785,7 +9785,7 @@
    23AC                    9785 00138$:
                     1B62   9786 	C$easyax5043.c$1359$2$320 ==.
                            9787 ;	..\COMMON\easyax5043.c:1359: if (axradio_framing_swcrclen) {
-   23AC 90 56 37           9788 	mov	dptr,#_axradio_framing_swcrclen
+   23AC 90 56 35           9788 	mov	dptr,#_axradio_framing_swcrclen
    23AF E4                 9789 	clr	a
    23B0 93                 9790 	movc	a,@a+dptr
    23B1 FF                 9791 	mov	r7,a
@@ -9804,7 +9804,7 @@
    23C6 15 81              9804 	dec	sp
                     1B7E   9805 	C$easyax5043.c$1361$3$324 ==.
                            9806 ;	..\COMMON\easyax5043.c:1361: axradio_txbuffer_len += axradio_framing_swcrclen;
-   23C8 90 56 37           9807 	mov	dptr,#_axradio_framing_swcrclen
+   23C8 90 56 35           9807 	mov	dptr,#_axradio_framing_swcrclen
    23CB E4                 9808 	clr	a
    23CC 93                 9809 	movc	a,@a+dptr
    23CD FF                 9810 	mov	r7,a
@@ -9826,7 +9826,7 @@
    23E2                    9826 00140$:
                     1B98   9827 	C$easyax5043.c$1363$2$320 ==.
                            9828 ;	..\COMMON\easyax5043.c:1363: if (axradio_phy_pn9) {
-   23E2 90 56 0F           9829 	mov	dptr,#_axradio_phy_pn9
+   23E2 90 56 0D           9829 	mov	dptr,#_axradio_phy_pn9
    23E5 E4                 9830 	clr	a
    23E6 93                 9831 	movc	a,@a+dptr
    23E7 FF                 9832 	mov	r7,a
@@ -9854,7 +9854,7 @@
    2408 C0 E0              9854 	push	acc
    240A 90 00 2A           9855 	mov	dptr,#_axradio_txbuffer
    240D 75 F0 00           9856 	mov	b,#0x00
-   2410 12 45 CA           9857 	lcall	_pn9_buffer
+   2410 12 45 C8           9857 	lcall	_pn9_buffer
    2413 E5 81              9858 	mov	a,sp
    2415 24 FB              9859 	add	a,#0xfb
    2417 F5 81              9860 	mov	sp,a
@@ -9891,10 +9891,10 @@
                     1BEF   9891 	C$easyax5043.c$1372$2$320 ==.
                            9892 ;	..\COMMON\easyax5043.c:1372: wtimer_remove(&axradio_timer);
    2439 90 02 89           9893 	mov	dptr,#_axradio_timer
-   243C 12 4D 5A           9894 	lcall	_wtimer_remove
+   243C 12 4D 58           9894 	lcall	_wtimer_remove
                     1BF5   9895 	C$easyax5043.c$1373$2$320 ==.
                            9896 ;	..\COMMON\easyax5043.c:1373: axradio_timer.time = axradio_framing_ack_delay;
-   243F 90 56 43           9897 	mov	dptr,#_axradio_framing_ack_delay
+   243F 90 56 41           9897 	mov	dptr,#_axradio_framing_ack_delay
    2442 E4                 9898 	clr	a
    2443 93                 9899 	movc	a,@a+dptr
    2444 FC                 9900 	mov	r4,a
@@ -9922,7 +9922,7 @@
                     1C15   9922 	C$easyax5043.c$1374$2$320 ==.
                            9923 ;	..\COMMON\easyax5043.c:1374: wtimer1_addrelative(&axradio_timer);
    245F 90 02 89           9924 	mov	dptr,#_axradio_timer
-   2462 12 44 AB           9925 	lcall	_wtimer1_addrelative
+   2462 12 44 A9           9925 	lcall	_wtimer1_addrelative
    2465                    9926 00147$:
                     1C1B   9927 	C$easyax5043.c$1376$1$313 ==.
                            9928 ;	..\COMMON\easyax5043.c:1376: if (axradio_mode == AXRADIO_MODE_SYNC_SLAVE ||
@@ -10073,14 +10073,14 @@
                     1CC2  10073 	C$easyax5043.c$1400$3$328 ==.
                           10074 ;	..\COMMON\easyax5043.c:1400: wtimer_remove(&axradio_timer);
    250C 90 02 89          10075 	mov	dptr,#_axradio_timer
-   250F 12 4D 5A          10076 	lcall	_wtimer_remove
+   250F 12 4D 58          10076 	lcall	_wtimer_remove
                     1CC8  10077 	C$easyax5043.c$1401$3$328 ==.
                           10078 ;	..\COMMON\easyax5043.c:1401: axradio_sync_settimeradv(axradio_sync_slave_rxadvance[axradio_sync_seqnr]);
    2512 90 00 0F          10079 	mov	dptr,#_axradio_ack_seqnr
    2515 E0                10080 	movx	a,@dptr
    2516 75 F0 04          10081 	mov	b,#0x04
    2519 A4                10082 	mul	ab
-   251A 24 64             10083 	add	a,#_axradio_sync_slave_rxadvance
+   251A 24 62             10083 	add	a,#_axradio_sync_slave_rxadvance
    251C F5 82             10084 	mov	dpl,a
    251E 74 56             10085 	mov	a,#(_axradio_sync_slave_rxadvance >> 8)
    2520 35 F0             10086 	addc	a,b
@@ -10106,7 +10106,7 @@
                     1CF1  10106 	C$easyax5043.c$1402$3$328 ==.
                           10107 ;	..\COMMON\easyax5043.c:1402: wtimer0_addabsolute(&axradio_timer);
    253B 90 02 89          10108 	mov	dptr,#_axradio_timer
-   253E 12 45 77          10109 	lcall	_wtimer0_addabsolute
+   253E 12 45 75          10109 	lcall	_wtimer0_addabsolute
    2541 80 06             10110 	sjmp	00161$
    2543                   10111 00158$:
                     1CF9  10112 	C$easyax5043.c$1404$3$329 ==.
@@ -10216,31 +10216,31 @@
                     1D52  10216 	C$easyax5043.c$1442$1$337 ==.
                           10217 ;	..\COMMON\easyax5043.c:1442: wtimer_remove_callback(&axradio_cb_receive.cb);
    259C 90 02 32          10218 	mov	dptr,#_axradio_cb_receive
-   259F 12 50 75          10219 	lcall	_wtimer_remove_callback
+   259F 12 50 73          10219 	lcall	_wtimer_remove_callback
                     1D58  10220 	C$easyax5043.c$1443$1$337 ==.
                           10221 ;	..\COMMON\easyax5043.c:1443: wtimer_remove_callback(&axradio_cb_receivesfd.cb);
    25A2 90 02 54          10222 	mov	dptr,#_axradio_cb_receivesfd
-   25A5 12 50 75          10223 	lcall	_wtimer_remove_callback
+   25A5 12 50 73          10223 	lcall	_wtimer_remove_callback
                     1D5E  10224 	C$easyax5043.c$1444$1$337 ==.
                           10225 ;	..\COMMON\easyax5043.c:1444: wtimer_remove_callback(&axradio_cb_channelstate.cb);
    25A8 90 02 5E          10226 	mov	dptr,#_axradio_cb_channelstate
-   25AB 12 50 75          10227 	lcall	_wtimer_remove_callback
+   25AB 12 50 73          10227 	lcall	_wtimer_remove_callback
                     1D64  10228 	C$easyax5043.c$1445$1$337 ==.
                           10229 ;	..\COMMON\easyax5043.c:1445: wtimer_remove_callback(&axradio_cb_transmitstart.cb);
    25AE 90 02 6B          10230 	mov	dptr,#_axradio_cb_transmitstart
-   25B1 12 50 75          10231 	lcall	_wtimer_remove_callback
+   25B1 12 50 73          10231 	lcall	_wtimer_remove_callback
                     1D6A  10232 	C$easyax5043.c$1446$1$337 ==.
                           10233 ;	..\COMMON\easyax5043.c:1446: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    25B4 90 02 75          10234 	mov	dptr,#_axradio_cb_transmitend
-   25B7 12 50 75          10235 	lcall	_wtimer_remove_callback
+   25B7 12 50 73          10235 	lcall	_wtimer_remove_callback
                     1D70  10236 	C$easyax5043.c$1447$1$337 ==.
                           10237 ;	..\COMMON\easyax5043.c:1447: wtimer_remove_callback(&axradio_cb_transmitdata.cb);
    25BA 90 02 7F          10238 	mov	dptr,#_axradio_cb_transmitdata
-   25BD 12 50 75          10239 	lcall	_wtimer_remove_callback
+   25BD 12 50 73          10239 	lcall	_wtimer_remove_callback
                     1D76  10240 	C$easyax5043.c$1448$1$337 ==.
                           10241 ;	..\COMMON\easyax5043.c:1448: wtimer_remove(&axradio_timer);
    25C0 90 02 89          10242 	mov	dptr,#_axradio_timer
-   25C3 12 4D 5A          10243 	lcall	_wtimer_remove
+   25C3 12 4D 58          10243 	lcall	_wtimer_remove
                     1D7C  10244 	C$easyax5043.c$1449$1$337 ==.
                     1D7C  10245 	XFeasyax5043$axradio_killallcb$0$0 ==.
    25C6 22                10246 	ret
@@ -10290,7 +10290,7 @@
    25E2 75 38 00          10290 	mov	(_memset_PARM_3 + 1),#0x00
    25E5 90 02 46          10291 	mov	dptr,#(_axradio_cb_receive + 0x0014)
    25E8 75 F0 00          10292 	mov	b,#0x00
-   25EB 12 43 D6          10293 	lcall	_memset
+   25EB 12 43 D4          10293 	lcall	_memset
                     1DA4  10294 	C$easyax5043.c$1463$1$339 ==.
                           10295 ;	..\COMMON\easyax5043.c:1463: memset_xdata(axradio_cb_receive.st.rx.mac.localaddr, 0, sizeof(axradio_cb_receive.st.rx.mac.localaddr));
    25EE 75 36 00          10296 	mov	_memset_PARM_2,#0x00
@@ -10298,7 +10298,7 @@
    25F4 75 38 00          10298 	mov	(_memset_PARM_3 + 1),#0x00
    25F7 90 02 4A          10299 	mov	dptr,#(_axradio_cb_receive + 0x0018)
    25FA 75 F0 00          10300 	mov	b,#0x00
-   25FD 12 43 D6          10301 	lcall	_memset
+   25FD 12 43 D4          10301 	lcall	_memset
                     1DB6  10302 	C$easyax5043.c$1464$1$339 ==.
                           10303 ;	..\COMMON\easyax5043.c:1464: axradio_cb_receivesfd.cb.handler = axradio_callback_fwd;
    2600 90 02 56          10304 	mov	dptr,#(_axradio_cb_receivesfd + 0x0002)
@@ -10396,7 +10396,7 @@
    266C 75 0B 00          10396 	mov	_axradio_trxstate,#0x00
                     1E25  10397 	C$easyax5043.c$1479$1$339 ==.
                           10398 ;	..\COMMON\easyax5043.c:1479: if (ax5043_reset())
-   266F 12 3C 47          10399 	lcall	_ax5043_reset
+   266F 12 3C 45          10399 	lcall	_ax5043_reset
    2672 E5 82             10400 	mov	a,dpl
    2674 60 06             10401 	jz	00102$
                     1E2C  10402 	C$easyax5043.c$1480$1$339 ==.
@@ -10449,7 +10449,7 @@
                           10449 ;	..\COMMON\easyax5043.c:1493: for (i = 0; i < axradio_phy_nrchannels; ++i) {
    26AB 7D 00             10450 	mov	r5,#0x00
    26AD                   10451 00127$:
-   26AD 90 56 10          10452 	mov	dptr,#_axradio_phy_nrchannels
+   26AD 90 56 0E          10452 	mov	dptr,#_axradio_phy_nrchannels
    26B0 E4                10453 	clr	a
    26B1 93                10454 	movc	a,@a+dptr
    26B2 FC                10455 	mov	r4,a
@@ -10464,7 +10464,7 @@
    26BB ED                10464 	mov	a,r5
    26BC 75 F0 04          10465 	mov	b,#0x04
    26BF A4                10466 	mul	ab
-   26C0 24 11             10467 	add	a,#_axradio_phy_chanfreq
+   26C0 24 0F             10467 	add	a,#_axradio_phy_chanfreq
    26C2 F5 82             10468 	mov	dpl,a
    26C4 74 56             10469 	mov	a,#(_axradio_phy_chanfreq >> 8)
    26C6 35 F0             10470 	addc	a,b
@@ -10522,7 +10522,7 @@
    26FC F0                10522 	movx	@dptr,a
                     1EB3  10523 	C$easyax5043.c$1508$3$342 ==.
                           10524 ;	..\COMMON\easyax5043.c:1508: if( !(axradio_phy_chanpllrnginit[0] & 0xF0) ) { // start values for ranging available
-   26FD 90 56 15          10525 	mov	dptr,#_axradio_phy_chanpllrnginit
+   26FD 90 56 13          10525 	mov	dptr,#_axradio_phy_chanpllrnginit
    2700 E4                10526 	clr	a
    2701 93                10527 	movc	a,@a+dptr
    2702 FB                10528 	mov	r3,a
@@ -10531,7 +10531,7 @@
                     1EBD  10531 	C$easyax5043.c$1509$4$343 ==.
                           10532 ;	..\COMMON\easyax5043.c:1509: r = axradio_phy_chanpllrnginit[i] | 0x10;
    2707 ED                10533 	mov	a,r5
-   2708 90 56 15          10534 	mov	dptr,#_axradio_phy_chanpllrnginit
+   2708 90 56 13          10534 	mov	dptr,#_axradio_phy_chanpllrnginit
    270B 93                10535 	movc	a,@a+dptr
    270C FB                10536 	mov	r3,a
    270D 43 03 10          10537 	orl	ar3,#0x10
@@ -10596,7 +10596,7 @@
    274A C0 06             10596 	push	ar6
    274C C0 05             10597 	push	ar5
    274E C0 04             10598 	push	ar4
-   2750 12 43 57          10599 	lcall	_wtimer_idle
+   2750 12 43 55          10599 	lcall	_wtimer_idle
    2753 D0 04             10600 	pop	ar4
                     1F0B  10601 	C$easyax5043.c$1528$3$346 ==.
                           10602 ;	..\COMMON\easyax5043.c:1528: IE |= iesave;
@@ -10605,7 +10605,7 @@
                     1F0E  10605 	C$easyax5043.c$1529$3$346 ==.
                           10606 ;	..\COMMON\easyax5043.c:1529: wtimer_runcallbacks();
    2758 C0 04             10607 	push	ar4
-   275A 12 42 D3          10608 	lcall	_wtimer_runcallbacks
+   275A 12 42 D1          10608 	lcall	_wtimer_runcallbacks
    275D D0 04             10609 	pop	ar4
    275F D0 05             10610 	pop	ar5
    2761 D0 06             10611 	pop	ar6
@@ -10664,7 +10664,7 @@
                           10664 ;	..\COMMON\easyax5043.c:1539: for (i = 0; i < axradio_phy_nrchannels; ++i) {
    279F 7D 00             10665 	mov	r5,#0x00
    27A1                   10666 00131$:
-   27A1 90 56 10          10667 	mov	dptr,#_axradio_phy_nrchannels
+   27A1 90 56 0E          10667 	mov	dptr,#_axradio_phy_nrchannels
    27A4 E4                10668 	clr	a
    27A5 93                10669 	movc	a,@a+dptr
    27A6 FC                10670 	mov	r4,a
@@ -10692,7 +10692,7 @@
    27BE F0                10692 	movx	@dptr,a
                     1F75  10693 	C$easyax5043.c$1546$3$348 ==.
                           10694 ;	..\COMMON\easyax5043.c:1546: if( !(axradio_phy_chanpllrnginit[0] & 0xF0) ) { // start values for ranging available
-   27BF 90 56 15          10695 	mov	dptr,#_axradio_phy_chanpllrnginit
+   27BF 90 56 13          10695 	mov	dptr,#_axradio_phy_chanpllrnginit
    27C2 E4                10696 	clr	a
    27C3 93                10697 	movc	a,@a+dptr
    27C4 FB                10698 	mov	r3,a
@@ -10701,7 +10701,7 @@
                     1F7F  10701 	C$easyax5043.c$1547$4$349 ==.
                           10702 ;	..\COMMON\easyax5043.c:1547: r = axradio_phy_chanpllrnginit[i] | 0x10;
    27C9 ED                10703 	mov	a,r5
-   27CA 90 56 15          10704 	mov	dptr,#_axradio_phy_chanpllrnginit
+   27CA 90 56 13          10704 	mov	dptr,#_axradio_phy_chanpllrnginit
    27CD 93                10705 	movc	a,@a+dptr
    27CE FB                10706 	mov	r3,a
    27CF 43 03 10          10707 	orl	ar3,#0x10
@@ -10753,7 +10753,7 @@
    27FE C0 06             10753 	push	ar6
    2800 C0 05             10754 	push	ar5
    2802 C0 04             10755 	push	ar4
-   2804 12 43 57          10756 	lcall	_wtimer_idle
+   2804 12 43 55          10756 	lcall	_wtimer_idle
    2807 D0 04             10757 	pop	ar4
                     1FBF  10758 	C$easyax5043.c$1563$3$351 ==.
                           10759 ;	..\COMMON\easyax5043.c:1563: IE |= iesave;
@@ -10762,7 +10762,7 @@
                     1FC2  10762 	C$easyax5043.c$1564$3$351 ==.
                           10763 ;	..\COMMON\easyax5043.c:1564: wtimer_runcallbacks();
    280C C0 04             10764 	push	ar4
-   280E 12 42 D3          10765 	lcall	_wtimer_runcallbacks
+   280E 12 42 D1          10765 	lcall	_wtimer_runcallbacks
    2811 D0 04             10766 	pop	ar4
    2813 D0 05             10767 	pop	ar5
    2815 D0 06             10768 	pop	ar6
@@ -10816,7 +10816,7 @@
    284C F0                10816 	movx	@dptr,a
                     2003  10817 	C$easyax5043.c$1574$2$352 ==.
                           10818 ;	..\COMMON\easyax5043.c:1574: uint32_t __autodata f = axradio_phy_chanfreq[0];
-   284D 90 56 11          10819 	mov	dptr,#_axradio_phy_chanfreq
+   284D 90 56 0F          10819 	mov	dptr,#_axradio_phy_chanfreq
    2850 E4                10820 	clr	a
    2851 93                10821 	movc	a,@a+dptr
    2852 FA                10822 	mov	r2,a
@@ -10869,7 +10869,7 @@
                           10869 ;	..\COMMON\easyax5043.c:1584: for (i = 0; i < axradio_phy_nrchannels; ++i)
    2880 7F 00             10870 	mov	r7,#0x00
    2882                   10871 00135$:
-   2882 90 56 10          10872 	mov	dptr,#_axradio_phy_nrchannels
+   2882 90 56 0E          10872 	mov	dptr,#_axradio_phy_nrchannels
    2885 E4                10873 	clr	a
    2886 93                10874 	movc	a,@a+dptr
    2887 FE                10875 	mov	r6,a
@@ -10960,11 +10960,11 @@
                           10960 	.area WTCANSLP1 (CODE)
                           10961 	.area WTCANSLP2 (CODE)
                           10962 	.area WTCANSLP1 (CODE)
-   5B1E 12 28 B5          10963 	lcall _axradio_cansleep
-   5B21 E5 82             10964 	mov a,dpl
-   5B23 70 01             10965 	jnz 00000$
-   5B25 22                10966 	ret
-   5B26                   10967 	00000$:
+   5B1C 12 28 B5          10963 	lcall _axradio_cansleep
+   5B1F E5 82             10964 	mov a,dpl
+   5B21 70 01             10965 	jnz 00000$
+   5B23 22                10966 	ret
+   5B24                   10967 	00000$:
                           10968 	.area CSEG (CODE)
                           10969 ;	naked function: no epilogue.
                     207D  10970 	C$easyax5043.c$1614$1$356 ==.
@@ -11050,7 +11050,7 @@
                     20D2  11050 	C$easyax5043.c$1632$3$361 ==.
                           11051 ;	..\COMMON\easyax5043.c:1632: uint8_t __autodata r = ax5043_wakeup_deepsleep();
    291C C0 07             11052 	push	ar7
-   291E 12 3C 04          11053 	lcall	_ax5043_wakeup_deepsleep
+   291E 12 3C 02          11053 	lcall	_ax5043_wakeup_deepsleep
    2921 AE 82             11054 	mov	r6,dpl
    2923 D0 07             11055 	pop	ar7
                     20DB  11056 	C$easyax5043.c$1633$3$361 ==.
@@ -11115,7 +11115,7 @@
                     2118  11115 	C$easyax5043.c$1653$4$363 ==.
                           11116 ;	..\COMMON\easyax5043.c:1653: wtimer_remove_callback(&axradio_cb_transmitend.cb);
    2962 90 02 75          11117 	mov	dptr,#_axradio_cb_transmitend
-   2965 12 50 75          11118 	lcall	_wtimer_remove_callback
+   2965 12 50 73          11118 	lcall	_wtimer_remove_callback
                     211E  11119 	C$easyax5043.c$1654$4$363 ==.
                           11120 ;	..\COMMON\easyax5043.c:1654: axradio_cb_transmitend.st.error = AXRADIO_ERR_NOERROR;
    2968 90 02 7A          11121 	mov	dptr,#(_axradio_cb_transmitend + 0x0005)
@@ -11150,7 +11150,7 @@
                     213F  11150 	C$easyax5043.c$1656$4$363 ==.
                           11151 ;	..\COMMON\easyax5043.c:1656: wtimer_add_callback(&axradio_cb_transmitend.cb);
    2989 90 02 75          11152 	mov	dptr,#_axradio_cb_transmitend
-   298C 12 44 4A          11153 	lcall	_wtimer_add_callback
+   298C 12 44 48          11153 	lcall	_wtimer_add_callback
    298F D0 06             11154 	pop	ar6
    2991 D0 07             11155 	pop	ar7
    2993                   11156 00116$:
@@ -11323,7 +11323,7 @@
    2A38                   11323 00125$:
                     21EE  11324 	C$easyax5043.c$1687$2$364 ==.
                           11325 ;	..\COMMON\easyax5043.c:1687: ax5043_enter_deepsleep();
-   2A38 12 3B E2          11326 	lcall	_ax5043_enter_deepsleep
+   2A38 12 3B E0          11326 	lcall	_ax5043_enter_deepsleep
                     21F1  11327 	C$easyax5043.c$1688$2$364 ==.
                           11328 ;	..\COMMON\easyax5043.c:1688: axradio_mode = AXRADIO_MODE_DEEPSLEEP;
    2A3B 75 0A 02          11329 	mov	_axradio_mode,#0x02
@@ -11404,7 +11404,7 @@
    2A80                   11404 00132$:
                     2236  11405 	C$easyax5043.c$1712$2$364 ==.
                           11406 ;	..\COMMON\easyax5043.c:1712: if (axradio_phy_cs_enabled) {
-   2A80 90 56 1F          11407 	mov	dptr,#_axradio_phy_cs_enabled
+   2A80 90 56 1D          11407 	mov	dptr,#_axradio_phy_cs_enabled
    2A83 E4                11408 	clr	a
    2A84 93                11409 	movc	a,@a+dptr
    2A85 FE                11410 	mov	r6,a
@@ -11412,10 +11412,10 @@
                     223E  11412 	C$easyax5043.c$1713$3$365 ==.
                           11413 ;	..\COMMON\easyax5043.c:1713: wtimer_remove(&axradio_timer);
    2A88 90 02 89          11414 	mov	dptr,#_axradio_timer
-   2A8B 12 4D 5A          11415 	lcall	_wtimer_remove
+   2A8B 12 4D 58          11415 	lcall	_wtimer_remove
                     2244  11416 	C$easyax5043.c$1714$3$365 ==.
                           11417 ;	..\COMMON\easyax5043.c:1714: axradio_timer.time = axradio_phy_cs_period;
-   2A8E 90 56 1D          11418 	mov	dptr,#_axradio_phy_cs_period
+   2A8E 90 56 1B          11418 	mov	dptr,#_axradio_phy_cs_period
    2A91 E4                11419 	clr	a
    2A92 93                11420 	movc	a,@a+dptr
    2A93 FD                11421 	mov	r5,a
@@ -11439,7 +11439,7 @@
                     2260  11439 	C$easyax5043.c$1715$3$365 ==.
                           11440 ;	..\COMMON\easyax5043.c:1715: wtimer0_addrelative(&axradio_timer);
    2AAA 90 02 89          11441 	mov	dptr,#_axradio_timer
-   2AAD 12 44 64          11442 	lcall	_wtimer0_addrelative
+   2AAD 12 44 62          11442 	lcall	_wtimer0_addrelative
    2AB0                   11443 00134$:
                     2266  11444 	C$easyax5043.c$1717$2$364 ==.
                           11445 ;	..\COMMON\easyax5043.c:1717: return AXRADIO_ERR_NOERROR;
@@ -11539,7 +11539,7 @@
                     22BE  11539 	C$easyax5043.c$1743$2$364 ==.
                           11540 ;	..\COMMON\easyax5043.c:1743: wtimer_remove_callback(&axradio_cb_transmitdata.cb);
    2B08 90 02 7F          11541 	mov	dptr,#_axradio_cb_transmitdata
-   2B0B 12 50 75          11542 	lcall	_wtimer_remove_callback
+   2B0B 12 50 73          11542 	lcall	_wtimer_remove_callback
                     22C4  11543 	C$easyax5043.c$1744$2$364 ==.
                           11544 ;	..\COMMON\easyax5043.c:1744: axradio_cb_transmitdata.st.error = AXRADIO_ERR_NOERROR;
    2B0E 90 02 84          11545 	mov	dptr,#(_axradio_cb_transmitdata + 0x0005)
@@ -11574,7 +11574,7 @@
                     22E5  11574 	C$easyax5043.c$1746$2$364 ==.
                           11575 ;	..\COMMON\easyax5043.c:1746: wtimer_add_callback(&axradio_cb_transmitdata.cb);
    2B2F 90 02 7F          11576 	mov	dptr,#_axradio_cb_transmitdata
-   2B32 12 44 4A          11577 	lcall	_wtimer_add_callback
+   2B32 12 44 48          11577 	lcall	_wtimer_add_callback
                     22EB  11578 	C$easyax5043.c$1747$2$364 ==.
                           11579 ;	..\COMMON\easyax5043.c:1747: return AXRADIO_ERR_NOERROR;
    2B35 75 82 00          11580 	mov	dpl,#0x00
@@ -11722,7 +11722,7 @@
                     2375  11722 	C$easyax5043.c$1786$2$364 ==.
                           11723 ;	..\COMMON\easyax5043.c:1786: wtimer_remove(&axradio_timer);
    2BBF 90 02 89          11724 	mov	dptr,#_axradio_timer
-   2BC2 12 4D 5A          11725 	lcall	_wtimer_remove
+   2BC2 12 4D 58          11725 	lcall	_wtimer_remove
                     237B  11726 	C$easyax5043.c$1787$2$364 ==.
                           11727 ;	..\COMMON\easyax5043.c:1787: axradio_timer.time = 2;
    2BC5 90 02 8D          11728 	mov	dptr,#(_axradio_timer + 0x0004)
@@ -11738,7 +11738,7 @@
                     2388  11738 	C$easyax5043.c$1788$2$364 ==.
                           11739 ;	..\COMMON\easyax5043.c:1788: wtimer0_addrelative(&axradio_timer);
    2BD2 90 02 89          11740 	mov	dptr,#_axradio_timer
-   2BD5 12 44 64          11741 	lcall	_wtimer0_addrelative
+   2BD5 12 44 62          11741 	lcall	_wtimer0_addrelative
                     238E  11742 	C$easyax5043.c$1789$2$364 ==.
                           11743 ;	..\COMMON\easyax5043.c:1789: axradio_sync_time = axradio_timer.time;
    2BD8 90 02 8D          11744 	mov	dptr,#(_axradio_timer + 0x0004)
@@ -11767,7 +11767,7 @@
    2BF3 F0                11767 	movx	@dptr,a
                     23AA  11768 	C$easyax5043.c$1790$2$364 ==.
                           11769 ;	..\COMMON\easyax5043.c:1790: axradio_sync_addtime(axradio_sync_xoscstartup);
-   2BF4 90 56 50          11770 	mov	dptr,#_axradio_sync_xoscstartup
+   2BF4 90 56 4E          11770 	mov	dptr,#_axradio_sync_xoscstartup
    2BF7 E4                11771 	clr	a
    2BF8 93                11772 	movc	a,@a+dptr
    2BF9 FB                11773 	mov	r3,a
@@ -11810,10 +11810,10 @@
                     23D8  11810 	C$easyax5043.c$1799$2$364 ==.
                           11811 ;	..\COMMON\easyax5043.c:1799: wtimer_remove(&axradio_timer);
    2C22 90 02 89          11812 	mov	dptr,#_axradio_timer
-   2C25 12 4D 5A          11813 	lcall	_wtimer_remove
+   2C25 12 4D 58          11813 	lcall	_wtimer_remove
                     23DE  11814 	C$easyax5043.c$1800$2$364 ==.
                           11815 ;	..\COMMON\easyax5043.c:1800: axradio_timer.time = axradio_sync_slave_initialsyncwindow;
-   2C28 90 56 58          11816 	mov	dptr,#_axradio_sync_slave_initialsyncwindow
+   2C28 90 56 56          11816 	mov	dptr,#_axradio_sync_slave_initialsyncwindow
    2C2B E4                11817 	clr	a
    2C2C 93                11818 	movc	a,@a+dptr
    2C2D FC                11819 	mov	r4,a
@@ -11841,7 +11841,7 @@
                     23FE  11841 	C$easyax5043.c$1801$2$364 ==.
                           11842 ;	..\COMMON\easyax5043.c:1801: wtimer0_addrelative(&axradio_timer);
    2C48 90 02 89          11843 	mov	dptr,#_axradio_timer
-   2C4B 12 44 64          11844 	lcall	_wtimer0_addrelative
+   2C4B 12 44 62          11844 	lcall	_wtimer0_addrelative
                     2404  11845 	C$easyax5043.c$1802$2$364 ==.
                           11846 ;	..\COMMON\easyax5043.c:1802: axradio_sync_time = axradio_timer.time;
    2C4E 90 02 8D          11847 	mov	dptr,#(_axradio_timer + 0x0004)
@@ -11871,7 +11871,7 @@
                     2420  11871 	C$easyax5043.c$1803$2$364 ==.
                           11872 ;	..\COMMON\easyax5043.c:1803: wtimer_remove_callback(&axradio_cb_receive.cb);
    2C6A 90 02 32          11873 	mov	dptr,#_axradio_cb_receive
-   2C6D 12 50 75          11874 	lcall	_wtimer_remove_callback
+   2C6D 12 50 73          11874 	lcall	_wtimer_remove_callback
                     2426  11875 	C$easyax5043.c$1804$2$364 ==.
                           11876 ;	..\COMMON\easyax5043.c:1804: memset_xdata(&axradio_cb_receive.st, 0, sizeof(axradio_cb_receive.st));
    2C70 75 36 00          11877 	mov	_memset_PARM_2,#0x00
@@ -11879,7 +11879,7 @@
    2C76 75 38 00          11879 	mov	(_memset_PARM_3 + 1),#0x00
    2C79 90 02 36          11880 	mov	dptr,#(_axradio_cb_receive + 0x0004)
    2C7C 75 F0 00          11881 	mov	b,#0x00
-   2C7F 12 43 D6          11882 	lcall	_memset
+   2C7F 12 43 D4          11882 	lcall	_memset
                     2438  11883 	C$easyax5043.c$1805$2$364 ==.
                           11884 ;	..\COMMON\easyax5043.c:1805: axradio_cb_receive.st.time.t = axradio_timeanchor.radiotimer;
    2C82 90 00 1A          11885 	mov	dptr,#(_axradio_timeanchor + 0x0004)
@@ -11914,7 +11914,7 @@
                     245A  11914 	C$easyax5043.c$1807$2$364 ==.
                           11915 ;	..\COMMON\easyax5043.c:1807: wtimer_add_callback(&axradio_cb_receive.cb);
    2CA4 90 02 32          11916 	mov	dptr,#_axradio_cb_receive
-   2CA7 12 44 4A          11917 	lcall	_wtimer_add_callback
+   2CA7 12 44 48          11917 	lcall	_wtimer_add_callback
                     2460  11918 	C$easyax5043.c$1808$2$364 ==.
                           11919 ;	..\COMMON\easyax5043.c:1808: return AXRADIO_ERR_NOERROR;
    2CAA 75 82 00          11920 	mov	dpl,#0x00
@@ -11964,7 +11964,7 @@
    2CB7 AF 82             11964 	mov	r7,dpl
                     246F  11965 	C$easyax5043.c$1823$1$370 ==.
                           11966 ;	..\COMMON\easyax5043.c:1823: if (chnum >= axradio_phy_nrchannels)
-   2CB9 90 56 10          11967 	mov	dptr,#_axradio_phy_nrchannels
+   2CB9 90 56 0E          11967 	mov	dptr,#_axradio_phy_nrchannels
    2CBC E4                11968 	clr	a
    2CBD 93                11969 	movc	a,@a+dptr
    2CBE FE                11970 	mov	r6,a
@@ -12005,7 +12005,7 @@
    2CE5 EF                12005 	mov	a,r7
    2CE6 75 F0 04          12006 	mov	b,#0x04
    2CE9 A4                12007 	mul	ab
-   2CEA 24 11             12008 	add	a,#_axradio_phy_chanfreq
+   2CEA 24 0F             12008 	add	a,#_axradio_phy_chanfreq
    2CEC F5 82             12009 	mov	dpl,a
    2CEE 74 56             12010 	mov	a,#(_axradio_phy_chanfreq >> 8)
    2CF0 35 F0             12011 	addc	a,b
@@ -12230,7 +12230,7 @@
    2DB0 F0                12230 	movx	@dptr,a
                     2567  12231 	C$easyax5043.c$1868$1$381 ==.
                           12232 ;	..\COMMON\easyax5043.c:1868: if (checksignedlimit32(offs, axradio_phy_maxfreqoffset))
-   2DB1 90 56 16          12233 	mov	dptr,#_axradio_phy_maxfreqoffset
+   2DB1 90 56 14          12233 	mov	dptr,#_axradio_phy_maxfreqoffset
    2DB4 E4                12234 	clr	a
    2DB5 93                12235 	movc	a,@a+dptr
    2DB6 C0 E0             12236 	push	acc
@@ -12247,7 +12247,7 @@
    2DC9 8D 83             12247 	mov	dph,r5
    2DCB 8E F0             12248 	mov	b,r6
    2DCD EF                12249 	mov	a,r7
-   2DCE 12 4B 21          12250 	lcall	_checksignedlimit32
+   2DCE 12 4B 1F          12250 	lcall	_checksignedlimit32
    2DD1 AF 82             12251 	mov	r7,dpl
    2DD3 E5 81             12252 	mov	a,sp
    2DD5 24 FC             12253 	add	a,#0xfc
@@ -12276,7 +12276,7 @@
    2DEF 30 E7 27          12276 	jnb	acc.7,00104$
                     25A8  12277 	C$easyax5043.c$1871$1$381 ==.
                           12278 ;	..\COMMON\easyax5043.c:1871: axradio_curfreqoffset = -axradio_phy_maxfreqoffset;
-   2DF2 90 56 16          12279 	mov	dptr,#_axradio_phy_maxfreqoffset
+   2DF2 90 56 14          12279 	mov	dptr,#_axradio_phy_maxfreqoffset
    2DF5 E4                12280 	clr	a
    2DF6 93                12281 	movc	a,@a+dptr
    2DF7 FC                12282 	mov	r4,a
@@ -12310,7 +12310,7 @@
    2E19                   12310 00104$:
                     25CF  12311 	C$easyax5043.c$1873$1$381 ==.
                           12312 ;	..\COMMON\easyax5043.c:1873: axradio_curfreqoffset = axradio_phy_maxfreqoffset;
-   2E19 90 56 16          12313 	mov	dptr,#_axradio_phy_maxfreqoffset
+   2E19 90 56 14          12313 	mov	dptr,#_axradio_phy_maxfreqoffset
    2E1C E4                12314 	clr	a
    2E1D 93                12315 	movc	a,@a+dptr
    2E1E FC                12316 	mov	r4,a
@@ -12437,7 +12437,7 @@
    2E7C 75 3A 00          12437 	mov	(_memcpy_PARM_3 + 1),#0x00
    2E7F 90 00 1E          12438 	mov	dptr,#_axradio_localaddr
    2E82 75 F0 00          12439 	mov	b,#0x00
-   2E85 12 43 F5          12440 	lcall	_memcpy
+   2E85 12 43 F3          12440 	lcall	_memcpy
                     263E  12441 	C$easyax5043.c$1896$1$388 ==.
                           12442 ;	..\COMMON\easyax5043.c:1896: axradio_setaddrregs();
    2E88 12 14 D7          12443 	lcall	_axradio_setaddrregs
@@ -12469,7 +12469,7 @@
    2EA1 8D 82             12469 	mov	dpl,r5
    2EA3 8E 83             12470 	mov	dph,r6
    2EA5 8F F0             12471 	mov	b,r7
-   2EA7 12 43 F5          12472 	lcall	_memcpy
+   2EA7 12 43 F3          12472 	lcall	_memcpy
                     2660  12473 	C$easyax5043.c$1902$1$390 ==.
                     2660  12474 	XG$axradio_get_local_address$0$0 ==.
    2EAA 22                12475 	ret
@@ -12497,7 +12497,7 @@
    2EBA 75 3A 00          12497 	mov	(_memcpy_PARM_3 + 1),#0x00
    2EBD 90 00 26          12498 	mov	dptr,#_axradio_default_remoteaddr
    2EC0 75 F0 00          12499 	mov	b,#0x00
-   2EC3 12 43 F5          12500 	lcall	_memcpy
+   2EC3 12 43 F3          12500 	lcall	_memcpy
                     267C  12501 	C$easyax5043.c$1907$1$392 ==.
                     267C  12502 	XG$axradio_set_default_remote_address$0$0 ==.
    2EC6 22                12503 	ret
@@ -12526,7 +12526,7 @@
    2EDC 8D 82             12526 	mov	dpl,r5
    2EDE 8E 83             12527 	mov	dph,r6
    2EE0 8F F0             12528 	mov	b,r7
-   2EE2 12 43 F5          12529 	lcall	_memcpy
+   2EE2 12 43 F3          12529 	lcall	_memcpy
                     269B  12530 	C$easyax5043.c$1912$1$394 ==.
                     269B  12531 	XG$axradio_get_default_remote_address$0$0 ==.
    2EE5 22                12532 	ret
@@ -12625,7 +12625,7 @@
                     26E8  12625 	C$easyax5043.c$1921$3$398 ==.
                           12626 ;	..\COMMON\easyax5043.c:1921: uint16_t __autodata fifofree = radio_read16((uint16_t)&AX5043_FIFOFREE1);
    2F32 90 40 2C          12627 	mov	dptr,#_AX5043_FIFOFREE1
-   2F35 12 46 DC          12628 	lcall	_radio_read16
+   2F35 12 46 DA          12628 	lcall	_radio_read16
    2F38 AB 82             12629 	mov	r3,dpl
    2F3A AC 83             12630 	mov	r4,dph
                     26F2  12631 	C$easyax5043.c$1922$3$398 ==.
@@ -12681,7 +12681,7 @@
    2F6F 89 82             12681 	mov	dpl,r1
    2F71 8A 83             12682 	mov	dph,r2
    2F73 8B F0             12683 	mov	b,r3
-   2F75 12 54 41          12684 	lcall	__gptrget
+   2F75 12 54 3F          12684 	lcall	__gptrget
    2F78 F8                12685 	mov	r0,a
    2F79 A3                12686 	inc	dptr
    2F7A A9 82             12687 	mov	r1,dpl
@@ -12812,7 +12812,7 @@
    2FED                   12812 00126$:
                     27A3  12813 	C$easyax5043.c$1966$2$397 ==.
                           12814 ;	..\COMMON\easyax5043.c:1966: axradio_ack_count = axradio_framing_ack_retransmissions;
-   2FED 90 56 47          12815 	mov	dptr,#_axradio_framing_ack_retransmissions
+   2FED 90 56 45          12815 	mov	dptr,#_axradio_framing_ack_retransmissions
    2FF0 E4                12816 	clr	a
    2FF1 93                12817 	movc	a,@a+dptr
    2FF2 90 00 0E          12818 	mov	dptr,#_axradio_ack_count
@@ -12825,7 +12825,7 @@
    2FFC F0                12825 	movx	@dptr,a
                     27B3  12826 	C$easyax5043.c$1968$2$397 ==.
                           12827 ;	..\COMMON\easyax5043.c:1968: axradio_txbuffer_len = pktlen + axradio_framing_maclen;
-   2FFD 90 56 30          12828 	mov	dptr,#_axradio_framing_maclen
+   2FFD 90 56 2E          12828 	mov	dptr,#_axradio_framing_maclen
    3000 E4                12829 	clr	a
    3001 93                12830 	movc	a,@a+dptr
    3002 FC                12831 	mov	r4,a
@@ -12864,10 +12864,10 @@
    3031 C0 07             12864 	push	ar7
    3033 C0 06             12865 	push	ar6
    3035 C0 05             12866 	push	ar5
-   3037 12 43 D6          12867 	lcall	_memset
+   3037 12 43 D4          12867 	lcall	_memset
                     27F0  12868 	C$easyax5043.c$1972$2$397 ==.
                           12869 ;	..\COMMON\easyax5043.c:1972: memcpy_xdatageneric(&axradio_txbuffer[axradio_framing_maclen], pkt, pktlen);
-   303A 90 56 30          12870 	mov	dptr,#_axradio_framing_maclen
+   303A 90 56 2E          12870 	mov	dptr,#_axradio_framing_maclen
    303D E4                12871 	clr	a
    303E 93                12872 	movc	a,@a+dptr
    303F 24 2A             12873 	add	a,#_axradio_txbuffer
@@ -12884,13 +12884,13 @@
    3057 8C 82             12884 	mov	dpl,r4
    3059 8B 83             12885 	mov	dph,r3
    305B 8A F0             12886 	mov	b,r2
-   305D 12 43 F5          12887 	lcall	_memcpy
+   305D 12 43 F3          12887 	lcall	_memcpy
    3060 D0 05             12888 	pop	ar5
    3062 D0 06             12889 	pop	ar6
    3064 D0 07             12890 	pop	ar7
                     281C  12891 	C$easyax5043.c$1973$2$397 ==.
                           12892 ;	..\COMMON\easyax5043.c:1973: if (axradio_framing_ack_seqnrpos != 0xff)
-   3066 90 56 48          12893 	mov	dptr,#_axradio_framing_ack_seqnrpos
+   3066 90 56 46          12893 	mov	dptr,#_axradio_framing_ack_seqnrpos
    3069 E4                12894 	clr	a
    306A 93                12895 	movc	a,@a+dptr
    306B FC                12896 	mov	r4,a
@@ -12914,7 +12914,7 @@
    3083                   12914 00130$:
                     2839  12915 	C$easyax5043.c$1975$2$397 ==.
                           12916 ;	..\COMMON\easyax5043.c:1975: if (axradio_framing_destaddrpos != 0xff)
-   3083 90 56 32          12917 	mov	dptr,#_axradio_framing_destaddrpos
+   3083 90 56 30          12917 	mov	dptr,#_axradio_framing_destaddrpos
    3086 E4                12918 	clr	a
    3087 93                12919 	movc	a,@a+dptr
    3088 FC                12920 	mov	r4,a
@@ -12933,7 +12933,7 @@
    3098 8D 36             12933 	mov	_memcpy_PARM_2,r5
    309A 8E 37             12934 	mov	(_memcpy_PARM_2 + 1),r6
    309C 8F 38             12935 	mov	(_memcpy_PARM_2 + 2),r7
-   309E 90 56 31          12936 	mov	dptr,#_axradio_framing_addrlen
+   309E 90 56 2F          12936 	mov	dptr,#_axradio_framing_addrlen
    30A1 E4                12937 	clr	a
    30A2 93                12938 	movc	a,@a+dptr
    30A3 FF                12939 	mov	r7,a
@@ -12942,11 +12942,11 @@
    30A9 8C 82             12942 	mov	dpl,r4
    30AB 8B 83             12943 	mov	dph,r3
    30AD 8A F0             12944 	mov	b,r2
-   30AF 12 43 F5          12945 	lcall	_memcpy
+   30AF 12 43 F3          12945 	lcall	_memcpy
    30B2                   12946 00132$:
                     2868  12947 	C$easyax5043.c$1977$2$397 ==.
                           12948 ;	..\COMMON\easyax5043.c:1977: if (axradio_framing_sourceaddrpos != 0xff)
-   30B2 90 56 33          12949 	mov	dptr,#_axradio_framing_sourceaddrpos
+   30B2 90 56 31          12949 	mov	dptr,#_axradio_framing_sourceaddrpos
    30B5 E4                12950 	clr	a
    30B6 93                12951 	movc	a,@a+dptr
    30B7 FF                12952 	mov	r7,a
@@ -12965,7 +12965,7 @@
    30C7 75 36 1E          12965 	mov	_memcpy_PARM_2,#_axradio_localaddr
    30CA 75 37 00          12966 	mov	(_memcpy_PARM_2 + 1),#(_axradio_localaddr >> 8)
    30CD 75 38 00          12967 	mov	(_memcpy_PARM_2 + 2),#0x00
-   30D0 90 56 31          12968 	mov	dptr,#_axradio_framing_addrlen
+   30D0 90 56 2F          12968 	mov	dptr,#_axradio_framing_addrlen
    30D3 E4                12969 	clr	a
    30D4 93                12970 	movc	a,@a+dptr
    30D5 FC                12971 	mov	r4,a
@@ -12974,11 +12974,11 @@
    30DB 8F 82             12974 	mov	dpl,r7
    30DD 8E 83             12975 	mov	dph,r6
    30DF 8D F0             12976 	mov	b,r5
-   30E1 12 43 F5          12977 	lcall	_memcpy
+   30E1 12 43 F3          12977 	lcall	_memcpy
    30E4                   12978 00134$:
                     289A  12979 	C$easyax5043.c$1979$2$397 ==.
                           12980 ;	..\COMMON\easyax5043.c:1979: if (axradio_framing_lenmask) {
-   30E4 90 56 36          12981 	mov	dptr,#_axradio_framing_lenmask
+   30E4 90 56 34          12981 	mov	dptr,#_axradio_framing_lenmask
    30E7 E4                12982 	clr	a
    30E8 93                12983 	movc	a,@a+dptr
    30E9 FF                12984 	mov	r7,a
@@ -12990,7 +12990,7 @@
    30F0 FD                12990 	mov	r5,a
    30F1 A3                12991 	inc	dptr
    30F2 E0                12992 	movx	a,@dptr
-   30F3 90 56 35          12993 	mov	dptr,#_axradio_framing_lenoffs
+   30F3 90 56 33          12993 	mov	dptr,#_axradio_framing_lenoffs
    30F6 E4                12994 	clr	a
    30F7 93                12995 	movc	a,@a+dptr
    30F8 FE                12996 	mov	r6,a
@@ -13001,7 +13001,7 @@
    30FD FE                13001 	mov	r6,a
                     28B4  13002 	C$easyax5043.c$1981$3$402 ==.
                           13003 ;	..\COMMON\easyax5043.c:1981: axradio_txbuffer[axradio_framing_lenpos] = (axradio_txbuffer[axradio_framing_lenpos] & (uint8_t)~axradio_framing_lenmask) | len_byte;
-   30FE 90 56 34          13004 	mov	dptr,#_axradio_framing_lenpos
+   30FE 90 56 32          13004 	mov	dptr,#_axradio_framing_lenpos
    3101 E4                13005 	clr	a
    3102 93                13006 	movc	a,@a+dptr
    3103 24 2A             13007 	add	a,#_axradio_txbuffer
@@ -13025,7 +13025,7 @@
    311C                   13025 00136$:
                     28D2  13026 	C$easyax5043.c$1983$2$397 ==.
                           13027 ;	..\COMMON\easyax5043.c:1983: if (axradio_framing_swcrclen) {
-   311C 90 56 37          13028 	mov	dptr,#_axradio_framing_swcrclen
+   311C 90 56 35          13028 	mov	dptr,#_axradio_framing_swcrclen
    311F E4                13029 	clr	a
    3120 93                13030 	movc	a,@a+dptr
    3121 FF                13031 	mov	r7,a
@@ -13044,7 +13044,7 @@
    3136 15 81             13044 	dec	sp
                     28EE  13045 	C$easyax5043.c$1985$3$403 ==.
                           13046 ;	..\COMMON\easyax5043.c:1985: axradio_txbuffer_len += axradio_framing_swcrclen;
-   3138 90 56 37          13047 	mov	dptr,#_axradio_framing_swcrclen
+   3138 90 56 35          13047 	mov	dptr,#_axradio_framing_swcrclen
    313B E4                13048 	clr	a
    313C 93                13049 	movc	a,@a+dptr
    313D FF                13050 	mov	r7,a
@@ -13066,7 +13066,7 @@
    3152                   13066 00138$:
                     2908  13067 	C$easyax5043.c$1987$2$397 ==.
                           13068 ;	..\COMMON\easyax5043.c:1987: if (axradio_phy_pn9)
-   3152 90 56 0F          13069 	mov	dptr,#_axradio_phy_pn9
+   3152 90 56 0D          13069 	mov	dptr,#_axradio_phy_pn9
    3155 E4                13070 	clr	a
    3156 93                13071 	movc	a,@a+dptr
    3157 FF                13072 	mov	r7,a
@@ -13094,7 +13094,7 @@
    3178 C0 E0             13094 	push	acc
    317A 90 00 2A          13095 	mov	dptr,#_axradio_txbuffer
    317D 75 F0 00          13096 	mov	b,#0x00
-   3180 12 45 CA          13097 	lcall	_pn9_buffer
+   3180 12 45 C8          13097 	lcall	_pn9_buffer
    3183 E5 81             13098 	mov	a,sp
    3185 24 FB             13099 	add	a,#0xfb
    3187 F5 81             13100 	mov	sp,a
@@ -13128,7 +13128,7 @@
    31A7                   13128 00144$:
                     295D  13129 	C$easyax5043.c$1994$2$397 ==.
                           13130 ;	..\COMMON\easyax5043.c:1994: axradio_txbuffer_cnt = axradio_phy_preamble_wor_longlen;
-   31A7 90 56 24          13131 	mov	dptr,#_axradio_phy_preamble_wor_longlen
+   31A7 90 56 22          13131 	mov	dptr,#_axradio_phy_preamble_wor_longlen
    31AA E4                13132 	clr	a
    31AB 93                13133 	movc	a,@a+dptr
    31AC FE                13134 	mov	r6,a
@@ -13145,7 +13145,7 @@
    31BB                   13145 00145$:
                     2971  13146 	C$easyax5043.c$1996$2$397 ==.
                           13147 ;	..\COMMON\easyax5043.c:1996: axradio_txbuffer_cnt = axradio_phy_preamble_longlen;
-   31BB 90 56 28          13148 	mov	dptr,#_axradio_phy_preamble_longlen
+   31BB 90 56 26          13148 	mov	dptr,#_axradio_phy_preamble_longlen
    31BE E4                13149 	clr	a
    31BF 93                13150 	movc	a,@a+dptr
    31C0 FE                13151 	mov	r6,a
@@ -13161,7 +13161,7 @@
    31CD                   13161 00146$:
                     2983  13162 	C$easyax5043.c$1997$2$397 ==.
                           13163 ;	..\COMMON\easyax5043.c:1997: if (axradio_phy_lbt_retries) {
-   31CD 90 56 20          13164 	mov	dptr,#_axradio_phy_lbt_retries
+   31CD 90 56 1E          13164 	mov	dptr,#_axradio_phy_lbt_retries
    31D0 E4                13165 	clr	a
    31D1 93                13166 	movc	a,@a+dptr
    31D2 FF                13167 	mov	r7,a
@@ -13202,7 +13202,7 @@
    3200 12 09 16          13202 	lcall	_ax5043_init_registers_rx
                     29B9  13203 	C$easyax5043.c$2009$4$405 ==.
                           13204 ;	..\COMMON\easyax5043.c:2009: AX5043_RSSIREFERENCE = axradio_phy_rssireference;
-   3203 90 56 1B          13205 	mov	dptr,#_axradio_phy_rssireference
+   3203 90 56 19          13205 	mov	dptr,#_axradio_phy_rssireference
    3206 E4                13206 	clr	a
    3207 93                13207 	movc	a,@a+dptr
    3208 90 42 2C          13208 	mov	dptr,#_AX5043_RSSIREFERENCE
@@ -13214,7 +13214,7 @@
    3211 F0                13214 	movx	@dptr,a
                     29C8  13215 	C$easyax5043.c$2011$4$405 ==.
                           13216 ;	..\COMMON\easyax5043.c:2011: axradio_ack_count = axradio_phy_lbt_retries;
-   3212 90 56 20          13217 	mov	dptr,#_axradio_phy_lbt_retries
+   3212 90 56 1E          13217 	mov	dptr,#_axradio_phy_lbt_retries
    3215 E4                13218 	clr	a
    3216 93                13219 	movc	a,@a+dptr
    3217 90 00 0E          13220 	mov	dptr,#_axradio_ack_count
@@ -13227,10 +13227,10 @@
                     29D7  13227 	C$easyax5043.c$2013$4$405 ==.
                           13228 ;	..\COMMON\easyax5043.c:2013: wtimer_remove(&axradio_timer);
    3221 90 02 89          13229 	mov	dptr,#_axradio_timer
-   3224 12 4D 5A          13230 	lcall	_wtimer_remove
+   3224 12 4D 58          13230 	lcall	_wtimer_remove
                     29DD  13231 	C$easyax5043.c$2014$4$405 ==.
                           13232 ;	..\COMMON\easyax5043.c:2014: axradio_timer.time = axradio_phy_cs_period;
-   3227 90 56 1D          13233 	mov	dptr,#_axradio_phy_cs_period
+   3227 90 56 1B          13233 	mov	dptr,#_axradio_phy_cs_period
    322A E4                13234 	clr	a
    322B 93                13235 	movc	a,@a+dptr
    322C FE                13236 	mov	r6,a
@@ -13254,7 +13254,7 @@
                     29F9  13254 	C$easyax5043.c$2015$4$405 ==.
                           13255 ;	..\COMMON\easyax5043.c:2015: wtimer0_addrelative(&axradio_timer);
    3243 90 02 89          13256 	mov	dptr,#_axradio_timer
-   3246 12 44 64          13257 	lcall	_wtimer0_addrelative
+   3246 12 44 62          13257 	lcall	_wtimer0_addrelative
                     29FF  13258 	C$easyax5043.c$2016$4$405 ==.
                           13259 ;	..\COMMON\easyax5043.c:2016: return AXRADIO_ERR_NOERROR;
    3249 75 82 00          13260 	mov	dpl,#0x00
@@ -13372,15 +13372,15 @@
                           13372 	.area CONST   (CODE)
                           13373 	.area XINIT   (CODE)
                     0000  13374 Feasyax5043$__xinit_f30_saved$0$0 == .
-   5B0A                   13375 __xinit__f30_saved:
-   5B0A 3F                13376 	.db #0x3F	; 63
+   5B08                   13375 __xinit__f30_saved:
+   5B08 3F                13376 	.db #0x3F	; 63
                     0001  13377 Feasyax5043$__xinit_f31_saved$0$0 == .
-   5B0B                   13378 __xinit__f31_saved:
-   5B0B F0                13379 	.db #0xF0	; 240
+   5B09                   13378 __xinit__f31_saved:
+   5B09 F0                13379 	.db #0xF0	; 240
                     0002  13380 Feasyax5043$__xinit_f32_saved$0$0 == .
-   5B0C                   13381 __xinit__f32_saved:
-   5B0C 3F                13382 	.db #0x3F	; 63
+   5B0A                   13381 __xinit__f32_saved:
+   5B0A 3F                13382 	.db #0x3F	; 63
                     0003  13383 Feasyax5043$__xinit_f33_saved$0$0 == .
-   5B0D                   13384 __xinit__f33_saved:
-   5B0D F0                13385 	.db #0xF0	; 240
+   5B0B                   13384 __xinit__f33_saved:
+   5B0B F0                13385 	.db #0xF0	; 240
                           13386 	.area CABS    (ABS,CODE)

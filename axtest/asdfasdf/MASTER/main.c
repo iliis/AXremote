@@ -62,9 +62,22 @@
 
 #ifdef MINI_KIT
 #include "../COMMON/libminidvkled.h"
+
+#ifdef SAM_BOARD
+// sam's test board
 #define BUTTON_INTCHG INTCHGA
 #define BUTTON_PIN    PINA
 #define BUTTON_MASK   0x01
+
+#else
+
+// mini dev kit
+#define BUTTON_INTCHG INTCHGC
+#define BUTTON_PIN    PINC
+#define BUTTON_MASK   0x10
+
+#endif
+
 #else
 #include <libdvk2leds.h>
 #define BUTTON_INTCHG INTCHGB

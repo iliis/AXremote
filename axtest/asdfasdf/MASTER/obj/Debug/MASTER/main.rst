@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-                              4 ; This file was generated Sat Dec 21 22:29:44 2013
+                              4 ; This file was generated Mon Dec 23 14:43:50 2013
                               5 ;--------------------------------------------------------
                               6 	.module main
                               7 	.optsdcc -mmcs51 --model-small
@@ -3250,19 +3250,19 @@
                            3250 ;flg                       Allocated to registers r7 
                            3251 ;------------------------------------------------------------
                     0000   3252 	G$main$0$0 ==.
-                    0000   3253 	C$main.c$290$3$320 ==.
-                           3254 ;	main.c:290: static uint8_t __data saved_button_state = 0xFF;
+                    0000   3253 	C$main.c$303$3$320 ==.
+                           3254 ;	main.c:303: static uint8_t __data saved_button_state = 0xFF;
    0132 75 14 FF           3255 	mov	_main_saved_button_state_1_254,#0xFF
-                    0003   3256 	C$main.c$84$3$320 ==.
-                           3257 ;	main.c:84: uint16_t __data pkt_counter = 0;
+                    0003   3256 	C$main.c$97$3$320 ==.
+                           3257 ;	main.c:97: uint16_t __data pkt_counter = 0;
    0135 E4                 3258 	clr	a
    0136 F5 11              3259 	mov	_pkt_counter,a
    0138 F5 12              3260 	mov	(_pkt_counter + 1),a
-                    0008   3261 	C$main.c$85$3$320 ==.
-                           3262 ;	main.c:85: uint8_t __data coldstart = 1; // caution: initialization with 1 is necessary! Variables are initialized upon _sdcc_external_startup returning 0 -> the coldstart value returned from _sdcc_external startup does not survive in the coldstart case
+                    0008   3261 	C$main.c$98$3$320 ==.
+                           3262 ;	main.c:98: uint8_t __data coldstart = 1; // caution: initialization with 1 is necessary! Variables are initialized upon _sdcc_external_startup returning 0 -> the coldstart value returned from _sdcc_external startup does not survive in the coldstart case
    013A 75 13 01           3263 	mov	_coldstart,#0x01
-                    000B   3264 	C$main.c$87$3$320 ==.
-                           3265 ;	main.c:87: __bit deglitch_busy = 0;
+                    000B   3264 	C$main.c$100$3$320 ==.
+                           3265 ;	main.c:100: __bit deglitch_busy = 0;
    013D C2 00              3266 	clr	_deglitch_busy
                            3267 	.area GSFINAL (CODE)
    013F 02 00 AE           3268 	ljmp	__sdcc_program_startup
@@ -3285,8 +3285,8 @@
                            3285 ;pc                        Allocated to registers r7 
                            3286 ;------------------------------------------------------------
                     0000   3287 	Fmain$pwrmgmt_irq$0$0 ==.
-                    0000   3288 	C$main.c$92$0$0 ==.
-                           3289 ;	main.c:92: static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
+                    0000   3288 	C$main.c$105$0$0 ==.
+                           3289 ;	main.c:105: static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
                            3290 ;	-----------------------------------------
                            3291 ;	 function pwrmgmt_irq
                            3292 ;	-----------------------------------------
@@ -3305,30 +3305,30 @@
    3478 C0 07              3305 	push	ar7
    347A C0 D0              3306 	push	psw
    347C 75 D0 00           3307 	mov	psw,#0x00
-                    000D   3308 	C$main.c$94$1$0 ==.
-                           3309 ;	main.c:94: uint8_t pc = PCON;
-                    000D   3310 	C$main.c$95$1$211 ==.
-                           3311 ;	main.c:95: if (!(pc & 0x80))
+                    000D   3308 	C$main.c$107$1$0 ==.
+                           3309 ;	main.c:107: uint8_t pc = PCON;
+                    000D   3310 	C$main.c$108$1$211 ==.
+                           3311 ;	main.c:108: if (!(pc & 0x80))
    347F E5 87              3312 	mov	a,_PCON
    3481 FF                 3313 	mov	r7,a
    3482 20 E7 02           3314 	jb	acc.7,00102$
-                    0013   3315 	C$main.c$96$1$211 ==.
-                           3316 ;	main.c:96: return;
+                    0013   3315 	C$main.c$109$1$211 ==.
+                           3316 ;	main.c:109: return;
    3485 80 13              3317 	sjmp	00106$
    3487                    3318 00102$:
-                    0015   3319 	C$main.c$97$1$211 ==.
-                           3320 ;	main.c:97: GPIOENABLE = 0;
+                    0015   3319 	C$main.c$110$1$211 ==.
+                           3320 ;	main.c:110: GPIOENABLE = 0;
    3487 90 70 0C           3321 	mov	dptr,#_GPIOENABLE
    348A E4                 3322 	clr	a
    348B F0                 3323 	movx	@dptr,a
-                    001A   3324 	C$main.c$98$1$211 ==.
-                           3325 ;	main.c:98: IE = EIE = E2IE = 0;
+                    001A   3324 	C$main.c$111$1$211 ==.
+                           3325 ;	main.c:111: IE = EIE = E2IE = 0;
    348C 75 A0 00           3326 	mov	_E2IE,#0x00
    348F 75 98 00           3327 	mov	_EIE,#0x00
    3492 75 A8 00           3328 	mov	_IE,#0x00
    3495                    3329 00104$:
-                    0023   3330 	C$main.c$100$1$211 ==.
-                           3331 ;	main.c:100: PCON |= 0x01;
+                    0023   3330 	C$main.c$113$1$211 ==.
+                           3331 ;	main.c:113: PCON |= 0x01;
    3495 43 87 01           3332 	orl	_PCON,#0x01
    3498 80 FB              3333 	sjmp	00104$
    349A                    3334 00106$:
@@ -3337,7 +3337,7 @@
    349E D0 83              3337 	pop	dph
    34A0 D0 82              3338 	pop	dpl
    34A2 D0 E0              3339 	pop	acc
-                    0032   3340 	C$main.c$101$1$211 ==.
+                    0032   3340 	C$main.c$114$1$211 ==.
                     0032   3341 	XFmain$pwrmgmt_irq$0$0 ==.
    34A4 32                 3342 	reti
                            3343 ;	eliminated unneeded push/pop b
@@ -3347,21 +3347,21 @@
                            3347 ;demo_packet_              Allocated with name '_transmit_packet_demo_packet__1_213'
                            3348 ;------------------------------------------------------------
                     0033   3349 	Fmain$transmit_packet$0$0 ==.
-                    0033   3350 	C$main.c$103$1$211 ==.
-                           3351 ;	main.c:103: static void transmit_packet(void)
+                    0033   3350 	C$main.c$116$1$211 ==.
+                           3351 ;	main.c:116: static void transmit_packet(void)
                            3352 ;	-----------------------------------------
                            3353 ;	 function transmit_packet
                            3354 ;	-----------------------------------------
    34A5                    3355 _transmit_packet:
-                    0033   3356 	C$main.c$107$1$213 ==.
-                           3357 ;	main.c:107: ++pkt_counter;
+                    0033   3356 	C$main.c$120$1$213 ==.
+                           3357 ;	main.c:120: ++pkt_counter;
    34A5 05 11              3358 	inc	_pkt_counter
    34A7 E4                 3359 	clr	a
    34A8 B5 11 02           3360 	cjne	a,_pkt_counter,00107$
    34AB 05 12              3361 	inc	(_pkt_counter + 1)
    34AD                    3362 00107$:
-                    003B   3363 	C$main.c$108$1$213 ==.
-                           3364 ;	main.c:108: memcpy(demo_packet_, demo_packet, sizeof(demo_packet));
+                    003B   3363 	C$main.c$121$1$213 ==.
+                           3364 ;	main.c:121: memcpy(demo_packet_, demo_packet, sizeof(demo_packet));
    34AD 75 2A 2E           3365 	mov	_memcpy_PARM_2,#_demo_packet
    34B0 75 2B 51           3366 	mov	(_memcpy_PARM_2 + 1),#(_demo_packet >> 8)
    34B3 75 2C 80           3367 	mov	(_memcpy_PARM_2 + 2),#0x80
@@ -3370,15 +3370,15 @@
    34BC 90 02 A1           3370 	mov	dptr,#_transmit_packet_demo_packet__1_213
    34BF 75 F0 00           3371 	mov	b,#0x00
    34C2 12 40 44           3372 	lcall	_memcpy
-                    0053   3373 	C$main.c$109$1$213 ==.
-                           3374 ;	main.c:109: if (framing_insert_counter) {
+                    0053   3373 	C$main.c$122$1$213 ==.
+                           3374 ;	main.c:122: if (framing_insert_counter) {
    34C5 90 51 2C           3375 	mov	dptr,#_framing_insert_counter
    34C8 E4                 3376 	clr	a
    34C9 93                 3377 	movc	a,@a+dptr
    34CA FF                 3378 	mov	r7,a
    34CB 60 24              3379 	jz	00102$
-                    005B   3380 	C$main.c$110$2$214 ==.
-                           3381 ;	main.c:110: demo_packet_[framing_counter_pos] = pkt_counter & 0xFF ;
+                    005B   3380 	C$main.c$123$2$214 ==.
+                           3381 ;	main.c:123: demo_packet_[framing_counter_pos] = pkt_counter & 0xFF ;
    34CD 90 51 2D           3382 	mov	dptr,#_framing_counter_pos
    34D0 E4                 3383 	clr	a
    34D1 93                 3384 	movc	a,@a+dptr
@@ -3392,8 +3392,8 @@
    34DE 7E 00              3392 	mov	r6,#0x00
    34E0 ED                 3393 	mov	a,r5
    34E1 F0                 3394 	movx	@dptr,a
-                    0070   3395 	C$main.c$111$2$214 ==.
-                           3396 ;	main.c:111: demo_packet_[framing_counter_pos+1] = (pkt_counter>>8) & 0xFF;
+                    0070   3395 	C$main.c$124$2$214 ==.
+                           3396 ;	main.c:124: demo_packet_[framing_counter_pos+1] = (pkt_counter>>8) & 0xFF;
    34E2 EF                 3397 	mov	a,r7
    34E3 04                 3398 	inc	a
    34E4 24 A1              3399 	add	a,#_transmit_packet_demo_packet__1_213
@@ -3405,8 +3405,8 @@
    34EF FF                 3405 	mov	r7,a
    34F0 F0                 3406 	movx	@dptr,a
    34F1                    3407 00102$:
-                    007F   3408 	C$main.c$113$1$213 ==.
-                           3409 ;	main.c:113: axradio_transmit(&remoteaddr, demo_packet_, sizeof(demo_packet));
+                    007F   3408 	C$main.c$126$1$213 ==.
+                           3409 ;	main.c:126: axradio_transmit(&remoteaddr, demo_packet_, sizeof(demo_packet));
    34F1 75 0C A1           3410 	mov	_axradio_transmit_PARM_2,#_transmit_packet_demo_packet__1_213
    34F4 75 0D 02           3411 	mov	(_axradio_transmit_PARM_2 + 1),#(_transmit_packet_demo_packet__1_213 >> 8)
    34F7 75 0E 00           3412 	mov	(_axradio_transmit_PARM_2 + 2),#0x00
@@ -3415,21 +3415,21 @@
    3500 90 51 20           3415 	mov	dptr,#_remoteaddr
    3503 75 F0 80           3416 	mov	b,#0x80
    3506 12 2E DB           3417 	lcall	_axradio_transmit
-                    0097   3418 	C$main.c$114$1$213 ==.
+                    0097   3418 	C$main.c$127$1$213 ==.
                     0097   3419 	XFmain$transmit_packet$0$0 ==.
    3509 22                 3420 	ret
                            3421 ;------------------------------------------------------------
                            3422 ;Allocation info for local variables in function 'display_transmit_packet'
                            3423 ;------------------------------------------------------------
                     0098   3424 	Fmain$display_transmit_packet$0$0 ==.
-                    0098   3425 	C$main.c$116$1$213 ==.
-                           3426 ;	main.c:116: static void display_transmit_packet(void)
+                    0098   3425 	C$main.c$129$1$213 ==.
+                           3426 ;	main.c:129: static void display_transmit_packet(void)
                            3427 ;	-----------------------------------------
                            3428 ;	 function display_transmit_packet
                            3429 ;	-----------------------------------------
    350A                    3430 _display_transmit_packet:
-                    0098   3431 	C$main.c$118$1$216 ==.
-                           3432 ;	main.c:118: if (pkt_counter == 1) {
+                    0098   3431 	C$main.c$131$1$216 ==.
+                           3432 ;	main.c:131: if (pkt_counter == 1) {
    350A 74 01              3433 	mov	a,#0x01
    350C B5 11 06           3434 	cjne	a,_pkt_counter,00123$
    350F E4                 3435 	clr	a
@@ -3438,24 +3438,24 @@
    3515                    3438 00123$:
    3515 80 0E              3439 	sjmp	00109$
    3517                    3440 00124$:
-                    00A5   3441 	C$main.c$122$2$217 ==.
-                           3442 ;	main.c:122: if (DBGLNKSTAT & 0x10)
+                    00A5   3441 	C$main.c$135$2$217 ==.
+                           3442 ;	main.c:135: if (DBGLNKSTAT & 0x10)
    3517 E5 E2              3443 	mov	a,_DBGLNKSTAT
    3519 30 E4 09           3444 	jnb	acc.4,00109$
-                    00AA   3445 	C$main.c$123$2$217 ==.
-                           3446 ;	main.c:123: dbglink_writestr("TX : \n");
+                    00AA   3445 	C$main.c$136$2$217 ==.
+                           3446 ;	main.c:136: dbglink_writestr("TX : \n");
    351C 90 52 24           3447 	mov	dptr,#__str_0
    351F 75 F0 80           3448 	mov	b,#0x80
    3522 12 47 A9           3449 	lcall	_dbglink_writestr
-                    00B3   3450 	C$main.c$126$1$216 ==.
-                           3451 ;	main.c:126: display_setpos(0x4c);
+                    00B3   3450 	C$main.c$139$1$216 ==.
+                           3451 ;	main.c:139: display_setpos(0x4c);
    3525                    3452 00109$:
-                    00B3   3453 	C$main.c$129$1$216 ==.
-                           3454 ;	main.c:129: if (DBGLNKSTAT & 0x10) {
+                    00B3   3453 	C$main.c$142$1$216 ==.
+                           3454 ;	main.c:142: if (DBGLNKSTAT & 0x10) {
    3525 E5 E2              3455 	mov	a,_DBGLNKSTAT
    3527 30 E4 1B           3456 	jnb	acc.4,00115$
-                    00B8   3457 	C$main.c$130$2$222 ==.
-                           3458 ;	main.c:130: dbglink_writehex16(pkt_counter, 4, WRNUM_PADZERO);
+                    00B8   3457 	C$main.c$143$2$222 ==.
+                           3458 ;	main.c:143: dbglink_writehex16(pkt_counter, 4, WRNUM_PADZERO);
    352A 74 08              3459 	mov	a,#0x08
    352C C0 E0              3460 	push	acc
    352E 74 04              3461 	mov	a,#0x04
@@ -3465,12 +3465,12 @@
    3538 12 4B B3           3465 	lcall	_dbglink_writehex16
    353B 15 81              3466 	dec	sp
    353D 15 81              3467 	dec	sp
-                    00CD   3468 	C$main.c$131$2$222 ==.
-                           3469 ;	main.c:131: dbglink_tx('\n');
+                    00CD   3468 	C$main.c$144$2$222 ==.
+                           3469 ;	main.c:144: dbglink_tx('\n');
    353F 75 82 0A           3470 	mov	dpl,#0x0A
    3542 12 38 14           3471 	lcall	_dbglink_tx
    3545                    3472 00115$:
-                    00D3   3473 	C$main.c$135$1$216 ==.
+                    00D3   3473 	C$main.c$148$1$216 ==.
                     00D3   3474 	XFmain$display_transmit_packet$0$0 ==.
    3545 22                 3475 	ret
                            3476 ;------------------------------------------------------------
@@ -3479,14 +3479,14 @@
                            3479 ;st                        Allocated to registers r6 r7 
                            3480 ;------------------------------------------------------------
                     00D4   3481 	G$axradio_statuschange$0$0 ==.
-                    00D4   3482 	C$main.c$137$1$216 ==.
-                           3483 ;	main.c:137: void axradio_statuschange(struct axradio_status __xdata *st)
+                    00D4   3482 	C$main.c$150$1$216 ==.
+                           3483 ;	main.c:150: void axradio_statuschange(struct axradio_status __xdata *st)
                            3484 ;	-----------------------------------------
                            3485 ;	 function axradio_statuschange
                            3486 ;	-----------------------------------------
    3546                    3487 _axradio_statuschange:
-                    00D4   3488 	C$main.c$148$1$224 ==.
-                           3489 ;	main.c:148: switch (st->status)
+                    00D4   3488 	C$main.c$161$1$224 ==.
+                           3489 ;	main.c:161: switch (st->status)
    3546 AE 82              3490 	mov	r6,dpl
    3548 AF 83              3491 	mov  r7,dph
    354A E0                 3492 	movx	a,@dptr
@@ -3497,46 +3497,46 @@
    3551 BD 03 02           3497 	cjne	r5,#0x03,00179$
    3554 80 05              3498 	sjmp	00105$
    3556                    3499 00179$:
-                    00E4   3500 	C$main.c$151$2$225 ==.
-                           3501 ;	main.c:151: led0_on();
+                    00E4   3500 	C$main.c$164$2$225 ==.
+                           3501 ;	main.c:164: led0_on();
    3556 BD 04 2A           3502 	cjne	r5,#0x04,00166$
    3559 80 04              3503 	sjmp	00119$
    355B                    3504 00105$:
    355B D2 81              3505 	setb	_PORTA_1
-                    00EB   3506 	C$main.c$157$2$225 ==.
-                           3507 ;	main.c:157: break;
-                    00EB   3508 	C$main.c$160$2$225 ==.
-                           3509 ;	main.c:160: led0_off();
+                    00EB   3506 	C$main.c$170$2$225 ==.
+                           3507 ;	main.c:170: break;
+                    00EB   3508 	C$main.c$173$2$225 ==.
+                           3509 ;	main.c:173: led0_off();
    355D 80 24              3510 	sjmp	00166$
    355F                    3511 00119$:
    355F C2 81              3512 	clr	_PORTA_1
-                    00EF   3513 	C$main.c$161$2$225 ==.
-                           3514 ;	main.c:161: if (st->error == AXRADIO_ERR_NOERROR) {
+                    00EF   3513 	C$main.c$174$2$225 ==.
+                           3514 ;	main.c:174: if (st->error == AXRADIO_ERR_NOERROR) {
    3561 8E 82              3515 	mov	dpl,r6
    3563 8F 83              3516 	mov	dph,r7
    3565 A3                 3517 	inc	dptr
    3566 E0                 3518 	movx	a,@dptr
    3567 FD                 3519 	mov	r5,a
    3568 70 04              3520 	jnz	00135$
-                    00F8   3521 	C$main.c$164$3$232 ==.
-                           3522 ;	main.c:164: deglitch_busy = 0;
+                    00F8   3521 	C$main.c$177$3$232 ==.
+                           3522 ;	main.c:177: deglitch_busy = 0;
    356A C2 00              3523 	clr	_deglitch_busy
    356C 80 15              3524 	sjmp	00166$
    356E                    3525 00135$:
-                    00FC   3526 	C$main.c$174$2$225 ==.
-                           3527 ;	main.c:174: } else if (st->error == AXRADIO_ERR_TIMEOUT) {
+                    00FC   3526 	C$main.c$187$2$225 ==.
+                           3527 ;	main.c:187: } else if (st->error == AXRADIO_ERR_TIMEOUT) {
    356E BD 03 12           3528 	cjne	r5,#0x03,00166$
-                    00FF   3529 	C$main.c$177$3$235 ==.
-                           3530 ;	main.c:177: deglitch_busy = 0;
+                    00FF   3529 	C$main.c$190$3$235 ==.
+                           3530 ;	main.c:190: deglitch_busy = 0;
    3571 C2 00              3531 	clr	_deglitch_busy
-                    0101   3532 	C$main.c$192$2$225 ==.
-                           3533 ;	main.c:192: break;
-                    0101   3534 	C$main.c$202$2$225 ==.
-                           3535 ;	main.c:202: case AXRADIO_STAT_CHANNELSTATE:
+                    0101   3532 	C$main.c$205$2$225 ==.
+                           3533 ;	main.c:205: break;
+                    0101   3534 	C$main.c$215$2$225 ==.
+                           3535 ;	main.c:215: case AXRADIO_STAT_CHANNELSTATE:
    3573 80 0E              3536 	sjmp	00166$
    3575                    3537 00150$:
-                    0103   3538 	C$main.c$203$2$225 ==.
-                           3539 ;	main.c:203: if (st->u.cs.busy)
+                    0103   3538 	C$main.c$216$2$225 ==.
+                           3539 ;	main.c:216: if (st->u.cs.busy)
    3575 74 06              3540 	mov	a,#0x06
    3577 2E                 3541 	add	a,r6
    3578 FE                 3542 	mov	r6,a
@@ -3548,10 +3548,10 @@
    3580 A3                 3548 	inc	dptr
    3581 A3                 3549 	inc	dptr
    3582 E0                 3550 	movx	a,@dptr
-                    0111   3551 	C$main.c$211$1$224 ==.
-                           3552 ;	main.c:211: }
+                    0111   3551 	C$main.c$224$1$224 ==.
+                           3552 ;	main.c:224: }
    3583                    3553 00166$:
-                    0111   3554 	C$main.c$212$1$224 ==.
+                    0111   3554 	C$main.c$225$1$224 ==.
                     0111   3555 	XG$axradio_statuschange$0$0 ==.
    3583 22                 3556 	ret
                            3557 ;------------------------------------------------------------
@@ -3560,15 +3560,15 @@
                            3560 ;desc                      Allocated to registers 
                            3561 ;------------------------------------------------------------
                     0112   3562 	Fmain$wakeup_callback$0$0 ==.
-                    0112   3563 	C$main.c$213$1$224 ==.
-                           3564 ;	main.c:213: static void wakeup_callback(struct wtimer_desc __xdata *desc)
+                    0112   3563 	C$main.c$226$1$224 ==.
+                           3564 ;	main.c:226: static void wakeup_callback(struct wtimer_desc __xdata *desc)
                            3565 ;	-----------------------------------------
                            3566 ;	 function wakeup_callback
                            3567 ;	-----------------------------------------
    3584                    3568 _wakeup_callback:
-                    0112   3569 	C$main.c$215$1$247 ==.
-                           3570 ;	main.c:215: desc;
-                    0112   3571 	C$main.c$222$1$247 ==.
+                    0112   3569 	C$main.c$228$1$247 ==.
+                           3570 ;	main.c:228: desc;
+                    0112   3571 	C$main.c$235$1$247 ==.
                     0112   3572 	XFmain$wakeup_callback$0$0 ==.
    3584 22                 3573 	ret
                            3574 ;------------------------------------------------------------
@@ -3580,32 +3580,32 @@
                            3580 ;p                         Allocated to registers 
                            3581 ;------------------------------------------------------------
                     0113   3582 	G$_sdcc_external_startup$0$0 ==.
-                    0113   3583 	C$main.c$236$1$247 ==.
-                           3584 ;	main.c:236: uint8_t _sdcc_external_startup(void)
+                    0113   3583 	C$main.c$249$1$247 ==.
+                           3584 ;	main.c:249: uint8_t _sdcc_external_startup(void)
                            3585 ;	-----------------------------------------
                            3586 ;	 function _sdcc_external_startup
                            3587 ;	-----------------------------------------
    3585                    3588 __sdcc_external_startup:
-                    0113   3589 	C$main.c$239$1$249 ==.
-                           3590 ;	main.c:239: LPXOSCGM = 0x8A;
+                    0113   3589 	C$main.c$252$1$249 ==.
+                           3590 ;	main.c:252: LPXOSCGM = 0x8A;
    3585 90 70 54           3591 	mov	dptr,#_LPXOSCGM
    3588 74 8A              3592 	mov	a,#0x8A
    358A F0                 3593 	movx	@dptr,a
-                    0119   3594 	C$main.c$240$2$250 ==.
-                           3595 ;	main.c:240: wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
+                    0119   3594 	C$main.c$253$2$250 ==.
+                           3595 ;	main.c:253: wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
    358B 75 82 09           3596 	mov	dpl,#0x09
    358E 12 3B 10           3597 	lcall	_wtimer0_setconfig
-                    011F   3598 	C$main.c$241$2$251 ==.
-                           3599 ;	main.c:241: wtimer1_setclksrc(CLKSRC_FRCOSC, 7);
+                    011F   3598 	C$main.c$254$2$251 ==.
+                           3599 ;	main.c:254: wtimer1_setclksrc(CLKSRC_FRCOSC, 7);
    3591 75 82 38           3600 	mov	dpl,#0x38
    3594 12 3B 2E           3601 	lcall	_wtimer1_setconfig
-                    0125   3602 	C$main.c$243$1$249 ==.
-                           3603 ;	main.c:243: LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
+                    0125   3602 	C$main.c$256$1$249 ==.
+                           3603 ;	main.c:256: LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
    3597 90 70 60           3604 	mov	dptr,#_LPOSCCONFIG
    359A 74 09              3605 	mov	a,#0x09
    359C F0                 3606 	movx	@dptr,a
-                    012B   3607 	C$main.c$245$1$249 ==.
-                           3608 ;	main.c:245: coldstart = !(PCON & 0x40);
+                    012B   3607 	C$main.c$258$1$249 ==.
+                           3608 ;	main.c:258: coldstart = !(PCON & 0x40);
    359D 74 40              3609 	mov	a,#0x40
    359F 55 87              3610 	anl	a,_PCON
    35A1 FF                 3611 	mov	r7,a
@@ -3614,71 +3614,71 @@
    35A5 E4                 3614 	clr	a
    35A6 33                 3615 	rlc	a
    35A7 F5 13              3616 	mov	_coldstart,a
-                    0137   3617 	C$main.c$247$1$249 ==.
-                           3618 ;	main.c:247: ANALOGA = 0x18; // PA[3,4] LPXOSC, other PA are used as digital pins
+                    0137   3617 	C$main.c$260$1$249 ==.
+                           3618 ;	main.c:260: ANALOGA = 0x18; // PA[3,4] LPXOSC, other PA are used as digital pins
    35A9 90 70 07           3619 	mov	dptr,#_ANALOGA
    35AC 74 18              3620 	mov	a,#0x18
    35AE F0                 3621 	movx	@dptr,a
-                    013D   3622 	C$main.c$263$1$249 ==.
-                           3623 ;	main.c:263: PORTA = 0xFF; //
+                    013D   3622 	C$main.c$276$1$249 ==.
+                           3623 ;	main.c:276: PORTA = 0xFF; //
    35AF 75 80 FF           3624 	mov	_PORTA,#0xFF
-                    0140   3625 	C$main.c$264$1$249 ==.
-                           3626 ;	main.c:264: PORTB = 0xFD | (PINB & 0x02); // init LEDs to previous (frozen) state
+                    0140   3625 	C$main.c$277$1$249 ==.
+                           3626 ;	main.c:277: PORTB = 0xFD | (PINB & 0x02); // init LEDs to previous (frozen) state
    35B2 74 02              3627 	mov	a,#0x02
    35B4 55 E8              3628 	anl	a,_PINB
    35B6 44 FD              3629 	orl	a,#0xFD
    35B8 F5 88              3630 	mov	_PORTB,a
-                    0148   3631 	C$main.c$265$1$249 ==.
-                           3632 ;	main.c:265: PORTC = 0xFF; //
+                    0148   3631 	C$main.c$278$1$249 ==.
+                           3632 ;	main.c:278: PORTC = 0xFF; //
    35BA 75 90 FF           3633 	mov	_PORTC,#0xFF
-                    014B   3634 	C$main.c$266$1$249 ==.
-                           3635 ;	main.c:266: PORTR = 0xCB; //
+                    014B   3634 	C$main.c$279$1$249 ==.
+                           3635 ;	main.c:279: PORTR = 0xCB; //
    35BD 75 8C CB           3636 	mov	_PORTR,#0xCB
-                    014E   3637 	C$main.c$268$1$249 ==.
-                           3638 ;	main.c:268: DIRA = 0x00; //
+                    014E   3637 	C$main.c$281$1$249 ==.
+                           3638 ;	main.c:281: DIRA = 0x00; //
    35C0 75 89 00           3639 	mov	_DIRA,#0x00
-                    0151   3640 	C$main.c$269$1$249 ==.
-                           3641 ;	main.c:269: DIRB = 0x06; //  PB1 = LED, PB2 = TCXO ON/OFF
+                    0151   3640 	C$main.c$282$1$249 ==.
+                           3641 ;	main.c:282: DIRB = 0x06; //  PB1 = LED, PB2 = TCXO ON/OFF
    35C3 75 8A 06           3642 	mov	_DIRB,#0x06
-                    0154   3643 	C$main.c$270$1$249 ==.
-                           3644 ;	main.c:270: DIRC = 0x00; //  PC4 = button
+                    0154   3643 	C$main.c$283$1$249 ==.
+                           3644 ;	main.c:283: DIRC = 0x00; //  PC4 = button
    35C6 75 8B 00           3645 	mov	_DIRC,#0x00
-                    0157   3646 	C$main.c$271$1$249 ==.
-                           3647 ;	main.c:271: DIRR = 0x15; //
+                    0157   3646 	C$main.c$284$1$249 ==.
+                           3647 ;	main.c:284: DIRR = 0x15; //
    35C9 75 8E 15           3648 	mov	_DIRR,#0x15
-                    015A   3649 	C$main.c$272$1$249 ==.
-                           3650 ;	main.c:272: PALTRADIO |= (1<<6);
+                    015A   3649 	C$main.c$285$1$249 ==.
+                           3650 ;	main.c:285: PALTRADIO |= (1<<6);
    35CC 90 70 46           3651 	mov	dptr,#_PALTRADIO
    35CF E0                 3652 	movx	a,@dptr
    35D0 FF                 3653 	mov	r7,a
    35D1 44 40              3654 	orl	a,#0x40
    35D3 F0                 3655 	movx	@dptr,a
-                    0162   3656 	C$main.c$275$1$249 ==.
-                           3657 ;	main.c:275: DPS = 0;
+                    0162   3656 	C$main.c$288$1$249 ==.
+                           3657 ;	main.c:288: DPS = 0;
    35D4 75 86 00           3658 	mov	_DPS,#0x00
-                    0165   3659 	C$main.c$276$1$249 ==.
-                           3660 ;	main.c:276: IE = 0x40;
+                    0165   3659 	C$main.c$289$1$249 ==.
+                           3660 ;	main.c:289: IE = 0x40;
    35D7 75 A8 40           3661 	mov	_IE,#0x40
-                    0168   3662 	C$main.c$277$1$249 ==.
-                           3663 ;	main.c:277: EIE = 0x00;
+                    0168   3662 	C$main.c$290$1$249 ==.
+                           3663 ;	main.c:290: EIE = 0x00;
    35DA 75 98 00           3664 	mov	_EIE,#0x00
-                    016B   3665 	C$main.c$278$1$249 ==.
-                           3666 ;	main.c:278: E2IE = 0x00;
+                    016B   3665 	C$main.c$291$1$249 ==.
+                           3666 ;	main.c:291: E2IE = 0x00;
    35DD 75 A0 00           3667 	mov	_E2IE,#0x00
-                    016E   3668 	C$main.c$280$1$249 ==.
-                           3669 ;	main.c:280: GPIOENABLE = 1; // unfreeze GPIO
+                    016E   3668 	C$main.c$293$1$249 ==.
+                           3669 ;	main.c:293: GPIOENABLE = 1; // unfreeze GPIO
    35E0 90 70 0C           3670 	mov	dptr,#_GPIOENABLE
    35E3 74 01              3671 	mov	a,#0x01
    35E5 F0                 3672 	movx	@dptr,a
-                    0174   3673 	C$main.c$284$1$249 ==.
-                           3674 ;	main.c:284: return !coldstart; // coldstart -> return 0 -> var initialization; start from sleep -> return 1 -> no var initialization
+                    0174   3673 	C$main.c$297$1$249 ==.
+                           3674 ;	main.c:297: return !coldstart; // coldstart -> return 0 -> var initialization; start from sleep -> return 1 -> no var initialization
    35E6 E5 13              3675 	mov	a,_coldstart
    35E8 B4 01 00           3676 	cjne	a,#0x01,00112$
    35EB                    3677 00112$:
    35EB E4                 3678 	clr	a
    35EC 33                 3679 	rlc	a
    35ED F5 82              3680 	mov	dpl,a
-                    017D   3681 	C$main.c$286$1$249 ==.
+                    017D   3681 	C$main.c$299$1$249 ==.
                     017D   3682 	XG$_sdcc_external_startup$0$0 ==.
    35EF 22                 3683 	ret
                            3684 ;------------------------------------------------------------
@@ -3692,164 +3692,164 @@
                            3692 ;flg                       Allocated to registers r7 
                            3693 ;------------------------------------------------------------
                     017E   3694 	G$main$0$0 ==.
-                    017E   3695 	C$main.c$288$1$249 ==.
-                           3696 ;	main.c:288: void main(void)
+                    017E   3695 	C$main.c$301$1$249 ==.
+                           3696 ;	main.c:301: void main(void)
                            3697 ;	-----------------------------------------
                            3698 ;	 function main
                            3699 ;	-----------------------------------------
    35F0                    3700 _main:
-                    017E   3701 	C$main.c$301$1$254 ==.
-                           3702 ;	main.c:301: __endasm;
+                    017E   3701 	C$main.c$314$1$254 ==.
+                           3702 ;	main.c:314: __endasm;
                     0000   3703 	G$_start__stack$0$0 = __start__stack
                            3704 	.globl G$_start__stack$0$0
-                    017E   3705 	C$main.c$304$1$254 ==.
-                           3706 ;	main.c:304: EA = 1;
+                    017E   3705 	C$main.c$317$1$254 ==.
+                           3706 ;	main.c:317: EA = 1;
    35F0 D2 AF              3707 	setb	_EA
-                    0180   3708 	C$main.c$305$1$254 ==.
-                           3709 ;	main.c:305: flash_apply_calibration();
+                    0180   3708 	C$main.c$318$1$254 ==.
+                           3709 ;	main.c:318: flash_apply_calibration();
    35F2 12 44 9C           3710 	lcall	_flash_apply_calibration
-                    0183   3711 	C$main.c$306$1$254 ==.
-                           3712 ;	main.c:306: CLKCON = 0x00;
+                    0183   3711 	C$main.c$319$1$254 ==.
+                           3712 ;	main.c:319: CLKCON = 0x00;
    35F5 75 C6 00           3713 	mov	_CLKCON,#0x00
-                    0186   3714 	C$main.c$307$1$254 ==.
-                           3715 ;	main.c:307: wtimer_init();
+                    0186   3714 	C$main.c$320$1$254 ==.
+                           3715 ;	main.c:320: wtimer_init();
    35F8 12 3C 18           3716 	lcall	_wtimer_init
-                    0189   3717 	C$main.c$310$1$254 ==.
-                           3718 ;	main.c:310: dbglink_init();
+                    0189   3717 	C$main.c$323$1$254 ==.
+                           3718 ;	main.c:323: dbglink_init();
    35FB 12 41 B3           3719 	lcall	_dbglink_init
-                    018C   3720 	C$main.c$312$3$256 ==.
-                           3721 ;	main.c:312: led0_off();
+                    018C   3720 	C$main.c$325$3$256 ==.
+                           3721 ;	main.c:325: led0_off();
    35FE C2 81              3722 	clr	_PORTA_1
-                    018E   3723 	C$main.c$313$3$258 ==.
-                           3724 ;	main.c:313: led1_off();
+                    018E   3723 	C$main.c$326$3$258 ==.
+                           3724 ;	main.c:326: led1_off();
    3600 C2 82              3725 	clr	_PORTA_2
-                    0190   3726 	C$main.c$314$1$254 ==.
-                           3727 ;	main.c:314: delay_ms(200);
+                    0190   3726 	C$main.c$327$1$254 ==.
+                           3727 ;	main.c:327: delay_ms(200);
    3602 90 00 C8           3728 	mov	dptr,#0x00C8
    3605 12 33 10           3729 	lcall	_delay_ms
-                    0196   3730 	C$main.c$316$3$260 ==.
-                           3731 ;	main.c:316: led0_on();
+                    0196   3730 	C$main.c$329$3$260 ==.
+                           3731 ;	main.c:329: led0_on();
    3608 D2 81              3732 	setb	_PORTA_1
-                    0198   3733 	C$main.c$317$3$262 ==.
-                           3734 ;	main.c:317: led1_on();
+                    0198   3733 	C$main.c$330$3$262 ==.
+                           3734 ;	main.c:330: led1_on();
    360A D2 82              3735 	setb	_PORTA_2
-                    019A   3736 	C$main.c$318$1$254 ==.
-                           3737 ;	main.c:318: delay_ms(200);
+                    019A   3736 	C$main.c$331$1$254 ==.
+                           3737 ;	main.c:331: delay_ms(200);
    360C 90 00 C8           3738 	mov	dptr,#0x00C8
    360F 12 33 10           3739 	lcall	_delay_ms
-                    01A0   3740 	C$main.c$320$3$264 ==.
-                           3741 ;	main.c:320: led0_off();
+                    01A0   3740 	C$main.c$333$3$264 ==.
+                           3741 ;	main.c:333: led0_off();
    3612 C2 81              3742 	clr	_PORTA_1
-                    01A2   3743 	C$main.c$321$3$266 ==.
-                           3744 ;	main.c:321: led1_off();
+                    01A2   3743 	C$main.c$334$3$266 ==.
+                           3744 ;	main.c:334: led1_off();
    3614 C2 82              3745 	clr	_PORTA_2
-                    01A4   3746 	C$main.c$322$1$254 ==.
-                           3747 ;	main.c:322: delay_ms(200);
+                    01A4   3746 	C$main.c$335$1$254 ==.
+                           3747 ;	main.c:335: delay_ms(200);
    3616 90 00 C8           3748 	mov	dptr,#0x00C8
    3619 12 33 10           3749 	lcall	_delay_ms
-                    01AA   3750 	C$main.c$324$3$268 ==.
-                           3751 ;	main.c:324: led0_on();
+                    01AA   3750 	C$main.c$337$3$268 ==.
+                           3751 ;	main.c:337: led0_on();
    361C D2 81              3752 	setb	_PORTA_1
-                    01AC   3753 	C$main.c$325$3$270 ==.
-                           3754 ;	main.c:325: led1_on();
+                    01AC   3753 	C$main.c$338$3$270 ==.
+                           3754 ;	main.c:338: led1_on();
    361E D2 82              3755 	setb	_PORTA_2
-                    01AE   3756 	C$main.c$326$1$254 ==.
-                           3757 ;	main.c:326: delay_ms(200);
+                    01AE   3756 	C$main.c$339$1$254 ==.
+                           3757 ;	main.c:339: delay_ms(200);
    3620 90 00 C8           3758 	mov	dptr,#0x00C8
    3623 12 33 10           3759 	lcall	_delay_ms
-                    01B4   3760 	C$main.c$328$3$272 ==.
-                           3761 ;	main.c:328: led0_off();
+                    01B4   3760 	C$main.c$341$3$272 ==.
+                           3761 ;	main.c:341: led0_off();
    3626 C2 81              3762 	clr	_PORTA_1
-                    01B6   3763 	C$main.c$329$3$274 ==.
-                           3764 ;	main.c:329: led1_off();
+                    01B6   3763 	C$main.c$342$3$274 ==.
+                           3764 ;	main.c:342: led1_off();
    3628 C2 82              3765 	clr	_PORTA_2
-                    01B8   3766 	C$main.c$330$1$254 ==.
-                           3767 ;	main.c:330: delay_ms(200);
+                    01B8   3766 	C$main.c$343$1$254 ==.
+                           3767 ;	main.c:343: delay_ms(200);
    362A 90 00 C8           3768 	mov	dptr,#0x00C8
    362D 12 33 10           3769 	lcall	_delay_ms
-                    01BE   3770 	C$main.c$332$3$276 ==.
-                           3771 ;	main.c:332: led0_on();
+                    01BE   3770 	C$main.c$345$3$276 ==.
+                           3771 ;	main.c:345: led0_on();
    3630 D2 81              3772 	setb	_PORTA_1
-                    01C0   3773 	C$main.c$333$3$278 ==.
-                           3774 ;	main.c:333: led1_on();
+                    01C0   3773 	C$main.c$346$3$278 ==.
+                           3774 ;	main.c:346: led1_on();
    3632 D2 82              3775 	setb	_PORTA_2
-                    01C2   3776 	C$main.c$334$1$254 ==.
-                           3777 ;	main.c:334: delay_ms(200);
+                    01C2   3776 	C$main.c$347$1$254 ==.
+                           3777 ;	main.c:347: delay_ms(200);
    3634 90 00 C8           3778 	mov	dptr,#0x00C8
    3637 12 33 10           3779 	lcall	_delay_ms
-                    01C8   3780 	C$main.c$336$3$280 ==.
-                           3781 ;	main.c:336: led0_off();
+                    01C8   3780 	C$main.c$349$3$280 ==.
+                           3781 ;	main.c:349: led0_off();
    363A C2 81              3782 	clr	_PORTA_1
-                    01CA   3783 	C$main.c$337$3$282 ==.
-                           3784 ;	main.c:337: led1_off();
+                    01CA   3783 	C$main.c$350$3$282 ==.
+                           3784 ;	main.c:350: led1_off();
    363C C2 82              3785 	clr	_PORTA_2
-                    01CC   3786 	C$main.c$340$1$254 ==.
-                           3787 ;	main.c:340: if (coldstart) {
+                    01CC   3786 	C$main.c$353$1$254 ==.
+                           3787 ;	main.c:353: if (coldstart) {
    363E E5 13              3788 	mov	a,_coldstart
    3640 70 03              3789 	jnz	00328$
    3642 02 37 26           3790 	ljmp	00256$
    3645                    3791 00328$:
-                    01D3   3792 	C$main.c$342$4$285 ==.
-                           3793 ;	main.c:342: led0_off();
+                    01D3   3792 	C$main.c$355$4$285 ==.
+                           3793 ;	main.c:355: led0_off();
    3645 C2 81              3794 	clr	_PORTA_1
-                    01D5   3795 	C$main.c$343$4$287 ==.
-                           3796 ;	main.c:343: led1_off();
+                    01D5   3795 	C$main.c$356$4$287 ==.
+                           3796 ;	main.c:356: led1_off();
    3647 C2 82              3797 	clr	_PORTA_2
-                    01D7   3798 	C$main.c$347$2$283 ==.
-                           3799 ;	main.c:347: wakeup_desc.handler = wakeup_callback;
+                    01D7   3798 	C$main.c$360$2$283 ==.
+                           3799 ;	main.c:360: wakeup_desc.handler = wakeup_callback;
    3649 90 02 9B           3800 	mov	dptr,#(_wakeup_desc + 0x0002)
    364C 74 84              3801 	mov	a,#_wakeup_callback
    364E F0                 3802 	movx	@dptr,a
    364F A3                 3803 	inc	dptr
    3650 74 35              3804 	mov	a,#(_wakeup_callback >> 8)
    3652 F0                 3805 	movx	@dptr,a
-                    01E1   3806 	C$main.c$349$2$283 ==.
-                           3807 ;	main.c:349: BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
+                    01E1   3806 	C$main.c$362$2$283 ==.
+                           3807 ;	main.c:362: BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
    3653 90 70 00           3808 	mov	dptr,#_INTCHGA
    3656 E0                 3809 	movx	a,@dptr
    3657 44 01              3810 	orl	a,#0x01
    3659 F0                 3811 	movx	@dptr,a
-                    01E8   3812 	C$main.c$357$2$283 ==.
-                           3813 ;	main.c:357: i = axradio_init();
+                    01E8   3812 	C$main.c$370$2$283 ==.
+                           3813 ;	main.c:370: i = axradio_init();
    365A 12 25 BC           3814 	lcall	_axradio_init
-                    01EB   3815 	C$main.c$358$2$283 ==.
-                           3816 ;	main.c:358: if (i != AXRADIO_ERR_NOERROR) {
+                    01EB   3815 	C$main.c$371$2$283 ==.
+                           3816 ;	main.c:371: if (i != AXRADIO_ERR_NOERROR) {
    365D E5 82              3817 	mov	a,dpl
    365F FF                 3818 	mov	r7,a
    3660 60 4A              3819 	jz	00211$
-                    01F0   3820 	C$main.c$359$3$290 ==.
-                           3821 ;	main.c:359: if (i == AXRADIO_ERR_NOCHIP) {
+                    01F0   3820 	C$main.c$372$3$290 ==.
+                           3821 ;	main.c:372: if (i == AXRADIO_ERR_NOCHIP) {
    3662 BF 05 14           3822 	cjne	r7,#0x05,00206$
-                    01F3   3823 	C$main.c$362$4$291 ==.
-                           3824 ;	main.c:362: if (DBGLNKSTAT & 0x10)
+                    01F3   3823 	C$main.c$375$4$291 ==.
+                           3824 ;	main.c:375: if (DBGLNKSTAT & 0x10)
    3665 E5 E2              3825 	mov	a,_DBGLNKSTAT
    3667 20 E4 03           3826 	jb	acc.4,00332$
    366A 02 37 87           3827 	ljmp	00282$
    366D                    3828 00332$:
-                    01FB   3829 	C$main.c$363$4$291 ==.
-                           3830 ;	main.c:363: dbglink_writestr("No AX5043 RF chip found \n");
+                    01FB   3829 	C$main.c$376$4$291 ==.
+                           3830 ;	main.c:376: dbglink_writestr("No AX5043 RF chip found \n");
    366D 90 52 2B           3831 	mov	dptr,#__str_1
    3670 75 F0 80           3832 	mov	b,#0x80
    3673 12 47 A9           3833 	lcall	_dbglink_writestr
-                    0204   3834 	C$main.c$365$4$291 ==.
-                           3835 ;	main.c:365: goto terminate_error;
+                    0204   3834 	C$main.c$378$4$291 ==.
+                           3835 ;	main.c:378: goto terminate_error;
    3676 02 37 87           3836 	ljmp	00282$
    3679                    3837 00206$:
-                    0207   3838 	C$main.c$369$3$290 ==.
-                           3839 ;	main.c:369: if (DBGLNKSTAT & 0x10) {
+                    0207   3838 	C$main.c$382$3$290 ==.
+                           3839 ;	main.c:382: if (DBGLNKSTAT & 0x10) {
    3679 E5 E2              3840 	mov	a,_DBGLNKSTAT
    367B 20 E4 03           3841 	jb	acc.4,00333$
    367E 02 37 82           3842 	ljmp	00281$
    3681                    3843 00333$:
-                    020F   3844 	C$main.c$370$4$293 ==.
-                           3845 ;	main.c:370: dbglink_writestr("error initializing radio: ");
+                    020F   3844 	C$main.c$383$4$293 ==.
+                           3845 ;	main.c:383: dbglink_writestr("error initializing radio: ");
    3681 90 52 45           3846 	mov	dptr,#__str_2
    3684 75 F0 80           3847 	mov	b,#0x80
    3687 C0 07              3848 	push	ar7
    3689 12 47 A9           3849 	lcall	_dbglink_writestr
    368C D0 07              3850 	pop	ar7
-                    021C   3851 	C$main.c$371$4$293 ==.
-                           3852 ;	main.c:371: dbglink_writehexu16(i, 2);
+                    021C   3851 	C$main.c$384$4$293 ==.
+                           3852 ;	main.c:384: dbglink_writehexu16(i, 2);
    368E 8F 05              3853 	mov	ar5,r7
    3690 7E 00              3854 	mov	r6,#0x00
    3692 C0 07              3855 	push	ar7
@@ -3860,67 +3860,67 @@
    369C 12 49 FF           3860 	lcall	_dbglink_writehexu16
    369F 15 81              3861 	dec	sp
    36A1 D0 07              3862 	pop	ar7
-                    0231   3863 	C$main.c$372$4$293 ==.
-                           3864 ;	main.c:372: dbglink_tx('\n');
+                    0231   3863 	C$main.c$385$4$293 ==.
+                           3864 ;	main.c:385: dbglink_tx('\n');
    36A3 75 82 0A           3865 	mov	dpl,#0x0A
    36A6 12 38 14           3866 	lcall	_dbglink_tx
-                    0237   3867 	C$main.c$375$3$290 ==.
-                           3868 ;	main.c:375: goto terminate_radio_error;
+                    0237   3867 	C$main.c$388$3$290 ==.
+                           3868 ;	main.c:388: goto terminate_radio_error;
    36A9 02 37 82           3869 	ljmp	00281$
-                    023A   3870 	C$main.c$377$2$283 ==.
-                           3871 ;	main.c:377: display_writestr("found AX5043\n");
+                    023A   3870 	C$main.c$390$2$283 ==.
+                           3871 ;	main.c:390: display_writestr("found AX5043\n");
    36AC                    3872 00211$:
-                    023A   3873 	C$main.c$379$4$296 ==.
-                           3874 ;	main.c:379: led0_on();
+                    023A   3873 	C$main.c$392$4$296 ==.
+                           3874 ;	main.c:392: led0_on();
    36AC D2 81              3875 	setb	_PORTA_1
-                    023C   3876 	C$main.c$380$4$298 ==.
-                           3877 ;	main.c:380: led1_off();
+                    023C   3876 	C$main.c$393$4$298 ==.
+                           3877 ;	main.c:393: led1_off();
    36AE C2 82              3878 	clr	_PORTA_2
-                    023E   3879 	C$main.c$381$2$283 ==.
-                           3880 ;	main.c:381: delay_ms(500);
+                    023E   3879 	C$main.c$394$2$283 ==.
+                           3880 ;	main.c:394: delay_ms(500);
    36B0 90 01 F4           3881 	mov	dptr,#0x01F4
    36B3 12 33 10           3882 	lcall	_delay_ms
-                    0244   3883 	C$main.c$384$2$283 ==.
-                           3884 ;	main.c:384: if (DBGLNKSTAT & 0x10)
+                    0244   3883 	C$main.c$397$2$283 ==.
+                           3884 ;	main.c:397: if (DBGLNKSTAT & 0x10)
    36B6 E5 E2              3885 	mov	a,_DBGLNKSTAT
    36B8 30 E4 09           3886 	jnb	acc.4,00226$
-                    0249   3887 	C$main.c$385$2$283 ==.
-                           3888 ;	main.c:385: dbglink_writestr("found AX5043\n");
+                    0249   3887 	C$main.c$398$2$283 ==.
+                           3888 ;	main.c:398: dbglink_writestr("found AX5043\n");
    36BB 90 52 60           3889 	mov	dptr,#__str_3
    36BE 75 F0 80           3890 	mov	b,#0x80
    36C1 12 47 A9           3891 	lcall	_dbglink_writestr
    36C4                    3892 00226$:
-                    0252   3893 	C$main.c$387$2$283 ==.
-                           3894 ;	main.c:387: axradio_set_local_address(&localaddr);
+                    0252   3893 	C$main.c$400$2$283 ==.
+                           3894 ;	main.c:400: axradio_set_local_address(&localaddr);
    36C4 90 51 24           3895 	mov	dptr,#_localaddr
    36C7 75 F0 80           3896 	mov	b,#0x80
    36CA 12 2E 62           3897 	lcall	_axradio_set_local_address
-                    025B   3898 	C$main.c$388$2$283 ==.
-                           3899 ;	main.c:388: axradio_set_default_remote_address(&remoteaddr);
+                    025B   3898 	C$main.c$401$2$283 ==.
+                           3899 ;	main.c:401: axradio_set_default_remote_address(&remoteaddr);
    36CD 90 51 20           3900 	mov	dptr,#_remoteaddr
    36D0 75 F0 80           3901 	mov	b,#0x80
    36D3 12 2E A0           3902 	lcall	_axradio_set_default_remote_address
-                    0264   3903 	C$main.c$401$4$300 ==.
-                           3904 ;	main.c:401: led0_off();
+                    0264   3903 	C$main.c$414$4$300 ==.
+                           3904 ;	main.c:414: led0_off();
    36D6 C2 81              3905 	clr	_PORTA_1
-                    0266   3906 	C$main.c$402$4$302 ==.
-                           3907 ;	main.c:402: led1_on();
+                    0266   3906 	C$main.c$415$4$302 ==.
+                           3907 ;	main.c:415: led1_on();
    36D8 D2 82              3908 	setb	_PORTA_2
-                    0268   3909 	C$main.c$403$2$283 ==.
-                           3910 ;	main.c:403: delay_ms(500);
+                    0268   3909 	C$main.c$416$2$283 ==.
+                           3910 ;	main.c:416: delay_ms(500);
    36DA 90 01 F4           3911 	mov	dptr,#0x01F4
    36DD 12 33 10           3912 	lcall	_delay_ms
-                    026E   3913 	C$main.c$416$2$283 ==.
-                           3914 ;	main.c:416: if (DBGLNKSTAT & 0x10) {
+                    026E   3913 	C$main.c$429$2$283 ==.
+                           3914 ;	main.c:429: if (DBGLNKSTAT & 0x10) {
    36E0 E5 E2              3915 	mov	a,_DBGLNKSTAT
    36E2 30 E4 2A           3916 	jnb	acc.4,00240$
-                    0273   3917 	C$main.c$417$3$303 ==.
-                           3918 ;	main.c:417: dbglink_writestr("RNG = ");
+                    0273   3917 	C$main.c$430$3$303 ==.
+                           3918 ;	main.c:430: dbglink_writestr("RNG = ");
    36E5 90 52 6E           3919 	mov	dptr,#__str_4
    36E8 75 F0 80           3920 	mov	b,#0x80
    36EB 12 47 A9           3921 	lcall	_dbglink_writestr
-                    027C   3922 	C$main.c$418$3$303 ==.
-                           3923 ;	main.c:418: dbglink_writenum16(axradio_get_pllrange(), 2, 0);
+                    027C   3922 	C$main.c$431$3$303 ==.
+                           3923 ;	main.c:431: dbglink_writenum16(axradio_get_pllrange(), 2, 0);
    36EE 12 2D 67           3924 	lcall	_axradio_get_pllrange
    36F1 AE 82              3925 	mov	r6,dpl
    36F3 E4                 3926 	clr	a
@@ -3933,180 +3933,180 @@
    36FF 12 4E 72           3933 	lcall	_dbglink_writenum16
    3702 15 81              3934 	dec	sp
    3704 15 81              3935 	dec	sp
-                    0294   3936 	C$main.c$419$3$303 ==.
-                           3937 ;	main.c:419: dbglink_writestr("\n\nMASTER\n");
+                    0294   3936 	C$main.c$432$3$303 ==.
+                           3937 ;	main.c:432: dbglink_writestr("\n\nMASTER\n");
    3706 90 52 75           3938 	mov	dptr,#__str_5
    3709 75 F0 80           3939 	mov	b,#0x80
    370C 12 47 A9           3940 	lcall	_dbglink_writestr
    370F                    3941 00240$:
-                    029D   3942 	C$main.c$424$2$283 ==.
-                           3943 ;	main.c:424: i = axradio_set_mode(RADIO_MODE);
+                    029D   3942 	C$main.c$437$2$283 ==.
+                           3943 ;	main.c:437: i = axradio_set_mode(RADIO_MODE);
    370F 75 82 10           3944 	mov	dpl,#0x10
    3712 12 28 BC           3945 	lcall	_axradio_set_mode
-                    02A3   3946 	C$main.c$425$2$283 ==.
-                           3947 ;	main.c:425: if (i != AXRADIO_ERR_NOERROR)
+                    02A3   3946 	C$main.c$438$2$283 ==.
+                           3947 ;	main.c:438: if (i != AXRADIO_ERR_NOERROR)
    3715 E5 82              3948 	mov	a,dpl
    3717 FF                 3949 	mov	r7,a
    3718 70 68              3950 	jnz	00281$
-                    02A8   3951 	C$main.c$428$4$305 ==.
-                           3952 ;	main.c:428: led0_on();
+                    02A8   3951 	C$main.c$441$4$305 ==.
+                           3952 ;	main.c:441: led0_on();
    371A D2 81              3953 	setb	_PORTA_1
-                    02AA   3954 	C$main.c$429$4$307 ==.
-                           3955 ;	main.c:429: led1_on();
+                    02AA   3954 	C$main.c$442$4$307 ==.
+                           3955 ;	main.c:442: led1_on();
    371C D2 82              3956 	setb	_PORTA_2
-                    02AC   3957 	C$main.c$430$2$283 ==.
-                           3958 ;	main.c:430: delay_ms(500);
+                    02AC   3957 	C$main.c$443$2$283 ==.
+                           3958 ;	main.c:443: delay_ms(500);
    371E 90 01 F4           3959 	mov	dptr,#0x01F4
    3721 12 33 10           3960 	lcall	_delay_ms
    3724 80 05              3961 	sjmp	00257$
    3726                    3962 00256$:
-                    02B4   3963 	C$main.c$438$2$308 ==.
-                           3964 ;	main.c:438: ax5043_commsleepexit();
+                    02B4   3963 	C$main.c$451$2$308 ==.
+                           3964 ;	main.c:451: ax5043_commsleepexit();
    3726 12 49 2F           3965 	lcall	_ax5043_commsleepexit
-                    02B7   3966 	C$main.c$439$2$308 ==.
-                           3967 ;	main.c:439: IE_4 = 1;
+                    02B7   3966 	C$main.c$452$2$308 ==.
+                           3967 ;	main.c:452: IE_4 = 1;
    3729 D2 AC              3968 	setb	_IE_4
    372B                    3969 00257$:
-                    02B9   3970 	C$main.c$443$1$254 ==.
-                           3971 ;	main.c:443: BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
+                    02B9   3970 	C$main.c$456$1$254 ==.
+                           3971 ;	main.c:456: BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
    372B 90 70 00           3972 	mov	dptr,#_INTCHGA
    372E E0                 3973 	movx	a,@dptr
    372F 44 01              3974 	orl	a,#0x01
    3731 F0                 3975 	movx	@dptr,a
-                    02C0   3976 	C$main.c$446$3$310 ==.
-                           3977 ;	main.c:446: led0_off();
+                    02C0   3976 	C$main.c$459$3$310 ==.
+                           3977 ;	main.c:459: led0_off();
    3732 C2 81              3978 	clr	_PORTA_1
-                    02C2   3979 	C$main.c$447$3$312 ==.
-                           3980 ;	main.c:447: led1_on();
+                    02C2   3979 	C$main.c$460$3$312 ==.
+                           3980 ;	main.c:460: led1_on();
    3734 D2 82              3981 	setb	_PORTA_2
-                    02C4   3982 	C$main.c$448$1$254 ==.
-                           3983 ;	main.c:448: delay_ms(500);
+                    02C4   3982 	C$main.c$461$1$254 ==.
+                           3983 ;	main.c:461: delay_ms(500);
    3736 90 01 F4           3984 	mov	dptr,#0x01F4
    3739 12 33 10           3985 	lcall	_delay_ms
    373C                    3986 00279$:
-                    02CA   3987 	C$main.c$452$2$313 ==.
-                           3988 ;	main.c:452: wtimer_runcallbacks();
+                    02CA   3987 	C$main.c$465$2$313 ==.
+                           3988 ;	main.c:465: wtimer_runcallbacks();
    373C 12 3F 22           3989 	lcall	_wtimer_runcallbacks
-                    02CD   3990 	C$main.c$453$2$313 ==.
-                           3991 ;	main.c:453: EA = 0;
+                    02CD   3990 	C$main.c$466$2$313 ==.
+                           3991 ;	main.c:466: EA = 0;
    373F C2 AF              3992 	clr	_EA
-                    02CF   3993 	C$main.c$460$4$315 ==.
-                           3994 ;	main.c:460: p = BUTTON_PIN;
-                    02CF   3995 	C$main.c$461$4$315 ==.
-                           3996 ;	main.c:461: buttonedge = saved_button_state & ~p;
+                    02CF   3993 	C$main.c$473$4$315 ==.
+                           3994 ;	main.c:473: p = BUTTON_PIN;
+                    02CF   3995 	C$main.c$474$4$315 ==.
+                           3996 ;	main.c:474: buttonedge = saved_button_state & ~p;
    3741 E5 C8              3997 	mov	a,_PINA
    3743 FE                 3998 	mov	r6,a
    3744 F4                 3999 	cpl	a
    3745 FD                 4000 	mov	r5,a
    3746 E5 14              4001 	mov	a,_main_saved_button_state_1_254
    3748 52 05              4002 	anl	ar5,a
-                    02D8   4003 	C$main.c$462$4$315 ==.
-                           4004 ;	main.c:462: saved_button_state = p;
+                    02D8   4003 	C$main.c$475$4$315 ==.
+                           4004 ;	main.c:475: saved_button_state = p;
    374A 8E 14              4005 	mov	_main_saved_button_state_1_254,r6
-                    02DA   4006 	C$main.c$464$3$314 ==.
-                           4007 ;	main.c:464: if (buttonedge & BUTTON_MASK)
+                    02DA   4006 	C$main.c$477$3$314 ==.
+                           4007 ;	main.c:477: if (buttonedge & BUTTON_MASK)
    374C ED                 4008 	mov	a,r5
    374D 30 E0 0F           4009 	jnb	acc.0,00273$
-                    02DE   4010 	C$main.c$466$4$316 ==.
-                           4011 ;	main.c:466: EA = 1;
+                    02DE   4010 	C$main.c$479$4$316 ==.
+                           4011 ;	main.c:479: EA = 1;
    3750 D2 AF              4012 	setb	_EA
-                    02E0   4013 	C$main.c$467$4$316 ==.
-                           4014 ;	main.c:467: if( !deglitch_busy )
+                    02E0   4013 	C$main.c$480$4$316 ==.
+                           4014 ;	main.c:480: if( !deglitch_busy )
    3752 20 00 E7           4015 	jb	_deglitch_busy,00279$
-                    02E3   4016 	C$main.c$470$5$317 ==.
-                           4017 ;	main.c:470: deglitch_busy = 1;
+                    02E3   4016 	C$main.c$483$5$317 ==.
+                           4017 ;	main.c:483: deglitch_busy = 1;
    3755 D2 00              4018 	setb	_deglitch_busy
-                    02E5   4019 	C$main.c$471$5$317 ==.
-                           4020 ;	main.c:471: transmit_packet();
+                    02E5   4019 	C$main.c$484$5$317 ==.
+                           4020 ;	main.c:484: transmit_packet();
    3757 12 34 A5           4021 	lcall	_transmit_packet
-                    02E8   4022 	C$main.c$472$5$317 ==.
-                           4023 ;	main.c:472: display_transmit_packet();
+                    02E8   4022 	C$main.c$485$5$317 ==.
+                           4023 ;	main.c:485: display_transmit_packet();
    375A 12 35 0A           4024 	lcall	_display_transmit_packet
-                    02EB   4025 	C$main.c$474$4$316 ==.
-                           4026 ;	main.c:474: continue;
+                    02EB   4025 	C$main.c$487$4$316 ==.
+                           4026 ;	main.c:487: continue;
    375D 80 DD              4027 	sjmp	00279$
    375F                    4028 00273$:
-                    02ED   4029 	C$main.c$477$2$313 ==.
-                           4030 ;	main.c:477: IE_3 = 1;
+                    02ED   4029 	C$main.c$490$2$313 ==.
+                           4030 ;	main.c:490: IE_3 = 1;
    375F D2 AB              4031 	setb	_IE_3
-                    02EF   4032 	C$main.c$480$3$313 ==.
-                           4033 ;	main.c:480: uint8_t flg = WTFLAG_CANSTANDBY;
+                    02EF   4032 	C$main.c$493$3$313 ==.
+                           4033 ;	main.c:493: uint8_t flg = WTFLAG_CANSTANDBY;
    3761 7E 02              4034 	mov	r6,#0x02
-                    02F1   4035 	C$main.c$482$3$318 ==.
-                           4036 ;	main.c:482: if (axradio_cansleep()
+                    02F1   4035 	C$main.c$495$3$318 ==.
+                           4036 ;	main.c:495: if (axradio_cansleep()
    3763 C0 06              4037 	push	ar6
    3765 12 28 AA           4038 	lcall	_axradio_cansleep
    3768 E5 82              4039 	mov	a,dpl
    376A D0 06              4040 	pop	ar6
    376C 60 09              4041 	jz	00275$
-                    02FC   4042 	C$main.c$484$3$318 ==.
-                           4043 ;	main.c:484: && dbglink_txidle()
+                    02FC   4042 	C$main.c$497$3$318 ==.
+                           4043 ;	main.c:497: && dbglink_txidle()
    376E 12 41 A4           4044 	lcall	_dbglink_txidle
    3771 E5 82              4045 	mov	a,dpl
    3773 60 02              4046 	jz	00275$
-                    0303   4047 	C$main.c$487$3$318 ==.
-                           4048 ;	main.c:487: flg |= WTFLAG_CANSLEEP;
+                    0303   4047 	C$main.c$500$3$318 ==.
+                           4048 ;	main.c:500: flg |= WTFLAG_CANSLEEP;
    3775 7E 03              4049 	mov	r6,#0x03
    3777                    4050 00275$:
-                    0305   4051 	C$main.c$489$3$318 ==.
-                           4052 ;	main.c:489: wtimer_idle(flg);
+                    0305   4051 	C$main.c$502$3$318 ==.
+                           4052 ;	main.c:502: wtimer_idle(flg);
    3777 8E 82              4053 	mov	dpl,r6
    3779 12 3F A6           4054 	lcall	_wtimer_idle
-                    030A   4055 	C$main.c$491$2$313 ==.
-                           4056 ;	main.c:491: IE_3 = 0; // no ISR!
+                    030A   4055 	C$main.c$504$2$313 ==.
+                           4056 ;	main.c:504: IE_3 = 0; // no ISR!
    377C C2 AB              4057 	clr	_IE_3
-                    030C   4058 	C$main.c$492$2$313 ==.
-                           4059 ;	main.c:492: EA = 1;
+                    030C   4058 	C$main.c$505$2$313 ==.
+                           4059 ;	main.c:505: EA = 1;
    377E D2 AF              4060 	setb	_EA
-                    030E   4061 	C$main.c$496$1$254 ==.
-                           4062 ;	main.c:496: terminate_radio_error:
+                    030E   4061 	C$main.c$509$1$254 ==.
+                           4062 ;	main.c:509: terminate_radio_error:
    3780 80 BA              4063 	sjmp	00279$
    3782                    4064 00281$:
-                    0310   4065 	C$main.c$497$1$254 ==.
-                           4066 ;	main.c:497: display_radio_error(i);
+                    0310   4065 	C$main.c$510$1$254 ==.
+                           4066 ;	main.c:510: display_radio_error(i);
    3782 8F 82              4067 	mov	dpl,r7
    3784 12 32 B9           4068 	lcall	_display_radio_error
-                    0315   4069 	C$main.c$498$1$254 ==.
-                           4070 ;	main.c:498: terminate_error:
+                    0315   4069 	C$main.c$511$1$254 ==.
+                           4070 ;	main.c:511: terminate_error:
    3787                    4071 00282$:
-                    0315   4072 	C$main.c$501$1$254 ==.
-                           4073 ;	main.c:501: if (DBGLNKSTAT & 0x10)
+                    0315   4072 	C$main.c$514$1$254 ==.
+                           4073 ;	main.c:514: if (DBGLNKSTAT & 0x10)
    3787 E5 E2              4074 	mov	a,_DBGLNKSTAT
    3789 30 E4 09           4075 	jnb	acc.4,00290$
-                    031A   4076 	C$main.c$502$1$254 ==.
-                           4077 ;	main.c:502: dbglink_writestr("TERMINATE ERROR\n");
+                    031A   4076 	C$main.c$515$1$254 ==.
+                           4077 ;	main.c:515: dbglink_writestr("TERMINATE ERROR\n");
    378C 90 52 7F           4078 	mov	dptr,#__str_6
    378F 75 F0 80           4079 	mov	b,#0x80
    3792 12 47 A9           4080 	lcall	_dbglink_writestr
    3795                    4081 00290$:
-                    0323   4082 	C$main.c$509$2$319 ==.
-                           4083 ;	main.c:509: wtimer_runcallbacks();
+                    0323   4082 	C$main.c$522$2$319 ==.
+                           4083 ;	main.c:522: wtimer_runcallbacks();
    3795 12 3F 22           4084 	lcall	_wtimer_runcallbacks
-                    0326   4085 	C$main.c$511$3$319 ==.
-                           4086 ;	main.c:511: uint8_t flg = WTFLAG_CANSTANDBY;
+                    0326   4085 	C$main.c$524$3$319 ==.
+                           4086 ;	main.c:524: uint8_t flg = WTFLAG_CANSTANDBY;
    3798 7F 02              4087 	mov	r7,#0x02
-                    0328   4088 	C$main.c$513$3$320 ==.
-                           4089 ;	main.c:513: if (axradio_cansleep()
+                    0328   4088 	C$main.c$526$3$320 ==.
+                           4089 ;	main.c:526: if (axradio_cansleep()
    379A C0 07              4090 	push	ar7
    379C 12 28 AA           4091 	lcall	_axradio_cansleep
    379F E5 82              4092 	mov	a,dpl
    37A1 D0 07              4093 	pop	ar7
    37A3 60 09              4094 	jz	00286$
-                    0333   4095 	C$main.c$515$3$320 ==.
-                           4096 ;	main.c:515: && dbglink_txidle()
+                    0333   4095 	C$main.c$528$3$320 ==.
+                           4096 ;	main.c:528: && dbglink_txidle()
    37A5 12 41 A4           4097 	lcall	_dbglink_txidle
    37A8 E5 82              4098 	mov	a,dpl
    37AA 60 02              4099 	jz	00286$
-                    033A   4100 	C$main.c$518$3$320 ==.
-                           4101 ;	main.c:518: flg |= WTFLAG_CANSLEEP;
+                    033A   4100 	C$main.c$531$3$320 ==.
+                           4101 ;	main.c:531: flg |= WTFLAG_CANSLEEP;
    37AC 7F 03              4102 	mov	r7,#0x03
    37AE                    4103 00286$:
-                    033C   4104 	C$main.c$520$3$320 ==.
-                           4105 ;	main.c:520: wtimer_idle(flg);
+                    033C   4104 	C$main.c$533$3$320 ==.
+                           4105 ;	main.c:533: wtimer_idle(flg);
    37AE 8F 82              4106 	mov	dpl,r7
    37B0 12 3F A6           4107 	lcall	_wtimer_idle
    37B3 80 E0              4108 	sjmp	00290$
-                    0343   4109 	C$main.c$523$3$320 ==.
+                    0343   4109 	C$main.c$536$3$320 ==.
                     0343   4110 	XG$main$0$0 ==.
    37B5 22                 4111 	ret
                            4112 	.area CSEG    (CODE)

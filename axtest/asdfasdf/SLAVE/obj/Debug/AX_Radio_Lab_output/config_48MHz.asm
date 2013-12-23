@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-; This file was generated Sat Dec 21 22:34:09 2013
+; This file was generated Mon Dec 23 14:38:48 2013
 ;--------------------------------------------------------
 	.module config_48MHz
 	.optsdcc -mmcs51 --model-small
@@ -3268,8 +3268,8 @@ _axradio_phy_chanpllrng_tx::
 ;Allocation info for local variables in function 'ax5043_set_registers'
 ;------------------------------------------------------------
 	G$ax5043_set_registers$0$0 ==.
-	C$config_48MHz.c$11$0$0 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:11: __reentrantb void ax5043_set_registers(void) __reentrant
+	C$config_48MHz.c$12$0$0 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:12: __reentrantb void ax5043_set_registers(void) __reentrant
 ;	-----------------------------------------
 ;	 function ax5043_set_registers
 ;	-----------------------------------------
@@ -3282,198 +3282,198 @@ _ax5043_set_registers:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	C$config_48MHz.c$13$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:13: AX5043_MODULATION              = 0x08;
+	C$config_48MHz.c$14$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:14: AX5043_MODULATION              = 0x08;
 	mov	dptr,#_AX5043_MODULATION
 	mov	a,#0x08
 	movx	@dptr,a
-	C$config_48MHz.c$14$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:14: AX5043_ENCODING                = 0x00;
+	C$config_48MHz.c$15$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:15: AX5043_ENCODING                = 0x00;
 	mov	dptr,#_AX5043_ENCODING
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$15$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:15: AX5043_FRAMING                 = 0x26;
+	C$config_48MHz.c$16$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:16: AX5043_FRAMING                 = 0x26;
 	mov	dptr,#_AX5043_FRAMING
 	mov	a,#0x26
 	movx	@dptr,a
-	C$config_48MHz.c$16$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:16: AX5043_PINFUNCSYSCLK           = 0x01;
+	C$config_48MHz.c$17$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:17: AX5043_PINFUNCSYSCLK           = 0x01;
 	mov	dptr,#_AX5043_PINFUNCSYSCLK
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$17$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:17: AX5043_PINFUNCDCLK             = 0x01;
+	C$config_48MHz.c$18$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:18: AX5043_PINFUNCDCLK             = 0x01;
 	mov	dptr,#_AX5043_PINFUNCDCLK
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$18$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:18: AX5043_PINFUNCDATA             = 0x01;
+	C$config_48MHz.c$19$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:19: AX5043_PINFUNCDATA             = 0x01;
 	mov	dptr,#_AX5043_PINFUNCDATA
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$19$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:19: AX5043_PINFUNCANTSEL           = 0x01;
+	C$config_48MHz.c$20$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:20: AX5043_PINFUNCANTSEL           = 0x01;
 	mov	dptr,#_AX5043_PINFUNCANTSEL
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$20$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:20: AX5043_PINFUNCPWRAMP           = 0x07;
+	C$config_48MHz.c$21$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:21: AX5043_PINFUNCPWRAMP           = 0x07;
 	mov	dptr,#_AX5043_PINFUNCPWRAMP
 	mov	a,#0x07
 	movx	@dptr,a
-	C$config_48MHz.c$21$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:21: AX5043_WAKEUPXOEARLY           = 0x01;
+	C$config_48MHz.c$22$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:22: AX5043_WAKEUPXOEARLY           = 0x01;
 	mov	dptr,#_AX5043_WAKEUPXOEARLY
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$22$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:22: AX5043_IFFREQ1                 = 0x08;
+	C$config_48MHz.c$23$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:23: AX5043_IFFREQ1                 = 0x08;
 	mov	dptr,#_AX5043_IFFREQ1
 	mov	a,#0x08
 	movx	@dptr,a
-	C$config_48MHz.c$23$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:23: AX5043_IFFREQ0                 = 0x67;
+	C$config_48MHz.c$24$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:24: AX5043_IFFREQ0                 = 0x67;
 	mov	dptr,#_AX5043_IFFREQ0
 	mov	a,#0x67
 	movx	@dptr,a
-	C$config_48MHz.c$24$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:24: AX5043_DECIMATION              = 0x03;
+	C$config_48MHz.c$25$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:25: AX5043_DECIMATION              = 0x03;
 	mov	dptr,#_AX5043_DECIMATION
 	mov	a,#0x03
 	movx	@dptr,a
-	C$config_48MHz.c$25$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:25: AX5043_RXDATARATE2             = 0x03;
+	C$config_48MHz.c$26$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:26: AX5043_RXDATARATE2             = 0x03;
 	mov	dptr,#_AX5043_RXDATARATE2
 	mov	a,#0x03
 	movx	@dptr,a
-	C$config_48MHz.c$26$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:26: AX5043_RXDATARATE1             = 0x41;
+	C$config_48MHz.c$27$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:27: AX5043_RXDATARATE1             = 0x41;
 	mov	dptr,#_AX5043_RXDATARATE1
 	mov	a,#0x41
 	movx	@dptr,a
-	C$config_48MHz.c$27$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:27: AX5043_RXDATARATE0             = 0x55;
+	C$config_48MHz.c$28$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:28: AX5043_RXDATARATE0             = 0x55;
 	mov	dptr,#_AX5043_RXDATARATE0
 	mov	a,#0x55
 	movx	@dptr,a
-	C$config_48MHz.c$28$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:28: AX5043_MAXDROFFSET2            = 0x00;
-	mov	dptr,#_AX5043_MAXDROFFSET2
 	C$config_48MHz.c$29$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:29: AX5043_MAXDROFFSET1            = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:29: AX5043_MAXDROFFSET2            = 0x00;
+	mov	dptr,#_AX5043_MAXDROFFSET2
 	C$config_48MHz.c$30$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:30: AX5043_MAXDROFFSET0            = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:30: AX5043_MAXDROFFSET1            = 0x00;
+	C$config_48MHz.c$31$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:31: AX5043_MAXDROFFSET0            = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_MAXDROFFSET1
 	movx	@dptr,a
 	mov	dptr,#_AX5043_MAXDROFFSET0
 	movx	@dptr,a
-	C$config_48MHz.c$31$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:31: AX5043_MAXRFOFFSET2            = 0x80;
+	C$config_48MHz.c$32$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:32: AX5043_MAXRFOFFSET2            = 0x80;
 	mov	dptr,#_AX5043_MAXRFOFFSET2
 	mov	a,#0x80
 	movx	@dptr,a
-	C$config_48MHz.c$32$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:32: AX5043_MAXRFOFFSET1            = 0x02;
+	C$config_48MHz.c$33$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:33: AX5043_MAXRFOFFSET1            = 0x02;
 	mov	dptr,#_AX5043_MAXRFOFFSET1
 	mov	a,#0x02
 	movx	@dptr,a
-	C$config_48MHz.c$33$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:33: AX5043_MAXRFOFFSET0            = 0x5F;
+	C$config_48MHz.c$34$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:34: AX5043_MAXRFOFFSET0            = 0x5F;
 	mov	dptr,#_AX5043_MAXRFOFFSET0
 	mov	a,#0x5F
 	movx	@dptr,a
-	C$config_48MHz.c$34$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:34: AX5043_FSKDMAX1                = 0x15;
+	C$config_48MHz.c$35$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:35: AX5043_FSKDMAX1                = 0x15;
 	mov	dptr,#_AX5043_FSKDMAX1
 	mov	a,#0x15
 	movx	@dptr,a
-	C$config_48MHz.c$35$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:35: AX5043_FSKDMAX0                = 0xEA;
+	C$config_48MHz.c$36$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:36: AX5043_FSKDMAX0                = 0xEA;
 	mov	dptr,#_AX5043_FSKDMAX0
 	mov	a,#0xEA
 	movx	@dptr,a
-	C$config_48MHz.c$36$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:36: AX5043_FSKDMIN1                = 0xEA;
+	C$config_48MHz.c$37$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:37: AX5043_FSKDMIN1                = 0xEA;
 	mov	dptr,#_AX5043_FSKDMIN1
 	mov	a,#0xEA
 	movx	@dptr,a
-	C$config_48MHz.c$37$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:37: AX5043_FSKDMIN0                = 0x16;
+	C$config_48MHz.c$38$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:38: AX5043_FSKDMIN0                = 0x16;
 	mov	dptr,#_AX5043_FSKDMIN0
 	mov	a,#0x16
 	movx	@dptr,a
-	C$config_48MHz.c$38$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:38: AX5043_AMPLFILTER              = 0x00;
+	C$config_48MHz.c$39$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:39: AX5043_AMPLFILTER              = 0x00;
 	mov	dptr,#_AX5043_AMPLFILTER
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$39$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:39: AX5043_RXPARAMSETS             = 0xF4;
+	C$config_48MHz.c$40$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:40: AX5043_RXPARAMSETS             = 0xF4;
 	mov	dptr,#_AX5043_RXPARAMSETS
 	mov	a,#0xF4
 	movx	@dptr,a
-	C$config_48MHz.c$40$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:40: AX5043_AGCGAIN0                = 0x96;
+	C$config_48MHz.c$41$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:41: AX5043_AGCGAIN0                = 0x96;
 	mov	dptr,#_AX5043_AGCGAIN0
 	mov	a,#0x96
 	movx	@dptr,a
-	C$config_48MHz.c$41$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:41: AX5043_AGCTARGET0              = 0x76;
+	C$config_48MHz.c$42$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:42: AX5043_AGCTARGET0              = 0x76;
 	mov	dptr,#_AX5043_AGCTARGET0
 	mov	a,#0x76
 	movx	@dptr,a
-	C$config_48MHz.c$42$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:42: AX5043_TIMEGAIN0               = 0xDC;
+	C$config_48MHz.c$43$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:43: AX5043_TIMEGAIN0               = 0xDC;
 	mov	dptr,#_AX5043_TIMEGAIN0
 	mov	a,#0xDC
 	movx	@dptr,a
-	C$config_48MHz.c$43$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:43: AX5043_DRGAIN0                 = 0xD6;
+	C$config_48MHz.c$44$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:44: AX5043_DRGAIN0                 = 0xD6;
 	mov	dptr,#_AX5043_DRGAIN0
 	mov	a,#0xD6
 	movx	@dptr,a
-	C$config_48MHz.c$44$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:44: AX5043_PHASEGAIN0              = 0xC3;
+	C$config_48MHz.c$45$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:45: AX5043_PHASEGAIN0              = 0xC3;
 	mov	dptr,#_AX5043_PHASEGAIN0
 	mov	a,#0xC3
 	movx	@dptr,a
-	C$config_48MHz.c$45$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:45: AX5043_FREQUENCYGAINA0         = 0x0F;
+	C$config_48MHz.c$46$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:46: AX5043_FREQUENCYGAINA0         = 0x0F;
 	mov	dptr,#_AX5043_FREQUENCYGAINA0
 	mov	a,#0x0F
 	movx	@dptr,a
-	C$config_48MHz.c$46$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:46: AX5043_FREQUENCYGAINB0         = 0x1F;
+	C$config_48MHz.c$47$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:47: AX5043_FREQUENCYGAINB0         = 0x1F;
 	mov	dptr,#_AX5043_FREQUENCYGAINB0
 	mov	a,#0x1F
 	movx	@dptr,a
-	C$config_48MHz.c$47$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:47: AX5043_FREQUENCYGAINC0         = 0x09;
+	C$config_48MHz.c$48$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:48: AX5043_FREQUENCYGAINC0         = 0x09;
 	mov	dptr,#_AX5043_FREQUENCYGAINC0
 	mov	a,#0x09
 	movx	@dptr,a
-	C$config_48MHz.c$48$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:48: AX5043_FREQUENCYGAIND0         = 0x09;
+	C$config_48MHz.c$49$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:49: AX5043_FREQUENCYGAIND0         = 0x09;
 	mov	dptr,#_AX5043_FREQUENCYGAIND0
 	mov	a,#0x09
 	movx	@dptr,a
-	C$config_48MHz.c$49$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:49: AX5043_AMPLITUDEGAIN0          = 0x46;
+	C$config_48MHz.c$50$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:50: AX5043_AMPLITUDEGAIN0          = 0x46;
 	mov	dptr,#_AX5043_AMPLITUDEGAIN0
 	mov	a,#0x46
 	movx	@dptr,a
-	C$config_48MHz.c$50$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:50: AX5043_FREQDEV10               = 0x00;
-	mov	dptr,#_AX5043_FREQDEV10
 	C$config_48MHz.c$51$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:51: AX5043_FREQDEV00               = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:51: AX5043_FREQDEV10               = 0x00;
+	mov	dptr,#_AX5043_FREQDEV10
 	C$config_48MHz.c$52$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:52: AX5043_FOURFSK0                = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:52: AX5043_FREQDEV00               = 0x00;
 	C$config_48MHz.c$53$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:53: AX5043_BBOFFSRES0              = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:53: AX5043_FOURFSK0                = 0x00;
+	C$config_48MHz.c$54$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:54: AX5043_BBOFFSRES0              = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_FREQDEV00
@@ -3482,537 +3482,537 @@ _ax5043_set_registers:
 	movx	@dptr,a
 	mov	dptr,#_AX5043_BBOFFSRES0
 	movx	@dptr,a
-	C$config_48MHz.c$54$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:54: AX5043_AGCGAIN1                = 0x96;
+	C$config_48MHz.c$55$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:55: AX5043_AGCGAIN1                = 0x96;
 	mov	dptr,#_AX5043_AGCGAIN1
 	mov	a,#0x96
 	movx	@dptr,a
-	C$config_48MHz.c$55$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:55: AX5043_AGCTARGET1              = 0x76;
+	C$config_48MHz.c$56$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:56: AX5043_AGCTARGET1              = 0x76;
 	mov	dptr,#_AX5043_AGCTARGET1
 	mov	a,#0x76
 	movx	@dptr,a
-	C$config_48MHz.c$56$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:56: AX5043_AGCAHYST1               = 0x00;
-	mov	dptr,#_AX5043_AGCAHYST1
 	C$config_48MHz.c$57$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:57: AX5043_AGCMINMAX1              = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:57: AX5043_AGCAHYST1               = 0x00;
+	mov	dptr,#_AX5043_AGCAHYST1
+	C$config_48MHz.c$58$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:58: AX5043_AGCMINMAX1              = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_AGCMINMAX1
 	movx	@dptr,a
-	C$config_48MHz.c$58$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:58: AX5043_TIMEGAIN1               = 0xDA;
+	C$config_48MHz.c$59$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:59: AX5043_TIMEGAIN1               = 0xDA;
 	mov	dptr,#_AX5043_TIMEGAIN1
 	mov	a,#0xDA
 	movx	@dptr,a
-	C$config_48MHz.c$59$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:59: AX5043_DRGAIN1                 = 0xD5;
+	C$config_48MHz.c$60$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:60: AX5043_DRGAIN1                 = 0xD5;
 	mov	dptr,#_AX5043_DRGAIN1
 	mov	a,#0xD5
 	movx	@dptr,a
-	C$config_48MHz.c$60$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:60: AX5043_PHASEGAIN1              = 0xC3;
+	C$config_48MHz.c$61$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:61: AX5043_PHASEGAIN1              = 0xC3;
 	mov	dptr,#_AX5043_PHASEGAIN1
 	mov	a,#0xC3
 	movx	@dptr,a
-	C$config_48MHz.c$61$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:61: AX5043_FREQUENCYGAINA1         = 0x0F;
+	C$config_48MHz.c$62$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:62: AX5043_FREQUENCYGAINA1         = 0x0F;
 	mov	dptr,#_AX5043_FREQUENCYGAINA1
 	mov	a,#0x0F
 	movx	@dptr,a
-	C$config_48MHz.c$62$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:62: AX5043_FREQUENCYGAINB1         = 0x1F;
+	C$config_48MHz.c$63$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:63: AX5043_FREQUENCYGAINB1         = 0x1F;
 	mov	dptr,#_AX5043_FREQUENCYGAINB1
 	mov	a,#0x1F
 	movx	@dptr,a
-	C$config_48MHz.c$63$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:63: AX5043_FREQUENCYGAINC1         = 0x09;
+	C$config_48MHz.c$64$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:64: AX5043_FREQUENCYGAINC1         = 0x09;
 	mov	dptr,#_AX5043_FREQUENCYGAINC1
 	mov	a,#0x09
 	movx	@dptr,a
-	C$config_48MHz.c$64$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:64: AX5043_FREQUENCYGAIND1         = 0x09;
+	C$config_48MHz.c$65$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:65: AX5043_FREQUENCYGAIND1         = 0x09;
 	mov	dptr,#_AX5043_FREQUENCYGAIND1
 	mov	a,#0x09
 	movx	@dptr,a
-	C$config_48MHz.c$65$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:65: AX5043_AMPLITUDEGAIN1          = 0x46;
+	C$config_48MHz.c$66$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:66: AX5043_AMPLITUDEGAIN1          = 0x46;
 	mov	dptr,#_AX5043_AMPLITUDEGAIN1
 	mov	a,#0x46
 	movx	@dptr,a
-	C$config_48MHz.c$66$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:66: AX5043_FREQDEV11               = 0x00;
+	C$config_48MHz.c$67$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:67: AX5043_FREQDEV11               = 0x00;
 	mov	dptr,#_AX5043_FREQDEV11
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$67$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:67: AX5043_FREQDEV01               = 0x38;
+	C$config_48MHz.c$68$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:68: AX5043_FREQDEV01               = 0x38;
 	mov	dptr,#_AX5043_FREQDEV01
 	mov	a,#0x38
 	movx	@dptr,a
-	C$config_48MHz.c$68$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:68: AX5043_FOURFSK1                = 0x00;
-	mov	dptr,#_AX5043_FOURFSK1
 	C$config_48MHz.c$69$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:69: AX5043_BBOFFSRES1              = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:69: AX5043_FOURFSK1                = 0x00;
+	mov	dptr,#_AX5043_FOURFSK1
+	C$config_48MHz.c$70$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:70: AX5043_BBOFFSRES1              = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_BBOFFSRES1
 	movx	@dptr,a
-	C$config_48MHz.c$70$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:70: AX5043_AGCGAIN3                = 0xFF;
+	C$config_48MHz.c$71$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:71: AX5043_AGCGAIN3                = 0xFF;
 	mov	dptr,#_AX5043_AGCGAIN3
 	mov	a,#0xFF
 	movx	@dptr,a
-	C$config_48MHz.c$71$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:71: AX5043_AGCTARGET3              = 0x76;
+	C$config_48MHz.c$72$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:72: AX5043_AGCTARGET3              = 0x76;
 	mov	dptr,#_AX5043_AGCTARGET3
 	mov	a,#0x76
 	movx	@dptr,a
-	C$config_48MHz.c$72$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:72: AX5043_AGCAHYST3               = 0x00;
-	mov	dptr,#_AX5043_AGCAHYST3
 	C$config_48MHz.c$73$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:73: AX5043_AGCMINMAX3              = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:73: AX5043_AGCAHYST3               = 0x00;
+	mov	dptr,#_AX5043_AGCAHYST3
+	C$config_48MHz.c$74$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:74: AX5043_AGCMINMAX3              = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_AGCMINMAX3
 	movx	@dptr,a
-	C$config_48MHz.c$74$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:74: AX5043_TIMEGAIN3               = 0xD9;
+	C$config_48MHz.c$75$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:75: AX5043_TIMEGAIN3               = 0xD9;
 	mov	dptr,#_AX5043_TIMEGAIN3
 	mov	a,#0xD9
 	movx	@dptr,a
-	C$config_48MHz.c$75$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:75: AX5043_DRGAIN3                 = 0xD4;
+	C$config_48MHz.c$76$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:76: AX5043_DRGAIN3                 = 0xD4;
 	mov	dptr,#_AX5043_DRGAIN3
 	mov	a,#0xD4
 	movx	@dptr,a
-	C$config_48MHz.c$76$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:76: AX5043_PHASEGAIN3              = 0xC3;
+	C$config_48MHz.c$77$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:77: AX5043_PHASEGAIN3              = 0xC3;
 	mov	dptr,#_AX5043_PHASEGAIN3
 	mov	a,#0xC3
 	movx	@dptr,a
-	C$config_48MHz.c$77$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:77: AX5043_FREQUENCYGAINA3         = 0x0F;
+	C$config_48MHz.c$78$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:78: AX5043_FREQUENCYGAINA3         = 0x0F;
 	mov	dptr,#_AX5043_FREQUENCYGAINA3
 	mov	a,#0x0F
 	movx	@dptr,a
-	C$config_48MHz.c$78$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:78: AX5043_FREQUENCYGAINB3         = 0x1F;
+	C$config_48MHz.c$79$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:79: AX5043_FREQUENCYGAINB3         = 0x1F;
 	mov	dptr,#_AX5043_FREQUENCYGAINB3
 	mov	a,#0x1F
 	movx	@dptr,a
-	C$config_48MHz.c$79$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:79: AX5043_FREQUENCYGAINC3         = 0x0D;
+	C$config_48MHz.c$80$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:80: AX5043_FREQUENCYGAINC3         = 0x0D;
 	mov	dptr,#_AX5043_FREQUENCYGAINC3
 	mov	a,#0x0D
 	movx	@dptr,a
-	C$config_48MHz.c$80$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:80: AX5043_FREQUENCYGAIND3         = 0x0D;
+	C$config_48MHz.c$81$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:81: AX5043_FREQUENCYGAIND3         = 0x0D;
 	mov	dptr,#_AX5043_FREQUENCYGAIND3
 	mov	a,#0x0D
 	movx	@dptr,a
-	C$config_48MHz.c$81$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:81: AX5043_AMPLITUDEGAIN3          = 0x46;
+	C$config_48MHz.c$82$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:82: AX5043_AMPLITUDEGAIN3          = 0x46;
 	mov	dptr,#_AX5043_AMPLITUDEGAIN3
 	mov	a,#0x46
 	movx	@dptr,a
-	C$config_48MHz.c$82$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:82: AX5043_FREQDEV13               = 0x00;
+	C$config_48MHz.c$83$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:83: AX5043_FREQDEV13               = 0x00;
 	mov	dptr,#_AX5043_FREQDEV13
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$83$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:83: AX5043_FREQDEV03               = 0x38;
+	C$config_48MHz.c$84$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:84: AX5043_FREQDEV03               = 0x38;
 	mov	dptr,#_AX5043_FREQDEV03
 	mov	a,#0x38
 	movx	@dptr,a
-	C$config_48MHz.c$84$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:84: AX5043_FOURFSK3                = 0x00;
-	mov	dptr,#_AX5043_FOURFSK3
 	C$config_48MHz.c$85$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:85: AX5043_BBOFFSRES3              = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:85: AX5043_FOURFSK3                = 0x00;
+	mov	dptr,#_AX5043_FOURFSK3
+	C$config_48MHz.c$86$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:86: AX5043_BBOFFSRES3              = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_BBOFFSRES3
 	movx	@dptr,a
-	C$config_48MHz.c$86$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:86: AX5043_MODCFGF                 = 0x03;
+	C$config_48MHz.c$87$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:87: AX5043_MODCFGF                 = 0x03;
 	mov	dptr,#_AX5043_MODCFGF
 	mov	a,#0x03
 	movx	@dptr,a
-	C$config_48MHz.c$87$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:87: AX5043_FSKDEV2                 = 0x00;
+	C$config_48MHz.c$88$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:88: AX5043_FSKDEV2                 = 0x00;
 	mov	dptr,#_AX5043_FSKDEV2
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$88$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:88: AX5043_FSKDEV1                 = 0x0A;
+	C$config_48MHz.c$89$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:89: AX5043_FSKDEV1                 = 0x0A;
 	mov	dptr,#_AX5043_FSKDEV1
 	mov	a,#0x0A
 	movx	@dptr,a
-	C$config_48MHz.c$89$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:89: AX5043_FSKDEV0                 = 0xEC;
+	C$config_48MHz.c$90$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:90: AX5043_FSKDEV0                 = 0xEC;
 	mov	dptr,#_AX5043_FSKDEV0
 	mov	a,#0xEC
 	movx	@dptr,a
-	C$config_48MHz.c$90$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:90: AX5043_MODCFGA                 = 0x05;
+	C$config_48MHz.c$91$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:91: AX5043_MODCFGA                 = 0x05;
 	mov	dptr,#_AX5043_MODCFGA
 	mov	a,#0x05
 	movx	@dptr,a
-	C$config_48MHz.c$91$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:91: AX5043_TXRATE2                 = 0x00;
+	C$config_48MHz.c$92$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:92: AX5043_TXRATE2                 = 0x00;
 	mov	dptr,#_AX5043_TXRATE2
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$92$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:92: AX5043_TXRATE1                 = 0x06;
+	C$config_48MHz.c$93$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:93: AX5043_TXRATE1                 = 0x06;
 	mov	dptr,#_AX5043_TXRATE1
 	mov	a,#0x06
 	movx	@dptr,a
-	C$config_48MHz.c$93$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:93: AX5043_TXRATE0                 = 0x8E;
+	C$config_48MHz.c$94$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:94: AX5043_TXRATE0                 = 0x8E;
 	mov	dptr,#_AX5043_TXRATE0
 	mov	a,#0x8E
 	movx	@dptr,a
-	C$config_48MHz.c$94$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:94: AX5043_TXPWRCOEFFB1            = 0x0F;
+	C$config_48MHz.c$95$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:95: AX5043_TXPWRCOEFFB1            = 0x0F;
 	mov	dptr,#_AX5043_TXPWRCOEFFB1
 	mov	a,#0x0F
 	movx	@dptr,a
-	C$config_48MHz.c$95$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:95: AX5043_TXPWRCOEFFB0            = 0xFF;
+	C$config_48MHz.c$96$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:96: AX5043_TXPWRCOEFFB0            = 0xFF;
 	mov	dptr,#_AX5043_TXPWRCOEFFB0
 	mov	a,#0xFF
 	movx	@dptr,a
-	C$config_48MHz.c$96$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:96: AX5043_PLLRNGCLK               = 0x05;
+	C$config_48MHz.c$97$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:97: AX5043_PLLRNGCLK               = 0x05;
 	mov	dptr,#_AX5043_PLLRNGCLK
 	mov	a,#0x05
 	movx	@dptr,a
-	C$config_48MHz.c$97$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:97: AX5043_BBTUNE                  = 0x0C;
+	C$config_48MHz.c$98$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:98: AX5043_BBTUNE                  = 0x0C;
 	mov	dptr,#_AX5043_BBTUNE
 	mov	a,#0x0C
 	movx	@dptr,a
-	C$config_48MHz.c$98$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:98: AX5043_BBOFFSCAP               = 0x77;
+	C$config_48MHz.c$99$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:99: AX5043_BBOFFSCAP               = 0x77;
 	mov	dptr,#_AX5043_BBOFFSCAP
 	mov	a,#0x77
 	movx	@dptr,a
-	C$config_48MHz.c$99$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:99: AX5043_PKTADDRCFG              = 0x01;
+	C$config_48MHz.c$100$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:100: AX5043_PKTADDRCFG              = 0x01;
 	mov	dptr,#_AX5043_PKTADDRCFG
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$100$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:100: AX5043_PKTLENCFG               = 0x80;
+	C$config_48MHz.c$101$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:101: AX5043_PKTLENCFG               = 0x80;
 	mov	dptr,#_AX5043_PKTLENCFG
 	mov	a,#0x80
 	movx	@dptr,a
-	C$config_48MHz.c$101$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:101: AX5043_PKTLENOFFSET            = 0x00;
+	C$config_48MHz.c$102$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:102: AX5043_PKTLENOFFSET            = 0x00;
 	mov	dptr,#_AX5043_PKTLENOFFSET
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$102$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:102: AX5043_PKTMAXLEN               = 0xC8;
+	C$config_48MHz.c$103$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:103: AX5043_PKTMAXLEN               = 0xC8;
 	mov	dptr,#_AX5043_PKTMAXLEN
 	mov	a,#0xC8
 	movx	@dptr,a
-	C$config_48MHz.c$103$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:103: AX5043_MATCH0PAT3              = 0xAA;
+	C$config_48MHz.c$104$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:104: AX5043_MATCH0PAT3              = 0xAA;
 	mov	dptr,#_AX5043_MATCH0PAT3
 	mov	a,#0xAA
 	movx	@dptr,a
-	C$config_48MHz.c$104$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:104: AX5043_MATCH0PAT2              = 0xCC;
+	C$config_48MHz.c$105$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:105: AX5043_MATCH0PAT2              = 0xCC;
 	mov	dptr,#_AX5043_MATCH0PAT2
 	mov	a,#0xCC
 	movx	@dptr,a
-	C$config_48MHz.c$105$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:105: AX5043_MATCH0PAT1              = 0xAA;
+	C$config_48MHz.c$106$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:106: AX5043_MATCH0PAT1              = 0xAA;
 	mov	dptr,#_AX5043_MATCH0PAT1
 	mov	a,#0xAA
 	movx	@dptr,a
-	C$config_48MHz.c$106$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:106: AX5043_MATCH0PAT0              = 0xCC;
+	C$config_48MHz.c$107$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:107: AX5043_MATCH0PAT0              = 0xCC;
 	mov	dptr,#_AX5043_MATCH0PAT0
 	mov	a,#0xCC
 	movx	@dptr,a
-	C$config_48MHz.c$107$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:107: AX5043_MATCH0LEN               = 0x1F;
+	C$config_48MHz.c$108$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:108: AX5043_MATCH0LEN               = 0x1F;
 	mov	dptr,#_AX5043_MATCH0LEN
 	mov	a,#0x1F
 	movx	@dptr,a
-	C$config_48MHz.c$108$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:108: AX5043_MATCH0MAX               = 0x1F;
+	C$config_48MHz.c$109$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:109: AX5043_MATCH0MAX               = 0x1F;
 	mov	dptr,#_AX5043_MATCH0MAX
 	mov	a,#0x1F
 	movx	@dptr,a
-	C$config_48MHz.c$109$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:109: AX5043_MATCH1PAT1              = 0x55;
+	C$config_48MHz.c$110$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:110: AX5043_MATCH1PAT1              = 0x55;
 	mov	dptr,#_AX5043_MATCH1PAT1
 	mov	a,#0x55
 	movx	@dptr,a
-	C$config_48MHz.c$110$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:110: AX5043_MATCH1PAT0              = 0x55;
+	C$config_48MHz.c$111$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:111: AX5043_MATCH1PAT0              = 0x55;
 	mov	dptr,#_AX5043_MATCH1PAT0
 	mov	a,#0x55
 	movx	@dptr,a
-	C$config_48MHz.c$111$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:111: AX5043_MATCH1LEN               = 0x8A;
+	C$config_48MHz.c$112$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:112: AX5043_MATCH1LEN               = 0x8A;
 	mov	dptr,#_AX5043_MATCH1LEN
 	mov	a,#0x8A
 	movx	@dptr,a
-	C$config_48MHz.c$112$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:112: AX5043_MATCH1MAX               = 0x0A;
+	C$config_48MHz.c$113$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:113: AX5043_MATCH1MAX               = 0x0A;
 	mov	dptr,#_AX5043_MATCH1MAX
 	mov	a,#0x0A
 	movx	@dptr,a
-	C$config_48MHz.c$113$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:113: AX5043_TMGRXBOOST              = 0x5B;
+	C$config_48MHz.c$114$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:114: AX5043_TMGRXBOOST              = 0x5B;
 	mov	dptr,#_AX5043_TMGRXBOOST
 	mov	a,#0x5B
 	movx	@dptr,a
-	C$config_48MHz.c$114$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:114: AX5043_TMGRXSETTLE             = 0x3E;
+	C$config_48MHz.c$115$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:115: AX5043_TMGRXSETTLE             = 0x3E;
 	mov	dptr,#_AX5043_TMGRXSETTLE
 	mov	a,#0x3E
 	movx	@dptr,a
-	C$config_48MHz.c$115$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:115: AX5043_TMGRXOFFSACQ            = 0x9C;
+	C$config_48MHz.c$116$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:116: AX5043_TMGRXOFFSACQ            = 0x9C;
 	mov	dptr,#_AX5043_TMGRXOFFSACQ
 	mov	a,#0x9C
 	movx	@dptr,a
-	C$config_48MHz.c$116$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:116: AX5043_TMGRXCOARSEAGC          = 0x32;
+	C$config_48MHz.c$117$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:117: AX5043_TMGRXCOARSEAGC          = 0x32;
 	mov	dptr,#_AX5043_TMGRXCOARSEAGC
 	mov	a,#0x32
 	movx	@dptr,a
-	C$config_48MHz.c$117$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:117: AX5043_TMGRXAGC                = 0x00;
+	C$config_48MHz.c$118$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:118: AX5043_TMGRXAGC                = 0x00;
 	mov	dptr,#_AX5043_TMGRXAGC
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$118$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:118: AX5043_TMGRXRSSI               = 0x08;
+	C$config_48MHz.c$119$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:119: AX5043_TMGRXRSSI               = 0x08;
 	mov	dptr,#_AX5043_TMGRXRSSI
 	mov	a,#0x08
 	movx	@dptr,a
-	C$config_48MHz.c$119$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:119: AX5043_TMGRXPREAMBLE2          = 0x35;
+	C$config_48MHz.c$120$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:120: AX5043_TMGRXPREAMBLE2          = 0x35;
 	mov	dptr,#_AX5043_TMGRXPREAMBLE2
 	mov	a,#0x35
 	movx	@dptr,a
-	C$config_48MHz.c$120$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:120: AX5043_RSSIREFERENCE           = 0x19;
+	C$config_48MHz.c$121$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:121: AX5043_RSSIREFERENCE           = 0x19;
 	mov	dptr,#_AX5043_RSSIREFERENCE
 	mov	a,#0x19
 	movx	@dptr,a
-	C$config_48MHz.c$121$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:121: AX5043_RSSIABSTHR              = 0xC6;
+	C$config_48MHz.c$122$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:122: AX5043_RSSIABSTHR              = 0xC6;
 	mov	dptr,#_AX5043_RSSIABSTHR
 	mov	a,#0xC6
 	movx	@dptr,a
-	C$config_48MHz.c$122$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:122: AX5043_BGNDRSSIGAIN            = 0x02;
+	C$config_48MHz.c$123$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:123: AX5043_BGNDRSSIGAIN            = 0x02;
 	mov	dptr,#_AX5043_BGNDRSSIGAIN
 	mov	a,#0x02
 	movx	@dptr,a
-	C$config_48MHz.c$123$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:123: AX5043_BGNDRSSITHR             = 0x00;
+	C$config_48MHz.c$124$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:124: AX5043_BGNDRSSITHR             = 0x00;
 	mov	dptr,#_AX5043_BGNDRSSITHR
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$124$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:124: AX5043_PKTCHUNKSIZE            = 0x0D;
+	C$config_48MHz.c$125$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:125: AX5043_PKTCHUNKSIZE            = 0x0D;
 	mov	dptr,#_AX5043_PKTCHUNKSIZE
 	mov	a,#0x0D
 	movx	@dptr,a
-	C$config_48MHz.c$125$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:125: AX5043_PKTMISCFLAGS            = 0x03;
+	C$config_48MHz.c$126$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:126: AX5043_PKTMISCFLAGS            = 0x03;
 	mov	dptr,#_AX5043_PKTMISCFLAGS
 	mov	a,#0x03
 	movx	@dptr,a
-	C$config_48MHz.c$126$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:126: AX5043_PKTACCEPTFLAGS          = 0x20;
+	C$config_48MHz.c$127$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:127: AX5043_PKTACCEPTFLAGS          = 0x20;
 	mov	dptr,#_AX5043_PKTACCEPTFLAGS
 	mov	a,#0x20
 	movx	@dptr,a
-	C$config_48MHz.c$127$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:127: AX5043_DACVALUE1               = 0x00;
-	mov	dptr,#_AX5043_DACVALUE1
 	C$config_48MHz.c$128$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:128: AX5043_DACVALUE0               = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:128: AX5043_DACVALUE1               = 0x00;
+	mov	dptr,#_AX5043_DACVALUE1
 	C$config_48MHz.c$129$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:129: AX5043_DACCONFIG               = 0x00;
+;	..\AX_Radio_Lab_output\config_48MHz.c:129: AX5043_DACVALUE0               = 0x00;
+	C$config_48MHz.c$130$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:130: AX5043_DACCONFIG               = 0x00;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_AX5043_DACVALUE0
 	movx	@dptr,a
 	mov	dptr,#_AX5043_DACCONFIG
 	movx	@dptr,a
-	C$config_48MHz.c$130$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:130: AX5043_0xF10                   = 0x04;
+	C$config_48MHz.c$131$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:131: AX5043_0xF10                   = 0x04;
 	mov	dptr,#_AX5043_0xF10
 	mov	a,#0x04
 	movx	@dptr,a
-	C$config_48MHz.c$131$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:131: AX5043_0xF11                   = 0x00;
+	C$config_48MHz.c$132$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:132: AX5043_0xF11                   = 0x00;
 	mov	dptr,#_AX5043_0xF11
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$132$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:132: AX5043_0xF1C                   = 0x07;
+	C$config_48MHz.c$133$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:133: AX5043_0xF1C                   = 0x07;
 	mov	dptr,#_AX5043_0xF1C
 	mov	a,#0x07
 	movx	@dptr,a
-	C$config_48MHz.c$133$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:133: AX5043_0xF21                   = 0x5C;
+	C$config_48MHz.c$134$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:134: AX5043_0xF21                   = 0x5C;
 	mov	dptr,#_AX5043_0xF21
 	mov	a,#0x5C
 	movx	@dptr,a
-	C$config_48MHz.c$134$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:134: AX5043_0xF22                   = 0x53;
+	C$config_48MHz.c$135$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:135: AX5043_0xF22                   = 0x53;
 	mov	dptr,#_AX5043_0xF22
 	mov	a,#0x53
 	movx	@dptr,a
-	C$config_48MHz.c$135$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:135: AX5043_0xF23                   = 0x76;
+	C$config_48MHz.c$136$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:136: AX5043_0xF23                   = 0x76;
 	mov	dptr,#_AX5043_0xF23
 	mov	a,#0x76
 	movx	@dptr,a
-	C$config_48MHz.c$136$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:136: AX5043_0xF26                   = 0x92;
+	C$config_48MHz.c$137$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:137: AX5043_0xF26                   = 0x92;
 	mov	dptr,#_AX5043_0xF26
 	mov	a,#0x92
 	movx	@dptr,a
-	C$config_48MHz.c$137$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:137: AX5043_0xF34                   = 0x08;
+	C$config_48MHz.c$138$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:138: AX5043_0xF34                   = 0x08;
 	mov	dptr,#_AX5043_0xF34
 	mov	a,#0x08
 	movx	@dptr,a
-	C$config_48MHz.c$138$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:138: AX5043_0xF35                   = 0x11;
+	C$config_48MHz.c$139$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:139: AX5043_0xF35                   = 0x11;
 	mov	dptr,#_AX5043_0xF35
 	mov	a,#0x11
 	movx	@dptr,a
-	C$config_48MHz.c$139$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:139: AX5043_0xF44                   = 0x24;
+	C$config_48MHz.c$140$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:140: AX5043_0xF44                   = 0x24;
 	mov	dptr,#_AX5043_0xF44
 	mov	a,#0x24
 	movx	@dptr,a
-	C$config_48MHz.c$140$1$81 ==.
+	C$config_48MHz.c$141$1$81 ==.
 	XG$ax5043_set_registers$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'ax5043_set_registers_tx'
 ;------------------------------------------------------------
 	G$ax5043_set_registers_tx$0$0 ==.
-	C$config_48MHz.c$143$1$81 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:143: __reentrantb void ax5043_set_registers_tx(void) __reentrant
+	C$config_48MHz.c$144$1$81 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:144: __reentrantb void ax5043_set_registers_tx(void) __reentrant
 ;	-----------------------------------------
 ;	 function ax5043_set_registers_tx
 ;	-----------------------------------------
 _ax5043_set_registers_tx:
-	C$config_48MHz.c$145$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:145: AX5043_PLLLOOP                 = 0x09;
+	C$config_48MHz.c$146$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:146: AX5043_PLLLOOP                 = 0x09;
 	mov	dptr,#_AX5043_PLLLOOP
 	mov	a,#0x09
 	movx	@dptr,a
-	C$config_48MHz.c$146$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:146: AX5043_PLLCPI                  = 0x02;
+	C$config_48MHz.c$147$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:147: AX5043_PLLCPI                  = 0x02;
 	mov	dptr,#_AX5043_PLLCPI
 	mov	a,#0x02
 	movx	@dptr,a
-	C$config_48MHz.c$147$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:147: AX5043_PLLVCODIV               = 0x20;
+	C$config_48MHz.c$148$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:148: AX5043_PLLVCODIV               = 0x20;
 	mov	dptr,#_AX5043_PLLVCODIV
 	mov	a,#0x20
 	movx	@dptr,a
-	C$config_48MHz.c$148$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:148: AX5043_PLLVCOI                 = 0x99;
+	C$config_48MHz.c$149$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:149: AX5043_PLLVCOI                 = 0x99;
 	mov	dptr,#_AX5043_PLLVCOI
 	mov	a,#0x99
 	movx	@dptr,a
-	C$config_48MHz.c$149$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:149: AX5043_XTALCAP                 = 0x00;
+	C$config_48MHz.c$150$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:150: AX5043_XTALCAP                 = 0x00;
 	mov	dptr,#_AX5043_XTALCAP
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$150$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:150: AX5043_0xF00                   = 0x0F;
+	C$config_48MHz.c$151$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:151: AX5043_0xF00                   = 0x0F;
 	mov	dptr,#_AX5043_0xF00
 	mov	a,#0x0F
 	movx	@dptr,a
-	C$config_48MHz.c$151$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:151: AX5043_REF                     = 0x03;
+	C$config_48MHz.c$152$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:152: AX5043_REF                     = 0x03;
 	mov	dptr,#_AX5043_REF
 	mov	a,#0x03
 	movx	@dptr,a
-	C$config_48MHz.c$152$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:152: AX5043_0xF18                   = 0x06;
+	C$config_48MHz.c$153$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:153: AX5043_0xF18                   = 0x06;
 	mov	dptr,#_AX5043_0xF18
 	mov	a,#0x06
 	movx	@dptr,a
-	C$config_48MHz.c$153$1$83 ==.
+	C$config_48MHz.c$154$1$83 ==.
 	XG$ax5043_set_registers_tx$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'ax5043_set_registers_rx'
 ;------------------------------------------------------------
 	G$ax5043_set_registers_rx$0$0 ==.
-	C$config_48MHz.c$156$1$83 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:156: __reentrantb void ax5043_set_registers_rx(void) __reentrant
+	C$config_48MHz.c$157$1$83 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:157: __reentrantb void ax5043_set_registers_rx(void) __reentrant
 ;	-----------------------------------------
 ;	 function ax5043_set_registers_rx
 ;	-----------------------------------------
 _ax5043_set_registers_rx:
-	C$config_48MHz.c$158$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:158: AX5043_PLLLOOP                 = 0x09;
+	C$config_48MHz.c$159$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:159: AX5043_PLLLOOP                 = 0x09;
 	mov	dptr,#_AX5043_PLLLOOP
 	mov	a,#0x09
 	movx	@dptr,a
-	C$config_48MHz.c$159$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:159: AX5043_PLLCPI                  = 0x01;
+	C$config_48MHz.c$160$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:160: AX5043_PLLCPI                  = 0x01;
 	mov	dptr,#_AX5043_PLLCPI
 	mov	a,#0x01
 	movx	@dptr,a
-	C$config_48MHz.c$160$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:160: AX5043_PLLVCODIV               = 0x20;
+	C$config_48MHz.c$161$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:161: AX5043_PLLVCODIV               = 0x20;
 	mov	dptr,#_AX5043_PLLVCODIV
 	mov	a,#0x20
 	movx	@dptr,a
-	C$config_48MHz.c$161$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:161: AX5043_PLLVCOI                 = 0x99;
+	C$config_48MHz.c$162$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:162: AX5043_PLLVCOI                 = 0x99;
 	mov	dptr,#_AX5043_PLLVCOI
 	mov	a,#0x99
 	movx	@dptr,a
-	C$config_48MHz.c$162$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:162: AX5043_XTALCAP                 = 0x00;
+	C$config_48MHz.c$163$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:163: AX5043_XTALCAP                 = 0x00;
 	mov	dptr,#_AX5043_XTALCAP
 	clr	a
 	movx	@dptr,a
-	C$config_48MHz.c$163$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:163: AX5043_0xF00                   = 0x0F;
+	C$config_48MHz.c$164$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:164: AX5043_0xF00                   = 0x0F;
 	mov	dptr,#_AX5043_0xF00
 	mov	a,#0x0F
 	movx	@dptr,a
-	C$config_48MHz.c$164$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:164: AX5043_REF                     = 0x03;
+	C$config_48MHz.c$165$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:165: AX5043_REF                     = 0x03;
 	mov	dptr,#_AX5043_REF
 	mov	a,#0x03
 	movx	@dptr,a
-	C$config_48MHz.c$165$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:165: AX5043_0xF18                   = 0x06;
+	C$config_48MHz.c$166$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:166: AX5043_0xF18                   = 0x06;
 	mov	dptr,#_AX5043_0xF18
 	mov	a,#0x06
 	movx	@dptr,a
-	C$config_48MHz.c$166$1$85 ==.
+	C$config_48MHz.c$167$1$85 ==.
 	XG$ax5043_set_registers_rx$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4022,8 +4022,8 @@ _ax5043_set_registers_rx:
 ;r                         Allocated to registers r0 r1 r2 r3 
 ;------------------------------------------------------------
 	G$axradio_conv_freq_fromhz$0$0 ==.
-	C$config_48MHz.c$172$1$85 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:172: int32_t axradio_conv_freq_fromhz(int32_t f)
+	C$config_48MHz.c$173$1$85 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:173: int32_t axradio_conv_freq_fromhz(int32_t f)
 ;	-----------------------------------------
 ;	 function axradio_conv_freq_fromhz
 ;	-----------------------------------------
@@ -4031,8 +4031,8 @@ _axradio_conv_freq_fromhz:
 	mov	r4,dpl
 	mov	r5,dph
 	mov	r6,b
-	C$config_48MHz.c$179$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:179: f >>= 1;
+	C$config_48MHz.c$180$1$87 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:180: f >>= 1;
 	mov	c,acc.7
 	rrc	a
 	mov	r7,a
@@ -4044,43 +4044,43 @@ _axradio_conv_freq_fromhz:
 	mov	r5,a
 	mov	a,r4
 	rrc	a
-	C$config_48MHz.c$180$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:180: r = f;
+	C$config_48MHz.c$181$1$87 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:181: r = f;
 	mov	r4,a
 	mov	r0,a
 	mov	ar1,r5
 	mov	ar2,r6
-	C$config_48MHz.c$181$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:181: f >>= 2;
-	mov	a,r7
-	mov	r3,a
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
-	mov	a,r7
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
 	C$config_48MHz.c$182$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:182: r -= f;
+;	..\AX_Radio_Lab_output\config_48MHz.c:182: f >>= 2;
+	mov	a,r7
+	mov	r3,a
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+	mov	a,r7
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+	C$config_48MHz.c$183$1$87 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:183: r -= f;
 	mov	a,r0
 	clr	c
 	subb	a,r4
@@ -4094,36 +4094,36 @@ _axradio_conv_freq_fromhz:
 	mov	a,r3
 	subb	a,r7
 	mov	r3,a
-	C$config_48MHz.c$183$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:183: f >>= 2;
-	mov	a,r7
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
-	mov	a,r7
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
 	C$config_48MHz.c$184$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:184: r -= f;
+;	..\AX_Radio_Lab_output\config_48MHz.c:184: f >>= 2;
+	mov	a,r7
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+	mov	a,r7
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+	C$config_48MHz.c$185$1$87 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:185: r -= f;
 	mov	a,r0
 	clr	c
 	subb	a,r4
@@ -4136,12 +4136,12 @@ _axradio_conv_freq_fromhz:
 	mov	r2,a
 	mov	a,r3
 	subb	a,r7
-	C$config_48MHz.c$185$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:185: return r;
+	C$config_48MHz.c$186$1$87 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:186: return r;
 	mov	dpl,r0
 	mov	dph,r1
 	mov	b,r2
-	C$config_48MHz.c$186$1$87 ==.
+	C$config_48MHz.c$187$1$87 ==.
 	XG$axradio_conv_freq_fromhz$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4151,8 +4151,8 @@ _axradio_conv_freq_fromhz:
 ;r                         Allocated to registers r0 r1 r2 r3 
 ;------------------------------------------------------------
 	G$axradio_conv_freq_tohz$0$0 ==.
-	C$config_48MHz.c$191$1$87 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:191: int32_t axradio_conv_freq_tohz(int32_t f)
+	C$config_48MHz.c$192$1$87 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:192: int32_t axradio_conv_freq_tohz(int32_t f)
 ;	-----------------------------------------
 ;	 function axradio_conv_freq_tohz
 ;	-----------------------------------------
@@ -4161,8 +4161,8 @@ _axradio_conv_freq_tohz:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	C$config_48MHz.c$198$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:198: r = -f;
+	C$config_48MHz.c$199$1$89 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:199: r = -f;
 	clr	c
 	clr	a
 	subb	a,r4
@@ -4176,34 +4176,34 @@ _axradio_conv_freq_tohz:
 	clr	a
 	subb	a,r7
 	mov	r3,a
-	C$config_48MHz.c$199$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:199: f <<= 2;
-	mov	a,r4
-	add	a,r4
-	mov	r4,a
-	mov	a,r5
-	rlc	a
-	mov	r5,a
-	mov	a,r6
-	rlc	a
-	mov	r6,a
-	mov	a,r7
-	rlc	a
-	mov	r7,a
-	mov	a,r4
-	add	a,r4
-	mov	r4,a
-	mov	a,r5
-	rlc	a
-	mov	r5,a
-	mov	a,r6
-	rlc	a
-	mov	r6,a
-	mov	a,r7
-	rlc	a
-	mov	r7,a
 	C$config_48MHz.c$200$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:200: r += f;
+;	..\AX_Radio_Lab_output\config_48MHz.c:200: f <<= 2;
+	mov	a,r4
+	add	a,r4
+	mov	r4,a
+	mov	a,r5
+	rlc	a
+	mov	r5,a
+	mov	a,r6
+	rlc	a
+	mov	r6,a
+	mov	a,r7
+	rlc	a
+	mov	r7,a
+	mov	a,r4
+	add	a,r4
+	mov	r4,a
+	mov	a,r5
+	rlc	a
+	mov	r5,a
+	mov	a,r6
+	rlc	a
+	mov	r6,a
+	mov	a,r7
+	rlc	a
+	mov	r7,a
+	C$config_48MHz.c$201$1$89 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:201: r += f;
 	mov	a,r4
 	add	a,r0
 	mov	r0,a
@@ -4216,8 +4216,8 @@ _axradio_conv_freq_tohz:
 	mov	a,r7
 	addc	a,r3
 	mov	r3,a
-	C$config_48MHz.c$201$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:201: f >>= 5;
+	C$config_48MHz.c$202$1$89 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:202: f >>= 5;
 	mov	a,r5
 	swap	a
 	rr	a
@@ -4255,8 +4255,8 @@ _axradio_conv_freq_tohz:
 	orl	a,#0xF8
 00103$:
 	mov	r7,a
-	C$config_48MHz.c$202$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:202: r -= f;
+	C$config_48MHz.c$203$1$89 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:203: r -= f;
 	mov	a,r0
 	clr	c
 	subb	a,r4
@@ -4269,12 +4269,12 @@ _axradio_conv_freq_tohz:
 	mov	r2,a
 	mov	a,r3
 	subb	a,r7
-	C$config_48MHz.c$203$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:203: return r;
+	C$config_48MHz.c$204$1$89 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:204: return r;
 	mov	dpl,r0
 	mov	dph,r1
 	mov	b,r2
-	C$config_48MHz.c$204$1$89 ==.
+	C$config_48MHz.c$205$1$89 ==.
 	XG$axradio_conv_freq_tohz$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4284,8 +4284,8 @@ _axradio_conv_freq_tohz:
 ;r                         Allocated to registers r0 r1 r2 r3 
 ;------------------------------------------------------------
 	G$axradio_conv_timeinterval_totimer0$0$0 ==.
-	C$config_48MHz.c$209$1$89 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:209: int32_t axradio_conv_timeinterval_totimer0(int32_t dt)
+	C$config_48MHz.c$210$1$89 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:210: int32_t axradio_conv_timeinterval_totimer0(int32_t dt)
 ;	-----------------------------------------
 ;	 function axradio_conv_timeinterval_totimer0
 ;	-----------------------------------------
@@ -4294,8 +4294,8 @@ _axradio_conv_timeinterval_totimer0:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	C$config_48MHz.c$216$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:216: dt >>= 6;
+	C$config_48MHz.c$217$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:217: dt >>= 6;
 	mov	a,r5
 	mov	c,acc.7
 	xch	a,r4
@@ -4332,85 +4332,42 @@ _axradio_conv_timeinterval_totimer0:
 	orl	a,#0xFC
 00103$:
 	mov	r7,a
-	C$config_48MHz.c$217$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:217: r = dt;
+	C$config_48MHz.c$218$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:218: r = dt;
 	mov	ar0,r4
 	mov	ar1,r5
 	mov	ar2,r6
-	C$config_48MHz.c$218$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:218: dt >>= 2;
-	mov	a,r7
-	mov	r3,a
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
-	mov	a,r7
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
 	C$config_48MHz.c$219$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:219: r -= dt;
-	mov	a,r0
-	clr	c
-	subb	a,r4
-	mov	r0,a
-	mov	a,r1
-	subb	a,r5
-	mov	r1,a
-	mov	a,r2
-	subb	a,r6
-	mov	r2,a
-	mov	a,r3
-	subb	a,r7
+;	..\AX_Radio_Lab_output\config_48MHz.c:219: dt >>= 2;
+	mov	a,r7
 	mov	r3,a
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+	mov	a,r7
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
 	C$config_48MHz.c$220$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:220: dt >>= 2;
-	mov	a,r7
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
-	mov	a,r7
-	mov	c,acc.7
-	rrc	a
-	mov	r7,a
-	mov	a,r6
-	rrc	a
-	mov	r6,a
-	mov	a,r5
-	rrc	a
-	mov	r5,a
-	mov	a,r4
-	rrc	a
-	mov	r4,a
-	C$config_48MHz.c$221$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:221: r -= dt;
+;	..\AX_Radio_Lab_output\config_48MHz.c:220: r -= dt;
 	mov	a,r0
 	clr	c
 	subb	a,r4
@@ -4424,8 +4381,51 @@ _axradio_conv_timeinterval_totimer0:
 	mov	a,r3
 	subb	a,r7
 	mov	r3,a
+	C$config_48MHz.c$221$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:221: dt >>= 2;
+	mov	a,r7
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
+	mov	a,r7
+	mov	c,acc.7
+	rrc	a
+	mov	r7,a
+	mov	a,r6
+	rrc	a
+	mov	r6,a
+	mov	a,r5
+	rrc	a
+	mov	r5,a
+	mov	a,r4
+	rrc	a
+	mov	r4,a
 	C$config_48MHz.c$222$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:222: dt >>= 3;
+;	..\AX_Radio_Lab_output\config_48MHz.c:222: r -= dt;
+	mov	a,r0
+	clr	c
+	subb	a,r4
+	mov	r0,a
+	mov	a,r1
+	subb	a,r5
+	mov	r1,a
+	mov	a,r2
+	subb	a,r6
+	mov	r2,a
+	mov	a,r3
+	subb	a,r7
+	mov	r3,a
+	C$config_48MHz.c$223$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:223: dt >>= 3;
 	mov	a,r5
 	swap	a
 	rl	a
@@ -4463,8 +4463,8 @@ _axradio_conv_timeinterval_totimer0:
 	orl	a,#0xE0
 00104$:
 	mov	r7,a
-	C$config_48MHz.c$223$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:223: r += dt;
+	C$config_48MHz.c$224$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:224: r += dt;
 	mov	a,r4
 	add	a,r0
 	mov	r0,a
@@ -4476,12 +4476,12 @@ _axradio_conv_timeinterval_totimer0:
 	mov	r2,a
 	mov	a,r7
 	addc	a,r3
-	C$config_48MHz.c$224$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:224: return r;
+	C$config_48MHz.c$225$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:225: return r;
 	mov	dpl,r0
 	mov	dph,r1
 	mov	b,r2
-	C$config_48MHz.c$225$1$91 ==.
+	C$config_48MHz.c$226$1$91 ==.
 	XG$axradio_conv_timeinterval_totimer0$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4490,15 +4490,15 @@ _axradio_conv_timeinterval_totimer0:
 ;b                         Allocated to registers r7 
 ;------------------------------------------------------------
 	G$axradio_byteconv$0$0 ==.
-	C$config_48MHz.c$227$1$91 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:227: __reentrantb uint8_t axradio_byteconv(uint8_t b) __reentrant
+	C$config_48MHz.c$228$1$91 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:228: __reentrantb uint8_t axradio_byteconv(uint8_t b) __reentrant
 ;	-----------------------------------------
 ;	 function axradio_byteconv
 ;	-----------------------------------------
 _axradio_byteconv:
-	C$config_48MHz.c$229$1$93 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:229: return b;
 	C$config_48MHz.c$230$1$93 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:230: return b;
+	C$config_48MHz.c$231$1$93 ==.
 	XG$axradio_byteconv$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4508,18 +4508,18 @@ _axradio_byteconv:
 ;buf                       Allocated to registers 
 ;------------------------------------------------------------
 	G$axradio_byteconv_buffer$0$0 ==.
-	C$config_48MHz.c$233$1$93 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:233: __reentrantb void axradio_byteconv_buffer(uint8_t __xdata *buf, uint16_t buflen) __reentrant
+	C$config_48MHz.c$234$1$93 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:234: __reentrantb void axradio_byteconv_buffer(uint8_t __xdata *buf, uint16_t buflen) __reentrant
 ;	-----------------------------------------
 ;	 function axradio_byteconv_buffer
 ;	-----------------------------------------
 _axradio_byteconv_buffer:
 	push	_bp
 	mov	_bp,sp
-	C$config_48MHz.c$235$1$93 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:235: }
+	C$config_48MHz.c$236$1$93 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:236: }
 	pop	_bp
-	C$config_48MHz.c$235$1$93 ==.
+	C$config_48MHz.c$236$1$93 ==.
 	XG$axradio_byteconv_buffer$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4529,8 +4529,8 @@ _axradio_byteconv_buffer:
 ;pkt                       Allocated to registers r6 r7 
 ;------------------------------------------------------------
 	G$axradio_framing_check_crc$0$0 ==.
-	C$config_48MHz.c$238$1$93 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:238: __reentrantb uint8_t axradio_framing_check_crc(const __xdata uint8_t *pkt, uint16_t cnt) __reentrant
+	C$config_48MHz.c$239$1$93 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:239: __reentrantb uint8_t axradio_framing_check_crc(const __xdata uint8_t *pkt, uint16_t cnt) __reentrant
 ;	-----------------------------------------
 ;	 function axradio_framing_check_crc
 ;	-----------------------------------------
@@ -4539,8 +4539,8 @@ _axradio_framing_check_crc:
 	mov	_bp,sp
 	mov	r6,dpl
 	mov	r7,dph
-	C$config_48MHz.c$240$1$97 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:240: return crc_crc16(pkt, cnt, 0xFFFF) == 0xB001;
+	C$config_48MHz.c$241$1$97 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:241: return crc_crc16(pkt, cnt, 0xFFFF) == 0xB001;
 	mov	r5,#0x00
 	mov	a,#0xFF
 	push	acc
@@ -4569,7 +4569,7 @@ _axradio_framing_check_crc:
 00103$:
 	mov	dpl,a
 	pop	_bp
-	C$config_48MHz.c$241$1$97 ==.
+	C$config_48MHz.c$242$1$97 ==.
 	XG$axradio_framing_check_crc$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -4580,8 +4580,8 @@ _axradio_framing_check_crc:
 ;s                         Allocated to registers r4 r5 
 ;------------------------------------------------------------
 	G$axradio_framing_append_crc$0$0 ==.
-	C$config_48MHz.c$244$1$97 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:244: __reentrantb uint16_t axradio_framing_append_crc(__xdata uint8_t *pkt, uint16_t cnt) __reentrant
+	C$config_48MHz.c$245$1$97 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:245: __reentrantb uint16_t axradio_framing_append_crc(__xdata uint8_t *pkt, uint16_t cnt) __reentrant
 ;	-----------------------------------------
 ;	 function axradio_framing_append_crc
 ;	-----------------------------------------
@@ -4590,8 +4590,8 @@ _axradio_framing_append_crc:
 	mov	_bp,sp
 	mov	r6,dpl
 	mov	r7,dph
-	C$config_48MHz.c$246$1$99 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:246: uint16_t s = crc_crc16(pkt, cnt, 0xFFFF);
+	C$config_48MHz.c$247$1$99 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:247: uint16_t s = crc_crc16(pkt, cnt, 0xFFFF);
 	mov	ar3,r6
 	mov	ar4,r7
 	mov	r5,#0x00
@@ -4619,8 +4619,8 @@ _axradio_framing_append_crc:
 	mov	sp,a
 	pop	ar6
 	pop	ar7
-	C$config_48MHz.c$247$1$99 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:247: pkt += cnt;
+	C$config_48MHz.c$248$1$99 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:248: pkt += cnt;
 	mov	a,_bp
 	add	a,#0xfc
 	mov	r0,a
@@ -4631,8 +4631,8 @@ _axradio_framing_append_crc:
 	mov	a,@r0
 	addc	a,r7
 	mov	r7,a
-	C$config_48MHz.c$248$1$99 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:248: *pkt++ = ~(uint8_t)(s);
+	C$config_48MHz.c$249$1$99 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:249: *pkt++ = ~(uint8_t)(s);
 	mov	ar3,r4
 	mov	a,r3
 	cpl	a
@@ -4642,16 +4642,16 @@ _axradio_framing_append_crc:
 	inc	dptr
 	mov	r6,dpl
 	mov	r7,dph
-	C$config_48MHz.c$249$1$99 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:249: *pkt++ = ~(uint8_t)(s >> 8);
+	C$config_48MHz.c$250$1$99 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:250: *pkt++ = ~(uint8_t)(s >> 8);
 	mov	ar4,r5
 	mov	a,r4
 	cpl	a
 	mov	dpl,r6
 	mov	dph,r7
 	movx	@dptr,a
-	C$config_48MHz.c$250$1$99 ==.
-;	..\AX_Radio_Lab_output\config_48MHz.c:250: return cnt + 2;
+	C$config_48MHz.c$251$1$99 ==.
+;	..\AX_Radio_Lab_output\config_48MHz.c:251: return cnt + 2;
 	mov	a,_bp
 	add	a,#0xfc
 	mov	r0,a
@@ -4661,7 +4661,7 @@ _axradio_framing_append_crc:
 	inc	dptr
 	inc	dptr
 	pop	_bp
-	C$config_48MHz.c$251$1$99 ==.
+	C$config_48MHz.c$252$1$99 ==.
 	XG$axradio_framing_append_crc$0$0 ==.
 	ret
 	.area CSEG    (CODE)

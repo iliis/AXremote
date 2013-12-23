@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-                              4 ; This file was generated Sat Dec 21 22:34:11 2013
+                              4 ; This file was generated Mon Dec 23 14:38:49 2013
                               5 ;--------------------------------------------------------
                               6 	.module main
                               7 	.optsdcc -mmcs51 --model-small
@@ -3437,7 +3437,7 @@
    00C6                    3437 00166$:
                     00C6   3438 	C$main.c$157$4$212 ==.
                            3439 ;	main.c:157: led0_toggle();
-   00C6 63 80 02           3440 	xrl	_PORTA,#0x02
+   00C6 63 88 02           3440 	xrl	_PORTB,#0x02
                     00C9   3441 	C$main.c$170$2$210 ==.
                            3442 ;	main.c:170: if (st->error == AXRADIO_ERR_NOERROR)
    00C9 74 01              3443 	mov	a,#0x01
@@ -3740,290 +3740,287 @@
                     0210   3740 	C$main.c$319$1$229 ==.
                            3741 ;	main.c:319: if (coldstart) {
    0210 E5*00              3742 	mov	a,_coldstart
-   0212 70 03              3743 	jnz	00200$
-   0214 02s02rCF           3744 	ljmp	00148$
-   0217                    3745 00200$:
+   0212 70 03              3743 	jnz	00199$
+   0214 02s02rCD           3744 	ljmp	00147$
+   0217                    3745 00199$:
                     0217   3746 	C$main.c$320$4$232 ==.
                            3747 ;	main.c:320: led0_off();
-   0217 C2 81              3748 	clr	_PORTA_1
-                    0219   3749 	C$main.c$321$4$234 ==.
-                           3750 ;	main.c:321: led1_off();
-   0219 C2 82              3751 	clr	_PORTA_2
-                    021B   3752 	C$main.c$326$2$230 ==.
-                           3753 ;	main.c:326: i = axradio_init();
-   021B 12s00r00           3754 	lcall	_axradio_init
-                    021E   3755 	C$main.c$327$2$230 ==.
-                           3756 ;	main.c:327: if (i != AXRADIO_ERR_NOERROR) {
-   021E E5 82              3757 	mov	a,dpl
-   0220 FF                 3758 	mov	r7,a
-   0221 60 42              3759 	jz	00135$
-                    0223   3760 	C$main.c$328$3$241 ==.
-                           3761 ;	main.c:328: if (i == AXRADIO_ERR_NOCHIP) {
-   0223 BF 05 14           3762 	cjne	r7,#0x05,00132$
-                    0226   3763 	C$main.c$331$4$242 ==.
-                           3764 ;	main.c:331: if (DBGLNKSTAT & 0x10)
-   0226 E5 E2              3765 	mov	a,_DBGLNKSTAT
-   0228 20 E4 03           3766 	jb	acc.4,00204$
-   022B 02s02rFD           3767 	ljmp	00155$
-   022E                    3768 00204$:
-                    022E   3769 	C$main.c$332$4$242 ==.
-                           3770 ;	main.c:332: dbglink_writestr("No AX5043 RF chip found \n");
-   022E 90s00r10           3771 	mov	dptr,#__str_2
-   0231 75 F0 80           3772 	mov	b,#0x80
-   0234 12s00r00           3773 	lcall	_dbglink_writestr
-                    0237   3774 	C$main.c$334$4$242 ==.
-                           3775 ;	main.c:334: goto terminate_error;
-   0237 02s02rFD           3776 	ljmp	00155$
-   023A                    3777 00132$:
-                    023A   3778 	C$main.c$337$3$241 ==.
-                           3779 ;	main.c:337: dbglink_writestr("error initializing radio: ");
-   023A 90s00r2A           3780 	mov	dptr,#__str_3
-   023D 75 F0 80           3781 	mov	b,#0x80
-   0240 C0 07              3782 	push	ar7
-   0242 12s00r00           3783 	lcall	_dbglink_writestr
-   0245 D0 07              3784 	pop	ar7
-                    0247   3785 	C$main.c$338$3$241 ==.
-                           3786 ;	main.c:338: dbglink_writehexu16(i, 2);
-   0247 8F 05              3787 	mov	ar5,r7
-   0249 7E 00              3788 	mov	r6,#0x00
-   024B C0 07              3789 	push	ar7
-   024D 74 02              3790 	mov	a,#0x02
-   024F C0 E0              3791 	push	acc
-   0251 8D 82              3792 	mov	dpl,r5
-   0253 8E 83              3793 	mov	dph,r6
-   0255 12s00r00           3794 	lcall	_dbglink_writehexu16
-   0258 15 81              3795 	dec	sp
-   025A D0 07              3796 	pop	ar7
-                    025C   3797 	C$main.c$339$3$241 ==.
-                           3798 ;	main.c:339: dbglink_tx('\n');
-   025C 75 82 0A           3799 	mov	dpl,#0x0A
-   025F 12s00r00           3800 	lcall	_dbglink_tx
-                    0262   3801 	C$main.c$341$3$241 ==.
-                           3802 ;	main.c:341: goto terminate_radio_error;
-   0262 02s02rF8           3803 	ljmp	00154$
-                    0265   3804 	C$main.c$343$2$230 ==.
-                           3805 ;	main.c:343: display_writestr("found AX5043\n");
-   0265                    3806 00135$:
-                    0265   3807 	C$main.c$345$2$230 ==.
-                           3808 ;	main.c:345: if (DBGLNKSTAT & 0x10)
-   0265 E5 E2              3809 	mov	a,_DBGLNKSTAT
-   0267 30 E4 09           3810 	jnb	acc.4,00138$
-                    026A   3811 	C$main.c$346$2$230 ==.
-                           3812 ;	main.c:346: dbglink_writestr("found AX5043\n");
-   026A 90s00r45           3813 	mov	dptr,#__str_4
-   026D 75 F0 80           3814 	mov	b,#0x80
-   0270 12s00r00           3815 	lcall	_dbglink_writestr
-   0273                    3816 00138$:
-                    0273   3817 	C$main.c$348$2$230 ==.
-                           3818 ;	main.c:348: axradio_set_local_address(&localaddr);
-   0273 90s00r00           3819 	mov	dptr,#_localaddr
-   0276 75 F0 80           3820 	mov	b,#0x80
-   0279 12s00r00           3821 	lcall	_axradio_set_local_address
-                    027C   3822 	C$main.c$349$2$230 ==.
-                           3823 ;	main.c:349: axradio_set_default_remote_address(&remoteaddr);
-   027C 90s00r00           3824 	mov	dptr,#_remoteaddr
-   027F 75 F0 80           3825 	mov	b,#0x80
-   0282 12s00r00           3826 	lcall	_axradio_set_default_remote_address
-                    0285   3827 	C$main.c$377$2$230 ==.
-                           3828 ;	main.c:377: if (DBGLNKSTAT & 0x10) {
-   0285 E5 E2              3829 	mov	a,_DBGLNKSTAT
-   0287 30 E4 2A           3830 	jnb	acc.4,00141$
-                    028A   3831 	C$main.c$378$3$245 ==.
-                           3832 ;	main.c:378: dbglink_writestr("RNG = ");
-   028A 90s00r53           3833 	mov	dptr,#__str_5
-   028D 75 F0 80           3834 	mov	b,#0x80
-   0290 12s00r00           3835 	lcall	_dbglink_writestr
-                    0293   3836 	C$main.c$379$3$245 ==.
-                           3837 ;	main.c:379: dbglink_writenum16(axradio_get_pllrange(), 2, 0);
-   0293 12s00r00           3838 	lcall	_axradio_get_pllrange
-   0296 AE 82              3839 	mov	r6,dpl
-   0298 E4                 3840 	clr	a
-   0299 FD                 3841 	mov	r5,a
-   029A C0 E0              3842 	push	acc
-   029C 74 02              3843 	mov	a,#0x02
-   029E C0 E0              3844 	push	acc
-   02A0 8E 82              3845 	mov	dpl,r6
-   02A2 8D 83              3846 	mov	dph,r5
-   02A4 12s00r00           3847 	lcall	_dbglink_writenum16
-   02A7 15 81              3848 	dec	sp
-   02A9 15 81              3849 	dec	sp
-                    02AB   3850 	C$main.c$380$3$245 ==.
-                           3851 ;	main.c:380: dbglink_writestr("\n\SLAVE\n");
-   02AB 90s00r5A           3852 	mov	dptr,#__str_6
-   02AE 75 F0 80           3853 	mov	b,#0x80
-   02B1 12s00r00           3854 	lcall	_dbglink_writestr
-                    02B4   3855 	C$main.c$399$2$230 ==.
-                           3856 ;	main.c:399: display_writestr("SLAVE  RX CONT\n");
-   02B4                    3857 00141$:
-                    02B4   3858 	C$main.c$401$2$230 ==.
-                           3859 ;	main.c:401: if (DBGLNKSTAT & 0x10)
-   02B4 E5 E2              3860 	mov	a,_DBGLNKSTAT
-   02B6 30 E4 09           3861 	jnb	acc.4,00144$
-                    02B9   3862 	C$main.c$402$2$230 ==.
-                           3863 ;	main.c:402: dbglink_writestr("SLAVE  RX CONT\n");
-   02B9 90s00r62           3864 	mov	dptr,#__str_7
-   02BC 75 F0 80           3865 	mov	b,#0x80
-   02BF 12s00r00           3866 	lcall	_dbglink_writestr
-   02C2                    3867 00144$:
-                    02C2   3868 	C$main.c$407$2$230 ==.
-                           3869 ;	main.c:407: i = axradio_set_mode(RADIO_MODE);
-   02C2 75 82 18           3870 	mov	dpl,#0x18
-   02C5 12s00r00           3871 	lcall	_axradio_set_mode
-                    02C8   3872 	C$main.c$408$2$230 ==.
-                           3873 ;	main.c:408: if (i != AXRADIO_ERR_NOERROR)
-   02C8 E5 82              3874 	mov	a,dpl
-   02CA FF                 3875 	mov	r7,a
-   02CB 60 07              3876 	jz	00163$
-                    02CD   3877 	C$main.c$409$2$230 ==.
-                           3878 ;	main.c:409: goto terminate_radio_error;
-   02CD 80 29              3879 	sjmp	00154$
-   02CF                    3880 00148$:
-                    02CF   3881 	C$main.c$417$2$247 ==.
-                           3882 ;	main.c:417: ax5043_commsleepexit();
-   02CF 12s00r00           3883 	lcall	_ax5043_commsleepexit
-                    02D2   3884 	C$main.c$418$2$247 ==.
-                           3885 ;	main.c:418: IE_4 = 1; // enable radio interrupt
-   02D2 D2 AC              3886 	setb	_IE_4
-   02D4                    3887 00163$:
-                    02D4   3888 	C$main.c$422$2$248 ==.
-                           3889 ;	main.c:422: wtimer_runcallbacks();
-   02D4 12s00r00           3890 	lcall	_wtimer_runcallbacks
-                    02D7   3891 	C$main.c$423$2$248 ==.
-                           3892 ;	main.c:423: EA = 0;
-   02D7 C2 AF              3893 	clr	_EA
-                    02D9   3894 	C$main.c$425$3$248 ==.
-                           3895 ;	main.c:425: uint8_t flg = WTFLAG_CANSTANDBY;
-   02D9 7E 02              3896 	mov	r6,#0x02
-                    02DB   3897 	C$main.c$427$3$249 ==.
-                           3898 ;	main.c:427: if (axradio_cansleep()
-   02DB C0 06              3899 	push	ar6
-   02DD 12s00r00           3900 	lcall	_axradio_cansleep
-   02E0 E5 82              3901 	mov	a,dpl
-   02E2 D0 06              3902 	pop	ar6
-   02E4 60 09              3903 	jz	00151$
-                    02E6   3904 	C$main.c$429$3$249 ==.
-                           3905 ;	main.c:429: && dbglink_txidle()
-   02E6 12s00r00           3906 	lcall	_dbglink_txidle
-   02E9 E5 82              3907 	mov	a,dpl
-   02EB 60 02              3908 	jz	00151$
-                    02ED   3909 	C$main.c$432$3$249 ==.
-                           3910 ;	main.c:432: flg |= WTFLAG_CANSLEEP;
-   02ED 7E 03              3911 	mov	r6,#0x03
-   02EF                    3912 00151$:
-                    02EF   3913 	C$main.c$434$3$249 ==.
-                           3914 ;	main.c:434: wtimer_idle(flg);
-   02EF 8E 82              3915 	mov	dpl,r6
-   02F1 12s00r00           3916 	lcall	_wtimer_idle
-                    02F4   3917 	C$main.c$436$2$248 ==.
-                           3918 ;	main.c:436: EA = 1;
-   02F4 D2 AF              3919 	setb	_EA
-                    02F6   3920 	C$main.c$438$1$229 ==.
-                           3921 ;	main.c:438: terminate_radio_error:
-   02F6 80 DC              3922 	sjmp	00163$
-   02F8                    3923 00154$:
-                    02F8   3924 	C$main.c$439$1$229 ==.
-                           3925 ;	main.c:439: display_radio_error(i);
-   02F8 8F 82              3926 	mov	dpl,r7
-   02FA 12s00r00           3927 	lcall	_display_radio_error
-                    02FD   3928 	C$main.c$440$1$229 ==.
-                           3929 ;	main.c:440: terminate_error:
-   02FD                    3930 00155$:
-                    02FD   3931 	C$main.c$443$1$229 ==.
-                           3932 ;	main.c:443: if (DBGLNKSTAT & 0x10)
-   02FD E5 E2              3933 	mov	a,_DBGLNKSTAT
-   02FF 30 E4 09           3934 	jnb	acc.4,00166$
-                    0302   3935 	C$main.c$444$1$229 ==.
-                           3936 ;	main.c:444: dbglink_writestr("TERMINATE ERROR\n");
-   0302 90s00r72           3937 	mov	dptr,#__str_8
-   0305 75 F0 80           3938 	mov	b,#0x80
-   0308 12s00r00           3939 	lcall	_dbglink_writestr
-   030B                    3940 00166$:
-                    030B   3941 	C$main.c$448$2$250 ==.
-                           3942 ;	main.c:448: wtimer_runcallbacks();
-   030B 12s00r00           3943 	lcall	_wtimer_runcallbacks
-                    030E   3944 	C$main.c$450$3$250 ==.
-                           3945 ;	main.c:450: uint8_t flg = WTFLAG_CANSTANDBY;
-   030E 7F 02              3946 	mov	r7,#0x02
-                    0310   3947 	C$main.c$452$3$251 ==.
-                           3948 ;	main.c:452: if (axradio_cansleep()
-   0310 C0 07              3949 	push	ar7
-   0312 12s00r00           3950 	lcall	_axradio_cansleep
-   0315 E5 82              3951 	mov	a,dpl
-   0317 D0 07              3952 	pop	ar7
-   0319 60 09              3953 	jz	00159$
-                    031B   3954 	C$main.c$454$3$251 ==.
-                           3955 ;	main.c:454: && dbglink_txidle()
-   031B 12s00r00           3956 	lcall	_dbglink_txidle
-   031E E5 82              3957 	mov	a,dpl
-   0320 60 02              3958 	jz	00159$
-                    0322   3959 	C$main.c$457$3$251 ==.
-                           3960 ;	main.c:457: flg |= WTFLAG_CANSLEEP;
-   0322 7F 03              3961 	mov	r7,#0x03
-   0324                    3962 00159$:
-                    0324   3963 	C$main.c$459$3$251 ==.
-                           3964 ;	main.c:459: wtimer_idle(flg);
-   0324 8F 82              3965 	mov	dpl,r7
-   0326 12s00r00           3966 	lcall	_wtimer_idle
-   0329 80 E0              3967 	sjmp	00166$
-                    032B   3968 	C$main.c$462$3$251 ==.
-                    032B   3969 	XG$main$0$0 ==.
-   032B 22                 3970 	ret
-                           3971 	.area CSEG    (CODE)
-                           3972 	.area CONST   (CODE)
-                    0000   3973 Fmain$_str_0$0$0 == .
-   0000                    3974 __str_0:
-   0000 53 54 3A 20 30 78  3975 	.ascii "ST: 0x"
-   0006 00                 3976 	.db 0x00
-                    0007   3977 Fmain$_str_1$0$0 == .
-   0007                    3978 __str_1:
-   0007 20 45 52 52 3A 20  3979 	.ascii " ERR: 0x"
+   0217 C2 89              3748 	clr	_PORTB_1
+                    0219   3749 	C$main.c$326$2$230 ==.
+                           3750 ;	main.c:326: i = axradio_init();
+   0219 12s00r00           3751 	lcall	_axradio_init
+                    021C   3752 	C$main.c$327$2$230 ==.
+                           3753 ;	main.c:327: if (i != AXRADIO_ERR_NOERROR) {
+   021C E5 82              3754 	mov	a,dpl
+   021E FF                 3755 	mov	r7,a
+   021F 60 42              3756 	jz	00134$
+                    0221   3757 	C$main.c$328$3$241 ==.
+                           3758 ;	main.c:328: if (i == AXRADIO_ERR_NOCHIP) {
+   0221 BF 05 14           3759 	cjne	r7,#0x05,00131$
+                    0224   3760 	C$main.c$331$4$242 ==.
+                           3761 ;	main.c:331: if (DBGLNKSTAT & 0x10)
+   0224 E5 E2              3762 	mov	a,_DBGLNKSTAT
+   0226 20 E4 03           3763 	jb	acc.4,00203$
+   0229 02s02rFB           3764 	ljmp	00154$
+   022C                    3765 00203$:
+                    022C   3766 	C$main.c$332$4$242 ==.
+                           3767 ;	main.c:332: dbglink_writestr("No AX5043 RF chip found \n");
+   022C 90s00r10           3768 	mov	dptr,#__str_2
+   022F 75 F0 80           3769 	mov	b,#0x80
+   0232 12s00r00           3770 	lcall	_dbglink_writestr
+                    0235   3771 	C$main.c$334$4$242 ==.
+                           3772 ;	main.c:334: goto terminate_error;
+   0235 02s02rFB           3773 	ljmp	00154$
+   0238                    3774 00131$:
+                    0238   3775 	C$main.c$337$3$241 ==.
+                           3776 ;	main.c:337: dbglink_writestr("error initializing radio: ");
+   0238 90s00r2A           3777 	mov	dptr,#__str_3
+   023B 75 F0 80           3778 	mov	b,#0x80
+   023E C0 07              3779 	push	ar7
+   0240 12s00r00           3780 	lcall	_dbglink_writestr
+   0243 D0 07              3781 	pop	ar7
+                    0245   3782 	C$main.c$338$3$241 ==.
+                           3783 ;	main.c:338: dbglink_writehexu16(i, 2);
+   0245 8F 05              3784 	mov	ar5,r7
+   0247 7E 00              3785 	mov	r6,#0x00
+   0249 C0 07              3786 	push	ar7
+   024B 74 02              3787 	mov	a,#0x02
+   024D C0 E0              3788 	push	acc
+   024F 8D 82              3789 	mov	dpl,r5
+   0251 8E 83              3790 	mov	dph,r6
+   0253 12s00r00           3791 	lcall	_dbglink_writehexu16
+   0256 15 81              3792 	dec	sp
+   0258 D0 07              3793 	pop	ar7
+                    025A   3794 	C$main.c$339$3$241 ==.
+                           3795 ;	main.c:339: dbglink_tx('\n');
+   025A 75 82 0A           3796 	mov	dpl,#0x0A
+   025D 12s00r00           3797 	lcall	_dbglink_tx
+                    0260   3798 	C$main.c$341$3$241 ==.
+                           3799 ;	main.c:341: goto terminate_radio_error;
+   0260 02s02rF6           3800 	ljmp	00153$
+                    0263   3801 	C$main.c$343$2$230 ==.
+                           3802 ;	main.c:343: display_writestr("found AX5043\n");
+   0263                    3803 00134$:
+                    0263   3804 	C$main.c$345$2$230 ==.
+                           3805 ;	main.c:345: if (DBGLNKSTAT & 0x10)
+   0263 E5 E2              3806 	mov	a,_DBGLNKSTAT
+   0265 30 E4 09           3807 	jnb	acc.4,00137$
+                    0268   3808 	C$main.c$346$2$230 ==.
+                           3809 ;	main.c:346: dbglink_writestr("found AX5043\n");
+   0268 90s00r45           3810 	mov	dptr,#__str_4
+   026B 75 F0 80           3811 	mov	b,#0x80
+   026E 12s00r00           3812 	lcall	_dbglink_writestr
+   0271                    3813 00137$:
+                    0271   3814 	C$main.c$348$2$230 ==.
+                           3815 ;	main.c:348: axradio_set_local_address(&localaddr);
+   0271 90s00r00           3816 	mov	dptr,#_localaddr
+   0274 75 F0 80           3817 	mov	b,#0x80
+   0277 12s00r00           3818 	lcall	_axradio_set_local_address
+                    027A   3819 	C$main.c$349$2$230 ==.
+                           3820 ;	main.c:349: axradio_set_default_remote_address(&remoteaddr);
+   027A 90s00r00           3821 	mov	dptr,#_remoteaddr
+   027D 75 F0 80           3822 	mov	b,#0x80
+   0280 12s00r00           3823 	lcall	_axradio_set_default_remote_address
+                    0283   3824 	C$main.c$377$2$230 ==.
+                           3825 ;	main.c:377: if (DBGLNKSTAT & 0x10) {
+   0283 E5 E2              3826 	mov	a,_DBGLNKSTAT
+   0285 30 E4 2A           3827 	jnb	acc.4,00140$
+                    0288   3828 	C$main.c$378$3$245 ==.
+                           3829 ;	main.c:378: dbglink_writestr("RNG = ");
+   0288 90s00r53           3830 	mov	dptr,#__str_5
+   028B 75 F0 80           3831 	mov	b,#0x80
+   028E 12s00r00           3832 	lcall	_dbglink_writestr
+                    0291   3833 	C$main.c$379$3$245 ==.
+                           3834 ;	main.c:379: dbglink_writenum16(axradio_get_pllrange(), 2, 0);
+   0291 12s00r00           3835 	lcall	_axradio_get_pllrange
+   0294 AE 82              3836 	mov	r6,dpl
+   0296 E4                 3837 	clr	a
+   0297 FD                 3838 	mov	r5,a
+   0298 C0 E0              3839 	push	acc
+   029A 74 02              3840 	mov	a,#0x02
+   029C C0 E0              3841 	push	acc
+   029E 8E 82              3842 	mov	dpl,r6
+   02A0 8D 83              3843 	mov	dph,r5
+   02A2 12s00r00           3844 	lcall	_dbglink_writenum16
+   02A5 15 81              3845 	dec	sp
+   02A7 15 81              3846 	dec	sp
+                    02A9   3847 	C$main.c$380$3$245 ==.
+                           3848 ;	main.c:380: dbglink_writestr("\n\SLAVE\n");
+   02A9 90s00r5A           3849 	mov	dptr,#__str_6
+   02AC 75 F0 80           3850 	mov	b,#0x80
+   02AF 12s00r00           3851 	lcall	_dbglink_writestr
+                    02B2   3852 	C$main.c$399$2$230 ==.
+                           3853 ;	main.c:399: display_writestr("SLAVE  RX CONT\n");
+   02B2                    3854 00140$:
+                    02B2   3855 	C$main.c$401$2$230 ==.
+                           3856 ;	main.c:401: if (DBGLNKSTAT & 0x10)
+   02B2 E5 E2              3857 	mov	a,_DBGLNKSTAT
+   02B4 30 E4 09           3858 	jnb	acc.4,00143$
+                    02B7   3859 	C$main.c$402$2$230 ==.
+                           3860 ;	main.c:402: dbglink_writestr("SLAVE  RX CONT\n");
+   02B7 90s00r62           3861 	mov	dptr,#__str_7
+   02BA 75 F0 80           3862 	mov	b,#0x80
+   02BD 12s00r00           3863 	lcall	_dbglink_writestr
+   02C0                    3864 00143$:
+                    02C0   3865 	C$main.c$407$2$230 ==.
+                           3866 ;	main.c:407: i = axradio_set_mode(RADIO_MODE);
+   02C0 75 82 18           3867 	mov	dpl,#0x18
+   02C3 12s00r00           3868 	lcall	_axradio_set_mode
+                    02C6   3869 	C$main.c$408$2$230 ==.
+                           3870 ;	main.c:408: if (i != AXRADIO_ERR_NOERROR)
+   02C6 E5 82              3871 	mov	a,dpl
+   02C8 FF                 3872 	mov	r7,a
+   02C9 60 07              3873 	jz	00162$
+                    02CB   3874 	C$main.c$409$2$230 ==.
+                           3875 ;	main.c:409: goto terminate_radio_error;
+   02CB 80 29              3876 	sjmp	00153$
+   02CD                    3877 00147$:
+                    02CD   3878 	C$main.c$417$2$247 ==.
+                           3879 ;	main.c:417: ax5043_commsleepexit();
+   02CD 12s00r00           3880 	lcall	_ax5043_commsleepexit
+                    02D0   3881 	C$main.c$418$2$247 ==.
+                           3882 ;	main.c:418: IE_4 = 1; // enable radio interrupt
+   02D0 D2 AC              3883 	setb	_IE_4
+   02D2                    3884 00162$:
+                    02D2   3885 	C$main.c$422$2$248 ==.
+                           3886 ;	main.c:422: wtimer_runcallbacks();
+   02D2 12s00r00           3887 	lcall	_wtimer_runcallbacks
+                    02D5   3888 	C$main.c$423$2$248 ==.
+                           3889 ;	main.c:423: EA = 0;
+   02D5 C2 AF              3890 	clr	_EA
+                    02D7   3891 	C$main.c$425$3$248 ==.
+                           3892 ;	main.c:425: uint8_t flg = WTFLAG_CANSTANDBY;
+   02D7 7E 02              3893 	mov	r6,#0x02
+                    02D9   3894 	C$main.c$427$3$249 ==.
+                           3895 ;	main.c:427: if (axradio_cansleep()
+   02D9 C0 06              3896 	push	ar6
+   02DB 12s00r00           3897 	lcall	_axradio_cansleep
+   02DE E5 82              3898 	mov	a,dpl
+   02E0 D0 06              3899 	pop	ar6
+   02E2 60 09              3900 	jz	00150$
+                    02E4   3901 	C$main.c$429$3$249 ==.
+                           3902 ;	main.c:429: && dbglink_txidle()
+   02E4 12s00r00           3903 	lcall	_dbglink_txidle
+   02E7 E5 82              3904 	mov	a,dpl
+   02E9 60 02              3905 	jz	00150$
+                    02EB   3906 	C$main.c$432$3$249 ==.
+                           3907 ;	main.c:432: flg |= WTFLAG_CANSLEEP;
+   02EB 7E 03              3908 	mov	r6,#0x03
+   02ED                    3909 00150$:
+                    02ED   3910 	C$main.c$434$3$249 ==.
+                           3911 ;	main.c:434: wtimer_idle(flg);
+   02ED 8E 82              3912 	mov	dpl,r6
+   02EF 12s00r00           3913 	lcall	_wtimer_idle
+                    02F2   3914 	C$main.c$436$2$248 ==.
+                           3915 ;	main.c:436: EA = 1;
+   02F2 D2 AF              3916 	setb	_EA
+                    02F4   3917 	C$main.c$438$1$229 ==.
+                           3918 ;	main.c:438: terminate_radio_error:
+   02F4 80 DC              3919 	sjmp	00162$
+   02F6                    3920 00153$:
+                    02F6   3921 	C$main.c$439$1$229 ==.
+                           3922 ;	main.c:439: display_radio_error(i);
+   02F6 8F 82              3923 	mov	dpl,r7
+   02F8 12s00r00           3924 	lcall	_display_radio_error
+                    02FB   3925 	C$main.c$440$1$229 ==.
+                           3926 ;	main.c:440: terminate_error:
+   02FB                    3927 00154$:
+                    02FB   3928 	C$main.c$443$1$229 ==.
+                           3929 ;	main.c:443: if (DBGLNKSTAT & 0x10)
+   02FB E5 E2              3930 	mov	a,_DBGLNKSTAT
+   02FD 30 E4 09           3931 	jnb	acc.4,00165$
+                    0300   3932 	C$main.c$444$1$229 ==.
+                           3933 ;	main.c:444: dbglink_writestr("TERMINATE ERROR\n");
+   0300 90s00r72           3934 	mov	dptr,#__str_8
+   0303 75 F0 80           3935 	mov	b,#0x80
+   0306 12s00r00           3936 	lcall	_dbglink_writestr
+   0309                    3937 00165$:
+                    0309   3938 	C$main.c$448$2$250 ==.
+                           3939 ;	main.c:448: wtimer_runcallbacks();
+   0309 12s00r00           3940 	lcall	_wtimer_runcallbacks
+                    030C   3941 	C$main.c$450$3$250 ==.
+                           3942 ;	main.c:450: uint8_t flg = WTFLAG_CANSTANDBY;
+   030C 7F 02              3943 	mov	r7,#0x02
+                    030E   3944 	C$main.c$452$3$251 ==.
+                           3945 ;	main.c:452: if (axradio_cansleep()
+   030E C0 07              3946 	push	ar7
+   0310 12s00r00           3947 	lcall	_axradio_cansleep
+   0313 E5 82              3948 	mov	a,dpl
+   0315 D0 07              3949 	pop	ar7
+   0317 60 09              3950 	jz	00158$
+                    0319   3951 	C$main.c$454$3$251 ==.
+                           3952 ;	main.c:454: && dbglink_txidle()
+   0319 12s00r00           3953 	lcall	_dbglink_txidle
+   031C E5 82              3954 	mov	a,dpl
+   031E 60 02              3955 	jz	00158$
+                    0320   3956 	C$main.c$457$3$251 ==.
+                           3957 ;	main.c:457: flg |= WTFLAG_CANSLEEP;
+   0320 7F 03              3958 	mov	r7,#0x03
+   0322                    3959 00158$:
+                    0322   3960 	C$main.c$459$3$251 ==.
+                           3961 ;	main.c:459: wtimer_idle(flg);
+   0322 8F 82              3962 	mov	dpl,r7
+   0324 12s00r00           3963 	lcall	_wtimer_idle
+   0327 80 E0              3964 	sjmp	00165$
+                    0329   3965 	C$main.c$462$3$251 ==.
+                    0329   3966 	XG$main$0$0 ==.
+   0329 22                 3967 	ret
+                           3968 	.area CSEG    (CODE)
+                           3969 	.area CONST   (CODE)
+                    0000   3970 Fmain$_str_0$0$0 == .
+   0000                    3971 __str_0:
+   0000 53 54 3A 20 30 78  3972 	.ascii "ST: 0x"
+   0006 00                 3973 	.db 0x00
+                    0007   3974 Fmain$_str_1$0$0 == .
+   0007                    3975 __str_1:
+   0007 20 45 52 52 3A 20  3976 	.ascii " ERR: 0x"
         30 78
-   000F 00                 3980 	.db 0x00
-                    0010   3981 Fmain$_str_2$0$0 == .
-   0010                    3982 __str_2:
-   0010 4E 6F 20 41 58 35  3983 	.ascii "No AX5043 RF chip found "
+   000F 00                 3977 	.db 0x00
+                    0010   3978 Fmain$_str_2$0$0 == .
+   0010                    3979 __str_2:
+   0010 4E 6F 20 41 58 35  3980 	.ascii "No AX5043 RF chip found "
         30 34 33 20 52 46
         20 63 68 69 70 20
         66 6F 75 6E 64 20
-   0028 0A                 3984 	.db 0x0A
-   0029 00                 3985 	.db 0x00
-                    002A   3986 Fmain$_str_3$0$0 == .
-   002A                    3987 __str_3:
-   002A 65 72 72 6F 72 20  3988 	.ascii "error initializing radio: "
+   0028 0A                 3981 	.db 0x0A
+   0029 00                 3982 	.db 0x00
+                    002A   3983 Fmain$_str_3$0$0 == .
+   002A                    3984 __str_3:
+   002A 65 72 72 6F 72 20  3985 	.ascii "error initializing radio: "
         69 6E 69 74 69 61
         6C 69 7A 69 6E 67
         20 72 61 64 69 6F
         3A 20
-   0044 00                 3989 	.db 0x00
-                    0045   3990 Fmain$_str_4$0$0 == .
-   0045                    3991 __str_4:
-   0045 66 6F 75 6E 64 20  3992 	.ascii "found AX5043"
+   0044 00                 3986 	.db 0x00
+                    0045   3987 Fmain$_str_4$0$0 == .
+   0045                    3988 __str_4:
+   0045 66 6F 75 6E 64 20  3989 	.ascii "found AX5043"
         41 58 35 30 34 33
-   0051 0A                 3993 	.db 0x0A
-   0052 00                 3994 	.db 0x00
-                    0053   3995 Fmain$_str_5$0$0 == .
-   0053                    3996 __str_5:
-   0053 52 4E 47 20 3D 20  3997 	.ascii "RNG = "
-   0059 00                 3998 	.db 0x00
-                    005A   3999 Fmain$_str_6$0$0 == .
-   005A                    4000 __str_6:
-   005A 0A                 4001 	.db 0x0A
-   005B 53 4C 41 56 45     4002 	.ascii "SLAVE"
-   0060 0A                 4003 	.db 0x0A
-   0061 00                 4004 	.db 0x00
-                    0062   4005 Fmain$_str_7$0$0 == .
-   0062                    4006 __str_7:
-   0062 53 4C 41 56 45 20  4007 	.ascii "SLAVE  RX CONT"
+   0051 0A                 3990 	.db 0x0A
+   0052 00                 3991 	.db 0x00
+                    0053   3992 Fmain$_str_5$0$0 == .
+   0053                    3993 __str_5:
+   0053 52 4E 47 20 3D 20  3994 	.ascii "RNG = "
+   0059 00                 3995 	.db 0x00
+                    005A   3996 Fmain$_str_6$0$0 == .
+   005A                    3997 __str_6:
+   005A 0A                 3998 	.db 0x0A
+   005B 53 4C 41 56 45     3999 	.ascii "SLAVE"
+   0060 0A                 4000 	.db 0x0A
+   0061 00                 4001 	.db 0x00
+                    0062   4002 Fmain$_str_7$0$0 == .
+   0062                    4003 __str_7:
+   0062 53 4C 41 56 45 20  4004 	.ascii "SLAVE  RX CONT"
         20 52 58 20 43 4F
         4E 54
-   0070 0A                 4008 	.db 0x0A
-   0071 00                 4009 	.db 0x00
-                    0072   4010 Fmain$_str_8$0$0 == .
-   0072                    4011 __str_8:
-   0072 54 45 52 4D 49 4E  4012 	.ascii "TERMINATE ERROR"
+   0070 0A                 4005 	.db 0x0A
+   0071 00                 4006 	.db 0x00
+                    0072   4007 Fmain$_str_8$0$0 == .
+   0072                    4008 __str_8:
+   0072 54 45 52 4D 49 4E  4009 	.ascii "TERMINATE ERROR"
         41 54 45 20 45 52
         52 4F 52
-   0081 0A                 4013 	.db 0x0A
-   0082 00                 4014 	.db 0x00
-                           4015 	.area XINIT   (CODE)
-                           4016 	.area CABS    (ABS,CODE)
+   0081 0A                 4010 	.db 0x0A
+   0082 00                 4011 	.db 0x00
+                           4012 	.area XINIT   (CODE)
+                           4013 	.area CABS    (ABS,CODE)

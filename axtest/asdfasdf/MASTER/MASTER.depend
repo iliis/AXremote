@@ -142,3 +142,72 @@
 	<libmftypes.h>
 	<libmfcrc.h>
 
+1387661101 source:x:\sam\axremote\axtest\asdfasdf\ax_radio_lab_output\configmaster.c
+	"../COMMON/axradio.h"
+
+1386284092 x:\sam\axremote\axtest\asdfasdf\common\axradio.h
+	<libmftypes.h>
+
+1386284092 source:x:\sam\axremote\axtest\asdfasdf\common\display_com0.c
+	"display_com0.h"
+	<ax8052f143.h>
+	<libmf.h>
+	<libmfuart.h>
+	<libmfuart0.h>
+
+1386284092 x:\sam\axremote\axtest\asdfasdf\common\display_com0.h
+	<libmf.h>
+
+1387660881 source:x:\sam\axremote\axtest\asdfasdf\common\easyax5043.c
+	"easyax5043.h"
+	<libmfcrc.h>
+	<libmfradio.h>
+	<libmfwtimer.h>
+	<stdlib.h>
+	<string.h>
+	<libmfdbglink.h>
+
+1386284092 x:\sam\axremote\axtest\asdfasdf\common\easyax5043.h
+	"axradio.h"
+	<ax8052f143.h>
+	<libmftypes.h>
+
+1386284092 source:x:\sam\axremote\axtest\asdfasdf\common\misc.c
+	<ax8052.h>
+	<libmftypes.h>
+	<libmfwtimer.h>
+	<libaxlcd2.h>
+	"misc.h"
+	"../COMMON/axradio.h"
+
+1386284092 x:\sam\axremote\axtest\asdfasdf\common\misc.h
+	<libmftypes.h>
+	"../COMMON/axradio.h"
+
+1387805569 source:x:\sam\axremote\axtest\asdfasdf\master\main.c
+	"../AX_Radio_Lab_output/configmaster.h"
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfradio.h>
+	<libmfflash.h>
+	<libmfwtimer.h>
+	<libmfuart0.h>
+	<libaxlcd2.h>
+	<libmfdbglink.h>
+	"../COMMON/display_com0.h"
+	"../COMMON/libminidvkled.h"
+	<libdvk2leds.h>
+	<string.h>
+	"../COMMON/misc.h"
+
+1387805947 x:\sam\axremote\axtest\asdfasdf\ax_radio_lab_output\configmaster.h
+	"../COMMON/axradio.h"
+
+1387805593 x:\sam\axremote\axtest\asdfasdf\common\libminidvkled.h
+	"libmftypes.h"
+
+1387661066 source:x:\sam\axremote\axtest\asdfasdf\ax_radio_lab_output\config_16mhz.c
+	"../COMMON/easyax5043.h"
+	<libmftypes.h>
+	<libmfcrc.h>
+

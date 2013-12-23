@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-; This file was generated Sat Dec 21 22:34:11 2013
+; This file was generated Mon Dec 23 14:38:49 2013
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-small
@@ -3437,7 +3437,7 @@ _axradio_statuschange:
 00166$:
 	C$main.c$157$4$212 ==.
 ;	main.c:157: led0_toggle();
-	xrl	_PORTA,#0x02
+	xrl	_PORTB,#0x02
 	C$main.c$170$2$210 ==.
 ;	main.c:170: if (st->error == AXRADIO_ERR_NOERROR)
 	mov	a,#0x01
@@ -3740,15 +3740,12 @@ _main:
 	C$main.c$319$1$229 ==.
 ;	main.c:319: if (coldstart) {
 	mov	a,_coldstart
-	jnz	00200$
-	ljmp	00148$
-00200$:
+	jnz	00199$
+	ljmp	00147$
+00199$:
 	C$main.c$320$4$232 ==.
 ;	main.c:320: led0_off();
-	clr	_PORTA_1
-	C$main.c$321$4$234 ==.
-;	main.c:321: led1_off();
-	clr	_PORTA_2
+	clr	_PORTB_1
 	C$main.c$326$2$230 ==.
 ;	main.c:326: i = axradio_init();
 	lcall	_axradio_init
@@ -3756,16 +3753,16 @@ _main:
 ;	main.c:327: if (i != AXRADIO_ERR_NOERROR) {
 	mov	a,dpl
 	mov	r7,a
-	jz	00135$
+	jz	00134$
 	C$main.c$328$3$241 ==.
 ;	main.c:328: if (i == AXRADIO_ERR_NOCHIP) {
-	cjne	r7,#0x05,00132$
+	cjne	r7,#0x05,00131$
 	C$main.c$331$4$242 ==.
 ;	main.c:331: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jb	acc.4,00204$
-	ljmp	00155$
-00204$:
+	jb	acc.4,00203$
+	ljmp	00154$
+00203$:
 	C$main.c$332$4$242 ==.
 ;	main.c:332: dbglink_writestr("No AX5043 RF chip found \n");
 	mov	dptr,#__str_2
@@ -3773,8 +3770,8 @@ _main:
 	lcall	_dbglink_writestr
 	C$main.c$334$4$242 ==.
 ;	main.c:334: goto terminate_error;
-	ljmp	00155$
-00132$:
+	ljmp	00154$
+00131$:
 	C$main.c$337$3$241 ==.
 ;	main.c:337: dbglink_writestr("error initializing radio: ");
 	mov	dptr,#__str_3
@@ -3800,20 +3797,20 @@ _main:
 	lcall	_dbglink_tx
 	C$main.c$341$3$241 ==.
 ;	main.c:341: goto terminate_radio_error;
-	ljmp	00154$
+	ljmp	00153$
 	C$main.c$343$2$230 ==.
 ;	main.c:343: display_writestr("found AX5043\n");
-00135$:
+00134$:
 	C$main.c$345$2$230 ==.
 ;	main.c:345: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00138$
+	jnb	acc.4,00137$
 	C$main.c$346$2$230 ==.
 ;	main.c:346: dbglink_writestr("found AX5043\n");
 	mov	dptr,#__str_4
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-00138$:
+00137$:
 	C$main.c$348$2$230 ==.
 ;	main.c:348: axradio_set_local_address(&localaddr);
 	mov	dptr,#_localaddr
@@ -3827,7 +3824,7 @@ _main:
 	C$main.c$377$2$230 ==.
 ;	main.c:377: if (DBGLNKSTAT & 0x10) {
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00141$
+	jnb	acc.4,00140$
 	C$main.c$378$3$245 ==.
 ;	main.c:378: dbglink_writestr("RNG = ");
 	mov	dptr,#__str_5
@@ -3854,17 +3851,17 @@ _main:
 	lcall	_dbglink_writestr
 	C$main.c$399$2$230 ==.
 ;	main.c:399: display_writestr("SLAVE  RX CONT\n");
-00141$:
+00140$:
 	C$main.c$401$2$230 ==.
 ;	main.c:401: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00144$
+	jnb	acc.4,00143$
 	C$main.c$402$2$230 ==.
 ;	main.c:402: dbglink_writestr("SLAVE  RX CONT\n");
 	mov	dptr,#__str_7
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-00144$:
+00143$:
 	C$main.c$407$2$230 ==.
 ;	main.c:407: i = axradio_set_mode(RADIO_MODE);
 	mov	dpl,#0x18
@@ -3873,18 +3870,18 @@ _main:
 ;	main.c:408: if (i != AXRADIO_ERR_NOERROR)
 	mov	a,dpl
 	mov	r7,a
-	jz	00163$
+	jz	00162$
 	C$main.c$409$2$230 ==.
 ;	main.c:409: goto terminate_radio_error;
-	sjmp	00154$
-00148$:
+	sjmp	00153$
+00147$:
 	C$main.c$417$2$247 ==.
 ;	main.c:417: ax5043_commsleepexit();
 	lcall	_ax5043_commsleepexit
 	C$main.c$418$2$247 ==.
 ;	main.c:418: IE_4 = 1; // enable radio interrupt
 	setb	_IE_4
-00163$:
+00162$:
 	C$main.c$422$2$248 ==.
 ;	main.c:422: wtimer_runcallbacks();
 	lcall	_wtimer_runcallbacks
@@ -3900,16 +3897,16 @@ _main:
 	lcall	_axradio_cansleep
 	mov	a,dpl
 	pop	ar6
-	jz	00151$
+	jz	00150$
 	C$main.c$429$3$249 ==.
 ;	main.c:429: && dbglink_txidle()
 	lcall	_dbglink_txidle
 	mov	a,dpl
-	jz	00151$
+	jz	00150$
 	C$main.c$432$3$249 ==.
 ;	main.c:432: flg |= WTFLAG_CANSLEEP;
 	mov	r6,#0x03
-00151$:
+00150$:
 	C$main.c$434$3$249 ==.
 ;	main.c:434: wtimer_idle(flg);
 	mov	dpl,r6
@@ -3919,25 +3916,25 @@ _main:
 	setb	_EA
 	C$main.c$438$1$229 ==.
 ;	main.c:438: terminate_radio_error:
-	sjmp	00163$
-00154$:
+	sjmp	00162$
+00153$:
 	C$main.c$439$1$229 ==.
 ;	main.c:439: display_radio_error(i);
 	mov	dpl,r7
 	lcall	_display_radio_error
 	C$main.c$440$1$229 ==.
 ;	main.c:440: terminate_error:
-00155$:
+00154$:
 	C$main.c$443$1$229 ==.
 ;	main.c:443: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00166$
+	jnb	acc.4,00165$
 	C$main.c$444$1$229 ==.
 ;	main.c:444: dbglink_writestr("TERMINATE ERROR\n");
 	mov	dptr,#__str_8
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-00166$:
+00165$:
 	C$main.c$448$2$250 ==.
 ;	main.c:448: wtimer_runcallbacks();
 	lcall	_wtimer_runcallbacks
@@ -3950,21 +3947,21 @@ _main:
 	lcall	_axradio_cansleep
 	mov	a,dpl
 	pop	ar7
-	jz	00159$
+	jz	00158$
 	C$main.c$454$3$251 ==.
 ;	main.c:454: && dbglink_txidle()
 	lcall	_dbglink_txidle
 	mov	a,dpl
-	jz	00159$
+	jz	00158$
 	C$main.c$457$3$251 ==.
 ;	main.c:457: flg |= WTFLAG_CANSLEEP;
 	mov	r7,#0x03
-00159$:
+00158$:
 	C$main.c$459$3$251 ==.
 ;	main.c:459: wtimer_idle(flg);
 	mov	dpl,r7
 	lcall	_wtimer_idle
-	sjmp	00166$
+	sjmp	00165$
 	C$main.c$462$3$251 ==.
 	XG$main$0$0 ==.
 	ret

@@ -3252,7 +3252,7 @@
    375A 40 05              3252 	jc	00107$
                     001F   3253 	C$lposc.c$52$2$65 ==.
                            3254 ;	lposc.c:52: enter_standby();
-   375C 12 46 FF           3255 	lcall	_enter_standby
+   375C 12 46 FD           3255 	lcall	_enter_standby
    375F 80 E9              3256 	sjmp	00106$
    3761                    3257 00107$:
                     0024   3258 	C$lposc.c$55$1$64 ==.
@@ -3305,7 +3305,7 @@
    3785 F0                 3305 	movx	@dptr,a
                     0049   3306 	C$lposc.c$67$1$68 ==.
                            3307 ;	lposc.c:67: AX5043_LPOSCKFILT1 = (lposckfiltmax >> (8 + 1)) & 0xFF; // kfiltmax >> 1
-   3786 90 56 8E           3308 	mov	dptr,#_lposckfiltmax
+   3786 90 56 8C           3308 	mov	dptr,#_lposckfiltmax
    3789 E4                 3309 	clr	a
    378A 93                 3310 	movc	a,@a+dptr
    378B FE                 3311 	mov	r6,a
@@ -3375,7 +3375,7 @@
    37DA                    3375 00104$:
                     009D   3376 	C$lposc.c$90$1$68 ==.
                            3377 ;	lposc.c:90: AX5043_LPOSCKFILT1 = (lposckfiltmax >> (8 + 2)) & 0xFF; // kfiltmax >> 2
-   37DA 90 56 8E           3378 	mov	dptr,#_lposckfiltmax
+   37DA 90 56 8C           3378 	mov	dptr,#_lposckfiltmax
    37DD E4                 3379 	clr	a
    37DE 93                 3380 	movc	a,@a+dptr
    37DF FE                 3381 	mov	r6,a

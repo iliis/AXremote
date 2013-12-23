@@ -320,118 +320,117 @@ Symbol Table
  17 A$main$3744                                                    0214 GR
  17 A$main$3748                                                    0217 GR
  17 A$main$3751                                                    0219 GR
- 17 A$main$3754                                                    021B GR
- 17 A$main$3757                                                    021E GR
- 17 A$main$3758                                                    0220 GR
+ 17 A$main$3754                                                    021C GR
+ 17 A$main$3755                                                    021E GR
+ 17 A$main$3756                                                    021F GR
  17 A$main$3759                                                    0221 GR
- 17 A$main$3762                                                    0223 GR
- 17 A$main$3765                                                    0226 GR
- 17 A$main$3766                                                    0228 GR
- 17 A$main$3767                                                    022B GR
- 17 A$main$3771                                                    022E GR
- 17 A$main$3772                                                    0231 GR
- 17 A$main$3773                                                    0234 GR
- 17 A$main$3776                                                    0237 GR
- 17 A$main$3780                                                    023A GR
- 17 A$main$3781                                                    023D GR
- 17 A$main$3782                                                    0240 GR
- 17 A$main$3783                                                    0242 GR
+ 17 A$main$3762                                                    0224 GR
+ 17 A$main$3763                                                    0226 GR
+ 17 A$main$3764                                                    0229 GR
+ 17 A$main$3768                                                    022C GR
+ 17 A$main$3769                                                    022F GR
+ 17 A$main$3770                                                    0232 GR
+ 17 A$main$3773                                                    0235 GR
+ 17 A$main$3777                                                    0238 GR
+ 17 A$main$3778                                                    023B GR
+ 17 A$main$3779                                                    023E GR
+ 17 A$main$3780                                                    0240 GR
+ 17 A$main$3781                                                    0243 GR
  17 A$main$3784                                                    0245 GR
- 17 A$main$3787                                                    0247 GR
- 17 A$main$3788                                                    0249 GR
- 17 A$main$3789                                                    024B GR
- 17 A$main$3790                                                    024D GR
- 17 A$main$3791                                                    024F GR
- 17 A$main$3792                                                    0251 GR
- 17 A$main$3793                                                    0253 GR
- 17 A$main$3794                                                    0255 GR
- 17 A$main$3795                                                    0258 GR
+ 17 A$main$3785                                                    0247 GR
+ 17 A$main$3786                                                    0249 GR
+ 17 A$main$3787                                                    024B GR
+ 17 A$main$3788                                                    024D GR
+ 17 A$main$3789                                                    024F GR
+ 17 A$main$3790                                                    0251 GR
+ 17 A$main$3791                                                    0253 GR
+ 17 A$main$3792                                                    0256 GR
+ 17 A$main$3793                                                    0258 GR
  17 A$main$3796                                                    025A GR
- 17 A$main$3799                                                    025C GR
- 17 A$main$3800                                                    025F GR
- 17 A$main$3803                                                    0262 GR
- 17 A$main$3809                                                    0265 GR
- 17 A$main$3810                                                    0267 GR
- 17 A$main$3813                                                    026A GR
- 17 A$main$3814                                                    026D GR
- 17 A$main$3815                                                    0270 GR
- 17 A$main$3819                                                    0273 GR
- 17 A$main$3820                                                    0276 GR
- 17 A$main$3821                                                    0279 GR
- 17 A$main$3824                                                    027C GR
- 17 A$main$3825                                                    027F GR
- 17 A$main$3826                                                    0282 GR
- 17 A$main$3829                                                    0285 GR
- 17 A$main$3830                                                    0287 GR
- 17 A$main$3833                                                    028A GR
- 17 A$main$3834                                                    028D GR
- 17 A$main$3835                                                    0290 GR
- 17 A$main$3838                                                    0293 GR
- 17 A$main$3839                                                    0296 GR
- 17 A$main$3840                                                    0298 GR
- 17 A$main$3841                                                    0299 GR
- 17 A$main$3842                                                    029A GR
- 17 A$main$3843                                                    029C GR
- 17 A$main$3844                                                    029E GR
- 17 A$main$3845                                                    02A0 GR
- 17 A$main$3846                                                    02A2 GR
- 17 A$main$3847                                                    02A4 GR
- 17 A$main$3848                                                    02A7 GR
+ 17 A$main$3797                                                    025D GR
+ 17 A$main$3800                                                    0260 GR
+ 17 A$main$3806                                                    0263 GR
+ 17 A$main$3807                                                    0265 GR
+ 17 A$main$3810                                                    0268 GR
+ 17 A$main$3811                                                    026B GR
+ 17 A$main$3812                                                    026E GR
+ 17 A$main$3816                                                    0271 GR
+ 17 A$main$3817                                                    0274 GR
+ 17 A$main$3818                                                    0277 GR
+ 17 A$main$3821                                                    027A GR
+ 17 A$main$3822                                                    027D GR
+ 17 A$main$3823                                                    0280 GR
+ 17 A$main$3826                                                    0283 GR
+ 17 A$main$3827                                                    0285 GR
+ 17 A$main$3830                                                    0288 GR
+ 17 A$main$3831                                                    028B GR
+ 17 A$main$3832                                                    028E GR
+ 17 A$main$3835                                                    0291 GR
+ 17 A$main$3836                                                    0294 GR
+ 17 A$main$3837                                                    0296 GR
+ 17 A$main$3838                                                    0297 GR
+ 17 A$main$3839                                                    0298 GR
+ 17 A$main$3840                                                    029A GR
+ 17 A$main$3841                                                    029C GR
+ 17 A$main$3842                                                    029E GR
+ 17 A$main$3843                                                    02A0 GR
+ 17 A$main$3844                                                    02A2 GR
+ 17 A$main$3845                                                    02A5 GR
+ 17 A$main$3846                                                    02A7 GR
  17 A$main$3849                                                    02A9 GR
- 17 A$main$3852                                                    02AB GR
- 17 A$main$3853                                                    02AE GR
- 17 A$main$3854                                                    02B1 GR
- 17 A$main$3860                                                    02B4 GR
- 17 A$main$3861                                                    02B6 GR
- 17 A$main$3864                                                    02B9 GR
- 17 A$main$3865                                                    02BC GR
- 17 A$main$3866                                                    02BF GR
- 17 A$main$3870                                                    02C2 GR
- 17 A$main$3871                                                    02C5 GR
- 17 A$main$3874                                                    02C8 GR
- 17 A$main$3875                                                    02CA GR
+ 17 A$main$3850                                                    02AC GR
+ 17 A$main$3851                                                    02AF GR
+ 17 A$main$3857                                                    02B2 GR
+ 17 A$main$3858                                                    02B4 GR
+ 17 A$main$3861                                                    02B7 GR
+ 17 A$main$3862                                                    02BA GR
+ 17 A$main$3863                                                    02BD GR
+ 17 A$main$3867                                                    02C0 GR
+ 17 A$main$3868                                                    02C3 GR
+ 17 A$main$3871                                                    02C6 GR
+ 17 A$main$3872                                                    02C8 GR
+ 17 A$main$3873                                                    02C9 GR
  17 A$main$3876                                                    02CB GR
- 17 A$main$3879                                                    02CD GR
- 17 A$main$3883                                                    02CF GR
- 17 A$main$3886                                                    02D2 GR
- 17 A$main$3890                                                    02D4 GR
+ 17 A$main$3880                                                    02CD GR
+ 17 A$main$3883                                                    02D0 GR
+ 17 A$main$3887                                                    02D2 GR
+ 17 A$main$3890                                                    02D5 GR
  17 A$main$3893                                                    02D7 GR
  17 A$main$3896                                                    02D9 GR
- 17 A$main$3899                                                    02DB GR
- 17 A$main$3900                                                    02DD GR
- 17 A$main$3901                                                    02E0 GR
- 17 A$main$3902                                                    02E2 GR
+ 17 A$main$3897                                                    02DB GR
+ 17 A$main$3898                                                    02DE GR
+ 17 A$main$3899                                                    02E0 GR
+ 17 A$main$3900                                                    02E2 GR
  17 A$main$3903                                                    02E4 GR
- 17 A$main$3906                                                    02E6 GR
- 17 A$main$3907                                                    02E9 GR
+ 17 A$main$3904                                                    02E7 GR
+ 17 A$main$3905                                                    02E9 GR
  17 A$main$3908                                                    02EB GR
- 17 A$main$3911                                                    02ED GR
- 17 A$main$3915                                                    02EF GR
- 17 A$main$3916                                                    02F1 GR
+ 17 A$main$3912                                                    02ED GR
+ 17 A$main$3913                                                    02EF GR
+ 17 A$main$3916                                                    02F2 GR
  17 A$main$3919                                                    02F4 GR
- 17 A$main$3922                                                    02F6 GR
- 17 A$main$3926                                                    02F8 GR
- 17 A$main$3927                                                    02FA GR
- 17 A$main$3933                                                    02FD GR
- 17 A$main$3934                                                    02FF GR
- 17 A$main$3937                                                    0302 GR
- 17 A$main$3938                                                    0305 GR
- 17 A$main$3939                                                    0308 GR
- 17 A$main$3943                                                    030B GR
+ 17 A$main$3923                                                    02F6 GR
+ 17 A$main$3924                                                    02F8 GR
+ 17 A$main$3930                                                    02FB GR
+ 17 A$main$3931                                                    02FD GR
+ 17 A$main$3934                                                    0300 GR
+ 17 A$main$3935                                                    0303 GR
+ 17 A$main$3936                                                    0306 GR
+ 17 A$main$3940                                                    0309 GR
+ 17 A$main$3943                                                    030C GR
  17 A$main$3946                                                    030E GR
- 17 A$main$3949                                                    0310 GR
- 17 A$main$3950                                                    0312 GR
- 17 A$main$3951                                                    0315 GR
- 17 A$main$3952                                                    0317 GR
+ 17 A$main$3947                                                    0310 GR
+ 17 A$main$3948                                                    0313 GR
+ 17 A$main$3949                                                    0315 GR
+ 17 A$main$3950                                                    0317 GR
  17 A$main$3953                                                    0319 GR
- 17 A$main$3956                                                    031B GR
- 17 A$main$3957                                                    031E GR
+ 17 A$main$3954                                                    031C GR
+ 17 A$main$3955                                                    031E GR
  17 A$main$3958                                                    0320 GR
- 17 A$main$3961                                                    0322 GR
- 17 A$main$3965                                                    0324 GR
- 17 A$main$3966                                                    0326 GR
+ 17 A$main$3962                                                    0322 GR
+ 17 A$main$3963                                                    0324 GR
+ 17 A$main$3964                                                    0327 GR
  17 A$main$3967                                                    0329 GR
- 17 A$main$3970                                                    032B GR
     A.0                                                            00E0 
     A.1                                                            00E1 
     A.2                                                            00E2 
@@ -510,54 +509,53 @@ Symbol Table
  17 C$main.c$317$1$229                                          =  020D GR
  17 C$main.c$319$1$229                                          =  0210 GR
  17 C$main.c$320$4$232                                          =  0217 GR
- 17 C$main.c$321$4$234                                          =  0219 GR
- 17 C$main.c$326$2$230                                          =  021B GR
- 17 C$main.c$327$2$230                                          =  021E GR
- 17 C$main.c$328$3$241                                          =  0223 GR
- 17 C$main.c$331$4$242                                          =  0226 GR
- 17 C$main.c$332$4$242                                          =  022E GR
- 17 C$main.c$334$4$242                                          =  0237 GR
- 17 C$main.c$337$3$241                                          =  023A GR
- 17 C$main.c$338$3$241                                          =  0247 GR
- 17 C$main.c$339$3$241                                          =  025C GR
- 17 C$main.c$341$3$241                                          =  0262 GR
- 17 C$main.c$343$2$230                                          =  0265 GR
- 17 C$main.c$345$2$230                                          =  0265 GR
- 17 C$main.c$346$2$230                                          =  026A GR
- 17 C$main.c$348$2$230                                          =  0273 GR
- 17 C$main.c$349$2$230                                          =  027C GR
- 17 C$main.c$377$2$230                                          =  0285 GR
- 17 C$main.c$378$3$245                                          =  028A GR
- 17 C$main.c$379$3$245                                          =  0293 GR
- 17 C$main.c$380$3$245                                          =  02AB GR
- 17 C$main.c$399$2$230                                          =  02B4 GR
- 17 C$main.c$401$2$230                                          =  02B4 GR
- 17 C$main.c$402$2$230                                          =  02B9 GR
- 17 C$main.c$407$2$230                                          =  02C2 GR
- 17 C$main.c$408$2$230                                          =  02C8 GR
- 17 C$main.c$409$2$230                                          =  02CD GR
- 17 C$main.c$417$2$247                                          =  02CF GR
- 17 C$main.c$418$2$247                                          =  02D2 GR
- 17 C$main.c$422$2$248                                          =  02D4 GR
- 17 C$main.c$423$2$248                                          =  02D7 GR
- 17 C$main.c$425$3$248                                          =  02D9 GR
- 17 C$main.c$427$3$249                                          =  02DB GR
- 17 C$main.c$429$3$249                                          =  02E6 GR
- 17 C$main.c$432$3$249                                          =  02ED GR
- 17 C$main.c$434$3$249                                          =  02EF GR
- 17 C$main.c$436$2$248                                          =  02F4 GR
- 17 C$main.c$438$1$229                                          =  02F6 GR
- 17 C$main.c$439$1$229                                          =  02F8 GR
- 17 C$main.c$440$1$229                                          =  02FD GR
- 17 C$main.c$443$1$229                                          =  02FD GR
- 17 C$main.c$444$1$229                                          =  0302 GR
- 17 C$main.c$448$2$250                                          =  030B GR
- 17 C$main.c$450$3$250                                          =  030E GR
- 17 C$main.c$452$3$251                                          =  0310 GR
- 17 C$main.c$454$3$251                                          =  031B GR
- 17 C$main.c$457$3$251                                          =  0322 GR
- 17 C$main.c$459$3$251                                          =  0324 GR
- 17 C$main.c$462$3$251                                          =  032B GR
+ 17 C$main.c$326$2$230                                          =  0219 GR
+ 17 C$main.c$327$2$230                                          =  021C GR
+ 17 C$main.c$328$3$241                                          =  0221 GR
+ 17 C$main.c$331$4$242                                          =  0224 GR
+ 17 C$main.c$332$4$242                                          =  022C GR
+ 17 C$main.c$334$4$242                                          =  0235 GR
+ 17 C$main.c$337$3$241                                          =  0238 GR
+ 17 C$main.c$338$3$241                                          =  0245 GR
+ 17 C$main.c$339$3$241                                          =  025A GR
+ 17 C$main.c$341$3$241                                          =  0260 GR
+ 17 C$main.c$343$2$230                                          =  0263 GR
+ 17 C$main.c$345$2$230                                          =  0263 GR
+ 17 C$main.c$346$2$230                                          =  0268 GR
+ 17 C$main.c$348$2$230                                          =  0271 GR
+ 17 C$main.c$349$2$230                                          =  027A GR
+ 17 C$main.c$377$2$230                                          =  0283 GR
+ 17 C$main.c$378$3$245                                          =  0288 GR
+ 17 C$main.c$379$3$245                                          =  0291 GR
+ 17 C$main.c$380$3$245                                          =  02A9 GR
+ 17 C$main.c$399$2$230                                          =  02B2 GR
+ 17 C$main.c$401$2$230                                          =  02B2 GR
+ 17 C$main.c$402$2$230                                          =  02B7 GR
+ 17 C$main.c$407$2$230                                          =  02C0 GR
+ 17 C$main.c$408$2$230                                          =  02C6 GR
+ 17 C$main.c$409$2$230                                          =  02CB GR
+ 17 C$main.c$417$2$247                                          =  02CD GR
+ 17 C$main.c$418$2$247                                          =  02D0 GR
+ 17 C$main.c$422$2$248                                          =  02D2 GR
+ 17 C$main.c$423$2$248                                          =  02D5 GR
+ 17 C$main.c$425$3$248                                          =  02D7 GR
+ 17 C$main.c$427$3$249                                          =  02D9 GR
+ 17 C$main.c$429$3$249                                          =  02E4 GR
+ 17 C$main.c$432$3$249                                          =  02EB GR
+ 17 C$main.c$434$3$249                                          =  02ED GR
+ 17 C$main.c$436$2$248                                          =  02F2 GR
+ 17 C$main.c$438$1$229                                          =  02F4 GR
+ 17 C$main.c$439$1$229                                          =  02F6 GR
+ 17 C$main.c$440$1$229                                          =  02FB GR
+ 17 C$main.c$443$1$229                                          =  02FB GR
+ 17 C$main.c$444$1$229                                          =  0300 GR
+ 17 C$main.c$448$2$250                                          =  0309 GR
+ 17 C$main.c$450$3$250                                          =  030C GR
+ 17 C$main.c$452$3$251                                          =  030E GR
+ 17 C$main.c$454$3$251                                          =  0319 GR
+ 17 C$main.c$457$3$251                                          =  0320 GR
+ 17 C$main.c$459$3$251                                          =  0322 GR
+ 17 C$main.c$462$3$251                                          =  0329 GR
  15 C$main.c$79$3$251                                           =  0000 GR
  15 C$main.c$80$3$251                                           =  0008 GR
  17 C$main.c$82$0$0                                             =  0000 GR
@@ -1759,7 +1757,7 @@ Symbol Table
  17 XFmain$pwrmgmt_irq$0$0                                      =  0032 GR
  17 XG$_sdcc_external_startup$0$0                               =  0201 GR
  17 XG$axradio_statuschange$0$0                                 =  019C GR
- 17 XG$main$0$0                                                 =  032B GR
+ 17 XG$main$0$0                                                 =  0329 GR
     _AC                                                         =  00D6 G
     _ACC                                                        =  00E0 G
     _ACC_0                                                      =  00E0 G
@@ -3044,7 +3042,7 @@ Area Table
   14 GSINIT5                                    size    0   flags 20
   15 GSINIT                                     size    D   flags 20
   16 GSFINAL                                    size    3   flags 20
-  17 CSEG                                       size  32C   flags 20
+  17 CSEG                                       size  32A   flags 20
   18 CONST                                      size   83   flags 20
   19 XINIT                                      size    0   flags 20
   1A CABS                                       size    0   flags 28

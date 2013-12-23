@@ -5,6 +5,7 @@
 #include <libmftypes.h>
 #include <libmfcrc.h>
 
+
 // TX: fcarrier=868.300MHz dev=  8.000kHz br=  4.800kBit/s pwr= 15.0dBm
 // RX: fcarrier=868.300MHz bw=100.000kHz br=  4.800kBit/s
 

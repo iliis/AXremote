@@ -1636,7 +1636,7 @@
    348B                    1636 00107$:
                     000E   1637 	C$display.c$100$1$217 ==.
                            1638 ;	display.c:100: if (framing_insert_counter) {
-   348B 90 56 8C           1639 	mov	dptr,#_framing_insert_counter
+   348B 90 56 8A           1639 	mov	dptr,#_framing_insert_counter
    348E E4                 1640 	clr	a
    348F 93                 1641 	movc	a,@a+dptr
    3490 FC                 1642 	mov	r4,a
@@ -1664,7 +1664,7 @@
    34AB A3                 1664 	inc	dptr
    34AC E0                 1665 	movx	a,@dptr
    34AD FF                 1666 	mov	r7,a
-   34AE 90 56 8D           1667 	mov	dptr,#_framing_counter_pos
+   34AE 90 56 8B           1667 	mov	dptr,#_framing_counter_pos
    34B1 E4                 1668 	clr	a
    34B2 93                 1669 	movc	a,@a+dptr
    34B3 FC                 1670 	mov	r4,a
@@ -1757,18 +1757,18 @@
    3511                    1757 00104$:
                     0094   1758 	C$display.c$126$2$238 ==.
                            1759 ;	display.c:126: if (dbglink_txfree() >= 56)
-   3511 12 5C 6B           1760 	lcall	_dbglink_txfree
+   3511 12 5C 69           1760 	lcall	_dbglink_txfree
    3514 AF 82              1761 	mov	r7,dpl
    3516 BF 38 00           1762 	cjne	r7,#0x38,00112$
    3519                    1763 00112$:
    3519 50 0B              1764 	jnc	00106$
                     009E   1765 	C$display.c$128$2$238 ==.
                            1766 ;	display.c:128: wtimer_runcallbacks();
-   351B 12 42 D3           1767 	lcall	_wtimer_runcallbacks
+   351B 12 42 D1           1767 	lcall	_wtimer_runcallbacks
                     00A1   1768 	C$display.c$129$2$238 ==.
                            1769 ;	display.c:129: wtimer_idle(WTFLAG_CANSTANDBY);
    351E 75 82 02           1770 	mov	dpl,#0x02
-   3521 12 43 57           1771 	lcall	_wtimer_idle
+   3521 12 43 55           1771 	lcall	_wtimer_idle
    3524 80 EB              1772 	sjmp	00104$
    3526                    1773 00106$:
                     00A9   1774 	C$display.c$131$1$237 ==.
@@ -1834,7 +1834,7 @@
    3553 A3                 1834 	inc	dptr
    3554 E0                 1835 	movx	a,@dptr
    3555 FD                 1836 	mov	r5,a
-   3556 90 56 30           1837 	mov	dptr,#_axradio_framing_maclen
+   3556 90 56 2E           1837 	mov	dptr,#_axradio_framing_maclen
    3559 E4                 1838 	clr	a
    355A 93                 1839 	movc	a,@a+dptr
    355B 7A 00              1840 	mov	r2,#0x00
@@ -1852,9 +1852,9 @@
    356A 12 35 11           1852 	lcall	_wait_dbglink_free
                     00F0   1853 	C$display.c$147$1$240 ==.
                            1854 ;	display.c:147: dbglink_writestr("RX counter=");
-   356D 90 57 80           1855 	mov	dptr,#__str_0
+   356D 90 57 7E           1855 	mov	dptr,#__str_0
    3570 75 F0 80           1856 	mov	b,#0x80
-   3573 12 4B 5A           1857 	lcall	_dbglink_writestr
+   3573 12 4B 58           1857 	lcall	_dbglink_writestr
                     00F9   1858 	C$display.c$148$1$240 ==.
                            1859 ;	display.c:148: dbglink_writenum16(pkts_received, 5, 0);
    3576 E4                 1860 	clr	a
@@ -1863,14 +1863,14 @@
    357B C0 E0              1863 	push	acc
    357D 85 22 82           1864 	mov	dpl,_pkts_received
    3580 85 23 83           1865 	mov	dph,(_pkts_received + 1)
-   3583 12 53 4B           1866 	lcall	_dbglink_writenum16
+   3583 12 53 49           1866 	lcall	_dbglink_writenum16
    3586 15 81              1867 	dec	sp
    3588 15 81              1868 	dec	sp
                     010D   1869 	C$display.c$149$1$240 ==.
                            1870 ;	display.c:149: dbglink_writestr(" length=");
-   358A 90 57 8C           1871 	mov	dptr,#__str_1
+   358A 90 57 8A           1871 	mov	dptr,#__str_1
    358D 75 F0 80           1872 	mov	b,#0x80
-   3590 12 4B 5A           1873 	lcall	_dbglink_writestr
+   3590 12 4B 58           1873 	lcall	_dbglink_writestr
    3593 D0 04              1874 	pop	ar4
    3595 D0 05              1875 	pop	ar5
                     011A   1876 	C$display.c$150$1$240 ==.
@@ -1883,7 +1883,7 @@
    35A0 C0 E0              1883 	push	acc
    35A2 8C 82              1884 	mov	dpl,r4
    35A4 8D 83              1885 	mov	dph,r5
-   35A6 12 53 4B           1886 	lcall	_dbglink_writenum16
+   35A6 12 53 49           1886 	lcall	_dbglink_writenum16
    35A9 15 81              1887 	dec	sp
    35AB 15 81              1888 	dec	sp
                     0130   1889 	C$display.c$151$1$240 ==.
@@ -1891,9 +1891,9 @@
    35AD 12 35 11           1891 	lcall	_wait_dbglink_free
                     0133   1892 	C$display.c$152$1$240 ==.
                            1893 ;	display.c:152: dbglink_writestr(" RSSI=");
-   35B0 90 57 95           1894 	mov	dptr,#__str_2
+   35B0 90 57 93           1894 	mov	dptr,#__str_2
    35B3 75 F0 80           1895 	mov	b,#0x80
-   35B6 12 4B 5A           1896 	lcall	_dbglink_writestr
+   35B6 12 4B 58           1896 	lcall	_dbglink_writestr
    35B9 D0 04              1897 	pop	ar4
    35BB D0 05              1898 	pop	ar5
    35BD D0 06              1899 	pop	ar6
@@ -1917,21 +1917,21 @@
    35D8 C0 E0              1917 	push	acc
    35DA 8A 82              1918 	mov	dpl,r2
    35DC 8B 83              1919 	mov	dph,r3
-   35DE 12 53 4B           1920 	lcall	_dbglink_writenum16
+   35DE 12 53 49           1920 	lcall	_dbglink_writenum16
    35E1 15 81              1921 	dec	sp
    35E3 15 81              1922 	dec	sp
                     0168   1923 	C$display.c$154$1$240 ==.
                            1924 ;	display.c:154: dbglink_tx('\n');
    35E5 75 82 0A           1925 	mov	dpl,#0x0A
-   35E8 12 3B C5           1926 	lcall	_dbglink_tx
+   35E8 12 3B C3           1926 	lcall	_dbglink_tx
                     016E   1927 	C$display.c$155$1$240 ==.
                            1928 ;	display.c:155: wait_dbglink_free();
    35EB 12 35 11           1929 	lcall	_wait_dbglink_free
                     0171   1930 	C$display.c$156$1$240 ==.
                            1931 ;	display.c:156: dbglink_writestr("  freqoffset=");
-   35EE 90 57 9C           1932 	mov	dptr,#__str_3
+   35EE 90 57 9A           1932 	mov	dptr,#__str_3
    35F1 75 F0 80           1933 	mov	b,#0x80
-   35F4 12 4B 5A           1934 	lcall	_dbglink_writestr
+   35F4 12 4B 58           1934 	lcall	_dbglink_writestr
    35F7 D0 04              1935 	pop	ar4
    35F9 D0 05              1936 	pop	ar5
    35FB D0 06              1937 	pop	ar6
@@ -1972,14 +1972,14 @@
    3631 89 83              1972 	mov	dph,r1
    3633 8A F0              1973 	mov	b,r2
    3635 EB                 1974 	mov	a,r3
-   3636 12 51 DD           1975 	lcall	_dbglink_writenum32
+   3636 12 51 DB           1975 	lcall	_dbglink_writenum32
    3639 15 81              1976 	dec	sp
    363B 15 81              1977 	dec	sp
                     01C0   1978 	C$display.c$158$1$240 ==.
                            1979 ;	display.c:158: dbglink_writestr("Hz/");
-   363D 90 57 AA           1980 	mov	dptr,#__str_4
+   363D 90 57 A8           1980 	mov	dptr,#__str_4
    3640 75 F0 80           1981 	mov	b,#0x80
-   3643 12 4B 5A           1982 	lcall	_dbglink_writestr
+   3643 12 4B 58           1982 	lcall	_dbglink_writestr
                     01C9   1983 	C$display.c$159$1$240 ==.
                            1984 ;	display.c:159: dbglink_writenum32(axradio_conv_freq_tohz(axradio_get_freqoffset()), 7, WRNUM_SIGNED);
    3646 12 2E 59           1985 	lcall	_axradio_get_freqoffset
@@ -1996,18 +1996,18 @@
    365D 89 83              1996 	mov	dph,r1
    365F 8A F0              1997 	mov	b,r2
    3661 EB                 1998 	mov	a,r3
-   3662 12 51 DD           1999 	lcall	_dbglink_writenum32
+   3662 12 51 DB           1999 	lcall	_dbglink_writenum32
    3665 15 81              2000 	dec	sp
    3667 15 81              2001 	dec	sp
                     01EC   2002 	C$display.c$160$1$240 ==.
                            2003 ;	display.c:160: dbglink_writestr("Hz");
-   3669 90 57 AE           2004 	mov	dptr,#__str_5
+   3669 90 57 AC           2004 	mov	dptr,#__str_5
    366C 75 F0 80           2005 	mov	b,#0x80
-   366F 12 4B 5A           2006 	lcall	_dbglink_writestr
+   366F 12 4B 58           2006 	lcall	_dbglink_writestr
                     01F5   2007 	C$display.c$161$1$240 ==.
                            2008 ;	display.c:161: dbglink_tx('\n');
    3672 75 82 0A           2009 	mov	dpl,#0x0A
-   3675 12 3B C5           2010 	lcall	_dbglink_tx
+   3675 12 3B C3           2010 	lcall	_dbglink_tx
                     01FB   2011 	C$display.c$162$1$240 ==.
                            2012 ;	display.c:162: wait_dbglink_free();
    3678 12 35 11           2013 	lcall	_wait_dbglink_free
@@ -2052,7 +2052,7 @@
                     022A   2052 	C$display.c$176$4$244 ==.
                            2053 ;	display.c:176: dbglink_tx('\n');
    36A7 75 82 0A           2054 	mov	dpl,#0x0A
-   36AA 12 3B C5           2055 	lcall	_dbglink_tx
+   36AA 12 3B C3           2055 	lcall	_dbglink_tx
                     0230   2056 	C$display.c$177$4$244 ==.
                            2057 ;	display.c:177: wait_dbglink_free();
    36AD C0 07              2058 	push	ar7
@@ -2074,14 +2074,14 @@
    36CA C0 E0              2074 	push	acc
    36CC 8A 82              2075 	mov	dpl,r2
    36CE 8B 83              2076 	mov	dph,r3
-   36D0 12 4F 64           2077 	lcall	_dbglink_writehex16
+   36D0 12 4F 62           2077 	lcall	_dbglink_writehex16
    36D3 15 81              2078 	dec	sp
    36D5 15 81              2079 	dec	sp
                     025A   2080 	C$display.c$179$4$244 ==.
                            2081 ;	display.c:179: dbglink_writestr(": ");
-   36D7 90 57 B1           2082 	mov	dptr,#__str_6
+   36D7 90 57 AF           2082 	mov	dptr,#__str_6
    36DA 75 F0 80           2083 	mov	b,#0x80
-   36DD 12 4B 5A           2084 	lcall	_dbglink_writestr
+   36DD 12 4B 58           2084 	lcall	_dbglink_writestr
    36E0 D0 02              2085 	pop	ar2
    36E2 D0 03              2086 	pop	ar3
    36E4 D0 04              2087 	pop	ar4
@@ -2112,7 +2112,7 @@
    370A C0 E0              2112 	push	acc
    370C 88 82              2113 	mov	dpl,r0
    370E 89 83              2114 	mov	dph,r1
-   3710 12 4F 64           2115 	lcall	_dbglink_writehex16
+   3710 12 4F 62           2115 	lcall	_dbglink_writehex16
    3713 15 81              2116 	dec	sp
    3715 15 81              2117 	dec	sp
    3717 D0 02              2118 	pop	ar2
@@ -2124,7 +2124,7 @@
                     02A6   2124 	C$display.c$182$3$243 ==.
                            2125 ;	display.c:182: dbglink_tx(' ');
    3723 75 82 20           2126 	mov	dpl,#0x20
-   3726 12 3B C5           2127 	lcall	_dbglink_tx
+   3726 12 3B C3           2127 	lcall	_dbglink_tx
                     02AC   2128 	C$display.c$174$2$242 ==.
                            2129 ;	display.c:174: for (i=0; i < pktlen; ++i) {
    3729 0A                 2130 	inc	r2
@@ -2135,9 +2135,9 @@
    3731                    2135 00110$:
                     02B4   2136 	C$display.c$185$1$240 ==.
                            2137 ;	display.c:185: dbglink_writestr("\n\n");
-   3731 90 57 B4           2138 	mov	dptr,#__str_7
+   3731 90 57 B2           2138 	mov	dptr,#__str_7
    3734 75 F0 80           2139 	mov	b,#0x80
-   3737 12 4B 5A           2140 	lcall	_dbglink_writestr
+   3737 12 4B 58           2140 	lcall	_dbglink_writestr
                     02BD   2141 	C$display.c$186$1$240 ==.
                            2142 ;	display.c:186: --dbglink_semaphore;
    373A 15 16              2143 	dec	_dbglink_semaphore
@@ -2148,41 +2148,41 @@
                            2148 	.area CSEG    (CODE)
                            2149 	.area CONST   (CODE)
                     0000   2150 Fdisplay$_str_0$0$0 == .
-   5780                    2151 __str_0:
-   5780 52 58 20 63 6F 75  2152 	.ascii "RX counter="
+   577E                    2151 __str_0:
+   577E 52 58 20 63 6F 75  2152 	.ascii "RX counter="
         6E 74 65 72 3D
-   578B 00                 2153 	.db 0x00
+   5789 00                 2153 	.db 0x00
                     000C   2154 Fdisplay$_str_1$0$0 == .
-   578C                    2155 __str_1:
-   578C 20 6C 65 6E 67 74  2156 	.ascii " length="
+   578A                    2155 __str_1:
+   578A 20 6C 65 6E 67 74  2156 	.ascii " length="
         68 3D
-   5794 00                 2157 	.db 0x00
+   5792 00                 2157 	.db 0x00
                     0015   2158 Fdisplay$_str_2$0$0 == .
-   5795                    2159 __str_2:
-   5795 20 52 53 53 49 3D  2160 	.ascii " RSSI="
-   579B 00                 2161 	.db 0x00
+   5793                    2159 __str_2:
+   5793 20 52 53 53 49 3D  2160 	.ascii " RSSI="
+   5799 00                 2161 	.db 0x00
                     001C   2162 Fdisplay$_str_3$0$0 == .
-   579C                    2163 __str_3:
-   579C 20 20 66 72 65 71  2164 	.ascii "  freqoffset="
+   579A                    2163 __str_3:
+   579A 20 20 66 72 65 71  2164 	.ascii "  freqoffset="
         6F 66 66 73 65 74
         3D
-   57A9 00                 2165 	.db 0x00
+   57A7 00                 2165 	.db 0x00
                     002A   2166 Fdisplay$_str_4$0$0 == .
-   57AA                    2167 __str_4:
-   57AA 48 7A 2F           2168 	.ascii "Hz/"
-   57AD 00                 2169 	.db 0x00
+   57A8                    2167 __str_4:
+   57A8 48 7A 2F           2168 	.ascii "Hz/"
+   57AB 00                 2169 	.db 0x00
                     002E   2170 Fdisplay$_str_5$0$0 == .
-   57AE                    2171 __str_5:
-   57AE 48 7A              2172 	.ascii "Hz"
-   57B0 00                 2173 	.db 0x00
+   57AC                    2171 __str_5:
+   57AC 48 7A              2172 	.ascii "Hz"
+   57AE 00                 2173 	.db 0x00
                     0031   2174 Fdisplay$_str_6$0$0 == .
-   57B1                    2175 __str_6:
-   57B1 3A 20              2176 	.ascii ": "
-   57B3 00                 2177 	.db 0x00
+   57AF                    2175 __str_6:
+   57AF 3A 20              2176 	.ascii ": "
+   57B1 00                 2177 	.db 0x00
                     0034   2178 Fdisplay$_str_7$0$0 == .
-   57B4                    2179 __str_7:
-   57B4 0A                 2180 	.db 0x0A
-   57B5 0A                 2181 	.db 0x0A
-   57B6 00                 2182 	.db 0x00
+   57B2                    2179 __str_7:
+   57B2 0A                 2180 	.db 0x0A
+   57B3 0A                 2181 	.db 0x0A
+   57B4 00                 2182 	.db 0x00
                            2183 	.area XINIT   (CODE)
                            2184 	.area CABS    (ABS,CODE)

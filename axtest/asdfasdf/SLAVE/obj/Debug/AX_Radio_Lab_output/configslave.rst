@@ -95,32 +95,32 @@
                              95 	.area CSEG    (CODE)
                              96 	.area CONST   (CODE)
                     0000     97 G$remoteaddr$0$0 == .
-   5680                      98 _remoteaddr:
-   5680 32                   99 	.db #0x32	; 50	'2'
-   5681 34                  100 	.db #0x34	; 52	'4'
-   5682 00                  101 	.db #0x00	; 0
-   5683 00                  102 	.db #0x00	; 0
+   567E                      98 _remoteaddr:
+   567E 32                   99 	.db #0x32	; 50	'2'
+   567F 34                  100 	.db #0x34	; 52	'4'
+   5680 00                  101 	.db #0x00	; 0
+   5681 00                  102 	.db #0x00	; 0
                     0004    103 G$localaddr$0$0 == .
-   5684                     104 _localaddr:
-   5684 33                  105 	.db #0x33	; 51	'3'
-   5685 34                  106 	.db #0x34	; 52	'4'
-   5686 00                  107 	.db #0x00	; 0
-   5687 00                  108 	.db #0x00	; 0
-   5688 FF                  109 	.db #0xFF	; 255
-   5689 FF                  110 	.db #0xFF	; 255
-   568A 00                  111 	.db #0x00	; 0
-   568B 00                  112 	.db #0x00	; 0
+   5682                     104 _localaddr:
+   5682 33                  105 	.db #0x33	; 51	'3'
+   5683 34                  106 	.db #0x34	; 52	'4'
+   5684 00                  107 	.db #0x00	; 0
+   5685 00                  108 	.db #0x00	; 0
+   5686 FF                  109 	.db #0xFF	; 255
+   5687 FF                  110 	.db #0xFF	; 255
+   5688 00                  111 	.db #0x00	; 0
+   5689 00                  112 	.db #0x00	; 0
                     000C    113 G$framing_insert_counter$0$0 == .
-   568C                     114 _framing_insert_counter:
-   568C 01                  115 	.db #0x01	; 1
+   568A                     114 _framing_insert_counter:
+   568A 01                  115 	.db #0x01	; 1
                     000D    116 G$framing_counter_pos$0$0 == .
-   568D                     117 _framing_counter_pos:
-   568D 00                  118 	.db #0x00	; 0
+   568B                     117 _framing_counter_pos:
+   568B 00                  118 	.db #0x00	; 0
                     000E    119 G$lposckfiltmax$0$0 == .
-   568E                     120 _lposckfiltmax:
-   568E EC 0A               121 	.byte #0xEC,#0x0A	; 2796
+   568C                     120 _lposckfiltmax:
+   568C EC 0A               121 	.byte #0xEC,#0x0A	; 2796
                     0010    122 G$lpxosc_settlingtime$0$0 == .
-   5690                     123 _lpxosc_settlingtime:
-   5690 B8 0B               124 	.byte #0xB8,#0x0B	; 3000
+   568E                     123 _lpxosc_settlingtime:
+   568E B8 0B               124 	.byte #0xB8,#0x0B	; 3000
                             125 	.area XINIT   (CODE)
                             126 	.area CABS    (ABS,CODE)

@@ -3,6 +3,8 @@
 
 #include "libmftypes.h"
 
+#ifdef SAM_BOARD
+
 #define led0_toggle() do { PORTA ^= 0x02; } while (0)
 #define led0_set(x)   do { PORTA_1 = (x); } while (0)
 #define led0_on()     do { led0_set(1); } while (0)
@@ -12,6 +14,21 @@
 #define led1_set(x)   do { PORTA_2 = (x); } while (0)
 #define led1_on()     do { led1_set(1); } while (0)
 #define led1_off()    do { led1_set(0); } while (0)
+
+
+#else
+
+#define led0_toggle() do { PORTB ^= 0x02; } while (0)
+#define led0_set(x)   do { PORTB_1 = (x); } while (0)
+#define led0_on()     do { led0_set(1); } while (0)
+#define led0_off()    do { led0_set(0); } while (0)
+
+#define led1_toggle() do { } while (0)
+#define led1_set(x)   do { } while (0)
+#define led1_on()     do { led1_set(1); } while (0)
+#define led1_off()    do { led1_set(0); } while (0)
+
+#endif
 
 #define led2_toggle() do { } while (0)
 #define led2_set(x)   do { } while (0)
