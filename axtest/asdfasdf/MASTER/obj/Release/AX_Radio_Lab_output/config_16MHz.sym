@@ -1,0 +1,1497 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Intel 8051), page 1.
+
+Symbol Table
+
+    .__.ABS.                                                    =  0000 G
+    A                                                              00E0 
+    A.0                                                            00E0 
+    A.1                                                            00E1 
+    A.2                                                            00E2 
+    A.3                                                            00E3 
+    A.4                                                            00E4 
+    A.5                                                            00E5 
+    A.6                                                            00E6 
+    A.7                                                            00E7 
+    AC                                                             00D6 
+    ACC                                                            00E0 
+    ACC.0                                                          00E0 
+    ACC.1                                                          00E1 
+    ACC.2                                                          00E2 
+    ACC.3                                                          00E3 
+    ACC.4                                                          00E4 
+    ACC.5                                                          00E5 
+    ACC.6                                                          00E6 
+    ACC.7                                                          00E7 
+    B                                                              00F0 
+    B.0                                                            00F0 
+    B.1                                                            00F1 
+    B.2                                                            00F2 
+    B.3                                                            00F3 
+    B.4                                                            00F4 
+    B.5                                                            00F5 
+    B.6                                                            00F6 
+    B.7                                                            00F7 
+    CPRL2                                                          00C8 
+    CT2                                                            00C9 
+    CY                                                             00D7 
+    DPH                                                            0083 
+    DPL                                                            0082 
+    EA                                                             00AF 
+    ES                                                             00AC 
+    ET0                                                            00A9 
+    ET1                                                            00AB 
+    ET2                                                            00AD 
+    EX0                                                            00A8 
+    EX1                                                            00AA 
+    EXEN2                                                          00CB 
+    EXF2                                                           00CE 
+    F0                                                             00D5 
+    IE                                                             00A8 
+    IE.0                                                           00A8 
+    IE.1                                                           00A9 
+    IE.2                                                           00AA 
+    IE.3                                                           00AB 
+    IE.4                                                           00AC 
+    IE.5                                                           00AD 
+    IE.7                                                           00AF 
+    IE0                                                            0089 
+    IE1                                                            008B 
+    INT0                                                           00B2 
+    INT1                                                           00B3 
+    IP                                                             00B8 
+    IP.0                                                           00B8 
+    IP.1                                                           00B9 
+    IP.2                                                           00BA 
+    IP.3                                                           00BB 
+    IP.4                                                           00BC 
+    IP.5                                                           00BD 
+    IT0                                                            0088 
+    IT1                                                            008A 
+    OV                                                             00D2 
+    P                                                              00D0 
+    P0                                                             0080 
+    P0.0                                                           0080 
+    P0.1                                                           0081 
+    P0.2                                                           0082 
+    P0.3                                                           0083 
+    P0.4                                                           0084 
+    P0.5                                                           0085 
+    P0.6                                                           0086 
+    P0.7                                                           0087 
+    P1                                                             0090 
+    P1.0                                                           0090 
+    P1.1                                                           0091 
+    P1.2                                                           0092 
+    P1.3                                                           0093 
+    P1.4                                                           0094 
+    P1.5                                                           0095 
+    P1.6                                                           0096 
+    P1.7                                                           0097 
+    P2                                                             00A0 
+    P2.0                                                           00A0 
+    P2.1                                                           00A1 
+    P2.2                                                           00A2 
+    P2.3                                                           00A3 
+    P2.4                                                           00A4 
+    P2.5                                                           00A5 
+    P2.6                                                           00A6 
+    P2.7                                                           00A7 
+    P3                                                             00B0 
+    P3.0                                                           00B0 
+    P3.1                                                           00B1 
+    P3.2                                                           00B2 
+    P3.3                                                           00B3 
+    P3.4                                                           00B4 
+    P3.5                                                           00B5 
+    P3.6                                                           00B6 
+    P3.7                                                           00B7 
+    PCON                                                           0087 
+    PS                                                             00BC 
+    PSW                                                            00D0 
+    PSW.0                                                          00D0 
+    PSW.1                                                          00D1 
+    PSW.2                                                          00D2 
+    PSW.3                                                          00D3 
+    PSW.4                                                          00D4 
+    PSW.5                                                          00D5 
+    PSW.6                                                          00D6 
+    PSW.7                                                          00D7 
+    PT0                                                            00B9 
+    PT1                                                            00BB 
+    PT2                                                            00BD 
+    PX0                                                            00B8 
+    PX1                                                            00BA 
+    RB8                                                            009A 
+    RCAP2H                                                         00CB 
+    RCAP2L                                                         00CA 
+    RCLK                                                           00CD 
+    REN                                                            009C 
+    RI                                                             0098 
+    RS0                                                            00D3 
+    RS1                                                            00D4 
+    RXD                                                            00B0 
+    SBUF                                                           0099 
+    SCON                                                           0098 
+    SCON.0                                                         0098 
+    SCON.1                                                         0099 
+    SCON.2                                                         009A 
+    SCON.3                                                         009B 
+    SCON.4                                                         009C 
+    SCON.5                                                         009D 
+    SCON.6                                                         009E 
+    SCON.7                                                         009F 
+    SM0                                                            009F 
+    SM1                                                            009E 
+    SM2                                                            009D 
+    SP                                                             0081 
+    T2CON                                                          00C8 
+    T2CON.0                                                        00C8 
+    T2CON.1                                                        00C9 
+    T2CON.2                                                        00CA 
+    T2CON.3                                                        00CB 
+    T2CON.4                                                        00CC 
+    T2CON.5                                                        00CD 
+    T2CON.6                                                        00CE 
+    T2CON.7                                                        00CF 
+    TB8                                                            009B 
+    TCLK                                                           00CC 
+    TCON                                                           0088 
+    TCON.0                                                         0088 
+    TCON.1                                                         0089 
+    TCON.2                                                         008A 
+    TCON.3                                                         008B 
+    TCON.4                                                         008C 
+    TCON.5                                                         008D 
+    TCON.6                                                         008E 
+    TCON.7                                                         008F 
+    TF0                                                            008D 
+    TF1                                                            008F 
+    TF2                                                            00CF 
+    TH0                                                            008C 
+    TH1                                                            008D 
+    TH2                                                            00CD 
+    TI                                                             0099 
+    TL0                                                            008A 
+    TL1                                                            008B 
+    TL2                                                            00CC 
+    TMOD                                                           0089 
+    TR0                                                            008C 
+    TR1                                                            008E 
+    TR2                                                            00CA 
+    TXD                                                            00B1 
+    _AC                                                         =  00D6 G
+    _ACC                                                        =  00E0 G
+    _ACC_0                                                      =  00E0 G
+    _ACC_1                                                      =  00E1 G
+    _ACC_2                                                      =  00E2 G
+    _ACC_3                                                      =  00E3 G
+    _ACC_4                                                      =  00E4 G
+    _ACC_5                                                      =  00E5 G
+    _ACC_6                                                      =  00E6 G
+    _ACC_7                                                      =  00E7 G
+    _ADCCH0CONFIG                                               =  00CA G
+    _ADCCH0VAL                                                  =  7020 G
+    _ADCCH0VAL0                                                 =  7020 G
+    _ADCCH0VAL1                                                 =  7021 G
+    _ADCCH1CONFIG                                               =  00CB G
+    _ADCCH1VAL                                                  =  7022 G
+    _ADCCH1VAL0                                                 =  7022 G
+    _ADCCH1VAL1                                                 =  7023 G
+    _ADCCH2CONFIG                                               =  00D2 G
+    _ADCCH2VAL                                                  =  7024 G
+    _ADCCH2VAL0                                                 =  7024 G
+    _ADCCH2VAL1                                                 =  7025 G
+    _ADCCH3CONFIG                                               =  00D3 G
+    _ADCCH3VAL                                                  =  7026 G
+    _ADCCH3VAL0                                                 =  7026 G
+    _ADCCH3VAL1                                                 =  7027 G
+    _ADCCLKSRC                                                  =  00D1 G
+    _ADCCONV                                                    =  00C9 G
+    _ADCTUNE0                                                   =  7028 G
+    _ADCTUNE1                                                   =  7029 G
+    _ADCTUNE2                                                   =  702A G
+    _ANALOGA                                                    =  7007 G
+    _ANALOGCOMP                                                 =  00E1 G
+    _AX5043_0xF00                                               =  4F00 G
+    _AX5043_0xF01                                               =  4F01 G
+    _AX5043_0xF0C                                               =  4F0C G
+    _AX5043_0xF10                                               =  4F10 G
+    _AX5043_0xF11                                               =  4F11 G
+    _AX5043_0xF18                                               =  4F18 G
+    _AX5043_0xF1C                                               =  4F1C G
+    _AX5043_0xF21                                               =  4F21 G
+    _AX5043_0xF22                                               =  4F22 G
+    _AX5043_0xF23                                               =  4F23 G
+    _AX5043_0xF26                                               =  4F26 G
+    _AX5043_0xF2F                                               =  4F2F G
+    _AX5043_0xF30                                               =  4F30 G
+    _AX5043_0xF31                                               =  4F31 G
+    _AX5043_0xF32                                               =  4F32 G
+    _AX5043_0xF33                                               =  4F33 G
+    _AX5043_0xF34                                               =  4F34 G
+    _AX5043_0xF35                                               =  4F35 G
+    _AX5043_0xF44                                               =  4F44 G
+    _AX5043_AFSKCTRL                                            =  4114 G
+    _AX5043_AFSKCTRLNB                                          =  5114 G
+    _AX5043_AFSKMARK0                                           =  4113 G
+    _AX5043_AFSKMARK0NB                                         =  5113 G
+    _AX5043_AFSKMARK1                                           =  4112 G
+    _AX5043_AFSKMARK1NB                                         =  5112 G
+    _AX5043_AFSKSPACE0                                          =  4111 G
+    _AX5043_AFSKSPACE0NB                                        =  5111 G
+    _AX5043_AFSKSPACE1                                          =  4110 G
+    _AX5043_AFSKSPACE1NB                                        =  5110 G
+    _AX5043_AGCAHYST0                                           =  4122 G
+    _AX5043_AGCAHYST0NB                                         =  5122 G
+    _AX5043_AGCAHYST1                                           =  4132 G
+    _AX5043_AGCAHYST1NB                                         =  5132 G
+    _AX5043_AGCAHYST2                                           =  4142 G
+    _AX5043_AGCAHYST2NB                                         =  5142 G
+    _AX5043_AGCAHYST3                                           =  4152 G
+    _AX5043_AGCAHYST3NB                                         =  5152 G
+    _AX5043_AGCCOUNTER                                          =  4043 G
+    _AX5043_AGCCOUNTERNB                                        =  5043 G
+    _AX5043_AGCGAIN0                                            =  4120 G
+    _AX5043_AGCGAIN0NB                                          =  5120 G
+    _AX5043_AGCGAIN1                                            =  4130 G
+    _AX5043_AGCGAIN1NB                                          =  5130 G
+    _AX5043_AGCGAIN2                                            =  4140 G
+    _AX5043_AGCGAIN2NB                                          =  5140 G
+    _AX5043_AGCGAIN3                                            =  4150 G
+    _AX5043_AGCGAIN3NB                                          =  5150 G
+    _AX5043_AGCMINMAX0                                          =  4123 G
+    _AX5043_AGCMINMAX0NB                                        =  5123 G
+    _AX5043_AGCMINMAX1                                          =  4133 G
+    _AX5043_AGCMINMAX1NB                                        =  5133 G
+    _AX5043_AGCMINMAX2                                          =  4143 G
+    _AX5043_AGCMINMAX2NB                                        =  5143 G
+    _AX5043_AGCMINMAX3                                          =  4153 G
+    _AX5043_AGCMINMAX3NB                                        =  5153 G
+    _AX5043_AGCTARGET0                                          =  4121 G
+    _AX5043_AGCTARGET0NB                                        =  5121 G
+    _AX5043_AGCTARGET1                                          =  4131 G
+    _AX5043_AGCTARGET1NB                                        =  5131 G
+    _AX5043_AGCTARGET2                                          =  4141 G
+    _AX5043_AGCTARGET2NB                                        =  5141 G
+    _AX5043_AGCTARGET3                                          =  4151 G
+    _AX5043_AGCTARGET3NB                                        =  5151 G
+    _AX5043_AMPLFILTER                                          =  4115 G
+    _AX5043_AMPLFILTERNB                                        =  5115 G
+    _AX5043_AMPLITUDEGAIN0                                      =  412B G
+    _AX5043_AMPLITUDEGAIN0NB                                    =  512B G
+    _AX5043_AMPLITUDEGAIN1                                      =  413B G
+    _AX5043_AMPLITUDEGAIN1NB                                    =  513B G
+    _AX5043_AMPLITUDEGAIN2                                      =  414B G
+    _AX5043_AMPLITUDEGAIN2NB                                    =  514B G
+    _AX5043_AMPLITUDEGAIN3                                      =  415B G
+    _AX5043_AMPLITUDEGAIN3NB                                    =  515B G
+    _AX5043_BBOFFSCAP                                           =  4189 G
+    _AX5043_BBOFFSCAPNB                                         =  5189 G
+    _AX5043_BBOFFSRES0                                          =  412F G
+    _AX5043_BBOFFSRES0NB                                        =  512F G
+    _AX5043_BBOFFSRES1                                          =  413F G
+    _AX5043_BBOFFSRES1NB                                        =  513F G
+    _AX5043_BBOFFSRES2                                          =  414F G
+    _AX5043_BBOFFSRES2NB                                        =  514F G
+    _AX5043_BBOFFSRES3                                          =  415F G
+    _AX5043_BBOFFSRES3NB                                        =  515F G
+    _AX5043_BBTUNE                                              =  4188 G
+    _AX5043_BBTUNENB                                            =  5188 G
+    _AX5043_BGNDRSSI                                            =  4041 G
+    _AX5043_BGNDRSSIGAIN                                        =  422E G
+    _AX5043_BGNDRSSIGAINNB                                      =  522E G
+    _AX5043_BGNDRSSINB                                          =  5041 G
+    _AX5043_BGNDRSSITHR                                         =  422F G
+    _AX5043_BGNDRSSITHRNB                                       =  522F G
+    _AX5043_CRCINIT0                                            =  4017 G
+    _AX5043_CRCINIT0NB                                          =  5017 G
+    _AX5043_CRCINIT1                                            =  4016 G
+    _AX5043_CRCINIT1NB                                          =  5016 G
+    _AX5043_CRCINIT2                                            =  4015 G
+    _AX5043_CRCINIT2NB                                          =  5015 G
+    _AX5043_CRCINIT3                                            =  4014 G
+    _AX5043_CRCINIT3NB                                          =  5014 G
+    _AX5043_DACCONFIG                                           =  4332 G
+    _AX5043_DACCONFIGNB                                         =  5332 G
+    _AX5043_DACVALUE0                                           =  4331 G
+    _AX5043_DACVALUE0NB                                         =  5331 G
+    _AX5043_DACVALUE1                                           =  4330 G
+    _AX5043_DACVALUE1NB                                         =  5330 G
+    _AX5043_DECIMATION                                          =  4102 G
+    _AX5043_DECIMATIONNB                                        =  5102 G
+    _AX5043_DIVERSITY                                           =  4042 G
+    _AX5043_DIVERSITYNB                                         =  5042 G
+    _AX5043_DRGAIN0                                             =  4125 G
+    _AX5043_DRGAIN0NB                                           =  5125 G
+    _AX5043_DRGAIN1                                             =  4135 G
+    _AX5043_DRGAIN1NB                                           =  5135 G
+    _AX5043_DRGAIN2                                             =  4145 G
+    _AX5043_DRGAIN2NB                                           =  5145 G
+    _AX5043_DRGAIN3                                             =  4155 G
+    _AX5043_DRGAIN3NB                                           =  5155 G
+    _AX5043_ENCODING                                            =  4011 G
+    _AX5043_ENCODINGNB                                          =  5011 G
+    _AX5043_FEC                                                 =  4018 G
+    _AX5043_FECNB                                               =  5018 G
+    _AX5043_FECSTATUS                                           =  401A G
+    _AX5043_FECSTATUSNB                                         =  501A G
+    _AX5043_FECSYNC                                             =  4019 G
+    _AX5043_FECSYNCNB                                           =  5019 G
+    _AX5043_FIFOCOUNT0                                          =  402B G
+    _AX5043_FIFOCOUNT0NB                                        =  502B G
+    _AX5043_FIFOCOUNT1                                          =  402A G
+    _AX5043_FIFOCOUNT1NB                                        =  502A G
+    _AX5043_FIFODATA                                            =  4029 G
+    _AX5043_FIFODATANB                                          =  5029 G
+    _AX5043_FIFOFREE0                                           =  402D G
+    _AX5043_FIFOFREE0NB                                         =  502D G
+    _AX5043_FIFOFREE1                                           =  402C G
+    _AX5043_FIFOFREE1NB                                         =  502C G
+    _AX5043_FIFOSTAT                                            =  4028 G
+    _AX5043_FIFOSTATNB                                          =  5028 G
+    _AX5043_FIFOTHRESH0                                         =  402F G
+    _AX5043_FIFOTHRESH0NB                                       =  502F G
+    _AX5043_FIFOTHRESH1                                         =  402E G
+    _AX5043_FIFOTHRESH1NB                                       =  502E G
+    _AX5043_FOURFSK0                                            =  412E G
+    _AX5043_FOURFSK0NB                                          =  512E G
+    _AX5043_FOURFSK1                                            =  413E G
+    _AX5043_FOURFSK1NB                                          =  513E G
+    _AX5043_FOURFSK2                                            =  414E G
+    _AX5043_FOURFSK2NB                                          =  514E G
+    _AX5043_FOURFSK3                                            =  415E G
+    _AX5043_FOURFSK3NB                                          =  515E G
+    _AX5043_FRAMING                                             =  4012 G
+    _AX5043_FRAMINGNB                                           =  5012 G
+    _AX5043_FREQA0                                              =  4037 G
+    _AX5043_FREQA0NB                                            =  5037 G
+    _AX5043_FREQA1                                              =  4036 G
+    _AX5043_FREQA1NB                                            =  5036 G
+    _AX5043_FREQA2                                              =  4035 G
+    _AX5043_FREQA2NB                                            =  5035 G
+    _AX5043_FREQA3                                              =  4034 G
+    _AX5043_FREQA3NB                                            =  5034 G
+    _AX5043_FREQB0                                              =  403F G
+    _AX5043_FREQB0NB                                            =  503F G
+    _AX5043_FREQB1                                              =  403E G
+    _AX5043_FREQB1NB                                            =  503E G
+    _AX5043_FREQB2                                              =  403D G
+    _AX5043_FREQB2NB                                            =  503D G
+    _AX5043_FREQB3                                              =  403C G
+    _AX5043_FREQB3NB                                            =  503C G
+    _AX5043_FREQDEV00                                           =  412D G
+    _AX5043_FREQDEV00NB                                         =  512D G
+    _AX5043_FREQDEV01                                           =  413D G
+    _AX5043_FREQDEV01NB                                         =  513D G
+    _AX5043_FREQDEV02                                           =  414D G
+    _AX5043_FREQDEV02NB                                         =  514D G
+    _AX5043_FREQDEV03                                           =  415D G
+    _AX5043_FREQDEV03NB                                         =  515D G
+    _AX5043_FREQDEV10                                           =  412C G
+    _AX5043_FREQDEV10NB                                         =  512C G
+    _AX5043_FREQDEV11                                           =  413C G
+    _AX5043_FREQDEV11NB                                         =  513C G
+    _AX5043_FREQDEV12                                           =  414C G
+    _AX5043_FREQDEV12NB                                         =  514C G
+    _AX5043_FREQDEV13                                           =  415C G
+    _AX5043_FREQDEV13NB                                         =  515C G
+    _AX5043_FREQUENCYGAINA0                                     =  4127 G
+    _AX5043_FREQUENCYGAINA0NB                                   =  5127 G
+    _AX5043_FREQUENCYGAINA1                                     =  4137 G
+    _AX5043_FREQUENCYGAINA1NB                                   =  5137 G
+    _AX5043_FREQUENCYGAINA2                                     =  4147 G
+    _AX5043_FREQUENCYGAINA2NB                                   =  5147 G
+    _AX5043_FREQUENCYGAINA3                                     =  4157 G
+    _AX5043_FREQUENCYGAINA3NB                                   =  5157 G
+    _AX5043_FREQUENCYGAINB0                                     =  4128 G
+    _AX5043_FREQUENCYGAINB0NB                                   =  5128 G
+    _AX5043_FREQUENCYGAINB1                                     =  4138 G
+    _AX5043_FREQUENCYGAINB1NB                                   =  5138 G
+    _AX5043_FREQUENCYGAINB2                                     =  4148 G
+    _AX5043_FREQUENCYGAINB2NB                                   =  5148 G
+    _AX5043_FREQUENCYGAINB3                                     =  4158 G
+    _AX5043_FREQUENCYGAINB3NB                                   =  5158 G
+    _AX5043_FREQUENCYGAINC0                                     =  4129 G
+    _AX5043_FREQUENCYGAINC0NB                                   =  5129 G
+    _AX5043_FREQUENCYGAINC1                                     =  4139 G
+    _AX5043_FREQUENCYGAINC1NB                                   =  5139 G
+    _AX5043_FREQUENCYGAINC2                                     =  4149 G
+    _AX5043_FREQUENCYGAINC2NB                                   =  5149 G
+    _AX5043_FREQUENCYGAINC3                                     =  4159 G
+    _AX5043_FREQUENCYGAINC3NB                                   =  5159 G
+    _AX5043_FREQUENCYGAIND0                                     =  412A G
+    _AX5043_FREQUENCYGAIND0NB                                   =  512A G
+    _AX5043_FREQUENCYGAIND1                                     =  413A G
+    _AX5043_FREQUENCYGAIND1NB                                   =  513A G
+    _AX5043_FREQUENCYGAIND2                                     =  414A G
+    _AX5043_FREQUENCYGAIND2NB                                   =  514A G
+    _AX5043_FREQUENCYGAIND3                                     =  415A G
+    _AX5043_FREQUENCYGAIND3NB                                   =  515A G
+    _AX5043_FREQUENCYLEAK                                       =  4116 G
+    _AX5043_FREQUENCYLEAKNB                                     =  5116 G
+    _AX5043_FSKDEV0                                             =  4163 G
+    _AX5043_FSKDEV0NB                                           =  5163 G
+    _AX5043_FSKDEV1                                             =  4162 G
+    _AX5043_FSKDEV1NB                                           =  5162 G
+    _AX5043_FSKDEV2                                             =  4161 G
+    _AX5043_FSKDEV2NB                                           =  5161 G
+    _AX5043_FSKDMAX0                                            =  410D G
+    _AX5043_FSKDMAX0NB                                          =  510D G
+    _AX5043_FSKDMAX1                                            =  410C G
+    _AX5043_FSKDMAX1NB                                          =  510C G
+    _AX5043_FSKDMIN0                                            =  410F G
+    _AX5043_FSKDMIN0NB                                          =  510F G
+    _AX5043_FSKDMIN1                                            =  410E G
+    _AX5043_FSKDMIN1NB                                          =  510E G
+    _AX5043_GPADC13VALUE0                                       =  4309 G
+    _AX5043_GPADC13VALUE0NB                                     =  5309 G
+    _AX5043_GPADC13VALUE1                                       =  4308 G
+    _AX5043_GPADC13VALUE1NB                                     =  5308 G
+    _AX5043_GPADCCTRL                                           =  4300 G
+    _AX5043_GPADCCTRLNB                                         =  5300 G
+    _AX5043_GPADCPERIOD                                         =  4301 G
+    _AX5043_GPADCPERIODNB                                       =  5301 G
+    _AX5043_IFFREQ0                                             =  4101 G
+    _AX5043_IFFREQ0NB                                           =  5101 G
+    _AX5043_IFFREQ1                                             =  4100 G
+    _AX5043_IFFREQ1NB                                           =  5100 G
+    _AX5043_IRQINVERSION0                                       =  400B G
+    _AX5043_IRQINVERSION0NB                                     =  500B G
+    _AX5043_IRQINVERSION1                                       =  400A G
+    _AX5043_IRQINVERSION1NB                                     =  500A G
+    _AX5043_IRQMASK0                                            =  4007 G
+    _AX5043_IRQMASK0NB                                          =  5007 G
+    _AX5043_IRQMASK1                                            =  4006 G
+    _AX5043_IRQMASK1NB                                          =  5006 G
+    _AX5043_IRQREQUEST0                                         =  400D G
+    _AX5043_IRQREQUEST0NB                                       =  500D G
+    _AX5043_IRQREQUEST1                                         =  400C G
+    _AX5043_IRQREQUEST1NB                                       =  500C G
+    _AX5043_LPOSCCONFIG                                         =  4310 G
+    _AX5043_LPOSCCONFIGNB                                       =  5310 G
+    _AX5043_LPOSCFREQ0                                          =  4317 G
+    _AX5043_LPOSCFREQ0NB                                        =  5317 G
+    _AX5043_LPOSCFREQ1                                          =  4316 G
+    _AX5043_LPOSCFREQ1NB                                        =  5316 G
+    _AX5043_LPOSCKFILT0                                         =  4313 G
+    _AX5043_LPOSCKFILT0NB                                       =  5313 G
+    _AX5043_LPOSCKFILT1                                         =  4312 G
+    _AX5043_LPOSCKFILT1NB                                       =  5312 G
+    _AX5043_LPOSCPER0                                           =  4319 G
+    _AX5043_LPOSCPER0NB                                         =  5319 G
+    _AX5043_LPOSCPER1                                           =  4318 G
+    _AX5043_LPOSCPER1NB                                         =  5318 G
+    _AX5043_LPOSCREF0                                           =  4315 G
+    _AX5043_LPOSCREF0NB                                         =  5315 G
+    _AX5043_LPOSCREF1                                           =  4314 G
+    _AX5043_LPOSCREF1NB                                         =  5314 G
+    _AX5043_LPOSCSTATUS                                         =  4311 G
+    _AX5043_LPOSCSTATUSNB                                       =  5311 G
+    _AX5043_MATCH0LEN                                           =  4214 G
+    _AX5043_MATCH0LENNB                                         =  5214 G
+    _AX5043_MATCH0MAX                                           =  4216 G
+    _AX5043_MATCH0MAXNB                                         =  5216 G
+    _AX5043_MATCH0MIN                                           =  4215 G
+    _AX5043_MATCH0MINNB                                         =  5215 G
+    _AX5043_MATCH0PAT0                                          =  4213 G
+    _AX5043_MATCH0PAT0NB                                        =  5213 G
+    _AX5043_MATCH0PAT1                                          =  4212 G
+    _AX5043_MATCH0PAT1NB                                        =  5212 G
+    _AX5043_MATCH0PAT2                                          =  4211 G
+    _AX5043_MATCH0PAT2NB                                        =  5211 G
+    _AX5043_MATCH0PAT3                                          =  4210 G
+    _AX5043_MATCH0PAT3NB                                        =  5210 G
+    _AX5043_MATCH1LEN                                           =  421C G
+    _AX5043_MATCH1LENNB                                         =  521C G
+    _AX5043_MATCH1MAX                                           =  421E G
+    _AX5043_MATCH1MAXNB                                         =  521E G
+    _AX5043_MATCH1MIN                                           =  421D G
+    _AX5043_MATCH1MINNB                                         =  521D G
+    _AX5043_MATCH1PAT0                                          =  4219 G
+    _AX5043_MATCH1PAT0NB                                        =  5219 G
+    _AX5043_MATCH1PAT1                                          =  4218 G
+    _AX5043_MATCH1PAT1NB                                        =  5218 G
+    _AX5043_MAXDROFFSET0                                        =  4108 G
+    _AX5043_MAXDROFFSET0NB                                      =  5108 G
+    _AX5043_MAXDROFFSET1                                        =  4107 G
+    _AX5043_MAXDROFFSET1NB                                      =  5107 G
+    _AX5043_MAXDROFFSET2                                        =  4106 G
+    _AX5043_MAXDROFFSET2NB                                      =  5106 G
+    _AX5043_MAXRFOFFSET0                                        =  410B G
+    _AX5043_MAXRFOFFSET0NB                                      =  510B G
+    _AX5043_MAXRFOFFSET1                                        =  410A G
+    _AX5043_MAXRFOFFSET1NB                                      =  510A G
+    _AX5043_MAXRFOFFSET2                                        =  4109 G
+    _AX5043_MAXRFOFFSET2NB                                      =  5109 G
+    _AX5043_MODCFGA                                             =  4164 G
+    _AX5043_MODCFGANB                                           =  5164 G
+    _AX5043_MODCFGF                                             =  4160 G
+    _AX5043_MODCFGFNB                                           =  5160 G
+    _AX5043_MODULATION                                          =  4010 G
+    _AX5043_MODULATIONNB                                        =  5010 G
+    _AX5043_PHASEGAIN0                                          =  4126 G
+    _AX5043_PHASEGAIN0NB                                        =  5126 G
+    _AX5043_PHASEGAIN1                                          =  4136 G
+    _AX5043_PHASEGAIN1NB                                        =  5136 G
+    _AX5043_PHASEGAIN2                                          =  4146 G
+    _AX5043_PHASEGAIN2NB                                        =  5146 G
+    _AX5043_PHASEGAIN3                                          =  4156 G
+    _AX5043_PHASEGAIN3NB                                        =  5156 G
+    _AX5043_PINFUNCANTSEL                                       =  4025 G
+    _AX5043_PINFUNCANTSELNB                                     =  5025 G
+    _AX5043_PINFUNCDATA                                         =  4023 G
+    _AX5043_PINFUNCDATANB                                       =  5023 G
+    _AX5043_PINFUNCDCLK                                         =  4022 G
+    _AX5043_PINFUNCDCLKNB                                       =  5022 G
+    _AX5043_PINFUNCIRQ                                          =  4024 G
+    _AX5043_PINFUNCIRQNB                                        =  5024 G
+    _AX5043_PINFUNCPWRAMP                                       =  4026 G
+    _AX5043_PINFUNCPWRAMPNB                                     =  5026 G
+    _AX5043_PINFUNCSYSCLK                                       =  4021 G
+    _AX5043_PINFUNCSYSCLKNB                                     =  5021 G
+    _AX5043_PINSTATE                                            =  4020 G
+    _AX5043_PINSTATENB                                          =  5020 G
+    _AX5043_PKTACCEPTFLAGS                                      =  4233 G
+    _AX5043_PKTACCEPTFLAGSNB                                    =  5233 G
+    _AX5043_PKTADDR0                                            =  4207 G
+    _AX5043_PKTADDR0NB                                          =  5207 G
+    _AX5043_PKTADDR1                                            =  4206 G
+    _AX5043_PKTADDR1NB                                          =  5206 G
+    _AX5043_PKTADDR2                                            =  4205 G
+    _AX5043_PKTADDR2NB                                          =  5205 G
+    _AX5043_PKTADDR3                                            =  4204 G
+    _AX5043_PKTADDR3NB                                          =  5204 G
+    _AX5043_PKTADDRCFG                                          =  4200 G
+    _AX5043_PKTADDRCFGNB                                        =  5200 G
+    _AX5043_PKTADDRMASK0                                        =  420B G
+    _AX5043_PKTADDRMASK0NB                                      =  520B G
+    _AX5043_PKTADDRMASK1                                        =  420A G
+    _AX5043_PKTADDRMASK1NB                                      =  520A G
+    _AX5043_PKTADDRMASK2                                        =  4209 G
+    _AX5043_PKTADDRMASK2NB                                      =  5209 G
+    _AX5043_PKTADDRMASK3                                        =  4208 G
+    _AX5043_PKTADDRMASK3NB                                      =  5208 G
+    _AX5043_PKTCHUNKSIZE                                        =  4230 G
+    _AX5043_PKTCHUNKSIZENB                                      =  5230 G
+    _AX5043_PKTLENCFG                                           =  4201 G
+    _AX5043_PKTLENCFGNB                                         =  5201 G
+    _AX5043_PKTLENOFFSET                                        =  4202 G
+    _AX5043_PKTLENOFFSETNB                                      =  5202 G
+    _AX5043_PKTMAXLEN                                           =  4203 G
+    _AX5043_PKTMAXLENNB                                         =  5203 G
+    _AX5043_PKTMISCFLAGS                                        =  4231 G
+    _AX5043_PKTMISCFLAGSNB                                      =  5231 G
+    _AX5043_PKTSTOREFLAGS                                       =  4232 G
+    _AX5043_PKTSTOREFLAGSNB                                     =  5232 G
+    _AX5043_PLLCPI                                              =  4031 G
+    _AX5043_PLLCPIBOOST                                         =  4039 G
+    _AX5043_PLLCPIBOOSTNB                                       =  5039 G
+    _AX5043_PLLCPINB                                            =  5031 G
+    _AX5043_PLLLOCKDET                                          =  4182 G
+    _AX5043_PLLLOCKDETNB                                        =  5182 G
+    _AX5043_PLLLOOP                                             =  4030 G
+    _AX5043_PLLLOOPBOOST                                        =  4038 G
+    _AX5043_PLLLOOPBOOSTNB                                      =  5038 G
+    _AX5043_PLLLOOPNB                                           =  5030 G
+    _AX5043_PLLRANGINGA                                         =  4033 G
+    _AX5043_PLLRANGINGANB                                       =  5033 G
+    _AX5043_PLLRANGINGB                                         =  403B G
+    _AX5043_PLLRANGINGBNB                                       =  503B G
+    _AX5043_PLLRNGCLK                                           =  4183 G
+    _AX5043_PLLRNGCLKNB                                         =  5183 G
+    _AX5043_PLLVCODIV                                           =  4032 G
+    _AX5043_PLLVCODIVNB                                         =  5032 G
+    _AX5043_PLLVCOI                                             =  4180 G
+    _AX5043_PLLVCOINB                                           =  5180 G
+    _AX5043_PLLVCOIR                                            =  4181 G
+    _AX5043_PLLVCOIRNB                                          =  5181 G
+    _AX5043_POWCTRL1                                            =  4F08 G
+    _AX5043_POWIRQMASK                                          =  4005 G
+    _AX5043_POWIRQMASKNB                                        =  5005 G
+    _AX5043_POWSTAT                                             =  4003 G
+    _AX5043_POWSTATNB                                           =  5003 G
+    _AX5043_POWSTICKYSTAT                                       =  4004 G
+    _AX5043_POWSTICKYSTATNB                                     =  5004 G
+    _AX5043_PWRAMP                                              =  4027 G
+    _AX5043_PWRAMPNB                                            =  5027 G
+    _AX5043_PWRMODE                                             =  4002 G
+    _AX5043_PWRMODENB                                           =  5002 G
+    _AX5043_RADIOEVENTMASK0                                     =  4009 G
+    _AX5043_RADIOEVENTMASK0NB                                   =  5009 G
+    _AX5043_RADIOEVENTMASK1                                     =  4008 G
+    _AX5043_RADIOEVENTMASK1NB                                   =  5008 G
+    _AX5043_RADIOEVENTREQ0                                      =  400F G
+    _AX5043_RADIOEVENTREQ0NB                                    =  500F G
+    _AX5043_RADIOEVENTREQ1                                      =  400E G
+    _AX5043_RADIOEVENTREQ1NB                                    =  500E G
+    _AX5043_RADIOSTATE                                          =  401C G
+    _AX5043_RADIOSTATENB                                        =  501C G
+    _AX5043_REF                                                 =  4F0D G
+    _AX5043_RSSI                                                =  4040 G
+    _AX5043_RSSIABSTHR                                          =  422D G
+    _AX5043_RSSIABSTHRNB                                        =  522D G
+    _AX5043_RSSINB                                              =  5040 G
+    _AX5043_RSSIREFERENCE                                       =  422C G
+    _AX5043_RSSIREFERENCENB                                     =  522C G
+    _AX5043_RXDATARATE0                                         =  4105 G
+    _AX5043_RXDATARATE0NB                                       =  5105 G
+    _AX5043_RXDATARATE1                                         =  4104 G
+    _AX5043_RXDATARATE1NB                                       =  5104 G
+    _AX5043_RXDATARATE2                                         =  4103 G
+    _AX5043_RXDATARATE2NB                                       =  5103 G
+    _AX5043_RXPARAMCURSET                                       =  4118 G
+    _AX5043_RXPARAMCURSETNB                                     =  5118 G
+    _AX5043_RXPARAMSETS                                         =  4117 G
+    _AX5043_RXPARAMSETSNB                                       =  5117 G
+    _AX5043_SCRATCH                                             =  4001 G
+    _AX5043_SCRATCHNB                                           =  5001 G
+    _AX5043_SILICONREVISION                                     =  4000 G
+    _AX5043_SILICONREVISIONNB                                   =  5000 G
+    _AX5043_TIMEGAIN0                                           =  4124 G
+    _AX5043_TIMEGAIN0NB                                         =  5124 G
+    _AX5043_TIMEGAIN1                                           =  4134 G
+    _AX5043_TIMEGAIN1NB                                         =  5134 G
+    _AX5043_TIMEGAIN2                                           =  4144 G
+    _AX5043_TIMEGAIN2NB                                         =  5144 G
+    _AX5043_TIMEGAIN3                                           =  4154 G
+    _AX5043_TIMEGAIN3NB                                         =  5154 G
+    _AX5043_TIMER0                                              =  405B G
+    _AX5043_TIMER0NB                                            =  505B G
+    _AX5043_TIMER1                                              =  405A G
+    _AX5043_TIMER1NB                                            =  505A G
+    _AX5043_TIMER2                                              =  4059 G
+    _AX5043_TIMER2NB                                            =  5059 G
+    _AX5043_TMGRXAGC                                            =  4227 G
+    _AX5043_TMGRXAGCNB                                          =  5227 G
+    _AX5043_TMGRXBOOST                                          =  4223 G
+    _AX5043_TMGRXBOOSTNB                                        =  5223 G
+    _AX5043_TMGRXCOARSEAGC                                      =  4226 G
+    _AX5043_TMGRXCOARSEAGCNB                                    =  5226 G
+    _AX5043_TMGRXOFFSACQ                                        =  4225 G
+    _AX5043_TMGRXOFFSACQNB                                      =  5225 G
+    _AX5043_TMGRXPREAMBLE1                                      =  4229 G
+    _AX5043_TMGRXPREAMBLE1NB                                    =  5229 G
+    _AX5043_TMGRXPREAMBLE2                                      =  422A G
+    _AX5043_TMGRXPREAMBLE2NB                                    =  522A G
+    _AX5043_TMGRXPREAMBLE3                                      =  422B G
+    _AX5043_TMGRXPREAMBLE3NB                                    =  522B G
+    _AX5043_TMGRXRSSI                                           =  4228 G
+    _AX5043_TMGRXRSSINB                                         =  5228 G
+    _AX5043_TMGRXSETTLE                                         =  4224 G
+    _AX5043_TMGRXSETTLENB                                       =  5224 G
+    _AX5043_TMGTXBOOST                                          =  4220 G
+    _AX5043_TMGTXBOOSTNB                                        =  5220 G
+    _AX5043_TMGTXSETTLE                                         =  4221 G
+    _AX5043_TMGTXSETTLENB                                       =  5221 G
+    _AX5043_TRKAFSKDEMOD0                                       =  4055 G
+    _AX5043_TRKAFSKDEMOD0NB                                     =  5055 G
+    _AX5043_TRKAFSKDEMOD1                                       =  4054 G
+    _AX5043_TRKAFSKDEMOD1NB                                     =  5054 G
+    _AX5043_TRKAMPLITUDE0                                       =  4049 G
+    _AX5043_TRKAMPLITUDE0NB                                     =  5049 G
+    _AX5043_TRKAMPLITUDE1                                       =  4048 G
+    _AX5043_TRKAMPLITUDE1NB                                     =  5048 G
+    _AX5043_TRKDATARATE0                                        =  4047 G
+    _AX5043_TRKDATARATE0NB                                      =  5047 G
+    _AX5043_TRKDATARATE1                                        =  4046 G
+    _AX5043_TRKDATARATE1NB                                      =  5046 G
+    _AX5043_TRKDATARATE2                                        =  4045 G
+    _AX5043_TRKDATARATE2NB                                      =  5045 G
+    _AX5043_TRKFREQ0                                            =  4051 G
+    _AX5043_TRKFREQ0NB                                          =  5051 G
+    _AX5043_TRKFREQ1                                            =  4050 G
+    _AX5043_TRKFREQ1NB                                          =  5050 G
+    _AX5043_TRKFSKDEMOD0                                        =  4053 G
+    _AX5043_TRKFSKDEMOD0NB                                      =  5053 G
+    _AX5043_TRKFSKDEMOD1                                        =  4052 G
+    _AX5043_TRKFSKDEMOD1NB                                      =  5052 G
+    _AX5043_TRKPHASE0                                           =  404B G
+    _AX5043_TRKPHASE0NB                                         =  504B G
+    _AX5043_TRKPHASE1                                           =  404A G
+    _AX5043_TRKPHASE1NB                                         =  504A G
+    _AX5043_TRKRFFREQ0                                          =  404F G
+    _AX5043_TRKRFFREQ0NB                                        =  504F G
+    _AX5043_TRKRFFREQ1                                          =  404E G
+    _AX5043_TRKRFFREQ1NB                                        =  504E G
+    _AX5043_TRKRFFREQ2                                          =  404D G
+    _AX5043_TRKRFFREQ2NB                                        =  504D G
+    _AX5043_TXPWRCOEFFA0                                        =  4169 G
+    _AX5043_TXPWRCOEFFA0NB                                      =  5169 G
+    _AX5043_TXPWRCOEFFA1                                        =  4168 G
+    _AX5043_TXPWRCOEFFA1NB                                      =  5168 G
+    _AX5043_TXPWRCOEFFB0                                        =  416B G
+    _AX5043_TXPWRCOEFFB0NB                                      =  516B G
+    _AX5043_TXPWRCOEFFB1                                        =  416A G
+    _AX5043_TXPWRCOEFFB1NB                                      =  516A G
+    _AX5043_TXPWRCOEFFC0                                        =  416D G
+    _AX5043_TXPWRCOEFFC0NB                                      =  516D G
+    _AX5043_TXPWRCOEFFC1                                        =  416C G
+    _AX5043_TXPWRCOEFFC1NB                                      =  516C G
+    _AX5043_TXPWRCOEFFD0                                        =  416F G
+    _AX5043_TXPWRCOEFFD0NB                                      =  516F G
+    _AX5043_TXPWRCOEFFD1                                        =  416E G
+    _AX5043_TXPWRCOEFFD1NB                                      =  516E G
+    _AX5043_TXPWRCOEFFE0                                        =  4171 G
+    _AX5043_TXPWRCOEFFE0NB                                      =  5171 G
+    _AX5043_TXPWRCOEFFE1                                        =  4170 G
+    _AX5043_TXPWRCOEFFE1NB                                      =  5170 G
+    _AX5043_TXRATE0                                             =  4167 G
+    _AX5043_TXRATE0NB                                           =  5167 G
+    _AX5043_TXRATE1                                             =  4166 G
+    _AX5043_TXRATE1NB                                           =  5166 G
+    _AX5043_TXRATE2                                             =  4165 G
+    _AX5043_TXRATE2NB                                           =  5165 G
+    _AX5043_WAKEUP0                                             =  406B G
+    _AX5043_WAKEUP0NB                                           =  506B G
+    _AX5043_WAKEUP1                                             =  406A G
+    _AX5043_WAKEUP1NB                                           =  506A G
+    _AX5043_WAKEUPFREQ0                                         =  406D G
+    _AX5043_WAKEUPFREQ0NB                                       =  506D G
+    _AX5043_WAKEUPFREQ1                                         =  406C G
+    _AX5043_WAKEUPFREQ1NB                                       =  506C G
+    _AX5043_WAKEUPTIMER0                                        =  4069 G
+    _AX5043_WAKEUPTIMER0NB                                      =  5069 G
+    _AX5043_WAKEUPTIMER1                                        =  4068 G
+    _AX5043_WAKEUPTIMER1NB                                      =  5068 G
+    _AX5043_WAKEUPXOEARLY                                       =  406E G
+    _AX5043_WAKEUPXOEARLYNB                                     =  506E G
+    _AX5043_XTALCAP                                             =  4184 G
+    _AX5043_XTALCAPNB                                           =  5184 G
+    _AX5043_XTALSTATUS                                          =  401D G
+    _AX5043_XTALSTATUSNB                                        =  501D G
+    _B                                                          =  00F0 G
+    _B_0                                                        =  00F0 G
+    _B_1                                                        =  00F1 G
+    _B_2                                                        =  00F2 G
+    _B_3                                                        =  00F3 G
+    _B_4                                                        =  00F4 G
+    _B_5                                                        =  00F5 G
+    _B_6                                                        =  00F6 G
+    _B_7                                                        =  00F7 G
+    _CLKCON                                                     =  00C6 G
+    _CLKSTAT                                                    =  00C7 G
+    _CODECONFIG                                                 =  0097 G
+    _CY                                                         =  00D7 G
+    _DBGLNKBUF                                                  =  00E3 G
+    _DBGLNKSTAT                                                 =  00E2 G
+    _DIRA                                                       =  0089 G
+    _DIRB                                                       =  008A G
+    _DIRC                                                       =  008B G
+    _DIRR                                                       =  008E G
+    _DMA0ADDR                                                   =  7010 G
+    _DMA0ADDR0                                                  =  7010 G
+    _DMA0ADDR1                                                  =  7011 G
+    _DMA0CONFIG                                                 =  7014 G
+    _DMA1ADDR                                                   =  7012 G
+    _DMA1ADDR0                                                  =  7012 G
+    _DMA1ADDR1                                                  =  7013 G
+    _DMA1CONFIG                                                 =  7015 G
+    _DPH                                                        =  0083 G
+    _DPH1                                                       =  0085 G
+    _DPL                                                        =  0082 G
+    _DPL1                                                       =  0084 G
+    _DPS                                                        =  0086 G
+    _DPTR0                                                      =  8382 G
+    _DPTR1                                                      =  8584 G
+    _E2IE                                                       =  00A0 G
+    _E2IE_0                                                     =  00A0 G
+    _E2IE_1                                                     =  00A1 G
+    _E2IE_2                                                     =  00A2 G
+    _E2IE_3                                                     =  00A3 G
+    _E2IE_4                                                     =  00A4 G
+    _E2IE_5                                                     =  00A5 G
+    _E2IE_6                                                     =  00A6 G
+    _E2IE_7                                                     =  00A7 G
+    _E2IP                                                       =  00C0 G
+    _E2IP_0                                                     =  00C0 G
+    _E2IP_1                                                     =  00C1 G
+    _E2IP_2                                                     =  00C2 G
+    _E2IP_3                                                     =  00C3 G
+    _E2IP_4                                                     =  00C4 G
+    _E2IP_5                                                     =  00C5 G
+    _E2IP_6                                                     =  00C6 G
+    _E2IP_7                                                     =  00C7 G
+    _EA                                                         =  00AF G
+    _EIE                                                        =  0098 G
+    _EIE_0                                                      =  0098 G
+    _EIE_1                                                      =  0099 G
+    _EIE_2                                                      =  009A G
+    _EIE_3                                                      =  009B G
+    _EIE_4                                                      =  009C G
+    _EIE_5                                                      =  009D G
+    _EIE_6                                                      =  009E G
+    _EIE_7                                                      =  009F G
+    _EIP                                                        =  00B0 G
+    _EIP_0                                                      =  00B0 G
+    _EIP_1                                                      =  00B1 G
+    _EIP_2                                                      =  00B2 G
+    _EIP_3                                                      =  00B3 G
+    _EIP_4                                                      =  00B4 G
+    _EIP_5                                                      =  00B5 G
+    _EIP_6                                                      =  00B6 G
+    _EIP_7                                                      =  00B7 G
+    _EXTIRQ                                                     =  7003 G
+    _F0                                                         =  00D5 G
+    _F1                                                         =  00D1 G
+    _FRCOSCCONFIG                                               =  7070 G
+    _FRCOSCCTRL                                                 =  7071 G
+    _FRCOSCFREQ                                                 =  7076 G
+    _FRCOSCFREQ0                                                =  7076 G
+    _FRCOSCFREQ1                                                =  7077 G
+    _FRCOSCKFILT                                                =  7072 G
+    _FRCOSCKFILT0                                               =  7072 G
+    _FRCOSCKFILT1                                               =  7073 G
+    _FRCOSCPER                                                  =  7078 G
+    _FRCOSCPER0                                                 =  7078 G
+    _FRCOSCPER1                                                 =  7079 G
+    _FRCOSCREF                                                  =  7074 G
+    _FRCOSCREF0                                                 =  7074 G
+    _FRCOSCREF1                                                 =  7075 G
+    _GPIOENABLE                                                 =  700C G
+    _IC0CAPT                                                    =  CFCE G
+    _IC0CAPT0                                                   =  00CE G
+    _IC0CAPT1                                                   =  00CF G
+    _IC0MODE                                                    =  00CC G
+    _IC0STATUS                                                  =  00CD G
+    _IC1CAPT                                                    =  D7D6 G
+    _IC1CAPT0                                                   =  00D6 G
+    _IC1CAPT1                                                   =  00D7 G
+    _IC1MODE                                                    =  00D4 G
+    _IC1STATUS                                                  =  00D5 G
+    _IE                                                         =  00A8 G
+    _IE_0                                                       =  00A8 G
+    _IE_1                                                       =  00A9 G
+    _IE_2                                                       =  00AA G
+    _IE_3                                                       =  00AB G
+    _IE_4                                                       =  00AC G
+    _IE_5                                                       =  00AD G
+    _IE_6                                                       =  00AE G
+    _IE_7                                                       =  00AF G
+    _INTCHGA                                                    =  7000 G
+    _INTCHGB                                                    =  7001 G
+    _INTCHGC                                                    =  7002 G
+    _IP                                                         =  00B8 G
+    _IP_0                                                       =  00B8 G
+    _IP_1                                                       =  00B9 G
+    _IP_2                                                       =  00BA G
+    _IP_3                                                       =  00BB G
+    _IP_4                                                       =  00BC G
+    _IP_5                                                       =  00BD G
+    _IP_6                                                       =  00BE G
+    _IP_7                                                       =  00BF G
+    _LPOSCCONFIG                                                =  7060 G
+    _LPOSCFREQ                                                  =  7066 G
+    _LPOSCFREQ0                                                 =  7066 G
+    _LPOSCFREQ1                                                 =  7067 G
+    _LPOSCKFILT                                                 =  7062 G
+    _LPOSCKFILT0                                                =  7062 G
+    _LPOSCKFILT1                                                =  7063 G
+    _LPOSCPER                                                   =  7068 G
+    _LPOSCPER0                                                  =  7068 G
+    _LPOSCPER1                                                  =  7069 G
+    _LPOSCREF                                                   =  7064 G
+    _LPOSCREF0                                                  =  7064 G
+    _LPOSCREF1                                                  =  7065 G
+    _LPXOSCGM                                                   =  7054 G
+    _MISCCTRL                                                   =  7F01 G
+    _NVADDR                                                     =  9392 G
+    _NVADDR0                                                    =  0092 G
+    _NVADDR1                                                    =  0093 G
+    _NVDATA                                                     =  9594 G
+    _NVDATA0                                                    =  0094 G
+    _NVDATA1                                                    =  0095 G
+    _NVKEY                                                      =  0096 G
+    _NVSTATUS                                                   =  0091 G
+    _OC0COMP                                                    =  BDBC G
+    _OC0COMP0                                                   =  00BC G
+    _OC0COMP1                                                   =  00BD G
+    _OC0MODE                                                    =  00B9 G
+    _OC0PIN                                                     =  00BA G
+    _OC0STATUS                                                  =  00BB G
+    _OC1COMP                                                    =  C5C4 G
+    _OC1COMP0                                                   =  00C4 G
+    _OC1COMP1                                                   =  00C5 G
+    _OC1MODE                                                    =  00C1 G
+    _OC1PIN                                                     =  00C2 G
+    _OC1STATUS                                                  =  00C3 G
+    _OSCCALIB                                                   =  7053 G
+    _OSCFORCERUN                                                =  7050 G
+    _OSCREADY                                                   =  7052 G
+    _OSCRUN                                                     =  7051 G
+    _OV                                                         =  00D2 G
+    _P                                                          =  00D0 G
+    _PALTA                                                      =  7008 G
+    _PALTB                                                      =  7009 G
+    _PALTC                                                      =  700A G
+    _PALTRADIO                                                  =  7046 G
+    _PCON                                                       =  0087 G
+    _PINA                                                       =  00C8 G
+    _PINA_0                                                     =  00C8 G
+    _PINA_1                                                     =  00C9 G
+    _PINA_2                                                     =  00CA G
+    _PINA_3                                                     =  00CB G
+    _PINA_4                                                     =  00CC G
+    _PINA_5                                                     =  00CD G
+    _PINA_6                                                     =  00CE G
+    _PINA_7                                                     =  00CF G
+    _PINB                                                       =  00E8 G
+    _PINB_0                                                     =  00E8 G
+    _PINB_1                                                     =  00E9 G
+    _PINB_2                                                     =  00EA G
+    _PINB_3                                                     =  00EB G
+    _PINB_4                                                     =  00EC G
+    _PINB_5                                                     =  00ED G
+    _PINB_6                                                     =  00EE G
+    _PINB_7                                                     =  00EF G
+    _PINC                                                       =  00F8 G
+    _PINCHGA                                                    =  7004 G
+    _PINCHGB                                                    =  7005 G
+    _PINCHGC                                                    =  7006 G
+    _PINC_0                                                     =  00F8 G
+    _PINC_1                                                     =  00F9 G
+    _PINC_2                                                     =  00FA G
+    _PINC_3                                                     =  00FB G
+    _PINC_4                                                     =  00FC G
+    _PINC_5                                                     =  00FD G
+    _PINC_6                                                     =  00FE G
+    _PINC_7                                                     =  00FF G
+    _PINR                                                       =  008D G
+    _PINSEL                                                     =  700B G
+    _PORTA                                                      =  0080 G
+    _PORTA_0                                                    =  0080 G
+    _PORTA_1                                                    =  0081 G
+    _PORTA_2                                                    =  0082 G
+    _PORTA_3                                                    =  0083 G
+    _PORTA_4                                                    =  0084 G
+    _PORTA_5                                                    =  0085 G
+    _PORTA_6                                                    =  0086 G
+    _PORTA_7                                                    =  0087 G
+    _PORTB                                                      =  0088 G
+    _PORTB_0                                                    =  0088 G
+    _PORTB_1                                                    =  0089 G
+    _PORTB_2                                                    =  008A G
+    _PORTB_3                                                    =  008B G
+    _PORTB_4                                                    =  008C G
+    _PORTB_5                                                    =  008D G
+    _PORTB_6                                                    =  008E G
+    _PORTB_7                                                    =  008F G
+    _PORTC                                                      =  0090 G
+    _PORTC_0                                                    =  0090 G
+    _PORTC_1                                                    =  0091 G
+    _PORTC_2                                                    =  0092 G
+    _PORTC_3                                                    =  0093 G
+    _PORTC_4                                                    =  0094 G
+    _PORTC_5                                                    =  0095 G
+    _PORTC_6                                                    =  0096 G
+    _PORTC_7                                                    =  0097 G
+    _PORTR                                                      =  008C G
+    _PSW                                                        =  00D0 G
+    _RADIOACC                                                   =  00B1 G
+    _RADIOADDR                                                  =  B2B3 G
+    _RADIOADDR0                                                 =  00B3 G
+    _RADIOADDR1                                                 =  00B2 G
+    _RADIODATA                                                  =  B4B5B6B7 G
+    _RADIODATA0                                                 =  00B7 G
+    _RADIODATA1                                                 =  00B6 G
+    _RADIODATA2                                                 =  00B5 G
+    _RADIODATA3                                                 =  00B4 G
+    _RADIOFDATAADDR                                             =  7040 G
+    _RADIOFDATAADDR0                                            =  7040 G
+    _RADIOFDATAADDR1                                            =  7041 G
+    _RADIOFSTATADDR                                             =  7042 G
+    _RADIOFSTATADDR0                                            =  7042 G
+    _RADIOFSTATADDR1                                            =  7043 G
+    _RADIOMUX                                                   =  7044 G
+    _RADIOSTAT                                                  =  BFBE G
+    _RADIOSTAT0                                                 =  00BE G
+    _RADIOSTAT1                                                 =  00BF G
+    _RS0                                                        =  00D3 G
+    _RS1                                                        =  00D4 G
+    _SCRATCH0                                                   =  7084 G
+    _SCRATCH1                                                   =  7085 G
+    _SCRATCH2                                                   =  7086 G
+    _SCRATCH3                                                   =  7087 G
+    _SILICONREV                                                 =  7F00 G
+    _SP                                                         =  0081 G
+    _SPCLKSRC                                                   =  00DF G
+    _SPMODE                                                     =  00DC G
+    _SPSHREG                                                    =  00DE G
+    _SPSTATUS                                                   =  00DD G
+    _T0CLKSRC                                                   =  009A G
+    _T0CNT                                                      =  9D9C G
+    _T0CNT0                                                     =  009C G
+    _T0CNT1                                                     =  009D G
+    _T0MODE                                                     =  0099 G
+    _T0PERIOD                                                   =  9F9E G
+    _T0PERIOD0                                                  =  009E G
+    _T0PERIOD1                                                  =  009F G
+    _T0STATUS                                                   =  009B G
+    _T1CLKSRC                                                   =  00A2 G
+    _T1CNT                                                      =  A5A4 G
+    _T1CNT0                                                     =  00A4 G
+    _T1CNT1                                                     =  00A5 G
+    _T1MODE                                                     =  00A1 G
+    _T1PERIOD                                                   =  A7A6 G
+    _T1PERIOD0                                                  =  00A6 G
+    _T1PERIOD1                                                  =  00A7 G
+    _T1STATUS                                                   =  00A3 G
+    _T2CLKSRC                                                   =  00AA G
+    _T2CNT                                                      =  ADAC G
+    _T2CNT0                                                     =  00AC G
+    _T2CNT1                                                     =  00AD G
+    _T2MODE                                                     =  00A9 G
+    _T2PERIOD                                                   =  AFAE G
+    _T2PERIOD0                                                  =  00AE G
+    _T2PERIOD1                                                  =  00AF G
+    _T2STATUS                                                   =  00AB G
+    _U0CTRL                                                     =  00E4 G
+    _U0MODE                                                     =  00E7 G
+    _U0SHREG                                                    =  00E6 G
+    _U0STATUS                                                   =  00E5 G
+    _U1CTRL                                                     =  00EC G
+    _U1MODE                                                     =  00EF G
+    _U1SHREG                                                    =  00EE G
+    _U1STATUS                                                   =  00ED G
+    _WDTCFG                                                     =  00DA G
+    _WDTRESET                                                   =  00DB G
+    _WTCFGA                                                     =  00F1 G
+    _WTCFGB                                                     =  00F9 G
+    _WTCNTA                                                     =  F3F2 G
+    _WTCNTA0                                                    =  00F2 G
+    _WTCNTA1                                                    =  00F3 G
+    _WTCNTB                                                     =  FBFA G
+    _WTCNTB0                                                    =  00FA G
+    _WTCNTB1                                                    =  00FB G
+    _WTCNTR1                                                    =  00EB G
+    _WTEVTA                                                     =  F5F4 G
+    _WTEVTA0                                                    =  00F4 G
+    _WTEVTA1                                                    =  00F5 G
+    _WTEVTB                                                     =  F7F6 G
+    _WTEVTB0                                                    =  00F6 G
+    _WTEVTB1                                                    =  00F7 G
+    _WTEVTC                                                     =  FDFC G
+    _WTEVTC0                                                    =  00FC G
+    _WTEVTC1                                                    =  00FD G
+    _WTEVTD                                                     =  FFFE G
+    _WTEVTD0                                                    =  00FE G
+    _WTEVTD1                                                    =  00FF G
+    _WTIRQEN                                                    =  00E9 G
+    _WTSTAT                                                     =  00EA G
+    _XADCCH0CONFIG                                              =  3FCA G
+    _XADCCH1CONFIG                                              =  3FCB G
+    _XADCCH2CONFIG                                              =  3FD2 G
+    _XADCCH3CONFIG                                              =  3FD3 G
+    _XADCCLKSRC                                                 =  3FD1 G
+    _XADCCONV                                                   =  3FC9 G
+    _XANALOGCOMP                                                =  3FE1 G
+    _XCLKCON                                                    =  3FC6 G
+    _XCLKSTAT                                                   =  3FC7 G
+    _XCODECONFIG                                                =  3F97 G
+    _XDBGLNKBUF                                                 =  3FE3 G
+    _XDBGLNKSTAT                                                =  3FE2 G
+    _XDIRA                                                      =  3F89 G
+    _XDIRB                                                      =  3F8A G
+    _XDIRC                                                      =  3F8B G
+    _XDIRR                                                      =  3F8E G
+    _XDPTR0                                                     =  3F82 G
+    _XDPTR1                                                     =  3F84 G
+    _XIC0CAPT                                                   =  3FCE G
+    _XIC0CAPT0                                                  =  3FCE G
+    _XIC0CAPT1                                                  =  3FCF G
+    _XIC0MODE                                                   =  3FCC G
+    _XIC0STATUS                                                 =  3FCD G
+    _XIC1CAPT                                                   =  3FD6 G
+    _XIC1CAPT0                                                  =  3FD6 G
+    _XIC1CAPT1                                                  =  3FD7 G
+    _XIC1MODE                                                   =  3FD4 G
+    _XIC1STATUS                                                 =  3FD5 G
+    _XIE                                                        =  3FA8 G
+    _XIP                                                        =  3FB8 G
+    _XNVADDR                                                    =  3F92 G
+    _XNVADDR0                                                   =  3F92 G
+    _XNVADDR1                                                   =  3F93 G
+    _XNVDATA                                                    =  3F94 G
+    _XNVDATA0                                                   =  3F94 G
+    _XNVDATA1                                                   =  3F95 G
+    _XNVKEY                                                     =  3F96 G
+    _XNVSTATUS                                                  =  3F91 G
+    _XOC0COMP                                                   =  3FBC G
+    _XOC0COMP0                                                  =  3FBC G
+    _XOC0COMP1                                                  =  3FBD G
+    _XOC0MODE                                                   =  3FB9 G
+    _XOC0PIN                                                    =  3FBA G
+    _XOC0STATUS                                                 =  3FBB G
+    _XOC1COMP                                                   =  3FC4 G
+    _XOC1COMP0                                                  =  3FC4 G
+    _XOC1COMP1                                                  =  3FC5 G
+    _XOC1MODE                                                   =  3FC1 G
+    _XOC1PIN                                                    =  3FC2 G
+    _XOC1STATUS                                                 =  3FC3 G
+    _XPAGE                                                      =  00D9 G
+    _XPCON                                                      =  3F87 G
+    _XPINA                                                      =  3FC8 G
+    _XPINB                                                      =  3FE8 G
+    _XPINC                                                      =  3FF8 G
+    _XPINR                                                      =  3F8D G
+    _XPORTA                                                     =  3F80 G
+    _XPORTB                                                     =  3F88 G
+    _XPORTC                                                     =  3F90 G
+    _XPORTR                                                     =  3F8C G
+    _XRADIOACC                                                  =  3FB1 G
+    _XRADIOADDR0                                                =  3FB3 G
+    _XRADIOADDR1                                                =  3FB2 G
+    _XRADIODATA0                                                =  3FB7 G
+    _XRADIODATA1                                                =  3FB6 G
+    _XRADIODATA2                                                =  3FB5 G
+    _XRADIODATA3                                                =  3FB4 G
+    _XRADIOSTAT                                                 =  3FBE G
+    _XRADIOSTAT0                                                =  3FBE G
+    _XRADIOSTAT1                                                =  3FBF G
+    _XSPCLKSRC                                                  =  3FDF G
+    _XSPMODE                                                    =  3FDC G
+    _XSPSHREG                                                   =  3FDE G
+    _XSPSTATUS                                                  =  3FDD G
+    _XT0CLKSRC                                                  =  3F9A G
+    _XT0CNT                                                     =  3F9C G
+    _XT0CNT0                                                    =  3F9C G
+    _XT0CNT1                                                    =  3F9D G
+    _XT0MODE                                                    =  3F99 G
+    _XT0PERIOD                                                  =  3F9E G
+    _XT0PERIOD0                                                 =  3F9E G
+    _XT0PERIOD1                                                 =  3F9F G
+    _XT0STATUS                                                  =  3F9B G
+    _XT1CLKSRC                                                  =  3FA2 G
+    _XT1CNT                                                     =  3FA4 G
+    _XT1CNT0                                                    =  3FA4 G
+    _XT1CNT1                                                    =  3FA5 G
+    _XT1MODE                                                    =  3FA1 G
+    _XT1PERIOD                                                  =  3FA6 G
+    _XT1PERIOD0                                                 =  3FA6 G
+    _XT1PERIOD1                                                 =  3FA7 G
+    _XT1STATUS                                                  =  3FA3 G
+    _XT2CLKSRC                                                  =  3FAA G
+    _XT2CNT                                                     =  3FAC G
+    _XT2CNT0                                                    =  3FAC G
+    _XT2CNT1                                                    =  3FAD G
+    _XT2MODE                                                    =  3FA9 G
+    _XT2PERIOD                                                  =  3FAE G
+    _XT2PERIOD0                                                 =  3FAE G
+    _XT2PERIOD1                                                 =  3FAF G
+    _XT2STATUS                                                  =  3FAB G
+    _XTALAMPL                                                   =  7F19 G
+    _XTALOSC                                                    =  7F18 G
+    _XTALREADY                                                  =  7F1A G
+    _XU0CTRL                                                    =  3FE4 G
+    _XU0MODE                                                    =  3FE7 G
+    _XU0SHREG                                                   =  3FE6 G
+    _XU0STATUS                                                  =  3FE5 G
+    _XU1CTRL                                                    =  3FEC G
+    _XU1MODE                                                    =  3FEF G
+    _XU1SHREG                                                   =  3FEE G
+    _XU1STATUS                                                  =  3FED G
+    _XWDTCFG                                                    =  3FDA G
+    _XWDTRESET                                                  =  3FDB G
+    _XWTCFGA                                                    =  3FF1 G
+    _XWTCFGB                                                    =  3FF9 G
+    _XWTCNTA                                                    =  3FF2 G
+    _XWTCNTA0                                                   =  3FF2 G
+    _XWTCNTA1                                                   =  3FF3 G
+    _XWTCNTB                                                    =  3FFA G
+    _XWTCNTB0                                                   =  3FFA G
+    _XWTCNTB1                                                   =  3FFB G
+    _XWTCNTR1                                                   =  3FEB G
+    _XWTEVTA                                                    =  3FF4 G
+    _XWTEVTA0                                                   =  3FF4 G
+    _XWTEVTA1                                                   =  3FF5 G
+    _XWTEVTB                                                    =  3FF6 G
+    _XWTEVTB0                                                   =  3FF6 G
+    _XWTEVTB1                                                   =  3FF7 G
+    _XWTEVTC                                                    =  3FFC G
+    _XWTEVTC0                                                   =  3FFC G
+    _XWTEVTC1                                                   =  3FFD G
+    _XWTEVTD                                                    =  3FFE G
+    _XWTEVTD0                                                   =  3FFE G
+    _XWTEVTD1                                                   =  3FFF G
+    _XWTIRQEN                                                   =  3FE9 G
+    _XWTSTAT                                                    =  3FEA G
+    __XPAGE                                                     =  00D9 G
+ 16 _ax5043_set_registers                                          0000 GR
+ 16 _ax5043_set_registers_rx                                       0306 GR
+ 16 _ax5043_set_registers_tx                                       02D5 GR
+ 16 _axradio_byteconv                                              04EC GR
+ 16 _axradio_byteconv_buffer                                       04ED GR
+ 16 _axradio_conv_freq_fromhz                                      0337 GR
+ 16 _axradio_conv_freq_tohz                                        03A8 GR
+ 16 _axradio_conv_timeinterval_totimer0                            0417 GR
+ 17 _axradio_framing_ack_delay                                     0034 GR
+ 17 _axradio_framing_ack_retransmissions                           0038 GR
+ 17 _axradio_framing_ack_seqnrpos                                  0039 GR
+ 17 _axradio_framing_ack_timeout                                   0030 GR
+ 17 _axradio_framing_addrlen                                       0022 GR
+ 16 _axradio_framing_append_crc                                    0532 GR
+ 16 _axradio_framing_check_crc                                     04F5 GR
+ 17 _axradio_framing_destaddrpos                                   0023 GR
+ 17 _axradio_framing_enable_sfdcallback                            002F GR
+ 17 _axradio_framing_lenmask                                       0027 GR
+ 17 _axradio_framing_lenoffs                                       0026 GR
+ 17 _axradio_framing_lenpos                                        0025 GR
+ 17 _axradio_framing_maclen                                        0021 GR
+ 17 _axradio_framing_minpayloadlen                                 003A GR
+ 17 _axradio_framing_sourceaddrpos                                 0024 GR
+ 17 _axradio_framing_swcrclen                                      0028 GR
+ 17 _axradio_framing_syncflags                                     002E GR
+ 17 _axradio_framing_synclen                                       0029 GR
+ 17 _axradio_framing_syncword                                      002A GR
+ 17 _axradio_phy_chanfreq                                          0002 GR
+ 17 _axradio_phy_channelbusy                                       000D GR
+  A _axradio_phy_chanpllrng_rx                                     0000 GR
+  A _axradio_phy_chanpllrng_tx                                     0001 GR
+ 17 _axradio_phy_chanpllrnginit                                    0006 GR
+ 17 _axradio_phy_cs_enabled                                        0010 GR
+ 17 _axradio_phy_cs_period                                         000E GR
+ 17 _axradio_phy_lbt_forcetx                                       0012 GR
+ 17 _axradio_phy_lbt_retries                                       0011 GR
+ 17 _axradio_phy_maxfreqoffset                                     0007 GR
+ 17 _axradio_phy_nrchannels                                        0001 GR
+ 17 _axradio_phy_pn9                                               0000 GR
+ 17 _axradio_phy_preamble_appendbits                               001F GR
+ 17 _axradio_phy_preamble_appendpattern                            0020 GR
+ 17 _axradio_phy_preamble_byte                                     001D GR
+ 17 _axradio_phy_preamble_flags                                    001E GR
+ 17 _axradio_phy_preamble_len                                      001B GR
+ 17 _axradio_phy_preamble_longlen                                  0019 GR
+ 17 _axradio_phy_preamble_wor_len                                  0017 GR
+ 17 _axradio_phy_preamble_wor_longlen                              0015 GR
+ 17 _axradio_phy_rssioffset                                        000B GR
+ 17 _axradio_phy_rssireference                                     000C GR
+ 17 _axradio_phy_tmgrxpreamble1_cont                               0014 GR
+ 17 _axradio_phy_tmgrxpreamble1_wor                                0013 GR
+ 17 _axradio_sync_period                                           003D GR
+ 17 _axradio_sync_slave_initialsyncwindow                          0049 GR
+ 17 _axradio_sync_slave_maxperiod                                  0051 GR
+ 17 _axradio_sync_slave_nrrx                                       0054 GR
+ 17 _axradio_sync_slave_resyncloss                                 0053 GR
+ 17 _axradio_sync_slave_rxadvance                                  0055 GR
+ 17 _axradio_sync_slave_rxtimeout                                  006D GR
+ 17 _axradio_sync_slave_rxwindow                                   0061 GR
+ 17 _axradio_sync_slave_syncpause                                  004D GR
+ 17 _axradio_sync_slave_syncwindow                                 0045 GR
+ 17 _axradio_sync_xoscstartup                                      0041 GR
+ 17 _axradio_wor_period                                            003B GR
+    _bp                                                            **** GX
+    _crc_crc16                                                     **** GX
+    a                                                              00E0 
+    a.0                                                            00E0 
+    a.1                                                            00E1 
+    a.2                                                            00E2 
+    a.3                                                            00E3 
+    a.4                                                            00E4 
+    a.5                                                            00E5 
+    a.6                                                            00E6 
+    a.7                                                            00E7 
+    ac                                                             00D6 
+    acc                                                            00E0 
+    acc.0                                                          00E0 
+    acc.1                                                          00E1 
+    acc.2                                                          00E2 
+    acc.3                                                          00E3 
+    acc.4                                                          00E4 
+    acc.5                                                          00E5 
+    acc.6                                                          00E6 
+    acc.7                                                          00E7 
+    ar0                                                         =  0000 
+    ar1                                                         =  0001 
+    ar2                                                         =  0002 
+    ar3                                                         =  0003 
+    ar4                                                         =  0004 
+    ar5                                                         =  0005 
+    ar6                                                         =  0006 
+    ar7                                                         =  0007 
+    b                                                              00F0 
+    b.0                                                            00F0 
+    b.1                                                            00F1 
+    b.2                                                            00F2 
+    b.3                                                            00F3 
+    b.4                                                            00F4 
+    b.5                                                            00F5 
+    b.6                                                            00F6 
+    b.7                                                            00F7 
+    cprl2                                                          00C8 
+    ct2                                                            00C9 
+    cy                                                             00D7 
+    dph                                                            0083 
+    dpl                                                            0082 
+    ea                                                             00AF 
+    es                                                             00AC 
+    et0                                                            00A9 
+    et1                                                            00AB 
+    et2                                                            00AD 
+    ex0                                                            00A8 
+    ex1                                                            00AA 
+    exen2                                                          00CB 
+    exf2                                                           00CE 
+    f0                                                             00D5 
+    ie                                                             00A8 
+    ie.0                                                           00A8 
+    ie.1                                                           00A9 
+    ie.2                                                           00AA 
+    ie.3                                                           00AB 
+    ie.4                                                           00AC 
+    ie.5                                                           00AD 
+    ie.7                                                           00AF 
+    ie0                                                            0089 
+    ie1                                                            008B 
+    int0                                                           00B2 
+    int1                                                           00B3 
+    ip                                                             00B8 
+    ip.0                                                           00B8 
+    ip.1                                                           00B9 
+    ip.2                                                           00BA 
+    ip.3                                                           00BB 
+    ip.4                                                           00BC 
+    ip.5                                                           00BD 
+    it0                                                            0088 
+    it1                                                            008A 
+    ov                                                             00D2 
+    p                                                              00D0 
+    p0                                                             0080 
+    p0.0                                                           0080 
+    p0.1                                                           0081 
+    p0.2                                                           0082 
+    p0.3                                                           0083 
+    p0.4                                                           0084 
+    p0.5                                                           0085 
+    p0.6                                                           0086 
+    p0.7                                                           0087 
+    p1                                                             0090 
+    p1.0                                                           0090 
+    p1.1                                                           0091 
+    p1.2                                                           0092 
+    p1.3                                                           0093 
+    p1.4                                                           0094 
+    p1.5                                                           0095 
+    p1.6                                                           0096 
+    p1.7                                                           0097 
+    p2                                                             00A0 
+    p2.0                                                           00A0 
+    p2.1                                                           00A1 
+    p2.2                                                           00A2 
+    p2.3                                                           00A3 
+    p2.4                                                           00A4 
+    p2.5                                                           00A5 
+    p2.6                                                           00A6 
+    p2.7                                                           00A7 
+    p3                                                             00B0 
+    p3.0                                                           00B0 
+    p3.1                                                           00B1 
+    p3.2                                                           00B2 
+    p3.3                                                           00B3 
+    p3.4                                                           00B4 
+    p3.5                                                           00B5 
+    p3.6                                                           00B6 
+    p3.7                                                           00B7 
+    pcon                                                           0087 
+    ps                                                             00BC 
+    psw                                                            00D0 
+    psw.0                                                          00D0 
+    psw.1                                                          00D1 
+    psw.2                                                          00D2 
+    psw.3                                                          00D3 
+    psw.4                                                          00D4 
+    psw.5                                                          00D5 
+    psw.6                                                          00D6 
+    psw.7                                                          00D7 
+    pt0                                                            00B9 
+    pt1                                                            00BB 
+    pt2                                                            00BD 
+    px0                                                            00B8 
+    px1                                                            00BA 
+    rb8                                                            009A 
+    rcap2h                                                         00CB 
+    rcap2l                                                         00CA 
+    rclk                                                           00CD 
+    ren                                                            009C 
+    ri                                                             0098 
+    rs0                                                            00D3 
+    rs1                                                            00D4 
+    rxd                                                            00B0 
+    sbuf                                                           0099 
+    scon                                                           0098 
+    scon.0                                                         0098 
+    scon.1                                                         0099 
+    scon.2                                                         009A 
+    scon.3                                                         009B 
+    scon.4                                                         009C 
+    scon.5                                                         009D 
+    scon.6                                                         009E 
+    scon.7                                                         009F 
+    sm0                                                            009F 
+    sm1                                                            009E 
+    sm2                                                            009D 
+    sp                                                             0081 
+    t2con                                                          00C8 
+    t2con.0                                                        00C8 
+    t2con.1                                                        00C9 
+    t2con.2                                                        00CA 
+    t2con.3                                                        00CB 
+    t2con.4                                                        00CC 
+    t2con.5                                                        00CD 
+    t2con.6                                                        00CE 
+    t2con.7                                                        00CF 
+    tb8                                                            009B 
+    tclk                                                           00CC 
+    tcon                                                           0088 
+    tcon.0                                                         0088 
+    tcon.1                                                         0089 
+    tcon.2                                                         008A 
+    tcon.3                                                         008B 
+    tcon.4                                                         008C 
+    tcon.5                                                         008D 
+    tcon.6                                                         008E 
+    tcon.7                                                         008F 
+    tf0                                                            008D 
+    tf1                                                            008F 
+    tf2                                                            00CF 
+    th0                                                            008C 
+    th1                                                            008D 
+    th2                                                            00CD 
+    ti                                                             0099 
+    tl0                                                            008A 
+    tl1                                                            008B 
+    tl2                                                            00CC 
+    tmod                                                           0089 
+    tr0                                                            008C 
+    tr1                                                            008E 
+    tr2                                                            00CA 
+    txd                                                            00B1 
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods + Flat24  (Intel 8051), page 2.
+
+Area Table
+
+   0 _CODE                                      size    0   flags 0
+   1 RSEG                                       size    0   flags 8
+   2 RSEG0                                      size    0   flags 8
+   3 RSEG1                                      size    0   flags 8
+   4 REG_BANK_0                                 size    8   flags 4
+   5 DSEG                                       size    0   flags 0
+   6 ISEG                                       size    0   flags 0
+   7 IABS                                       size    0   flags 8
+   8 BSEG                                       size    0   flags 80
+   9 PSEG                                       size    0   flags 50
+   A XSEG                                       size    2   flags 40
+   B XABS                                       size    0   flags 48
+   C XISEG                                      size    0   flags 40
+   D HOME                                       size    0   flags 20
+   E GSINIT0                                    size    0   flags 20
+   F GSINIT1                                    size    0   flags 20
+  10 GSINIT2                                    size    0   flags 20
+  11 GSINIT3                                    size    0   flags 20
+  12 GSINIT4                                    size    0   flags 20
+  13 GSINIT5                                    size    0   flags 20
+  14 GSINIT                                     size    0   flags 20
+  15 GSFINAL                                    size    0   flags 20
+  16 CSEG                                       size  5A0   flags 20
+  17 CONST                                      size   71   flags 20
+  18 XINIT                                      size    0   flags 20
+  19 CABS                                       size    0   flags 28

@@ -9,6 +9,20 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -13566,11 +13580,11 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <smd name="P$8" x="-2" y="2" dx="0.89" dy="2.9" layer="1" rot="R90"/>
 <smd name="P$9" x="2.5" y="4" dx="0.89" dy="2.9" layer="1" rot="R90"/>
 <smd name="P$10" x="-2" y="4" dx="0.89" dy="2.9" layer="1" rot="R90"/>
-<wire x1="3" y1="2" x2="3" y2="8.5" width="0.127" layer="20"/>
-<wire x1="3" y1="8.5" x2="-2.5" y2="8.5" width="0.127" layer="20"/>
-<wire x1="-2.5" y1="-8.5" x2="3" y2="-8.5" width="0.127" layer="20"/>
-<wire x1="3" y1="-8.5" x2="3" y2="-2" width="0.127" layer="20"/>
-<wire x1="-2.5" y1="8.5" x2="-2.5" y2="-8.5" width="0.127" layer="20"/>
+<wire x1="3" y1="2" x2="3" y2="8.5" width="0.127" layer="21"/>
+<wire x1="3" y1="8.5" x2="-2.5" y2="8.5" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="-8.5" x2="3" y2="-8.5" width="0.127" layer="21"/>
+<wire x1="3" y1="-8.5" x2="3" y2="-2" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="8.5" x2="-2.5" y2="-8.5" width="0.127" layer="21"/>
 </package>
 <package name="CRC2032HOLDER">
 <pad name="P$PLUS1" x="5.08" y="5.08" drill="0.9" shape="long" rot="R90"/>
@@ -13593,6 +13607,25 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <circle x="6.35" y="-7.62" radius="9.75" width="0.127" layer="21"/>
 <wire x1="6.35" y1="1.27" x2="6.35" y2="-1.27" width="0.127" layer="21"/>
 <wire x1="7.62" y1="0" x2="5.08" y2="0" width="0.127" layer="21"/>
+</package>
+<package name="APERTURE_LOGO">
+<circle x="0" y="0" radius="4" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="2" x2="-3.4" y2="2" width="0.2" layer="41"/>
+<wire x1="0.8" y1="-2" x2="3.4" y2="-2" width="0.2" layer="41"/>
+<wire x1="-2" y1="-0.8" x2="-2" y2="-3.4" width="0.2" layer="41"/>
+<wire x1="2" y1="0.8" x2="2" y2="3.4" width="0.2" layer="41"/>
+<wire x1="2" y1="0.8" x2="0.8" y2="2" width="0.2" layer="41"/>
+<wire x1="0.8" y1="2" x2="-1" y2="3.8" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="2" x2="-2" y2="0.8" width="0.2" layer="41"/>
+<wire x1="-2" y1="0.8" x2="-3.8" y2="-1" width="0.2" layer="41"/>
+<wire x1="-2" y1="-0.8" x2="-0.8" y2="-2" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="-2" x2="1" y2="-3.8" width="0.2" layer="41"/>
+<wire x1="0.8" y1="-2" x2="2" y2="-0.8" width="0.2" layer="41"/>
+<wire x1="2" y1="-0.8" x2="3.8" y2="1" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="2" x2="0.8" y2="2" width="0.2" layer="41"/>
+<wire x1="-2" y1="-0.8" x2="-2" y2="0.8" width="0.2" layer="41"/>
+<wire x1="2" y1="0.8" x2="2" y2="-0.8" width="0.2" layer="41"/>
+<wire x1="0.8" y1="-2" x2="-0.8" y2="-2" width="0.2" layer="41"/>
 </package>
 </packages>
 <symbols>
@@ -13622,6 +13655,9 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <wire x1="-3.556" y1="5.08" x2="-1.524" y2="5.08" width="0.127" layer="97"/>
 <text x="-2.54" y="10.16" size="1.27" layer="95">&gt;NAME</text>
 <text x="-2.54" y="-10.16" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="APERTURE_LOGO">
+<circle x="0" y="0" radius="3.5921" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -13659,6 +13695,18 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <connect gate="G$1" pin="P$MINUS" pad="P$MINUS"/>
 <connect gate="G$1" pin="P$PLUS" pad="P$PLUS1 P$PLUS2"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="APERTURE_LOGO">
+<gates>
+<gate name="G$1" symbol="APERTURE_LOGO" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="APERTURE_LOGO">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -15273,6 +15321,7 @@ Source: www.kingbright.com</description>
 <part name="S44" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="S45" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="S46" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="U$3" library="sam_eagle_parts" deviceset="APERTURE_LOGO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15377,6 +15426,7 @@ Source: www.kingbright.com</description>
 <instance part="S44" gate="1" x="314.96" y="-55.88" rot="R270"/>
 <instance part="S45" gate="1" x="314.96" y="-86.36" rot="R270"/>
 <instance part="S46" gate="1" x="314.96" y="-116.84" rot="R270"/>
+<instance part="U$3" gate="G$1" x="-101.6" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -15852,6 +15902,12 @@ Source: www.kingbright.com</description>
 <wire x1="287.02" y1="33.02" x2="284.48" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="S41" gate="1" pin="P1"/>
 <wire x1="307.34" y1="33.02" x2="309.88" y2="33.02" width="0.1524" layer="91"/>
+<junction x="193.04" y="33.02"/>
+<junction x="215.9" y="33.02"/>
+<junction x="238.76" y="33.02"/>
+<junction x="307.34" y="33.02"/>
+<junction x="284.48" y="33.02"/>
+<junction x="261.62" y="33.02"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PC0"/>
@@ -15916,6 +15972,9 @@ Source: www.kingbright.com</description>
 <wire x1="208.28" y1="-116.84" x2="208.28" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="-119.38" x2="205.74" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="208.28" y="-116.84"/>
+<junction x="208.28" y="33.02"/>
+<junction x="208.28" y="-88.9"/>
+<junction x="208.28" y="2.54"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-30.48" x2="38.1" y2="-30.48" width="0.1524" layer="91"/>
@@ -15981,6 +16040,9 @@ Source: www.kingbright.com</description>
 <wire x1="231.14" y1="-116.84" x2="231.14" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="-119.38" x2="228.6" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="231.14" y="-116.84"/>
+<junction x="231.14" y="-88.9"/>
+<junction x="231.14" y="2.54"/>
+<junction x="231.14" y="33.02"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
@@ -16048,6 +16110,9 @@ Source: www.kingbright.com</description>
 <pinref part="S28" gate="1" pin="S1"/>
 <wire x1="254" y1="-119.38" x2="251.46" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="254" y="-116.84"/>
+<junction x="254" y="2.54"/>
+<junction x="254" y="33.02"/>
+<junction x="254" y="-88.9"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-35.56" x2="33.02" y2="-35.56" width="0.1524" layer="91"/>
@@ -16113,6 +16178,9 @@ Source: www.kingbright.com</description>
 <wire x1="276.86" y1="-116.84" x2="276.86" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="276.86" y1="-119.38" x2="274.32" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="276.86" y="-116.84"/>
+<junction x="276.86" y="2.54"/>
+<junction x="276.86" y="33.02"/>
+<junction x="276.86" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PB2"/>
@@ -16179,6 +16247,9 @@ Source: www.kingbright.com</description>
 <pinref part="S30" gate="1" pin="S1"/>
 <wire x1="299.72" y1="-119.38" x2="297.18" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="299.72" y="-116.84"/>
+<junction x="299.72" y="2.54"/>
+<junction x="299.72" y="33.02"/>
+<junction x="299.72" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PB1"/>
@@ -16241,6 +16312,12 @@ Source: www.kingbright.com</description>
 <wire x1="287.02" y1="2.54" x2="284.48" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="S9" gate="1" pin="P1"/>
 <wire x1="264.16" y1="2.54" x2="261.62" y2="2.54" width="0.1524" layer="91"/>
+<junction x="215.9" y="2.54"/>
+<junction x="193.04" y="2.54"/>
+<junction x="238.76" y="2.54"/>
+<junction x="261.62" y="2.54"/>
+<junction x="284.48" y="2.54"/>
+<junction x="307.34" y="2.54"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PC1"/>
@@ -16439,6 +16516,12 @@ Source: www.kingbright.com</description>
 <wire x1="284.48" y1="-88.9" x2="287.02" y2="-88.9" width="0.1524" layer="91"/>
 <pinref part="S45" gate="1" pin="P1"/>
 <wire x1="307.34" y1="-88.9" x2="309.88" y2="-88.9" width="0.1524" layer="91"/>
+<junction x="193.04" y="-88.9"/>
+<junction x="215.9" y="-88.9"/>
+<junction x="238.76" y="-88.9"/>
+<junction x="261.62" y="-88.9"/>
+<junction x="284.48" y="-88.9"/>
+<junction x="307.34" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PC4"/>
@@ -16636,6 +16719,9 @@ Source: www.kingbright.com</description>
 <pinref part="S46" gate="1" pin="S1"/>
 <wire x1="322.58" y1="-119.38" x2="320.04" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="322.58" y="-116.84"/>
+<junction x="322.58" y="2.54"/>
+<junction x="322.58" y="33.02"/>
+<junction x="322.58" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PB0"/>
