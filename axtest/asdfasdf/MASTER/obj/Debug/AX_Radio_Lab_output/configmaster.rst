@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-                              4 ; This file was generated Mon Dec 23 14:41:48 2013
+                              4 ; This file was generated Wed Feb 12 16:52:04 2014
                               5 ;--------------------------------------------------------
                               6 	.module configmaster
                               7 	.optsdcc -mmcs51 --model-small
@@ -95,37 +95,37 @@
                              95 	.area CSEG    (CODE)
                              96 	.area CONST   (CODE)
                     0000     97 G$remoteaddr$0$0 == .
-   5120                      98 _remoteaddr:
-   5120 33                   99 	.db #0x33	; 51	'3'
-   5121 34                  100 	.db #0x34	; 52	'4'
-   5122 00                  101 	.db #0x00	; 0
-   5123 00                  102 	.db #0x00	; 0
+   4F6F                      98 _remoteaddr:
+   4F6F 33                   99 	.db #0x33	; 51	'3'
+   4F70 34                  100 	.db #0x34	; 52	'4'
+   4F71 00                  101 	.db #0x00	; 0
+   4F72 00                  102 	.db #0x00	; 0
                     0004    103 G$localaddr$0$0 == .
-   5124                     104 _localaddr:
-   5124 32                  105 	.db #0x32	; 50	'2'
-   5125 34                  106 	.db #0x34	; 52	'4'
-   5126 00                  107 	.db #0x00	; 0
-   5127 00                  108 	.db #0x00	; 0
-   5128 FF                  109 	.db #0xFF	; 255
-   5129 FF                  110 	.db #0xFF	; 255
-   512A 00                  111 	.db #0x00	; 0
-   512B 00                  112 	.db #0x00	; 0
+   4F73                     104 _localaddr:
+   4F73 32                  105 	.db #0x32	; 50	'2'
+   4F74 34                  106 	.db #0x34	; 52	'4'
+   4F75 00                  107 	.db #0x00	; 0
+   4F76 00                  108 	.db #0x00	; 0
+   4F77 FF                  109 	.db #0xFF	; 255
+   4F78 FF                  110 	.db #0xFF	; 255
+   4F79 00                  111 	.db #0x00	; 0
+   4F7A 00                  112 	.db #0x00	; 0
                     000C    113 G$framing_insert_counter$0$0 == .
-   512C                     114 _framing_insert_counter:
-   512C 01                  115 	.db #0x01	; 1
+   4F7B                     114 _framing_insert_counter:
+   4F7B 01                  115 	.db #0x01	; 1
                     000D    116 G$framing_counter_pos$0$0 == .
-   512D                     117 _framing_counter_pos:
-   512D 00                  118 	.db #0x00	; 0
+   4F7C                     117 _framing_counter_pos:
+   4F7C 00                  118 	.db #0x00	; 0
                     000E    119 G$demo_packet$0$0 == .
-   512E                     120 _demo_packet:
-   512E 00                  121 	.db #0x00	; 0
-   512F 00                  122 	.db #0x00	; 0
-   5130 55                  123 	.db #0x55	; 85	'U'
-   5131 66                  124 	.db #0x66	; 102	'f'
-   5132 77                  125 	.db #0x77	; 119	'w'
-   5133 88                  126 	.db #0x88	; 136
+   4F7D                     120 _demo_packet:
+   4F7D 00                  121 	.db #0x00	; 0
+   4F7E 00                  122 	.db #0x00	; 0
+   4F7F 55                  123 	.db #0x55	; 85	'U'
+   4F80 66                  124 	.db #0x66	; 102	'f'
+   4F81 77                  125 	.db #0x77	; 119	'w'
+   4F82 88                  126 	.db #0x88	; 136
                     0014    127 G$lpxosc_settlingtime$0$0 == .
-   5134                     128 _lpxosc_settlingtime:
-   5134 B8 0B               129 	.byte #0xB8,#0x0B	; 3000
+   4F83                     128 _lpxosc_settlingtime:
+   4F83 B8 0B               129 	.byte #0xB8,#0x0B	; 3000
                             130 	.area XINIT   (CODE)
                             131 	.area CABS    (ABS,CODE)

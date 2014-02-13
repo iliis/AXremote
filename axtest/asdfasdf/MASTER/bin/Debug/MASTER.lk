@@ -30,6 +30,7 @@ obj\Debug\AX_Radio_Lab_output\configmaster.rel
 obj\Debug\COMMON\display_com0.rel
 obj\Debug\COMMON\easyax5043.rel
 obj\Debug\COMMON\misc.rel
+obj\Debug\MASTER\keymatrix.rel
 obj\Debug\MASTER\main.rel
 
 -e

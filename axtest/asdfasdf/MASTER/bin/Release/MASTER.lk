@@ -29,6 +29,7 @@ obj\Release\AX_Radio_Lab_output\configmaster.rel
 obj\Release\COMMON\display_com0.rel
 obj\Release\COMMON\easyax5043.rel
 obj\Release\COMMON\misc.rel
+obj\Release\MASTER\keymatrix.rel
 obj\Release\MASTER\main.rel
 
 -e

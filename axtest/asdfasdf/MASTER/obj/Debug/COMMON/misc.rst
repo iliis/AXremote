@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-                              4 ; This file was generated Mon Dec 23 14:41:51 2013
+                              4 ; This file was generated Wed Feb 12 23:09:17 2014
                               5 ;--------------------------------------------------------
                               6 	.module misc
                               7 	.optsdcc -mmcs51 --model-small
@@ -12,7 +12,7 @@
                              12 	.globl _lcd2_writestr
                              13 	.globl _lcd2_setpos
                              14 	.globl _lcd2_wait_txdone
-                             15 	.globl _wtimer_remove
+                             15 	.globl _wtimer1_remove
                              16 	.globl _wtimer1_addrelative
                              17 	.globl _wtimer_runcallbacks
                              18 	.globl _wtimer_idle
@@ -1576,7 +1576,7 @@
                            1576 ;	-----------------------------------------
                            1577 ;	 function stop_with_error
                            1578 ;	-----------------------------------------
-   3288                    1579 _stop_with_error:
+   3297                    1579 _stop_with_error:
                     0007   1580 	ar7 = 0x07
                     0006   1581 	ar6 = 0x06
                     0005   1582 	ar5 = 0x05
@@ -1585,39 +1585,39 @@
                     0002   1585 	ar2 = 0x02
                     0001   1586 	ar1 = 0x01
                     0000   1587 	ar0 = 0x00
-   3288 AD 82              1588 	mov	r5,dpl
-   328A AE 83              1589 	mov	r6,dph
-   328C AF F0              1590 	mov	r7,b
+   3297 AD 82              1588 	mov	r5,dpl
+   3299 AE 83              1589 	mov	r6,dph
+   329B AF F0              1590 	mov	r7,b
                     0006   1591 	C$misc.c$40$1$99 ==.
                            1592 ;	..\COMMON\misc.c:40: lcd2_setpos(0);
-   328E 75 82 00           1593 	mov	dpl,#0x00
-   3291 C0 07              1594 	push	ar7
-   3293 C0 06              1595 	push	ar6
-   3295 C0 05              1596 	push	ar5
-   3297 12 37 B6           1597 	lcall	_lcd2_setpos
-   329A D0 05              1598 	pop	ar5
-   329C D0 06              1599 	pop	ar6
-   329E D0 07              1600 	pop	ar7
+   329D 75 82 00           1593 	mov	dpl,#0x00
+   32A0 C0 07              1594 	push	ar7
+   32A2 C0 06              1595 	push	ar6
+   32A4 C0 05              1596 	push	ar5
+   32A6 12 36 DC           1597 	lcall	_lcd2_setpos
+   32A9 D0 05              1598 	pop	ar5
+   32AB D0 06              1599 	pop	ar6
+   32AD D0 07              1600 	pop	ar7
                     0018   1601 	C$misc.c$41$1$99 ==.
                            1602 ;	..\COMMON\misc.c:41: lcd2_writestr(str);
-   32A0 8D 82              1603 	mov	dpl,r5
-   32A2 8E 83              1604 	mov	dph,r6
-   32A4 8F F0              1605 	mov	b,r7
-   32A6 12 4A A2           1606 	lcall	_lcd2_writestr
+   32AF 8D 82              1603 	mov	dpl,r5
+   32B1 8E 83              1604 	mov	dph,r6
+   32B3 8F F0              1605 	mov	b,r7
+   32B5 12 4A 53           1606 	lcall	_lcd2_writestr
                     0021   1607 	C$misc.c$42$1$99 ==.
                            1608 ;	..\COMMON\misc.c:42: lcd2_wait_txdone();
-   32A9 12 3B 7E           1609 	lcall	_lcd2_wait_txdone
+   32B8 12 3A A4           1609 	lcall	_lcd2_wait_txdone
                     0024   1610 	C$misc.c$43$1$99 ==.
                            1611 ;	..\COMMON\misc.c:43: IE = EIE = E2IE = 0;
-   32AC 75 A0 00           1612 	mov	_E2IE,#0x00
-   32AF 75 98 00           1613 	mov	_EIE,#0x00
-   32B2 75 A8 00           1614 	mov	_IE,#0x00
+   32BB 75 A0 00           1612 	mov	_E2IE,#0x00
+   32BE 75 98 00           1613 	mov	_EIE,#0x00
+   32C1 75 A8 00           1614 	mov	_IE,#0x00
                     002D   1615 	C$misc.c$44$1$99 ==.
                            1616 ;	..\COMMON\misc.c:44: enter_sleep();
-   32B5 12 4D B3           1617 	lcall	_enter_sleep
+   32C4 12 4C 02           1617 	lcall	_enter_sleep
                     0030   1618 	C$misc.c$45$1$99 ==.
                     0030   1619 	XG$stop_with_error$0$0 ==.
-   32B8 22                 1620 	ret
+   32C7 22                 1620 	ret
                            1621 ;------------------------------------------------------------
                            1622 ;Allocation info for local variables in function 'display_radio_error'
                            1623 ;------------------------------------------------------------
@@ -1630,75 +1630,75 @@
                            1630 ;	-----------------------------------------
                            1631 ;	 function display_radio_error
                            1632 ;	-----------------------------------------
-   32B9                    1633 _display_radio_error:
-   32B9 AF 82              1634 	mov	r7,dpl
+   32C8                    1633 _display_radio_error:
+   32C8 AF 82              1634 	mov	r7,dpl
                     0033   1635 	C$misc.c$63$1$99 ==.
                            1636 ;	..\COMMON\misc.c:63: const struct errtbl __code *p = errtbl;
-   32BB 7D B4              1637 	mov	r5,#_display_radio_error_errtbl_1_101
-   32BD 7E 51              1638 	mov	r6,#(_display_radio_error_errtbl_1_101 >> 8)
+   32CA 7D 07              1637 	mov	r5,#_display_radio_error_errtbl_1_101
+   32CC 7E 50              1638 	mov	r6,#(_display_radio_error_errtbl_1_101 >> 8)
                     0037   1639 	C$misc.c$64$1$101 ==.
                            1640 ;	..\COMMON\misc.c:64: do {
-   32BF 8D 03              1641 	mov	ar3,r5
-   32C1 8E 04              1642 	mov	ar4,r6
-   32C3                    1643 00103$:
+   32CE 8D 03              1641 	mov	ar3,r5
+   32D0 8E 04              1642 	mov	ar4,r6
+   32D2                    1643 00103$:
                     003B   1644 	C$misc.c$65$2$102 ==.
                            1645 ;	..\COMMON\misc.c:65: if (p->errcode == err) {
-   32C3 8B 82              1646 	mov	dpl,r3
-   32C5 8C 83              1647 	mov	dph,r4
-   32C7 E4                 1648 	clr	a
-   32C8 93                 1649 	movc	a,@a+dptr
-   32C9 FA                 1650 	mov	r2,a
-   32CA B5 07 27           1651 	cjne	a,ar7,00102$
+   32D2 8B 82              1646 	mov	dpl,r3
+   32D4 8C 83              1647 	mov	dph,r4
+   32D6 E4                 1648 	clr	a
+   32D7 93                 1649 	movc	a,@a+dptr
+   32D8 FA                 1650 	mov	r2,a
+   32D9 B5 07 27           1651 	cjne	a,ar7,00102$
                     0045   1652 	C$misc.c$66$3$103 ==.
                            1653 ;	..\COMMON\misc.c:66: lcd2_setpos(0);
-   32CD 75 82 00           1654 	mov	dpl,#0x00
-   32D0 C0 06              1655 	push	ar6
-   32D2 C0 05              1656 	push	ar5
-   32D4 12 37 B6           1657 	lcall	_lcd2_setpos
-   32D7 D0 05              1658 	pop	ar5
-   32D9 D0 06              1659 	pop	ar6
+   32DC 75 82 00           1654 	mov	dpl,#0x00
+   32DF C0 06              1655 	push	ar6
+   32E1 C0 05              1656 	push	ar5
+   32E3 12 36 DC           1657 	lcall	_lcd2_setpos
+   32E6 D0 05              1658 	pop	ar5
+   32E8 D0 06              1659 	pop	ar6
                     0053   1660 	C$misc.c$67$3$103 ==.
                            1661 ;	..\COMMON\misc.c:67: lcd2_writestr(p->msg);
-   32DB 8D 82              1662 	mov	dpl,r5
-   32DD 8E 83              1663 	mov	dph,r6
-   32DF A3                 1664 	inc	dptr
-   32E0 E4                 1665 	clr	a
-   32E1 93                 1666 	movc	a,@a+dptr
-   32E2 F9                 1667 	mov	r1,a
-   32E3 A3                 1668 	inc	dptr
-   32E4 E4                 1669 	clr	a
-   32E5 93                 1670 	movc	a,@a+dptr
-   32E6 F8                 1671 	mov	r0,a
-   32E7 7A 80              1672 	mov	r2,#0x80
-   32E9 89 82              1673 	mov	dpl,r1
-   32EB 88 83              1674 	mov	dph,r0
-   32ED 8A F0              1675 	mov	b,r2
-   32EF 12 4A A2           1676 	lcall	_lcd2_writestr
+   32EA 8D 82              1662 	mov	dpl,r5
+   32EC 8E 83              1663 	mov	dph,r6
+   32EE A3                 1664 	inc	dptr
+   32EF E4                 1665 	clr	a
+   32F0 93                 1666 	movc	a,@a+dptr
+   32F1 F9                 1667 	mov	r1,a
+   32F2 A3                 1668 	inc	dptr
+   32F3 E4                 1669 	clr	a
+   32F4 93                 1670 	movc	a,@a+dptr
+   32F5 F8                 1671 	mov	r0,a
+   32F6 7A 80              1672 	mov	r2,#0x80
+   32F8 89 82              1673 	mov	dpl,r1
+   32FA 88 83              1674 	mov	dph,r0
+   32FC 8A F0              1675 	mov	b,r2
+   32FE 12 4A 53           1676 	lcall	_lcd2_writestr
                     006A   1677 	C$misc.c$68$3$103 ==.
                            1678 ;	..\COMMON\misc.c:68: return;
-   32F2 80 13              1679 	sjmp	00106$
-   32F4                    1680 00102$:
+   3301 80 13              1679 	sjmp	00106$
+   3303                    1680 00102$:
                     006C   1681 	C$misc.c$70$2$102 ==.
                            1682 ;	..\COMMON\misc.c:70: ++p;
-   32F4 74 03              1683 	mov	a,#0x03
-   32F6 2B                 1684 	add	a,r3
-   32F7 FB                 1685 	mov	r3,a
-   32F8 E4                 1686 	clr	a
-   32F9 3C                 1687 	addc	a,r4
-   32FA FC                 1688 	mov	r4,a
-   32FB 8B 05              1689 	mov	ar5,r3
-   32FD 8C 06              1690 	mov	ar6,r4
+   3303 74 03              1683 	mov	a,#0x03
+   3305 2B                 1684 	add	a,r3
+   3306 FB                 1685 	mov	r3,a
+   3307 E4                 1686 	clr	a
+   3308 3C                 1687 	addc	a,r4
+   3309 FC                 1688 	mov	r4,a
+   330A 8B 05              1689 	mov	ar5,r3
+   330C 8C 06              1690 	mov	ar6,r4
                     0077   1691 	C$misc.c$71$1$101 ==.
                            1692 ;	..\COMMON\misc.c:71: } while (p->errcode != AXRADIO_ERR_NOERROR);
-   32FF 8B 82              1693 	mov	dpl,r3
-   3301 8C 83              1694 	mov	dph,r4
-   3303 E4                 1695 	clr	a
-   3304 93                 1696 	movc	a,@a+dptr
-   3305 70 BC              1697 	jnz	00103$
-   3307                    1698 00106$:
+   330E 8B 82              1693 	mov	dpl,r3
+   3310 8C 83              1694 	mov	dph,r4
+   3312 E4                 1695 	clr	a
+   3313 93                 1696 	movc	a,@a+dptr
+   3314 70 BC              1697 	jnz	00103$
+   3316                    1698 00106$:
                     007F   1699 	C$misc.c$72$1$101 ==.
                     007F   1700 	XG$display_radio_error$0$0 ==.
-   3307 22                 1701 	ret
+   3316 22                 1701 	ret
                            1702 ;------------------------------------------------------------
                            1703 ;Allocation info for local variables in function 'delayms_callback'
                            1704 ;------------------------------------------------------------
@@ -1710,403 +1710,167 @@
                            1710 ;	-----------------------------------------
                            1711 ;	 function delayms_callback
                            1712 ;	-----------------------------------------
-   3308                    1713 _delayms_callback:
+   3317                    1713 _delayms_callback:
                     0080   1714 	C$misc.c$79$1$105 ==.
                            1715 ;	..\COMMON\misc.c:79: delaymstimer.handler = 0;
-   3308 90 02 93           1716 	mov	dptr,#(_delaymstimer + 0x0002)
-   330B E4                 1717 	clr	a
-   330C F0                 1718 	movx	@dptr,a
-   330D A3                 1719 	inc	dptr
-   330E F0                 1720 	movx	@dptr,a
+   3317 90 02 93           1716 	mov	dptr,#(_delaymstimer + 0x0002)
+   331A E4                 1717 	clr	a
+   331B F0                 1718 	movx	@dptr,a
+   331C A3                 1719 	inc	dptr
+   331D F0                 1720 	movx	@dptr,a
                     0087   1721 	C$misc.c$80$1$105 ==.
                     0087   1722 	XFmisc$delayms_callback$0$0 ==.
-   330F 22                 1723 	ret
+   331E 22                 1723 	ret
                            1724 ;------------------------------------------------------------
                            1725 ;Allocation info for local variables in function 'delay_ms'
                            1726 ;------------------------------------------------------------
-                           1727 ;ms                        Allocated to registers r6 r7 
-                           1728 ;x                         Allocated to stack - _bp +1
-                           1729 ;------------------------------------------------------------
-                    0088   1730 	G$delay_ms$0$0 ==.
-                    0088   1731 	C$misc.c$82$1$105 ==.
-                           1732 ;	..\COMMON\misc.c:82: __reentrantb void delay_ms(uint16_t ms) __reentrant
-                           1733 ;	-----------------------------------------
-                           1734 ;	 function delay_ms
-                           1735 ;	-----------------------------------------
-   3310                    1736 _delay_ms:
-   3310 C0 1F              1737 	push	_bp
-   3312 E5 81              1738 	mov	a,sp
-   3314 F5 1F              1739 	mov	_bp,a
-   3316 24 04              1740 	add	a,#0x04
-   3318 F5 81              1741 	mov	sp,a
-   331A AE 82              1742 	mov	r6,dpl
-   331C AF 83              1743 	mov	r7,dph
-                    0096   1744 	C$misc.c$86$1$107 ==.
-                           1745 ;	..\COMMON\misc.c:86: wtimer_remove(&delaymstimer);
-   331E 90 02 91           1746 	mov	dptr,#_delaymstimer
-   3321 C0 07              1747 	push	ar7
-   3323 C0 06              1748 	push	ar6
-   3325 12 49 A9           1749 	lcall	_wtimer_remove
-   3328 D0 06              1750 	pop	ar6
-   332A D0 07              1751 	pop	ar7
-                    00A4   1752 	C$misc.c$87$1$107 ==.
-                           1753 ;	..\COMMON\misc.c:87: x = ms;
-   332C A8 1F              1754 	mov	r0,_bp
-   332E 08                 1755 	inc	r0
-   332F A6 06              1756 	mov	@r0,ar6
-   3331 08                 1757 	inc	r0
-   3332 A6 07              1758 	mov	@r0,ar7
-   3334 08                 1759 	inc	r0
-   3335 76 00              1760 	mov	@r0,#0x00
-   3337 08                 1761 	inc	r0
-   3338 76 00              1762 	mov	@r0,#0x00
-                    00B2   1763 	C$misc.c$88$1$107 ==.
-                           1764 ;	..\COMMON\misc.c:88: delaymstimer.time = ms >> 1;
-   333A EF                 1765 	mov	a,r7
-   333B C3                 1766 	clr	c
-   333C 13                 1767 	rrc	a
-   333D CE                 1768 	xch	a,r6
-   333E 13                 1769 	rrc	a
-   333F CE                 1770 	xch	a,r6
-   3340 FF                 1771 	mov	r7,a
-   3341 8E 04              1772 	mov	ar4,r6
-   3343 8F 05              1773 	mov	ar5,r7
-   3345 7E 00              1774 	mov	r6,#0x00
-   3347 7F 00              1775 	mov	r7,#0x00
-   3349 90 02 95           1776 	mov	dptr,#(_delaymstimer + 0x0004)
-   334C EC                 1777 	mov	a,r4
-   334D F0                 1778 	movx	@dptr,a
-   334E A3                 1779 	inc	dptr
-   334F ED                 1780 	mov	a,r5
-   3350 F0                 1781 	movx	@dptr,a
-   3351 A3                 1782 	inc	dptr
-   3352 EE                 1783 	mov	a,r6
-   3353 F0                 1784 	movx	@dptr,a
-   3354 A3                 1785 	inc	dptr
-   3355 EF                 1786 	mov	a,r7
-   3356 F0                 1787 	movx	@dptr,a
-                    00CF   1788 	C$misc.c$89$1$107 ==.
-                           1789 ;	..\COMMON\misc.c:89: x <<= 3;
-   3357 A8 1F              1790 	mov	r0,_bp
-   3359 08                 1791 	inc	r0
-   335A 08                 1792 	inc	r0
-   335B 08                 1793 	inc	r0
-   335C 08                 1794 	inc	r0
-   335D E6                 1795 	mov	a,@r0
-   335E 18                 1796 	dec	r0
-   335F C4                 1797 	swap	a
-   3360 03                 1798 	rr	a
-   3361 54 F8              1799 	anl	a,#0xF8
-   3363 C6                 1800 	xch	a,@r0
-   3364 C4                 1801 	swap	a
-   3365 03                 1802 	rr	a
-   3366 C6                 1803 	xch	a,@r0
-   3367 66                 1804 	xrl	a,@r0
-   3368 C6                 1805 	xch	a,@r0
-   3369 54 F8              1806 	anl	a,#0xF8
-   336B C6                 1807 	xch	a,@r0
-   336C 66                 1808 	xrl	a,@r0
-   336D 08                 1809 	inc	r0
-   336E F6                 1810 	mov	@r0,a
-   336F 18                 1811 	dec	r0
-   3370 18                 1812 	dec	r0
-   3371 E6                 1813 	mov	a,@r0
-   3372 C4                 1814 	swap	a
-   3373 03                 1815 	rr	a
-   3374 54 07              1816 	anl	a,#0x07
-   3376 08                 1817 	inc	r0
-   3377 46                 1818 	orl	a,@r0
-   3378 F6                 1819 	mov	@r0,a
-   3379 18                 1820 	dec	r0
-   337A E6                 1821 	mov	a,@r0
-   337B 18                 1822 	dec	r0
-   337C C4                 1823 	swap	a
-   337D 03                 1824 	rr	a
-   337E 54 F8              1825 	anl	a,#0xF8
-   3380 C6                 1826 	xch	a,@r0
-   3381 C4                 1827 	swap	a
-   3382 03                 1828 	rr	a
-   3383 C6                 1829 	xch	a,@r0
-   3384 66                 1830 	xrl	a,@r0
-   3385 C6                 1831 	xch	a,@r0
-   3386 54 F8              1832 	anl	a,#0xF8
-   3388 C6                 1833 	xch	a,@r0
-   3389 66                 1834 	xrl	a,@r0
-   338A 08                 1835 	inc	r0
-   338B F6                 1836 	mov	@r0,a
-                    0104   1837 	C$misc.c$90$1$107 ==.
-                           1838 ;	..\COMMON\misc.c:90: delaymstimer.time -= x;
-   338C A8 1F              1839 	mov	r0,_bp
-   338E 08                 1840 	inc	r0
-   338F EC                 1841 	mov	a,r4
-   3390 C3                 1842 	clr	c
-   3391 96                 1843 	subb	a,@r0
-   3392 FC                 1844 	mov	r4,a
-   3393 ED                 1845 	mov	a,r5
-   3394 08                 1846 	inc	r0
-   3395 96                 1847 	subb	a,@r0
-   3396 FD                 1848 	mov	r5,a
-   3397 EE                 1849 	mov	a,r6
-   3398 08                 1850 	inc	r0
-   3399 96                 1851 	subb	a,@r0
-   339A FE                 1852 	mov	r6,a
-   339B EF                 1853 	mov	a,r7
-   339C 08                 1854 	inc	r0
-   339D 96                 1855 	subb	a,@r0
-   339E FF                 1856 	mov	r7,a
-   339F 90 02 95           1857 	mov	dptr,#(_delaymstimer + 0x0004)
-   33A2 EC                 1858 	mov	a,r4
-   33A3 F0                 1859 	movx	@dptr,a
-   33A4 A3                 1860 	inc	dptr
-   33A5 ED                 1861 	mov	a,r5
-   33A6 F0                 1862 	movx	@dptr,a
-   33A7 A3                 1863 	inc	dptr
-   33A8 EE                 1864 	mov	a,r6
-   33A9 F0                 1865 	movx	@dptr,a
-   33AA A3                 1866 	inc	dptr
-   33AB EF                 1867 	mov	a,r7
-   33AC F0                 1868 	movx	@dptr,a
-                    0125   1869 	C$misc.c$91$1$107 ==.
-                           1870 ;	..\COMMON\misc.c:91: x <<= 3;
-   33AD A8 1F              1871 	mov	r0,_bp
-   33AF 08                 1872 	inc	r0
-   33B0 08                 1873 	inc	r0
-   33B1 08                 1874 	inc	r0
-   33B2 08                 1875 	inc	r0
-   33B3 E6                 1876 	mov	a,@r0
-   33B4 18                 1877 	dec	r0
-   33B5 C4                 1878 	swap	a
-   33B6 03                 1879 	rr	a
-   33B7 54 F8              1880 	anl	a,#0xF8
-   33B9 C6                 1881 	xch	a,@r0
-   33BA C4                 1882 	swap	a
-   33BB 03                 1883 	rr	a
-   33BC C6                 1884 	xch	a,@r0
-   33BD 66                 1885 	xrl	a,@r0
-   33BE C6                 1886 	xch	a,@r0
-   33BF 54 F8              1887 	anl	a,#0xF8
-   33C1 C6                 1888 	xch	a,@r0
-   33C2 66                 1889 	xrl	a,@r0
-   33C3 08                 1890 	inc	r0
-   33C4 F6                 1891 	mov	@r0,a
-   33C5 18                 1892 	dec	r0
-   33C6 18                 1893 	dec	r0
-   33C7 E6                 1894 	mov	a,@r0
-   33C8 C4                 1895 	swap	a
-   33C9 03                 1896 	rr	a
-   33CA 54 07              1897 	anl	a,#0x07
-   33CC 08                 1898 	inc	r0
-   33CD 46                 1899 	orl	a,@r0
-   33CE F6                 1900 	mov	@r0,a
-   33CF 18                 1901 	dec	r0
-   33D0 E6                 1902 	mov	a,@r0
-   33D1 18                 1903 	dec	r0
-   33D2 C4                 1904 	swap	a
-   33D3 03                 1905 	rr	a
-   33D4 54 F8              1906 	anl	a,#0xF8
-   33D6 C6                 1907 	xch	a,@r0
-   33D7 C4                 1908 	swap	a
-   33D8 03                 1909 	rr	a
-   33D9 C6                 1910 	xch	a,@r0
-   33DA 66                 1911 	xrl	a,@r0
-   33DB C6                 1912 	xch	a,@r0
-   33DC 54 F8              1913 	anl	a,#0xF8
-   33DE C6                 1914 	xch	a,@r0
-   33DF 66                 1915 	xrl	a,@r0
-   33E0 08                 1916 	inc	r0
-   33E1 F6                 1917 	mov	@r0,a
-                    015A   1918 	C$misc.c$92$1$107 ==.
-                           1919 ;	..\COMMON\misc.c:92: delaymstimer.time += x;
-   33E2 A8 1F              1920 	mov	r0,_bp
-   33E4 08                 1921 	inc	r0
-   33E5 E6                 1922 	mov	a,@r0
-   33E6 2C                 1923 	add	a,r4
-   33E7 FC                 1924 	mov	r4,a
-   33E8 08                 1925 	inc	r0
-   33E9 E6                 1926 	mov	a,@r0
-   33EA 3D                 1927 	addc	a,r5
-   33EB FD                 1928 	mov	r5,a
-   33EC 08                 1929 	inc	r0
-   33ED E6                 1930 	mov	a,@r0
-   33EE 3E                 1931 	addc	a,r6
-   33EF FE                 1932 	mov	r6,a
-   33F0 08                 1933 	inc	r0
-   33F1 E6                 1934 	mov	a,@r0
-   33F2 3F                 1935 	addc	a,r7
-   33F3 FF                 1936 	mov	r7,a
-   33F4 90 02 95           1937 	mov	dptr,#(_delaymstimer + 0x0004)
-   33F7 EC                 1938 	mov	a,r4
-   33F8 F0                 1939 	movx	@dptr,a
-   33F9 A3                 1940 	inc	dptr
-   33FA ED                 1941 	mov	a,r5
-   33FB F0                 1942 	movx	@dptr,a
-   33FC A3                 1943 	inc	dptr
-   33FD EE                 1944 	mov	a,r6
-   33FE F0                 1945 	movx	@dptr,a
-   33FF A3                 1946 	inc	dptr
-   3400 EF                 1947 	mov	a,r7
-   3401 F0                 1948 	movx	@dptr,a
-                    017A   1949 	C$misc.c$93$1$107 ==.
-                           1950 ;	..\COMMON\misc.c:93: x <<= 2;
-   3402 A8 1F              1951 	mov	r0,_bp
-   3404 08                 1952 	inc	r0
-   3405 E6                 1953 	mov	a,@r0
-   3406 25 E0              1954 	add	a,acc
-   3408 F6                 1955 	mov	@r0,a
-   3409 08                 1956 	inc	r0
-   340A E6                 1957 	mov	a,@r0
-   340B 33                 1958 	rlc	a
-   340C F6                 1959 	mov	@r0,a
-   340D 08                 1960 	inc	r0
-   340E E6                 1961 	mov	a,@r0
-   340F 33                 1962 	rlc	a
-   3410 F6                 1963 	mov	@r0,a
-   3411 08                 1964 	inc	r0
-   3412 E6                 1965 	mov	a,@r0
-   3413 33                 1966 	rlc	a
-   3414 F6                 1967 	mov	@r0,a
-   3415 18                 1968 	dec	r0
-   3416 18                 1969 	dec	r0
-   3417 18                 1970 	dec	r0
-   3418 E6                 1971 	mov	a,@r0
-   3419 25 E0              1972 	add	a,acc
-   341B F6                 1973 	mov	@r0,a
-   341C 08                 1974 	inc	r0
-   341D E6                 1975 	mov	a,@r0
-   341E 33                 1976 	rlc	a
-   341F F6                 1977 	mov	@r0,a
-   3420 08                 1978 	inc	r0
-   3421 E6                 1979 	mov	a,@r0
-   3422 33                 1980 	rlc	a
-   3423 F6                 1981 	mov	@r0,a
-   3424 08                 1982 	inc	r0
-   3425 E6                 1983 	mov	a,@r0
-   3426 33                 1984 	rlc	a
-   3427 F6                 1985 	mov	@r0,a
-                    01A0   1986 	C$misc.c$94$1$107 ==.
-                           1987 ;	..\COMMON\misc.c:94: delaymstimer.time += x;
-   3428 A8 1F              1988 	mov	r0,_bp
-   342A 08                 1989 	inc	r0
-   342B E6                 1990 	mov	a,@r0
-   342C 2C                 1991 	add	a,r4
-   342D FC                 1992 	mov	r4,a
-   342E 08                 1993 	inc	r0
-   342F E6                 1994 	mov	a,@r0
-   3430 3D                 1995 	addc	a,r5
-   3431 FD                 1996 	mov	r5,a
-   3432 08                 1997 	inc	r0
-   3433 E6                 1998 	mov	a,@r0
-   3434 3E                 1999 	addc	a,r6
-   3435 FE                 2000 	mov	r6,a
-   3436 08                 2001 	inc	r0
-   3437 E6                 2002 	mov	a,@r0
-   3438 3F                 2003 	addc	a,r7
-   3439 FF                 2004 	mov	r7,a
-   343A 90 02 95           2005 	mov	dptr,#(_delaymstimer + 0x0004)
-   343D EC                 2006 	mov	a,r4
-   343E F0                 2007 	movx	@dptr,a
-   343F A3                 2008 	inc	dptr
-   3440 ED                 2009 	mov	a,r5
-   3441 F0                 2010 	movx	@dptr,a
-   3442 A3                 2011 	inc	dptr
-   3443 EE                 2012 	mov	a,r6
-   3444 F0                 2013 	movx	@dptr,a
-   3445 A3                 2014 	inc	dptr
-   3446 EF                 2015 	mov	a,r7
-   3447 F0                 2016 	movx	@dptr,a
-                    01C0   2017 	C$misc.c$95$1$107 ==.
-                           2018 ;	..\COMMON\misc.c:95: delaymstimer.handler = delayms_callback;
-   3448 90 02 93           2019 	mov	dptr,#(_delaymstimer + 0x0002)
-   344B 74 08              2020 	mov	a,#_delayms_callback
-   344D F0                 2021 	movx	@dptr,a
-   344E A3                 2022 	inc	dptr
-   344F 74 33              2023 	mov	a,#(_delayms_callback >> 8)
-   3451 F0                 2024 	movx	@dptr,a
-                    01CA   2025 	C$misc.c$96$1$107 ==.
-                           2026 ;	..\COMMON\misc.c:96: wtimer1_addrelative(&delaymstimer);
-   3452 90 02 91           2027 	mov	dptr,#_delaymstimer
-   3455 12 40 FA           2028 	lcall	_wtimer1_addrelative
-                    01D0   2029 	C$misc.c$97$1$107 ==.
-                           2030 ;	..\COMMON\misc.c:97: do {
-   3458                    2031 00101$:
-                    01D0   2032 	C$misc.c$98$2$108 ==.
-                           2033 ;	..\COMMON\misc.c:98: wtimer_runcallbacks();
-   3458 12 3F 22           2034 	lcall	_wtimer_runcallbacks
-                    01D3   2035 	C$misc.c$99$2$108 ==.
-                           2036 ;	..\COMMON\misc.c:99: wtimer_idle(WTFLAG_CANSTANDBY);
-   345B 75 82 02           2037 	mov	dpl,#0x02
-   345E 12 3F A6           2038 	lcall	_wtimer_idle
-                    01D9   2039 	C$misc.c$100$1$107 ==.
-                           2040 ;	..\COMMON\misc.c:100: } while (delaymstimer.handler);
-   3461 90 02 93           2041 	mov	dptr,#(_delaymstimer + 0x0002)
-   3464 E0                 2042 	movx	a,@dptr
-   3465 FE                 2043 	mov	r6,a
-   3466 A3                 2044 	inc	dptr
-   3467 E0                 2045 	movx	a,@dptr
-   3468 FF                 2046 	mov	r7,a
-   3469 4E                 2047 	orl	a,r6
-   346A 70 EC              2048 	jnz	00101$
-   346C 85 1F 81           2049 	mov	sp,_bp
-   346F D0 1F              2050 	pop	_bp
-                    01E9   2051 	C$misc.c$101$1$107 ==.
-                    01E9   2052 	XG$delay_ms$0$0 ==.
-   3471 22                 2053 	ret
-                           2054 	.area CSEG    (CODE)
-                           2055 	.area CONST   (CODE)
-                    0000   2056 Lmisc.display_radio_error$errtbl$1$101 == .
-   51B4                    2057 _display_radio_error_errtbl_1_101:
-   51B4 01                 2058 	.db #0x01	; 1
-   51B5 CC 51              2059 	.byte __str_0,(__str_0 >> 8)
-   51B7 02                 2060 	.db #0x02	; 2
-   51B8 DD 51              2061 	.byte __str_1,(__str_1 >> 8)
-   51BA 03                 2062 	.db #0x03	; 3
-   51BB E5 51              2063 	.byte __str_2,(__str_2 >> 8)
-   51BD 04                 2064 	.db #0x04	; 4
-   51BE F0 51              2065 	.byte __str_3,(__str_3 >> 8)
-   51C0 05                 2066 	.db #0x05	; 5
-   51C1 FB 51              2067 	.byte __str_4,(__str_4 >> 8)
-   51C3 06                 2068 	.db #0x06	; 6
-   51C4 0C 52              2069 	.byte __str_5,(__str_5 >> 8)
-   51C6 07                 2070 	.db #0x07	; 7
-   51C7 17 52              2071 	.byte __str_6,(__str_6 >> 8)
-   51C9 00                 2072 	.db #0x00	; 0
-   51CA 00 00              2073 	.byte #0x00,#0x00
-                    0018   2074 Fmisc$_str_0$0$0 == .
-   51CC                    2075 __str_0:
-   51CC 45 3A 20 6E 6F 74  2076 	.ascii "E: not supported"
+                           1727 ;ms                        Allocated to registers 
+                           1728 ;------------------------------------------------------------
+                    0088   1729 	G$delay_ms$0$0 ==.
+                    0088   1730 	C$misc.c$84$1$105 ==.
+                           1731 ;	..\COMMON\misc.c:84: __reentrantb void delay_ms(uint16_t ms) __reentrant
+                           1732 ;	-----------------------------------------
+                           1733 ;	 function delay_ms
+                           1734 ;	-----------------------------------------
+   331F                    1735 _delay_ms:
+                    0088   1736 	C$misc.c$97$1$138 ==.
+                           1737 ;	..\COMMON\misc.c:97: delaymstimer.time = 3125; // 10ms
+   331F 90 02 95           1738 	mov	dptr,#(_delaymstimer + 0x0004)
+   3322 74 35              1739 	mov	a,#0x35
+   3324 F0                 1740 	movx	@dptr,a
+   3325 A3                 1741 	inc	dptr
+   3326 74 0C              1742 	mov	a,#0x0C
+   3328 F0                 1743 	movx	@dptr,a
+   3329 A3                 1744 	inc	dptr
+   332A E4                 1745 	clr	a
+   332B F0                 1746 	movx	@dptr,a
+   332C A3                 1747 	inc	dptr
+   332D F0                 1748 	movx	@dptr,a
+                    0097   1749 	C$misc.c$98$1$138 ==.
+                           1750 ;	..\COMMON\misc.c:98: wtimer1_remove(&delaymstimer);
+   332E 90 02 91           1751 	mov	dptr,#_delaymstimer
+   3331 12 42 9C           1752 	lcall	_wtimer1_remove
+                    009D   1753 	C$misc.c$99$1$138 ==.
+                           1754 ;	..\COMMON\misc.c:99: delaymstimer.handler = delayms_callback;
+   3334 90 02 93           1755 	mov	dptr,#(_delaymstimer + 0x0002)
+   3337 74 17              1756 	mov	a,#_delayms_callback
+   3339 F0                 1757 	movx	@dptr,a
+   333A A3                 1758 	inc	dptr
+   333B 74 33              1759 	mov	a,#(_delayms_callback >> 8)
+   333D F0                 1760 	movx	@dptr,a
+                    00A7   1761 	C$misc.c$100$1$138 ==.
+                           1762 ;	..\COMMON\misc.c:100: wtimer1_addrelative(&delaymstimer);
+   333E 90 02 91           1763 	mov	dptr,#_delaymstimer
+   3341 12 40 20           1764 	lcall	_wtimer1_addrelative
+                    00AD   1765 	C$misc.c$102$1$138 ==.
+                           1766 ;	..\COMMON\misc.c:102: if (delaymstimer.handler == 0)
+   3344 90 02 93           1767 	mov	dptr,#(_delaymstimer + 0x0002)
+   3347 E0                 1768 	movx	a,@dptr
+   3348 FE                 1769 	mov	r6,a
+   3349 A3                 1770 	inc	dptr
+   334A E0                 1771 	movx	a,@dptr
+   334B FF                 1772 	mov	r7,a
+   334C 4E                 1773 	orl	a,r6
+   334D 70 03              1774 	jnz	00105$
+                    00B8   1775 	C$misc.c$103$2$139 ==.
+                           1776 ;	..\COMMON\misc.c:103: led0_toggle();
+   334F 63 80 10           1777 	xrl	_PORTA,#0x10
+   3352                    1778 00105$:
+                    00BB   1779 	C$misc.c$105$1$138 ==.
+                           1780 ;	..\COMMON\misc.c:105: wtimer_runcallbacks();
+   3352 12 3E 48           1781 	lcall	_wtimer_runcallbacks
+                    00BE   1782 	C$misc.c$107$1$138 ==.
+                           1783 ;	..\COMMON\misc.c:107: if (delaymstimer.handler == 0)
+   3355 90 02 93           1784 	mov	dptr,#(_delaymstimer + 0x0002)
+   3358 E0                 1785 	movx	a,@dptr
+   3359 FE                 1786 	mov	r6,a
+   335A A3                 1787 	inc	dptr
+   335B E0                 1788 	movx	a,@dptr
+   335C FF                 1789 	mov	r7,a
+   335D 4E                 1790 	orl	a,r6
+   335E 70 03              1791 	jnz	00111$
+                    00C9   1792 	C$misc.c$108$2$140 ==.
+                           1793 ;	..\COMMON\misc.c:108: led0_toggle();
+   3360 63 80 10           1794 	xrl	_PORTA,#0x10
+                    00CC   1795 	C$misc.c$110$1$138 ==.
+                           1796 ;	..\COMMON\misc.c:110: do {
+   3363                    1797 00111$:
+                    00CC   1798 	C$misc.c$112$2$141 ==.
+                           1799 ;	..\COMMON\misc.c:112: wtimer_runcallbacks();
+   3363 12 3E 48           1800 	lcall	_wtimer_runcallbacks
+                    00CF   1801 	C$misc.c$114$2$141 ==.
+                           1802 ;	..\COMMON\misc.c:114: wtimer_idle(WTFLAG_CANSTANDBY);
+   3366 75 82 02           1803 	mov	dpl,#0x02
+   3369 12 3E CC           1804 	lcall	_wtimer_idle
+                    00D5   1805 	C$misc.c$126$1$138 ==.
+                           1806 ;	..\COMMON\misc.c:126: } while (delaymstimer.handler);
+   336C 90 02 93           1807 	mov	dptr,#(_delaymstimer + 0x0002)
+   336F E0                 1808 	movx	a,@dptr
+   3370 FE                 1809 	mov	r6,a
+   3371 A3                 1810 	inc	dptr
+   3372 E0                 1811 	movx	a,@dptr
+   3373 FF                 1812 	mov	r7,a
+   3374 4E                 1813 	orl	a,r6
+   3375 70 EC              1814 	jnz	00111$
+                    00E0   1815 	C$misc.c$127$1$138 ==.
+                    00E0   1816 	XG$delay_ms$0$0 ==.
+   3377 22                 1817 	ret
+                           1818 	.area CSEG    (CODE)
+                           1819 	.area CONST   (CODE)
+                    0000   1820 Lmisc.display_radio_error$errtbl$1$101 == .
+   5007                    1821 _display_radio_error_errtbl_1_101:
+   5007 01                 1822 	.db #0x01	; 1
+   5008 1F 50              1823 	.byte __str_0,(__str_0 >> 8)
+   500A 02                 1824 	.db #0x02	; 2
+   500B 30 50              1825 	.byte __str_1,(__str_1 >> 8)
+   500D 03                 1826 	.db #0x03	; 3
+   500E 38 50              1827 	.byte __str_2,(__str_2 >> 8)
+   5010 04                 1828 	.db #0x04	; 4
+   5011 43 50              1829 	.byte __str_3,(__str_3 >> 8)
+   5013 05                 1830 	.db #0x05	; 5
+   5014 4E 50              1831 	.byte __str_4,(__str_4 >> 8)
+   5016 06                 1832 	.db #0x06	; 6
+   5017 5F 50              1833 	.byte __str_5,(__str_5 >> 8)
+   5019 07                 1834 	.db #0x07	; 7
+   501A 6A 50              1835 	.byte __str_6,(__str_6 >> 8)
+   501C 00                 1836 	.db #0x00	; 0
+   501D 00 00              1837 	.byte #0x00,#0x00
+                    0018   1838 Fmisc$_str_0$0$0 == .
+   501F                    1839 __str_0:
+   501F 45 3A 20 6E 6F 74  1840 	.ascii "E: not supported"
         20 73 75 70 70 6F
         72 74 65 64
-   51DC 00                 2077 	.db 0x00
-                    0029   2078 Fmisc$_str_1$0$0 == .
-   51DD                    2079 __str_1:
-   51DD 45 3A 20 62 75 73  2080 	.ascii "E: busy"
+   502F 00                 1841 	.db 0x00
+                    0029   1842 Fmisc$_str_1$0$0 == .
+   5030                    1843 __str_1:
+   5030 45 3A 20 62 75 73  1844 	.ascii "E: busy"
         79
-   51E4 00                 2081 	.db 0x00
-                    0031   2082 Fmisc$_str_2$0$0 == .
-   51E5                    2083 __str_2:
-   51E5 45 3A 20 74 69 6D  2084 	.ascii "E: timeout"
+   5037 00                 1845 	.db 0x00
+                    0031   1846 Fmisc$_str_2$0$0 == .
+   5038                    1847 __str_2:
+   5038 45 3A 20 74 69 6D  1848 	.ascii "E: timeout"
         65 6F 75 74
-   51EF 00                 2085 	.db 0x00
-                    003C   2086 Fmisc$_str_3$0$0 == .
-   51F0                    2087 __str_3:
-   51F0 45 3A 20 69 6E 76  2088 	.ascii "E: invalid"
+   5042 00                 1849 	.db 0x00
+                    003C   1850 Fmisc$_str_3$0$0 == .
+   5043                    1851 __str_3:
+   5043 45 3A 20 69 6E 76  1852 	.ascii "E: invalid"
         61 6C 69 64
-   51FA 00                 2089 	.db 0x00
-                    0047   2090 Fmisc$_str_4$0$0 == .
-   51FB                    2091 __str_4:
-   51FB 45 3A 20 6E 6F 20  2092 	.ascii "E: no chip found"
+   504D 00                 1853 	.db 0x00
+                    0047   1854 Fmisc$_str_4$0$0 == .
+   504E                    1855 __str_4:
+   504E 45 3A 20 6E 6F 20  1856 	.ascii "E: no chip found"
         63 68 69 70 20 66
         6F 75 6E 64
-   520B 00                 2093 	.db 0x00
-                    0058   2094 Fmisc$_str_5$0$0 == .
-   520C                    2095 __str_5:
-   520C 45 3A 20 72 61 6E  2096 	.ascii "E: ranging"
+   505E 00                 1857 	.db 0x00
+                    0058   1858 Fmisc$_str_5$0$0 == .
+   505F                    1859 __str_5:
+   505F 45 3A 20 72 61 6E  1860 	.ascii "E: ranging"
         67 69 6E 67
-   5216 00                 2097 	.db 0x00
-                    0063   2098 Fmisc$_str_6$0$0 == .
-   5217                    2099 __str_6:
-   5217 45 3A 20 6C 6F 63  2100 	.ascii "E: lock lost"
+   5069 00                 1861 	.db 0x00
+                    0063   1862 Fmisc$_str_6$0$0 == .
+   506A                    1863 __str_6:
+   506A 45 3A 20 6C 6F 63  1864 	.ascii "E: lock lost"
         6B 20 6C 6F 73 74
-   5223 00                 2101 	.db 0x00
-                           2102 	.area XINIT   (CODE)
-                           2103 	.area CABS    (ABS,CODE)
+   5076 00                 1865 	.db 0x00
+                           1866 	.area XINIT   (CODE)
+                           1867 	.area CABS    (ABS,CODE)

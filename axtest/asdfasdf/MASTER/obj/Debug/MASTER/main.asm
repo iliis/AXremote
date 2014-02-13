@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-; This file was generated Mon Dec 23 14:43:50 2013
+; This file was generated Wed Feb 12 18:49:11 2014
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-small
@@ -11,16 +11,14 @@
 ;--------------------------------------------------------
 	.globl _main
 	.globl __sdcc_external_startup
+	.globl _memcpy
 	.globl _display_radio_error
 	.globl _delay_ms
-	.globl _memcpy
 	.globl _dbglink_writehexu16
-	.globl _dbglink_writehex16
 	.globl _dbglink_writenum16
 	.globl _dbglink_writestr
 	.globl _dbglink_tx
 	.globl _dbglink_init
-	.globl _dbglink_txidle
 	.globl _wtimer_runcallbacks
 	.globl _wtimer_idle
 	.globl _wtimer_init
@@ -33,7 +31,6 @@
 	.globl _axradio_set_local_address
 	.globl _axradio_get_pllrange
 	.globl _axradio_set_mode
-	.globl _axradio_cansleep
 	.globl _axradio_init
 	.globl _PORTC_7
 	.globl _PORTC_6
@@ -1051,9 +1048,7 @@
 	.globl _ADCCH0VAL
 	.globl _ADCCH0VAL1
 	.globl _ADCCH0VAL0
-	.globl _deglitch_busy
 	.globl _coldstart
-	.globl _pkt_counter
 	.globl _axradio_statuschange
 ;--------------------------------------------------------
 ; special function registers
@@ -1616,14 +1611,8 @@ _PORTC_7	=	0x0097
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
-G$pkt_counter$0$0==.
-_pkt_counter::
-	.ds 2
 G$coldstart$0$0==.
 _coldstart::
-	.ds 1
-Lmain.main$saved_button_state$1$254==.
-_main_saved_button_state_1_254:
 	.ds 1
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
@@ -1650,9 +1639,6 @@ __start__stack:
 ; bit data
 ;--------------------------------------------------------
 	.area BSEG    (BIT)
-G$deglitch_busy$0$0==.
-_deglitch_busy::
-	.ds 1
 ;--------------------------------------------------------
 ; paged external ram data
 ;--------------------------------------------------------
@@ -3151,13 +3137,11 @@ G$AX5043_TIMEGAIN3NB$0$0 == 0x5154
 _AX5043_TIMEGAIN3NB	=	0x5154
 Fmain$flash_deviceid$0$0 == 0xfc06
 _flash_deviceid	=	0xfc06
-Fmain$flash_calsector$0$0 == 0xfc00
-_flash_calsector	=	0xfc00
 G$wakeup_desc$0$0==.
 _wakeup_desc::
 	.ds 8
-Lmain.transmit_packet$demo_packet_$1$213==.
-_transmit_packet_demo_packet__1_213:
+Lmain.transmit_packet$demo_packet_$1$169==.
+_transmit_packet_demo_packet__1_169:
 	.ds 6
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -3239,31 +3223,9 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
-;------------------------------------------------------------
-;Allocation info for local variables in function 'main'
-;------------------------------------------------------------
-;saved_button_state        Allocated with name '_main_saved_button_state_1_254'
-;i                         Allocated to registers r7 
-;buttonedge                Allocated to registers r5 
-;p                         Allocated to registers r6 
-;flg                       Allocated to registers r6 
-;flg                       Allocated to registers r7 
-;------------------------------------------------------------
-	G$main$0$0 ==.
-	C$main.c$303$3$320 ==.
-;	main.c:303: static uint8_t __data saved_button_state = 0xFF;
-	mov	_main_saved_button_state_1_254,#0xFF
-	C$main.c$97$3$320 ==.
-;	main.c:97: uint16_t __data pkt_counter = 0;
-	clr	a
-	mov	_pkt_counter,a
-	mov	(_pkt_counter + 1),a
-	C$main.c$98$3$320 ==.
-;	main.c:98: uint8_t __data coldstart = 1; // caution: initialization with 1 is necessary! Variables are initialized upon _sdcc_external_startup returning 0 -> the coldstart value returned from _sdcc_external startup does not survive in the coldstart case
+	C$main.c$62$3$258 ==.
+;	main.c:62: uint8_t __data coldstart = 1; // caution: initialization with 1 is necessary! Variables are initialized upon _sdcc_external_startup returning 0 -> the coldstart value returned from _sdcc_external startup does not survive in the coldstart case
 	mov	_coldstart,#0x01
-	C$main.c$100$3$320 ==.
-;	main.c:100: __bit deglitch_busy = 0;
-	clr	_deglitch_busy
 	.area GSFINAL (CODE)
 	ljmp	__sdcc_program_startup
 ;--------------------------------------------------------
@@ -3285,8 +3247,8 @@ __sdcc_program_startup:
 ;pc                        Allocated to registers r7 
 ;------------------------------------------------------------
 	Fmain$pwrmgmt_irq$0$0 ==.
-	C$main.c$105$0$0 ==.
-;	main.c:105: static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
+	C$main.c$69$0$0 ==.
+;	main.c:69: static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
 ;	-----------------------------------------
 ;	 function pwrmgmt_irq
 ;	-----------------------------------------
@@ -3305,30 +3267,30 @@ _pwrmgmt_irq:
 	push	ar7
 	push	psw
 	mov	psw,#0x00
-	C$main.c$107$1$0 ==.
-;	main.c:107: uint8_t pc = PCON;
-	C$main.c$108$1$211 ==.
-;	main.c:108: if (!(pc & 0x80))
+	C$main.c$71$1$0 ==.
+;	main.c:71: uint8_t pc = PCON;
+	C$main.c$72$1$167 ==.
+;	main.c:72: if (!(pc & 0x80))
 	mov	a,_PCON
 	mov	r7,a
 	jb	acc.7,00102$
-	C$main.c$109$1$211 ==.
-;	main.c:109: return;
+	C$main.c$73$1$167 ==.
+;	main.c:73: return;
 	sjmp	00106$
 00102$:
-	C$main.c$110$1$211 ==.
-;	main.c:110: GPIOENABLE = 0;
+	C$main.c$74$1$167 ==.
+;	main.c:74: GPIOENABLE = 0;
 	mov	dptr,#_GPIOENABLE
 	clr	a
 	movx	@dptr,a
-	C$main.c$111$1$211 ==.
-;	main.c:111: IE = EIE = E2IE = 0;
+	C$main.c$75$1$167 ==.
+;	main.c:75: IE = EIE = E2IE = 0;
 	mov	_E2IE,#0x00
 	mov	_EIE,#0x00
 	mov	_IE,#0x00
 00104$:
-	C$main.c$113$1$211 ==.
-;	main.c:113: PCON |= 0x01;
+	C$main.c$77$1$167 ==.
+;	main.c:77: PCON |= 0x01;
 	orl	_PCON,#0x01
 	sjmp	00104$
 00106$:
@@ -3337,141 +3299,44 @@ _pwrmgmt_irq:
 	pop	dph
 	pop	dpl
 	pop	acc
-	C$main.c$114$1$211 ==.
+	C$main.c$78$1$167 ==.
 	XFmain$pwrmgmt_irq$0$0 ==.
 	reti
 ;	eliminated unneeded push/pop b
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'transmit_packet'
 ;------------------------------------------------------------
-;demo_packet_              Allocated with name '_transmit_packet_demo_packet__1_213'
+;demo_packet_              Allocated with name '_transmit_packet_demo_packet__1_169'
 ;------------------------------------------------------------
 	Fmain$transmit_packet$0$0 ==.
-	C$main.c$116$1$211 ==.
-;	main.c:116: static void transmit_packet(void)
+	C$main.c$80$1$167 ==.
+;	main.c:80: static void transmit_packet(void)
 ;	-----------------------------------------
 ;	 function transmit_packet
 ;	-----------------------------------------
 _transmit_packet:
-	C$main.c$120$1$213 ==.
-;	main.c:120: ++pkt_counter;
-	inc	_pkt_counter
-	clr	a
-	cjne	a,_pkt_counter,00107$
-	inc	(_pkt_counter + 1)
-00107$:
-	C$main.c$121$1$213 ==.
-;	main.c:121: memcpy(demo_packet_, demo_packet, sizeof(demo_packet));
+	C$main.c$84$1$169 ==.
+;	main.c:84: memcpy(demo_packet_, demo_packet, sizeof(demo_packet));
 	mov	_memcpy_PARM_2,#_demo_packet
 	mov	(_memcpy_PARM_2 + 1),#(_demo_packet >> 8)
 	mov	(_memcpy_PARM_2 + 2),#0x80
 	mov	_memcpy_PARM_3,#0x06
 	mov	(_memcpy_PARM_3 + 1),#0x00
-	mov	dptr,#_transmit_packet_demo_packet__1_213
+	mov	dptr,#_transmit_packet_demo_packet__1_169
 	mov	b,#0x00
 	lcall	_memcpy
-	C$main.c$122$1$213 ==.
-;	main.c:122: if (framing_insert_counter) {
-	mov	dptr,#_framing_insert_counter
-	clr	a
-	movc	a,@a+dptr
-	mov	r7,a
-	jz	00102$
-	C$main.c$123$2$214 ==.
-;	main.c:123: demo_packet_[framing_counter_pos] = pkt_counter & 0xFF ;
-	mov	dptr,#_framing_counter_pos
-	clr	a
-	movc	a,@a+dptr
-	mov	r7,a
-	add	a,#_transmit_packet_demo_packet__1_213
-	mov	dpl,a
-	clr	a
-	addc	a,#(_transmit_packet_demo_packet__1_213 >> 8)
-	mov	dph,a
-	mov	r5,_pkt_counter
-	mov	r6,#0x00
-	mov	a,r5
-	movx	@dptr,a
-	C$main.c$124$2$214 ==.
-;	main.c:124: demo_packet_[framing_counter_pos+1] = (pkt_counter>>8) & 0xFF;
-	mov	a,r7
-	inc	a
-	add	a,#_transmit_packet_demo_packet__1_213
-	mov	dpl,a
-	clr	a
-	addc	a,#(_transmit_packet_demo_packet__1_213 >> 8)
-	mov	dph,a
-	mov	a,(_pkt_counter + 1)
-	mov	r7,a
-	movx	@dptr,a
-00102$:
-	C$main.c$126$1$213 ==.
-;	main.c:126: axradio_transmit(&remoteaddr, demo_packet_, sizeof(demo_packet));
-	mov	_axradio_transmit_PARM_2,#_transmit_packet_demo_packet__1_213
-	mov	(_axradio_transmit_PARM_2 + 1),#(_transmit_packet_demo_packet__1_213 >> 8)
+	C$main.c$85$1$169 ==.
+;	main.c:85: axradio_transmit(&remoteaddr, demo_packet_, sizeof(demo_packet));
+	mov	_axradio_transmit_PARM_2,#_transmit_packet_demo_packet__1_169
+	mov	(_axradio_transmit_PARM_2 + 1),#(_transmit_packet_demo_packet__1_169 >> 8)
 	mov	(_axradio_transmit_PARM_2 + 2),#0x00
 	mov	_axradio_transmit_PARM_3,#0x06
 	mov	(_axradio_transmit_PARM_3 + 1),#0x00
 	mov	dptr,#_remoteaddr
 	mov	b,#0x80
 	lcall	_axradio_transmit
-	C$main.c$127$1$213 ==.
+	C$main.c$86$1$169 ==.
 	XFmain$transmit_packet$0$0 ==.
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'display_transmit_packet'
-;------------------------------------------------------------
-	Fmain$display_transmit_packet$0$0 ==.
-	C$main.c$129$1$213 ==.
-;	main.c:129: static void display_transmit_packet(void)
-;	-----------------------------------------
-;	 function display_transmit_packet
-;	-----------------------------------------
-_display_transmit_packet:
-	C$main.c$131$1$216 ==.
-;	main.c:131: if (pkt_counter == 1) {
-	mov	a,#0x01
-	cjne	a,_pkt_counter,00123$
-	clr	a
-	cjne	a,(_pkt_counter + 1),00123$
-	sjmp	00124$
-00123$:
-	sjmp	00109$
-00124$:
-	C$main.c$135$2$217 ==.
-;	main.c:135: if (DBGLNKSTAT & 0x10)
-	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00109$
-	C$main.c$136$2$217 ==.
-;	main.c:136: dbglink_writestr("TX : \n");
-	mov	dptr,#__str_0
-	mov	b,#0x80
-	lcall	_dbglink_writestr
-	C$main.c$139$1$216 ==.
-;	main.c:139: display_setpos(0x4c);
-00109$:
-	C$main.c$142$1$216 ==.
-;	main.c:142: if (DBGLNKSTAT & 0x10) {
-	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00115$
-	C$main.c$143$2$222 ==.
-;	main.c:143: dbglink_writehex16(pkt_counter, 4, WRNUM_PADZERO);
-	mov	a,#0x08
-	push	acc
-	mov	a,#0x04
-	push	acc
-	mov	dpl,_pkt_counter
-	mov	dph,(_pkt_counter + 1)
-	lcall	_dbglink_writehex16
-	dec	sp
-	dec	sp
-	C$main.c$144$2$222 ==.
-;	main.c:144: dbglink_tx('\n');
-	mov	dpl,#0x0A
-	lcall	_dbglink_tx
-00115$:
-	C$main.c$148$1$216 ==.
-	XFmain$display_transmit_packet$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'axradio_statuschange'
@@ -3479,64 +3344,45 @@ _display_transmit_packet:
 ;st                        Allocated to registers r6 r7 
 ;------------------------------------------------------------
 	G$axradio_statuschange$0$0 ==.
-	C$main.c$150$1$216 ==.
-;	main.c:150: void axradio_statuschange(struct axradio_status __xdata *st)
+	C$main.c$88$1$169 ==.
+;	main.c:88: void axradio_statuschange(struct axradio_status __xdata *st)
 ;	-----------------------------------------
 ;	 function axradio_statuschange
 ;	-----------------------------------------
 _axradio_statuschange:
-	C$main.c$161$1$224 ==.
-;	main.c:161: switch (st->status)
+	C$main.c$99$1$171 ==.
+;	main.c:99: switch (st->status)
 	mov	r6,dpl
 	mov  r7,dph
 	movx	a,@dptr
 	mov	r5,a
-	cjne	r5,#0x02,00178$
+	cjne	r5,#0x02,00175$
 	sjmp	00150$
-00178$:
-	cjne	r5,#0x03,00179$
+00175$:
+	cjne	r5,#0x03,00176$
 	sjmp	00105$
-00179$:
-	C$main.c$164$2$225 ==.
-;	main.c:164: led0_on();
+00176$:
+	C$main.c$102$2$172 ==.
+;	main.c:102: led0_on();
 	cjne	r5,#0x04,00166$
 	sjmp	00119$
 00105$:
-	setb	_PORTA_1
-	C$main.c$170$2$225 ==.
-;	main.c:170: break;
-	C$main.c$173$2$225 ==.
-;	main.c:173: led0_off();
+	setb	_PORTA_4
+	C$main.c$108$2$172 ==.
+;	main.c:108: break;
+	C$main.c$111$2$172 ==.
+;	main.c:111: led0_off();
 	sjmp	00166$
 00119$:
-	clr	_PORTA_1
-	C$main.c$174$2$225 ==.
-;	main.c:174: if (st->error == AXRADIO_ERR_NOERROR) {
-	mov	dpl,r6
-	mov	dph,r7
-	inc	dptr
-	movx	a,@dptr
-	mov	r5,a
-	jnz	00135$
-	C$main.c$177$3$232 ==.
-;	main.c:177: deglitch_busy = 0;
-	clr	_deglitch_busy
-	sjmp	00166$
-00135$:
-	C$main.c$187$2$225 ==.
-;	main.c:187: } else if (st->error == AXRADIO_ERR_TIMEOUT) {
-	cjne	r5,#0x03,00166$
-	C$main.c$190$3$235 ==.
-;	main.c:190: deglitch_busy = 0;
-	clr	_deglitch_busy
-	C$main.c$205$2$225 ==.
-;	main.c:205: break;
-	C$main.c$215$2$225 ==.
-;	main.c:215: case AXRADIO_STAT_CHANNELSTATE:
+	clr	_PORTA_4
+	C$main.c$143$2$172 ==.
+;	main.c:143: break;
+	C$main.c$153$2$172 ==.
+;	main.c:153: case AXRADIO_STAT_CHANNELSTATE:
 	sjmp	00166$
 00150$:
-	C$main.c$216$2$225 ==.
-;	main.c:216: if (st->u.cs.busy)
+	C$main.c$154$2$172 ==.
+;	main.c:154: if (st->u.cs.busy)
 	mov	a,#0x06
 	add	a,r6
 	mov	r6,a
@@ -3548,10 +3394,10 @@ _axradio_statuschange:
 	inc	dptr
 	inc	dptr
 	movx	a,@dptr
-	C$main.c$224$1$224 ==.
-;	main.c:224: }
+	C$main.c$162$1$171 ==.
+;	main.c:162: }
 00166$:
-	C$main.c$225$1$224 ==.
+	C$main.c$163$1$171 ==.
 	XG$axradio_statuschange$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -3560,15 +3406,15 @@ _axradio_statuschange:
 ;desc                      Allocated to registers 
 ;------------------------------------------------------------
 	Fmain$wakeup_callback$0$0 ==.
-	C$main.c$226$1$224 ==.
-;	main.c:226: static void wakeup_callback(struct wtimer_desc __xdata *desc)
+	C$main.c$164$1$171 ==.
+;	main.c:164: static void wakeup_callback(struct wtimer_desc __xdata *desc)
 ;	-----------------------------------------
 ;	 function wakeup_callback
 ;	-----------------------------------------
 _wakeup_callback:
-	C$main.c$228$1$247 ==.
-;	main.c:228: desc;
-	C$main.c$235$1$247 ==.
+	C$main.c$166$1$194 ==.
+;	main.c:166: desc;
+	C$main.c$173$1$194 ==.
 	XFmain$wakeup_callback$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -3580,276 +3426,272 @@ _wakeup_callback:
 ;p                         Allocated to registers 
 ;------------------------------------------------------------
 	G$_sdcc_external_startup$0$0 ==.
-	C$main.c$249$1$247 ==.
-;	main.c:249: uint8_t _sdcc_external_startup(void)
+	C$main.c$187$1$194 ==.
+;	main.c:187: uint8_t _sdcc_external_startup(void)
 ;	-----------------------------------------
 ;	 function _sdcc_external_startup
 ;	-----------------------------------------
 __sdcc_external_startup:
-	C$main.c$252$1$249 ==.
-;	main.c:252: LPXOSCGM = 0x8A;
+	C$main.c$190$1$196 ==.
+;	main.c:190: LPXOSCGM = 0x8A;
 	mov	dptr,#_LPXOSCGM
 	mov	a,#0x8A
 	movx	@dptr,a
-	C$main.c$253$2$250 ==.
-;	main.c:253: wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
+	C$main.c$191$2$197 ==.
+;	main.c:191: wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
 	mov	dpl,#0x09
 	lcall	_wtimer0_setconfig
-	C$main.c$254$2$251 ==.
-;	main.c:254: wtimer1_setclksrc(CLKSRC_FRCOSC, 7);
+	C$main.c$192$2$198 ==.
+;	main.c:192: wtimer1_setclksrc(CLKSRC_FRCOSC, 7);
 	mov	dpl,#0x38
 	lcall	_wtimer1_setconfig
-	C$main.c$256$1$249 ==.
-;	main.c:256: LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
+	C$main.c$194$1$196 ==.
+;	main.c:194: LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
 	mov	dptr,#_LPOSCCONFIG
 	mov	a,#0x09
 	movx	@dptr,a
-	C$main.c$258$1$249 ==.
-;	main.c:258: coldstart = !(PCON & 0x40);
+	C$main.c$196$1$196 ==.
+;	main.c:196: coldstart = !(PCON & 0x40);
 	mov	a,#0x40
 	anl	a,_PCON
 	mov	r7,a
-	cjne	a,#0x01,00111$
-00111$:
+	cjne	a,#0x01,00109$
+00109$:
 	clr	a
 	rlc	a
 	mov	_coldstart,a
-	C$main.c$260$1$249 ==.
-;	main.c:260: ANALOGA = 0x18; // PA[3,4] LPXOSC, other PA are used as digital pins
+	C$main.c$198$1$196 ==.
+;	main.c:198: ANALOGA = 0x18; // PA[3,4] LPXOSC, other PA are used as digital pins
 	mov	dptr,#_ANALOGA
 	mov	a,#0x18
 	movx	@dptr,a
-	C$main.c$276$1$249 ==.
-;	main.c:276: PORTA = 0xFF; //
-	mov	_PORTA,#0xFF
-	C$main.c$277$1$249 ==.
-;	main.c:277: PORTB = 0xFD | (PINB & 0x02); // init LEDs to previous (frozen) state
-	mov	a,#0x02
-	anl	a,_PINB
-	orl	a,#0xFD
-	mov	_PORTB,a
-	C$main.c$278$1$249 ==.
-;	main.c:278: PORTC = 0xFF; //
-	mov	_PORTC,#0xFF
-	C$main.c$279$1$249 ==.
-;	main.c:279: PORTR = 0xCB; //
+	C$main.c$201$1$196 ==.
+;	main.c:201: PORTA = 0xC0 | (PINA & 0x25); 	// pull-up for PA[6,7] which are not bonded, no pull up for PA[3,4] (LPXOSC). Output 0 in PA[0,1,2,5] to prevent current consumption in all DIP switch states
+	mov	a,#0x25
+	anl	a,_PINA
+	orl	a,#0xC0
+	mov	_PORTA,a
+	C$main.c$203$1$196 ==.
+;	main.c:203: PORTB = 0xFE; //PB[0,1]  (LCD RS, LCD RST) are overwritten by lcd2_portinit(), enable pull-ups for PB[2..7]  (PB[2,3] for buttons, PB[4..7] unused)
+	mov	_PORTB,#0xFE
+	C$main.c$204$1$196 ==.
+;	main.c:204: PORTC = 0xF3 | (PINC & 0x08); 	// set PC0 = 1 (LCD SEL), PC1 = 1 (LCD SCK), PC2 = 0 (LCD MOSI), PC3 =0 (LED), enable pull-ups for PC[4..7] which are not bonded Mind: PORTC[0:1] is set to 0x3 by lcd2_portinit()
+	mov	a,#0x08
+	anl	a,_PINC
+	orl	a,#0xF3
+	mov	_PORTC,a
+	C$main.c$206$1$196 ==.
+;	main.c:206: PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
 	mov	_PORTR,#0xCB
-	C$main.c$281$1$249 ==.
-;	main.c:281: DIRA = 0x00; //
-	mov	_DIRA,#0x00
-	C$main.c$282$1$249 ==.
-;	main.c:282: DIRB = 0x06; //  PB1 = LED, PB2 = TCXO ON/OFF
-	mov	_DIRB,#0x06
-	C$main.c$283$1$249 ==.
-;	main.c:283: DIRC = 0x00; //  PC4 = button
-	mov	_DIRC,#0x00
-	C$main.c$284$1$249 ==.
-;	main.c:284: DIRR = 0x15; //
+	C$main.c$209$1$196 ==.
+;	main.c:209: DIRA = 0x37; // output 0 on PA[0,1,2,5] to prevent current consumption in all DIP switch states. Other PA are inputs, PA[3,4] (LPXOSC) must have disabled digital output drivers
+	mov	_DIRA,#0x37
+	C$main.c$210$1$196 ==.
+;	main.c:210: DIRB = 0x03; // PB[0,1] are outputs (LCD RS, LCD RST), PB[2..7] are inputs (PB[2,3] for buttons,  PB[4..7]  unused)
+	mov	_DIRB,#0x03
+	C$main.c$211$1$196 ==.
+;	main.c:211: DIRC = 0x0F; // PC[0..3] are outputs (LCD SEL, LCD,SCK, LCD MOSI, LED), PC[4..7] are inputs (not bonded).
+	mov	_DIRC,#0x0F
+	C$main.c$212$1$196 ==.
+;	main.c:212: DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
 	mov	_DIRR,#0x15
-	C$main.c$285$1$249 ==.
-;	main.c:285: PALTRADIO |= (1<<6);
-	mov	dptr,#_PALTRADIO
-	movx	a,@dptr
-	mov	r7,a
-	orl	a,#0x40
-	movx	@dptr,a
-	C$main.c$288$1$249 ==.
-;	main.c:288: DPS = 0;
+	C$main.c$226$1$196 ==.
+;	main.c:226: DPS = 0;
 	mov	_DPS,#0x00
-	C$main.c$289$1$249 ==.
-;	main.c:289: IE = 0x40;
+	C$main.c$227$1$196 ==.
+;	main.c:227: IE = 0x40;
 	mov	_IE,#0x40
-	C$main.c$290$1$249 ==.
-;	main.c:290: EIE = 0x00;
+	C$main.c$228$1$196 ==.
+;	main.c:228: EIE = 0x00;
 	mov	_EIE,#0x00
-	C$main.c$291$1$249 ==.
-;	main.c:291: E2IE = 0x00;
+	C$main.c$229$1$196 ==.
+;	main.c:229: E2IE = 0x00;
 	mov	_E2IE,#0x00
-	C$main.c$293$1$249 ==.
-;	main.c:293: GPIOENABLE = 1; // unfreeze GPIO
+	C$main.c$231$1$196 ==.
+;	main.c:231: GPIOENABLE = 1; // unfreeze GPIO
 	mov	dptr,#_GPIOENABLE
 	mov	a,#0x01
 	movx	@dptr,a
-	C$main.c$297$1$249 ==.
-;	main.c:297: return !coldstart; // coldstart -> return 0 -> var initialization; start from sleep -> return 1 -> no var initialization
+	C$main.c$235$1$196 ==.
+;	main.c:235: return !coldstart; // coldstart -> return 0 -> var initialization; start from sleep -> return 1 -> no var initialization
 	mov	a,_coldstart
-	cjne	a,#0x01,00112$
-00112$:
+	cjne	a,#0x01,00110$
+00110$:
 	clr	a
 	rlc	a
 	mov	dpl,a
-	C$main.c$299$1$249 ==.
+	C$main.c$237$1$196 ==.
 	XG$_sdcc_external_startup$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;saved_button_state        Allocated with name '_main_saved_button_state_1_254'
+;prev_key                  Allocated to registers 
 ;i                         Allocated to registers r7 
-;buttonedge                Allocated to registers r5 
-;p                         Allocated to registers r6 
-;flg                       Allocated to registers r6 
-;flg                       Allocated to registers r7 
+;flg                       Allocated to registers 
 ;------------------------------------------------------------
 	G$main$0$0 ==.
-	C$main.c$301$1$249 ==.
-;	main.c:301: void main(void)
+	C$main.c$239$1$196 ==.
+;	main.c:239: void main(void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-	C$main.c$314$1$254 ==.
-;	main.c:314: __endasm;
+	C$main.c$252$1$200 ==.
+;	main.c:252: __endasm;
 	G$_start__stack$0$0 = __start__stack
 	.globl G$_start__stack$0$0
-	C$main.c$317$1$254 ==.
-;	main.c:317: EA = 1;
+	C$main.c$255$1$200 ==.
+;	main.c:255: EA = 1;
 	setb	_EA
-	C$main.c$318$1$254 ==.
-;	main.c:318: flash_apply_calibration();
+	C$main.c$256$1$200 ==.
+;	main.c:256: flash_apply_calibration();
 	lcall	_flash_apply_calibration
-	C$main.c$319$1$254 ==.
-;	main.c:319: CLKCON = 0x00;
+	C$main.c$257$1$200 ==.
+;	main.c:257: CLKCON = 0x00;
 	mov	_CLKCON,#0x00
-	C$main.c$320$1$254 ==.
-;	main.c:320: wtimer_init();
+	C$main.c$258$1$200 ==.
+;	main.c:258: wtimer_init();
 	lcall	_wtimer_init
-	C$main.c$323$1$254 ==.
-;	main.c:323: dbglink_init();
+	C$main.c$261$1$200 ==.
+;	main.c:261: dbglink_init();
 	lcall	_dbglink_init
-	C$main.c$325$3$256 ==.
-;	main.c:325: led0_off();
-	clr	_PORTA_1
-	C$main.c$326$3$258 ==.
-;	main.c:326: led1_off();
-	clr	_PORTA_2
-	C$main.c$327$1$254 ==.
-;	main.c:327: delay_ms(200);
+	C$main.c$263$1$200 ==.
+;	main.c:263: dbglink_writestr("booting up ...\n");
+	mov	dptr,#__str_0
+	mov	b,#0x80
+	lcall	_dbglink_writestr
+	C$main.c$265$3$202 ==.
+;	main.c:265: led0_off();
+	clr	_PORTA_4
+	C$main.c$266$3$204 ==.
+;	main.c:266: led1_off();
+	clr	_PORTA_5
+	C$main.c$267$1$200 ==.
+;	main.c:267: delay_ms( 50);
+	mov	dptr,#0x0032
+	lcall	_delay_ms
+	C$main.c$269$3$206 ==.
+;	main.c:269: led0_on();
+	setb	_PORTA_4
+	C$main.c$270$3$208 ==.
+;	main.c:270: led1_on();
+	setb	_PORTA_5
+	C$main.c$271$1$200 ==.
+;	main.c:271: delay_ms( 50);
+	mov	dptr,#0x0032
+	lcall	_delay_ms
+	C$main.c$273$3$210 ==.
+;	main.c:273: led0_off();
+	clr	_PORTA_4
+	C$main.c$274$3$212 ==.
+;	main.c:274: led1_off();
+	clr	_PORTA_5
+	C$main.c$275$1$200 ==.
+;	main.c:275: delay_ms( 50);
+	mov	dptr,#0x0032
+	lcall	_delay_ms
+	C$main.c$277$3$214 ==.
+;	main.c:277: led0_on();
+	setb	_PORTA_4
+	C$main.c$278$3$216 ==.
+;	main.c:278: led1_on();
+	setb	_PORTA_5
+	C$main.c$279$1$200 ==.
+;	main.c:279: delay_ms( 50);
+	mov	dptr,#0x0032
+	lcall	_delay_ms
+	C$main.c$281$3$218 ==.
+;	main.c:281: led0_off();
+	clr	_PORTA_4
+	C$main.c$282$3$220 ==.
+;	main.c:282: led1_off();
+	clr	_PORTA_5
+	C$main.c$283$1$200 ==.
+;	main.c:283: delay_ms( 50);
+	mov	dptr,#0x0032
+	lcall	_delay_ms
+	C$main.c$285$3$222 ==.
+;	main.c:285: led0_on();
+	setb	_PORTA_4
+	C$main.c$286$3$224 ==.
+;	main.c:286: led1_on();
+	setb	_PORTA_5
+	C$main.c$287$1$200 ==.
+;	main.c:287: delay_ms( 50);
+	mov	dptr,#0x0032
+	lcall	_delay_ms
+	C$main.c$289$3$226 ==.
+;	main.c:289: led0_off();
+	clr	_PORTA_4
+	C$main.c$290$3$228 ==.
+;	main.c:290: led1_off();
+	clr	_PORTA_5
+	C$main.c$292$1$200 ==.
+;	main.c:292: delay_ms(200);
 	mov	dptr,#0x00C8
 	lcall	_delay_ms
-	C$main.c$329$3$260 ==.
-;	main.c:329: led0_on();
-	setb	_PORTA_1
-	C$main.c$330$3$262 ==.
-;	main.c:330: led1_on();
-	setb	_PORTA_2
-	C$main.c$331$1$254 ==.
-;	main.c:331: delay_ms(200);
-	mov	dptr,#0x00C8
-	lcall	_delay_ms
-	C$main.c$333$3$264 ==.
-;	main.c:333: led0_off();
-	clr	_PORTA_1
-	C$main.c$334$3$266 ==.
-;	main.c:334: led1_off();
-	clr	_PORTA_2
-	C$main.c$335$1$254 ==.
-;	main.c:335: delay_ms(200);
-	mov	dptr,#0x00C8
-	lcall	_delay_ms
-	C$main.c$337$3$268 ==.
-;	main.c:337: led0_on();
-	setb	_PORTA_1
-	C$main.c$338$3$270 ==.
-;	main.c:338: led1_on();
-	setb	_PORTA_2
-	C$main.c$339$1$254 ==.
-;	main.c:339: delay_ms(200);
-	mov	dptr,#0x00C8
-	lcall	_delay_ms
-	C$main.c$341$3$272 ==.
-;	main.c:341: led0_off();
-	clr	_PORTA_1
-	C$main.c$342$3$274 ==.
-;	main.c:342: led1_off();
-	clr	_PORTA_2
-	C$main.c$343$1$254 ==.
-;	main.c:343: delay_ms(200);
-	mov	dptr,#0x00C8
-	lcall	_delay_ms
-	C$main.c$345$3$276 ==.
-;	main.c:345: led0_on();
-	setb	_PORTA_1
-	C$main.c$346$3$278 ==.
-;	main.c:346: led1_on();
-	setb	_PORTA_2
-	C$main.c$347$1$254 ==.
-;	main.c:347: delay_ms(200);
-	mov	dptr,#0x00C8
-	lcall	_delay_ms
-	C$main.c$349$3$280 ==.
-;	main.c:349: led0_off();
-	clr	_PORTA_1
-	C$main.c$350$3$282 ==.
-;	main.c:350: led1_off();
-	clr	_PORTA_2
-	C$main.c$353$1$254 ==.
-;	main.c:353: if (coldstart) {
+	C$main.c$296$1$200 ==.
+;	main.c:296: if (coldstart) {
 	mov	a,_coldstart
-	jnz	00328$
-	ljmp	00256$
-00328$:
-	C$main.c$355$4$285 ==.
-;	main.c:355: led0_off();
-	clr	_PORTA_1
-	C$main.c$356$4$287 ==.
-;	main.c:356: led1_off();
-	clr	_PORTA_2
-	C$main.c$360$2$283 ==.
-;	main.c:360: wakeup_desc.handler = wakeup_callback;
+	jnz	00299$
+	ljmp	00248$
+00299$:
+	C$main.c$298$4$231 ==.
+;	main.c:298: led0_off();
+	clr	_PORTA_4
+	C$main.c$299$4$233 ==.
+;	main.c:299: led1_off();
+	clr	_PORTA_5
+	C$main.c$303$2$229 ==.
+;	main.c:303: wakeup_desc.handler = wakeup_callback;
 	mov	dptr,#(_wakeup_desc + 0x0002)
 	mov	a,#_wakeup_callback
 	movx	@dptr,a
 	inc	dptr
 	mov	a,#(_wakeup_callback >> 8)
 	movx	@dptr,a
-	C$main.c$362$2$283 ==.
-;	main.c:362: BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
-	mov	dptr,#_INTCHGA
-	movx	a,@dptr
-	orl	a,#0x01
-	movx	@dptr,a
-	C$main.c$370$2$283 ==.
-;	main.c:370: i = axradio_init();
+	C$main.c$311$2$229 ==.
+;	main.c:311: i = axradio_init();
 	lcall	_axradio_init
-	C$main.c$371$2$283 ==.
-;	main.c:371: if (i != AXRADIO_ERR_NOERROR) {
+	C$main.c$312$2$229 ==.
+;	main.c:312: if (i != AXRADIO_ERR_NOERROR) {
 	mov	a,dpl
 	mov	r7,a
-	jz	00211$
-	C$main.c$372$3$290 ==.
-;	main.c:372: if (i == AXRADIO_ERR_NOCHIP) {
-	cjne	r7,#0x05,00206$
-	C$main.c$375$4$291 ==.
-;	main.c:375: if (DBGLNKSTAT & 0x10)
+	jz	00208$
+	C$main.c$313$3$234 ==.
+;	main.c:313: if (i == AXRADIO_ERR_NOCHIP) {
+	cjne	r7,#0x05,00200$
+	C$main.c$316$4$235 ==.
+;	main.c:316: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jb	acc.4,00332$
-	ljmp	00282$
-00332$:
-	C$main.c$376$4$291 ==.
-;	main.c:376: dbglink_writestr("No AX5043 RF chip found \n");
+	jb	acc.4,00303$
+	ljmp	00266$
+00303$:
+	C$main.c$317$4$235 ==.
+;	main.c:317: dbglink_writestr("No AX5043 RF chip found \n");
 	mov	dptr,#__str_1
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-	C$main.c$378$4$291 ==.
-;	main.c:378: goto terminate_error;
-	ljmp	00282$
-00206$:
-	C$main.c$382$3$290 ==.
-;	main.c:382: if (DBGLNKSTAT & 0x10) {
+	C$main.c$319$4$235 ==.
+;	main.c:319: goto terminate_error;
+	ljmp	00266$
+00200$:
+	C$main.c$323$3$234 ==.
+;	main.c:323: if (DBGLNKSTAT & 0x10) {
 	mov	a,_DBGLNKSTAT
-	jb	acc.4,00333$
-	ljmp	00281$
-00333$:
-	C$main.c$383$4$293 ==.
-;	main.c:383: dbglink_writestr("error initializing radio: ");
+	jb	acc.4,00304$
+	ljmp	00265$
+00304$:
+	C$main.c$324$4$236 ==.
+;	main.c:324: dbglink_writestr("error initializing radio: ");
 	mov	dptr,#__str_2
 	mov	b,#0x80
 	push	ar7
 	lcall	_dbglink_writestr
 	pop	ar7
-	C$main.c$384$4$293 ==.
-;	main.c:384: dbglink_writehexu16(i, 2);
+	C$main.c$325$4$236 ==.
+;	main.c:325: dbglink_writehexu16(i, 2);
 	mov	ar5,r7
 	mov	r6,#0x00
 	push	ar7
@@ -3860,67 +3702,65 @@ _main:
 	lcall	_dbglink_writehexu16
 	dec	sp
 	pop	ar7
-	C$main.c$385$4$293 ==.
-;	main.c:385: dbglink_tx('\n');
+	C$main.c$326$4$236 ==.
+;	main.c:326: dbglink_tx('\n');
 	mov	dpl,#0x0A
 	lcall	_dbglink_tx
-	C$main.c$388$3$290 ==.
-;	main.c:388: goto terminate_radio_error;
-	ljmp	00281$
-	C$main.c$390$2$283 ==.
-;	main.c:390: display_writestr("found AX5043\n");
-00211$:
-	C$main.c$392$4$296 ==.
-;	main.c:392: led0_on();
-	setb	_PORTA_1
-	C$main.c$393$4$298 ==.
-;	main.c:393: led1_off();
-	clr	_PORTA_2
-	C$main.c$394$2$283 ==.
-;	main.c:394: delay_ms(500);
-	mov	dptr,#0x01F4
+	C$main.c$329$3$234 ==.
+;	main.c:329: goto terminate_radio_error;
+	ljmp	00265$
+	C$main.c$332$2$229 ==.
+;	main.c:332: led0_on();
+00208$:
+	setb	_PORTA_4
+	C$main.c$333$4$240 ==.
+;	main.c:333: led1_off();
+	clr	_PORTA_5
+	C$main.c$334$2$229 ==.
+;	main.c:334: delay_ms(100);
+	mov	dptr,#0x0064
 	lcall	_delay_ms
-	C$main.c$397$2$283 ==.
-;	main.c:397: if (DBGLNKSTAT & 0x10)
+	C$main.c$337$2$229 ==.
+;	main.c:337: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00226$
-	C$main.c$398$2$283 ==.
-;	main.c:398: dbglink_writestr("found AX5043\n");
+	jnb	acc.4,00218$
+	C$main.c$338$2$229 ==.
+;	main.c:338: dbglink_writestr("found AX5043\n");
 	mov	dptr,#__str_3
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-00226$:
-	C$main.c$400$2$283 ==.
-;	main.c:400: axradio_set_local_address(&localaddr);
+00218$:
+	C$main.c$340$2$229 ==.
+;	main.c:340: axradio_set_local_address(&localaddr);
 	mov	dptr,#_localaddr
 	mov	b,#0x80
 	lcall	_axradio_set_local_address
-	C$main.c$401$2$283 ==.
-;	main.c:401: axradio_set_default_remote_address(&remoteaddr);
+	C$main.c$341$2$229 ==.
+;	main.c:341: axradio_set_default_remote_address(&remoteaddr);
 	mov	dptr,#_remoteaddr
 	mov	b,#0x80
 	lcall	_axradio_set_default_remote_address
-	C$main.c$414$4$300 ==.
-;	main.c:414: led0_off();
-	clr	_PORTA_1
-	C$main.c$415$4$302 ==.
-;	main.c:415: led1_on();
-	setb	_PORTA_2
-	C$main.c$416$2$283 ==.
-;	main.c:416: delay_ms(500);
-	mov	dptr,#0x01F4
+	C$main.c$354$4$242 ==.
+;	main.c:354: led0_off();
+	clr	_PORTA_4
+	C$main.c$355$4$244 ==.
+;	main.c:355: led1_on();
+	setb	_PORTA_5
+	C$main.c$356$2$229 ==.
+;	main.c:356: delay_ms(100);
+	mov	dptr,#0x0064
 	lcall	_delay_ms
-	C$main.c$429$2$283 ==.
-;	main.c:429: if (DBGLNKSTAT & 0x10) {
+	C$main.c$369$2$229 ==.
+;	main.c:369: if (DBGLNKSTAT & 0x10) {
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00240$
-	C$main.c$430$3$303 ==.
-;	main.c:430: dbglink_writestr("RNG = ");
+	jnb	acc.4,00232$
+	C$main.c$370$3$245 ==.
+;	main.c:370: dbglink_writestr("RNG = ");
 	mov	dptr,#__str_4
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-	C$main.c$431$3$303 ==.
-;	main.c:431: dbglink_writenum16(axradio_get_pllrange(), 2, 0);
+	C$main.c$371$3$245 ==.
+;	main.c:371: dbglink_writenum16(axradio_get_pllrange(), 2, 0);
 	lcall	_axradio_get_pllrange
 	mov	r6,dpl
 	clr	a
@@ -3933,187 +3773,91 @@ _main:
 	lcall	_dbglink_writenum16
 	dec	sp
 	dec	sp
-	C$main.c$432$3$303 ==.
-;	main.c:432: dbglink_writestr("\n\nMASTER\n");
+	C$main.c$372$3$245 ==.
+;	main.c:372: dbglink_writestr("\n\nMASTER\n");
 	mov	dptr,#__str_5
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-00240$:
-	C$main.c$437$2$283 ==.
-;	main.c:437: i = axradio_set_mode(RADIO_MODE);
+00232$:
+	C$main.c$377$2$229 ==.
+;	main.c:377: i = axradio_set_mode(RADIO_MODE);
 	mov	dpl,#0x10
 	lcall	_axradio_set_mode
-	C$main.c$438$2$283 ==.
-;	main.c:438: if (i != AXRADIO_ERR_NOERROR)
+	C$main.c$378$2$229 ==.
+;	main.c:378: if (i != AXRADIO_ERR_NOERROR)
 	mov	a,dpl
 	mov	r7,a
-	jnz	00281$
-	C$main.c$441$4$305 ==.
-;	main.c:441: led0_on();
-	setb	_PORTA_1
-	C$main.c$442$4$307 ==.
-;	main.c:442: led1_on();
-	setb	_PORTA_2
-	C$main.c$443$2$283 ==.
-;	main.c:443: delay_ms(500);
-	mov	dptr,#0x01F4
+	jnz	00265$
+	C$main.c$381$4$247 ==.
+;	main.c:381: led0_on();
+	setb	_PORTA_4
+	C$main.c$382$4$249 ==.
+;	main.c:382: led1_on();
+	setb	_PORTA_5
+	C$main.c$383$2$229 ==.
+;	main.c:383: delay_ms(100);
+	mov	dptr,#0x0064
 	lcall	_delay_ms
-	sjmp	00257$
-00256$:
-	C$main.c$451$2$308 ==.
-;	main.c:451: ax5043_commsleepexit();
+	sjmp	00253$
+00248$:
+	C$main.c$391$2$250 ==.
+;	main.c:391: ax5043_commsleepexit();
 	lcall	_ax5043_commsleepexit
-	C$main.c$452$2$308 ==.
-;	main.c:452: IE_4 = 1;
+	C$main.c$392$2$250 ==.
+;	main.c:392: IE_4 = 1;
 	setb	_IE_4
-00257$:
-	C$main.c$456$1$254 ==.
-;	main.c:456: BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
-	mov	dptr,#_INTCHGA
-	movx	a,@dptr
-	orl	a,#0x01
-	movx	@dptr,a
-	C$main.c$459$3$310 ==.
-;	main.c:459: led0_off();
-	clr	_PORTA_1
-	C$main.c$460$3$312 ==.
-;	main.c:460: led1_on();
-	setb	_PORTA_2
-	C$main.c$461$1$254 ==.
-;	main.c:461: delay_ms(500);
-	mov	dptr,#0x01F4
+	C$main.c$399$1$200 ==.
+;	main.c:399: led0_off();
+00253$:
+	clr	_PORTA_4
+	C$main.c$400$3$254 ==.
+;	main.c:400: led1_on();
+	setb	_PORTA_5
+00270$:
+	C$main.c$406$2$255 ==.
+;	main.c:406: delay_ms(10);
+	mov	dptr,#0x000A
 	lcall	_delay_ms
-00279$:
-	C$main.c$465$2$313 ==.
-;	main.c:465: wtimer_runcallbacks();
-	lcall	_wtimer_runcallbacks
-	C$main.c$466$2$313 ==.
-;	main.c:466: EA = 0;
-	clr	_EA
-	C$main.c$473$4$315 ==.
-;	main.c:473: p = BUTTON_PIN;
-	C$main.c$474$4$315 ==.
-;	main.c:474: buttonedge = saved_button_state & ~p;
-	mov	a,_PINA
-	mov	r6,a
-	cpl	a
-	mov	r5,a
-	mov	a,_main_saved_button_state_1_254
-	anl	ar5,a
-	C$main.c$475$4$315 ==.
-;	main.c:475: saved_button_state = p;
-	mov	_main_saved_button_state_1_254,r6
-	C$main.c$477$3$314 ==.
-;	main.c:477: if (buttonedge & BUTTON_MASK)
-	mov	a,r5
-	jnb	acc.0,00273$
-	C$main.c$479$4$316 ==.
-;	main.c:479: EA = 1;
-	setb	_EA
-	C$main.c$480$4$316 ==.
-;	main.c:480: if( !deglitch_busy )
-	jb	_deglitch_busy,00279$
-	C$main.c$483$5$317 ==.
-;	main.c:483: deglitch_busy = 1;
-	setb	_deglitch_busy
-	C$main.c$484$5$317 ==.
-;	main.c:484: transmit_packet();
-	lcall	_transmit_packet
-	C$main.c$485$5$317 ==.
-;	main.c:485: display_transmit_packet();
-	lcall	_display_transmit_packet
-	C$main.c$487$4$316 ==.
-;	main.c:487: continue;
-	sjmp	00279$
-00273$:
-	C$main.c$490$2$313 ==.
-;	main.c:490: IE_3 = 1;
-	setb	_IE_3
-	C$main.c$493$3$313 ==.
-;	main.c:493: uint8_t flg = WTFLAG_CANSTANDBY;
-	mov	r6,#0x02
-	C$main.c$495$3$318 ==.
-;	main.c:495: if (axradio_cansleep()
-	push	ar6
-	lcall	_axradio_cansleep
-	mov	a,dpl
-	pop	ar6
-	jz	00275$
-	C$main.c$497$3$318 ==.
-;	main.c:497: && dbglink_txidle()
-	lcall	_dbglink_txidle
-	mov	a,dpl
-	jz	00275$
-	C$main.c$500$3$318 ==.
-;	main.c:500: flg |= WTFLAG_CANSLEEP;
-	mov	r6,#0x03
-00275$:
-	C$main.c$502$3$318 ==.
-;	main.c:502: wtimer_idle(flg);
-	mov	dpl,r6
-	lcall	_wtimer_idle
-	C$main.c$504$2$313 ==.
-;	main.c:504: IE_3 = 0; // no ISR!
-	clr	_IE_3
-	C$main.c$505$2$313 ==.
-;	main.c:505: EA = 1;
-	setb	_EA
-	C$main.c$509$1$254 ==.
-;	main.c:509: terminate_radio_error:
-	sjmp	00279$
-00281$:
-	C$main.c$510$1$254 ==.
-;	main.c:510: display_radio_error(i);
+	C$main.c$407$3$256 ==.
+;	main.c:407: led1_toggle();
+	xrl	_PORTA,#0x20
+	C$main.c$471$1$200 ==.
+;	main.c:471: terminate_radio_error:
+	sjmp	00270$
+00265$:
+	C$main.c$472$1$200 ==.
+;	main.c:472: display_radio_error(i);
 	mov	dpl,r7
 	lcall	_display_radio_error
-	C$main.c$511$1$254 ==.
-;	main.c:511: terminate_error:
-00282$:
-	C$main.c$514$1$254 ==.
-;	main.c:514: if (DBGLNKSTAT & 0x10)
+	C$main.c$473$1$200 ==.
+;	main.c:473: terminate_error:
+00266$:
+	C$main.c$476$1$200 ==.
+;	main.c:476: if (DBGLNKSTAT & 0x10)
 	mov	a,_DBGLNKSTAT
-	jnb	acc.4,00290$
-	C$main.c$515$1$254 ==.
-;	main.c:515: dbglink_writestr("TERMINATE ERROR\n");
+	jnb	acc.4,00273$
+	C$main.c$477$1$200 ==.
+;	main.c:477: dbglink_writestr("TERMINATE ERROR\n");
 	mov	dptr,#__str_6
 	mov	b,#0x80
 	lcall	_dbglink_writestr
-00290$:
-	C$main.c$522$2$319 ==.
-;	main.c:522: wtimer_runcallbacks();
+00273$:
+	C$main.c$484$2$257 ==.
+;	main.c:484: wtimer_runcallbacks();
 	lcall	_wtimer_runcallbacks
-	C$main.c$524$3$319 ==.
-;	main.c:524: uint8_t flg = WTFLAG_CANSTANDBY;
-	mov	r7,#0x02
-	C$main.c$526$3$320 ==.
-;	main.c:526: if (axradio_cansleep()
-	push	ar7
-	lcall	_axradio_cansleep
-	mov	a,dpl
-	pop	ar7
-	jz	00286$
-	C$main.c$528$3$320 ==.
-;	main.c:528: && dbglink_txidle()
-	lcall	_dbglink_txidle
-	mov	a,dpl
-	jz	00286$
-	C$main.c$531$3$320 ==.
-;	main.c:531: flg |= WTFLAG_CANSLEEP;
-	mov	r7,#0x03
-00286$:
-	C$main.c$533$3$320 ==.
-;	main.c:533: wtimer_idle(flg);
-	mov	dpl,r7
+	C$main.c$495$3$258 ==.
+;	main.c:495: wtimer_idle(flg);
+	mov	dpl,#0x02
 	lcall	_wtimer_idle
-	sjmp	00290$
-	C$main.c$536$3$320 ==.
+	sjmp	00273$
+	C$main.c$498$3$258 ==.
 	XG$main$0$0 ==.
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 Fmain$_str_0$0$0 == .
 __str_0:
-	.ascii "TX : "
+	.ascii "booting up ..."
 	.db 0x0A
 	.db 0x00
 Fmain$_str_1$0$0 == .

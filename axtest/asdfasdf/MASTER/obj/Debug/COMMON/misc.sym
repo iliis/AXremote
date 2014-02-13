@@ -78,290 +78,58 @@ Symbol Table
  17 A$misc$1719                                                    0085 GR
  17 A$misc$1720                                                    0086 GR
  17 A$misc$1723                                                    0087 GR
- 17 A$misc$1737                                                    0088 GR
- 17 A$misc$1738                                                    008A GR
- 17 A$misc$1739                                                    008C GR
- 17 A$misc$1740                                                    008E GR
- 17 A$misc$1741                                                    0090 GR
- 17 A$misc$1742                                                    0092 GR
- 17 A$misc$1743                                                    0094 GR
- 17 A$misc$1746                                                    0096 GR
- 17 A$misc$1747                                                    0099 GR
- 17 A$misc$1748                                                    009B GR
- 17 A$misc$1749                                                    009D GR
- 17 A$misc$1750                                                    00A0 GR
- 17 A$misc$1751                                                    00A2 GR
- 17 A$misc$1754                                                    00A4 GR
- 17 A$misc$1755                                                    00A6 GR
- 17 A$misc$1756                                                    00A7 GR
- 17 A$misc$1757                                                    00A9 GR
- 17 A$misc$1758                                                    00AA GR
- 17 A$misc$1759                                                    00AC GR
- 17 A$misc$1760                                                    00AD GR
- 17 A$misc$1761                                                    00AF GR
- 17 A$misc$1762                                                    00B0 GR
- 17 A$misc$1765                                                    00B2 GR
- 17 A$misc$1766                                                    00B3 GR
- 17 A$misc$1767                                                    00B4 GR
- 17 A$misc$1768                                                    00B5 GR
- 17 A$misc$1769                                                    00B6 GR
- 17 A$misc$1770                                                    00B7 GR
- 17 A$misc$1771                                                    00B8 GR
- 17 A$misc$1772                                                    00B9 GR
- 17 A$misc$1773                                                    00BB GR
- 17 A$misc$1774                                                    00BD GR
- 17 A$misc$1775                                                    00BF GR
- 17 A$misc$1776                                                    00C1 GR
- 17 A$misc$1777                                                    00C4 GR
- 17 A$misc$1778                                                    00C5 GR
- 17 A$misc$1779                                                    00C6 GR
- 17 A$misc$1780                                                    00C7 GR
- 17 A$misc$1781                                                    00C8 GR
- 17 A$misc$1782                                                    00C9 GR
- 17 A$misc$1783                                                    00CA GR
- 17 A$misc$1784                                                    00CB GR
- 17 A$misc$1785                                                    00CC GR
- 17 A$misc$1786                                                    00CD GR
- 17 A$misc$1787                                                    00CE GR
- 17 A$misc$1790                                                    00CF GR
- 17 A$misc$1791                                                    00D1 GR
- 17 A$misc$1792                                                    00D2 GR
- 17 A$misc$1793                                                    00D3 GR
- 17 A$misc$1794                                                    00D4 GR
- 17 A$misc$1795                                                    00D5 GR
- 17 A$misc$1796                                                    00D6 GR
- 17 A$misc$1797                                                    00D7 GR
- 17 A$misc$1798                                                    00D8 GR
- 17 A$misc$1799                                                    00D9 GR
- 17 A$misc$1800                                                    00DB GR
- 17 A$misc$1801                                                    00DC GR
- 17 A$misc$1802                                                    00DD GR
- 17 A$misc$1803                                                    00DE GR
- 17 A$misc$1804                                                    00DF GR
- 17 A$misc$1805                                                    00E0 GR
- 17 A$misc$1806                                                    00E1 GR
- 17 A$misc$1807                                                    00E3 GR
- 17 A$misc$1808                                                    00E4 GR
- 17 A$misc$1809                                                    00E5 GR
- 17 A$misc$1810                                                    00E6 GR
- 17 A$misc$1811                                                    00E7 GR
- 17 A$misc$1812                                                    00E8 GR
- 17 A$misc$1813                                                    00E9 GR
- 17 A$misc$1814                                                    00EA GR
- 17 A$misc$1815                                                    00EB GR
- 17 A$misc$1816                                                    00EC GR
- 17 A$misc$1817                                                    00EE GR
- 17 A$misc$1818                                                    00EF GR
- 17 A$misc$1819                                                    00F0 GR
- 17 A$misc$1820                                                    00F1 GR
- 17 A$misc$1821                                                    00F2 GR
- 17 A$misc$1822                                                    00F3 GR
- 17 A$misc$1823                                                    00F4 GR
- 17 A$misc$1824                                                    00F5 GR
- 17 A$misc$1825                                                    00F6 GR
- 17 A$misc$1826                                                    00F8 GR
- 17 A$misc$1827                                                    00F9 GR
- 17 A$misc$1828                                                    00FA GR
- 17 A$misc$1829                                                    00FB GR
- 17 A$misc$1830                                                    00FC GR
- 17 A$misc$1831                                                    00FD GR
- 17 A$misc$1832                                                    00FE GR
- 17 A$misc$1833                                                    0100 GR
- 17 A$misc$1834                                                    0101 GR
- 17 A$misc$1835                                                    0102 GR
- 17 A$misc$1836                                                    0103 GR
- 17 A$misc$1839                                                    0104 GR
- 17 A$misc$1840                                                    0106 GR
- 17 A$misc$1841                                                    0107 GR
- 17 A$misc$1842                                                    0108 GR
- 17 A$misc$1843                                                    0109 GR
- 17 A$misc$1844                                                    010A GR
- 17 A$misc$1845                                                    010B GR
- 17 A$misc$1846                                                    010C GR
- 17 A$misc$1847                                                    010D GR
- 17 A$misc$1848                                                    010E GR
- 17 A$misc$1849                                                    010F GR
- 17 A$misc$1850                                                    0110 GR
- 17 A$misc$1851                                                    0111 GR
- 17 A$misc$1852                                                    0112 GR
- 17 A$misc$1853                                                    0113 GR
- 17 A$misc$1854                                                    0114 GR
- 17 A$misc$1855                                                    0115 GR
- 17 A$misc$1856                                                    0116 GR
- 17 A$misc$1857                                                    0117 GR
- 17 A$misc$1858                                                    011A GR
- 17 A$misc$1859                                                    011B GR
- 17 A$misc$1860                                                    011C GR
- 17 A$misc$1861                                                    011D GR
- 17 A$misc$1862                                                    011E GR
- 17 A$misc$1863                                                    011F GR
- 17 A$misc$1864                                                    0120 GR
- 17 A$misc$1865                                                    0121 GR
- 17 A$misc$1866                                                    0122 GR
- 17 A$misc$1867                                                    0123 GR
- 17 A$misc$1868                                                    0124 GR
- 17 A$misc$1871                                                    0125 GR
- 17 A$misc$1872                                                    0127 GR
- 17 A$misc$1873                                                    0128 GR
- 17 A$misc$1874                                                    0129 GR
- 17 A$misc$1875                                                    012A GR
- 17 A$misc$1876                                                    012B GR
- 17 A$misc$1877                                                    012C GR
- 17 A$misc$1878                                                    012D GR
- 17 A$misc$1879                                                    012E GR
- 17 A$misc$1880                                                    012F GR
- 17 A$misc$1881                                                    0131 GR
- 17 A$misc$1882                                                    0132 GR
- 17 A$misc$1883                                                    0133 GR
- 17 A$misc$1884                                                    0134 GR
- 17 A$misc$1885                                                    0135 GR
- 17 A$misc$1886                                                    0136 GR
- 17 A$misc$1887                                                    0137 GR
- 17 A$misc$1888                                                    0139 GR
- 17 A$misc$1889                                                    013A GR
- 17 A$misc$1890                                                    013B GR
- 17 A$misc$1891                                                    013C GR
- 17 A$misc$1892                                                    013D GR
- 17 A$misc$1893                                                    013E GR
- 17 A$misc$1894                                                    013F GR
- 17 A$misc$1895                                                    0140 GR
- 17 A$misc$1896                                                    0141 GR
- 17 A$misc$1897                                                    0142 GR
- 17 A$misc$1898                                                    0144 GR
- 17 A$misc$1899                                                    0145 GR
- 17 A$misc$1900                                                    0146 GR
- 17 A$misc$1901                                                    0147 GR
- 17 A$misc$1902                                                    0148 GR
- 17 A$misc$1903                                                    0149 GR
- 17 A$misc$1904                                                    014A GR
- 17 A$misc$1905                                                    014B GR
- 17 A$misc$1906                                                    014C GR
- 17 A$misc$1907                                                    014E GR
- 17 A$misc$1908                                                    014F GR
- 17 A$misc$1909                                                    0150 GR
- 17 A$misc$1910                                                    0151 GR
- 17 A$misc$1911                                                    0152 GR
- 17 A$misc$1912                                                    0153 GR
- 17 A$misc$1913                                                    0154 GR
- 17 A$misc$1914                                                    0156 GR
- 17 A$misc$1915                                                    0157 GR
- 17 A$misc$1916                                                    0158 GR
- 17 A$misc$1917                                                    0159 GR
- 17 A$misc$1920                                                    015A GR
- 17 A$misc$1921                                                    015C GR
- 17 A$misc$1922                                                    015D GR
- 17 A$misc$1923                                                    015E GR
- 17 A$misc$1924                                                    015F GR
- 17 A$misc$1925                                                    0160 GR
- 17 A$misc$1926                                                    0161 GR
- 17 A$misc$1927                                                    0162 GR
- 17 A$misc$1928                                                    0163 GR
- 17 A$misc$1929                                                    0164 GR
- 17 A$misc$1930                                                    0165 GR
- 17 A$misc$1931                                                    0166 GR
- 17 A$misc$1932                                                    0167 GR
- 17 A$misc$1933                                                    0168 GR
- 17 A$misc$1934                                                    0169 GR
- 17 A$misc$1935                                                    016A GR
- 17 A$misc$1936                                                    016B GR
- 17 A$misc$1937                                                    016C GR
- 17 A$misc$1938                                                    016F GR
- 17 A$misc$1939                                                    0170 GR
- 17 A$misc$1940                                                    0171 GR
- 17 A$misc$1941                                                    0172 GR
- 17 A$misc$1942                                                    0173 GR
- 17 A$misc$1943                                                    0174 GR
- 17 A$misc$1944                                                    0175 GR
- 17 A$misc$1945                                                    0176 GR
- 17 A$misc$1946                                                    0177 GR
- 17 A$misc$1947                                                    0178 GR
- 17 A$misc$1948                                                    0179 GR
- 17 A$misc$1951                                                    017A GR
- 17 A$misc$1952                                                    017C GR
- 17 A$misc$1953                                                    017D GR
- 17 A$misc$1954                                                    017E GR
- 17 A$misc$1955                                                    0180 GR
- 17 A$misc$1956                                                    0181 GR
- 17 A$misc$1957                                                    0182 GR
- 17 A$misc$1958                                                    0183 GR
- 17 A$misc$1959                                                    0184 GR
- 17 A$misc$1960                                                    0185 GR
- 17 A$misc$1961                                                    0186 GR
- 17 A$misc$1962                                                    0187 GR
- 17 A$misc$1963                                                    0188 GR
- 17 A$misc$1964                                                    0189 GR
- 17 A$misc$1965                                                    018A GR
- 17 A$misc$1966                                                    018B GR
- 17 A$misc$1967                                                    018C GR
- 17 A$misc$1968                                                    018D GR
- 17 A$misc$1969                                                    018E GR
- 17 A$misc$1970                                                    018F GR
- 17 A$misc$1971                                                    0190 GR
- 17 A$misc$1972                                                    0191 GR
- 17 A$misc$1973                                                    0193 GR
- 17 A$misc$1974                                                    0194 GR
- 17 A$misc$1975                                                    0195 GR
- 17 A$misc$1976                                                    0196 GR
- 17 A$misc$1977                                                    0197 GR
- 17 A$misc$1978                                                    0198 GR
- 17 A$misc$1979                                                    0199 GR
- 17 A$misc$1980                                                    019A GR
- 17 A$misc$1981                                                    019B GR
- 17 A$misc$1982                                                    019C GR
- 17 A$misc$1983                                                    019D GR
- 17 A$misc$1984                                                    019E GR
- 17 A$misc$1985                                                    019F GR
- 17 A$misc$1988                                                    01A0 GR
- 17 A$misc$1989                                                    01A2 GR
- 17 A$misc$1990                                                    01A3 GR
- 17 A$misc$1991                                                    01A4 GR
- 17 A$misc$1992                                                    01A5 GR
- 17 A$misc$1993                                                    01A6 GR
- 17 A$misc$1994                                                    01A7 GR
- 17 A$misc$1995                                                    01A8 GR
- 17 A$misc$1996                                                    01A9 GR
- 17 A$misc$1997                                                    01AA GR
- 17 A$misc$1998                                                    01AB GR
- 17 A$misc$1999                                                    01AC GR
- 17 A$misc$2000                                                    01AD GR
- 17 A$misc$2001                                                    01AE GR
- 17 A$misc$2002                                                    01AF GR
- 17 A$misc$2003                                                    01B0 GR
- 17 A$misc$2004                                                    01B1 GR
- 17 A$misc$2005                                                    01B2 GR
- 17 A$misc$2006                                                    01B5 GR
- 17 A$misc$2007                                                    01B6 GR
- 17 A$misc$2008                                                    01B7 GR
- 17 A$misc$2009                                                    01B8 GR
- 17 A$misc$2010                                                    01B9 GR
- 17 A$misc$2011                                                    01BA GR
- 17 A$misc$2012                                                    01BB GR
- 17 A$misc$2013                                                    01BC GR
- 17 A$misc$2014                                                    01BD GR
- 17 A$misc$2015                                                    01BE GR
- 17 A$misc$2016                                                    01BF GR
- 17 A$misc$2019                                                    01C0 GR
- 17 A$misc$2020                                                    01C3 GR
- 17 A$misc$2021                                                    01C5 GR
- 17 A$misc$2022                                                    01C6 GR
- 17 A$misc$2023                                                    01C7 GR
- 17 A$misc$2024                                                    01C9 GR
- 17 A$misc$2027                                                    01CA GR
- 17 A$misc$2028                                                    01CD GR
- 17 A$misc$2034                                                    01D0 GR
- 17 A$misc$2037                                                    01D3 GR
- 17 A$misc$2038                                                    01D6 GR
- 17 A$misc$2041                                                    01D9 GR
- 17 A$misc$2042                                                    01DC GR
- 17 A$misc$2043                                                    01DD GR
- 17 A$misc$2044                                                    01DE GR
- 17 A$misc$2045                                                    01DF GR
- 17 A$misc$2046                                                    01E0 GR
- 17 A$misc$2047                                                    01E1 GR
- 17 A$misc$2048                                                    01E2 GR
- 17 A$misc$2049                                                    01E4 GR
- 17 A$misc$2050                                                    01E7 GR
- 17 A$misc$2053                                                    01E9 GR
+ 17 A$misc$1738                                                    0088 GR
+ 17 A$misc$1739                                                    008B GR
+ 17 A$misc$1740                                                    008D GR
+ 17 A$misc$1741                                                    008E GR
+ 17 A$misc$1742                                                    008F GR
+ 17 A$misc$1743                                                    0091 GR
+ 17 A$misc$1744                                                    0092 GR
+ 17 A$misc$1745                                                    0093 GR
+ 17 A$misc$1746                                                    0094 GR
+ 17 A$misc$1747                                                    0095 GR
+ 17 A$misc$1748                                                    0096 GR
+ 17 A$misc$1751                                                    0097 GR
+ 17 A$misc$1752                                                    009A GR
+ 17 A$misc$1755                                                    009D GR
+ 17 A$misc$1756                                                    00A0 GR
+ 17 A$misc$1757                                                    00A2 GR
+ 17 A$misc$1758                                                    00A3 GR
+ 17 A$misc$1759                                                    00A4 GR
+ 17 A$misc$1760                                                    00A6 GR
+ 17 A$misc$1763                                                    00A7 GR
+ 17 A$misc$1764                                                    00AA GR
+ 17 A$misc$1767                                                    00AD GR
+ 17 A$misc$1768                                                    00B0 GR
+ 17 A$misc$1769                                                    00B1 GR
+ 17 A$misc$1770                                                    00B2 GR
+ 17 A$misc$1771                                                    00B3 GR
+ 17 A$misc$1772                                                    00B4 GR
+ 17 A$misc$1773                                                    00B5 GR
+ 17 A$misc$1774                                                    00B6 GR
+ 17 A$misc$1777                                                    00B8 GR
+ 17 A$misc$1781                                                    00BB GR
+ 17 A$misc$1784                                                    00BE GR
+ 17 A$misc$1785                                                    00C1 GR
+ 17 A$misc$1786                                                    00C2 GR
+ 17 A$misc$1787                                                    00C3 GR
+ 17 A$misc$1788                                                    00C4 GR
+ 17 A$misc$1789                                                    00C5 GR
+ 17 A$misc$1790                                                    00C6 GR
+ 17 A$misc$1791                                                    00C7 GR
+ 17 A$misc$1794                                                    00C9 GR
+ 17 A$misc$1800                                                    00CC GR
+ 17 A$misc$1803                                                    00CF GR
+ 17 A$misc$1804                                                    00D2 GR
+ 17 A$misc$1807                                                    00D5 GR
+ 17 A$misc$1808                                                    00D8 GR
+ 17 A$misc$1809                                                    00D9 GR
+ 17 A$misc$1810                                                    00DA GR
+ 17 A$misc$1811                                                    00DB GR
+ 17 A$misc$1812                                                    00DC GR
+ 17 A$misc$1813                                                    00DD GR
+ 17 A$misc$1814                                                    00DE GR
+ 17 A$misc$1817                                                    00E0 GR
     A.0                                                            00E0 
     A.1                                                            00E1 
     A.2                                                            00E2 
@@ -389,8 +157,17 @@ Symbol Table
     B.5                                                            00F5 
     B.6                                                            00F6 
     B.7                                                            00F7 
- 17 C$misc.c$100$1$107                                          =  01D9 GR
- 17 C$misc.c$101$1$107                                          =  01E9 GR
+ 17 C$misc.c$100$1$138                                          =  00A7 GR
+ 17 C$misc.c$102$1$138                                          =  00AD GR
+ 17 C$misc.c$103$2$139                                          =  00B8 GR
+ 17 C$misc.c$105$1$138                                          =  00BB GR
+ 17 C$misc.c$107$1$138                                          =  00BE GR
+ 17 C$misc.c$108$2$140                                          =  00C9 GR
+ 17 C$misc.c$110$1$138                                          =  00CC GR
+ 17 C$misc.c$112$2$141                                          =  00CC GR
+ 17 C$misc.c$114$2$141                                          =  00CF GR
+ 17 C$misc.c$126$1$138                                          =  00D5 GR
+ 17 C$misc.c$127$1$138                                          =  00E0 GR
  17 C$misc.c$38$0$0                                             =  0000 GR
  17 C$misc.c$40$1$99                                            =  0006 GR
  17 C$misc.c$41$1$99                                            =  0018 GR
@@ -411,21 +188,10 @@ Symbol Table
  17 C$misc.c$76$1$101                                           =  0080 GR
  17 C$misc.c$79$1$105                                           =  0080 GR
  17 C$misc.c$80$1$105                                           =  0087 GR
- 17 C$misc.c$82$1$105                                           =  0088 GR
- 17 C$misc.c$86$1$107                                           =  0096 GR
- 17 C$misc.c$87$1$107                                           =  00A4 GR
- 17 C$misc.c$88$1$107                                           =  00B2 GR
- 17 C$misc.c$89$1$107                                           =  00CF GR
- 17 C$misc.c$90$1$107                                           =  0104 GR
- 17 C$misc.c$91$1$107                                           =  0125 GR
- 17 C$misc.c$92$1$107                                           =  015A GR
- 17 C$misc.c$93$1$107                                           =  017A GR
- 17 C$misc.c$94$1$107                                           =  01A0 GR
- 17 C$misc.c$95$1$107                                           =  01C0 GR
- 17 C$misc.c$96$1$107                                           =  01CA GR
- 17 C$misc.c$97$1$107                                           =  01D0 GR
- 17 C$misc.c$98$2$108                                           =  01D0 GR
- 17 C$misc.c$99$2$108                                           =  01D3 GR
+ 17 C$misc.c$84$1$105                                           =  0088 GR
+ 17 C$misc.c$97$1$138                                           =  0088 GR
+ 17 C$misc.c$98$1$138                                           =  0097 GR
+ 17 C$misc.c$99$1$138                                           =  009D GR
     CPRL2                                                          00C8 
     CT2                                                            00C9 
     CY                                                             00D7 
@@ -1076,7 +842,7 @@ Symbol Table
     TR2                                                            00CA 
     TXD                                                            00B1 
  17 XFmisc$delayms_callback$0$0                                 =  0087 GR
- 17 XG$delay_ms$0$0                                             =  01E9 GR
+ 17 XG$delay_ms$0$0                                             =  00E0 GR
  17 XG$display_radio_error$0$0                                  =  007F GR
  17 XG$stop_with_error$0$0                                      =  0030 GR
     _AC                                                         =  00D6 G
@@ -1574,7 +1340,6 @@ Symbol Table
  18 __str_4                                                        0047 R
  18 __str_5                                                        0058 R
  18 __str_6                                                        0063 R
-    _bp                                                            **** GX
  17 _delay_ms                                                      0088 GR
  17 _delayms_callback                                              0080 R
   B _delaymstimer                                                  0000 R
@@ -1586,8 +1351,8 @@ Symbol Table
     _lcd2_writestr                                                 **** GX
  17 _stop_with_error                                               0000 GR
     _wtimer1_addrelative                                           **** GX
+    _wtimer1_remove                                                **** GX
     _wtimer_idle                                                   **** GX
-    _wtimer_remove                                                 **** GX
     _wtimer_runcallbacks                                           **** GX
     a                                                              00E0 
     a.0                                                            00E0 
@@ -1801,7 +1566,7 @@ Area Table
   14 GSINIT5                                    size    0   flags 20
   15 GSINIT                                     size    0   flags 20
   16 GSFINAL                                    size    0   flags 20
-  17 CSEG                                       size  1EA   flags 20
+  17 CSEG                                       size   E1   flags 20
   18 CONST                                      size   70   flags 20
   19 XINIT                                      size    0   flags 20
   1A CABS                                       size    0   flags 28

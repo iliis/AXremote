@@ -79,10 +79,12 @@ static void delayms_callback(struct wtimer_desc __xdata *desc)
     delaymstimer.handler = 0;
 }
 
+#include "../COMMON/libminidvkled.h"
+#include <libmfdbglink.h>
 __reentrantb void delay_ms(uint16_t ms) __reentrant
 {
     // scaling: 20e6/64/1e3=312.5=2^8+2^6-2^3+2^-1
-    uint32_t x;
+    /*uint32_t x;
     wtimer_remove(&delaymstimer);
     x = ms;
     delaymstimer.time = ms >> 1;
@@ -91,11 +93,35 @@ __reentrantb void delay_ms(uint16_t ms) __reentrant
     x <<= 3;
     delaymstimer.time += x;
     x <<= 2;
-    delaymstimer.time += x;
+    delaymstimer.time += x;*/
+    delaymstimer.time = 3125; // 10ms
+    wtimer1_remove(&delaymstimer);
     delaymstimer.handler = delayms_callback;
     wtimer1_addrelative(&delaymstimer);
+
+    if (delaymstimer.handler == 0)
+        led0_toggle();
+
+    wtimer_runcallbacks();
+
+    if (delaymstimer.handler == 0)
+        led0_toggle();
+
     do {
+
         wtimer_runcallbacks();
+
         wtimer_idle(WTFLAG_CANSTANDBY);
+
+        /*PCON = (PCON & 0x0C) | 0x01;
+        led0_toggle();
+        nop();
+        nop();
+        nop();
+        nop();
+        nop();
+        nop();
+        nop();*/
+
     } while (delaymstimer.handler);
 }

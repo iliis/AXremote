@@ -23,6 +23,9 @@
 				<Option type="1" />
 				<Option compiler="sdcc" />
 				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-E" />
+				</Compiler>
 			</Target>
 		</Build>
 		<Compiler>
@@ -60,6 +63,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/misc.h" />
+		<Unit filename="keymatrix.c">
+			<Option compilerVar="CPP" />
+		</Unit>
+		<Unit filename="keymatrix.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

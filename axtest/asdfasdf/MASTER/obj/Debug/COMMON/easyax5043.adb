@@ -1460,6 +1460,7 @@ S:G$crc_crc16dnp_msbtable$0$0({512}DA256d,SI:U),D,0,0
 S:G$crc_crc32_table$0$0({1024}DA256d,SL:U),D,0,0
 S:G$crc_crc32_msbtable$0$0({1024}DA256d,SL:U),D,0,0
 S:G$pn9_table$0$0({512}DA512d,SC:U),D,0,0
+S:Feasyax5043$_str_0$0$0({4}DA4d,SC:S),D,0,0
 S:Feasyax5043$__xinit_f30_saved$0$0({1}SC:U),C,0,0
 S:Feasyax5043$__xinit_f31_saved$0$0({1}SC:U),C,0,0
 S:Feasyax5043$__xinit_f32_saved$0$0({1}SC:U),C,0,0

@@ -1,686 +1,817 @@
-XH
-H 1B areas 1F5 global symbols
-M misc
-O -mmcs51 --model-small
-S _MISCCTRL Def7F01
-S _XT2PERIOD Def3FAE
-S _ANALOGCOMP Def00E1
-S _DIRB Def008A
-S _IC0MODE Def00CC
-S _IC1STATUS Def00D5
-S _OC0COMP0 Def00BC
-S _E2IP_2 Def00C2
-S _IE_4 Def00AC
-S _XADCCLKSRC Def3FD1
-S _DIRC Def008B
-S _IC1MODE Def00D4
-S _OC0COMP1 Def00BD
-S _OC1COMP0 Def00C4
-S _E2IP_3 Def00C3
-S _EIE_0 Def0098
-S _IE_5 Def00AD
-S _lcd2_setpos Ref0000
-S _XTALAMPL Def7F19
-S _XWTEVTA0 Def3FF4
-S _SP Def0081
-S _OC1COMP1 Def00C5
-S _E2IP_4 Def00C4
-S _EIE_1 Def0099
-S _IE_6 Def00AE
-S _XWTEVTA1 Def3FF5
-S _XWTEVTB0 Def3FF6
-S _IC0CAPT DefCFCE
-S _E2IP_5 Def00C5
-S _EIE_2 Def009A
-S _IE_7 Def00AF
-S _XNVKEY Def3F96
-S _XWTEVTB1 Def3FF7
-S _XWTEVTC0 Def3FFC
-S _IC1CAPT DefD7D6
-S _SPCLKSRC Def00DF
-S _E2IP_6 Def00C6
-S _EIE_3 Def009B
-S _OV Def00D2
-S _ADCCH0VAL Def7020
-S _XIE Def3FA8
-S _XWTEVTC1 Def3FFD
-S _XWTEVTD0 Def3FFE
-S _OC0STATUS Def00BB
-S _E2IP_7 Def00C7
-S _EIE_4 Def009C
-S _ADCCH1VAL Def7022
-S _FRCOSCPER Def7078
-S _XDBGLNKBUF Def3FE3
-S _XWTEVTD1 Def3FFF
-S _DPS Def0086
-S _OC0MODE Def00B9
-S _OC1STATUS Def00C3
-S _WTSTAT Def00EA
-S _EIE_5 Def009D
-S _ADCCH2VAL Def7024
-S _LPOSCPER Def7068
-S _PINA Def00C8
-S _OC1MODE Def00C1
-S _T0STATUS Def009B
-S _EIE_6 Def009E
-S _IP_0 Def00B8
-S _ADCCH3VAL Def7026
-S _RADIOMUX Def7044
-S _XCODECONFIG Def3F97
-S _XWTCNTA Def3FF2
-S _PINB Def00E8
-S _OC0PIN Def00BA
-S _T0CNT Def9D9C
-S _T0MODE Def0099
-S _T1STATUS Def00A3
-S _U0STATUS Def00E5
-S _EIE_7 Def009F
-S _IP_1 Def00B9
-S _FRCOSCKFILT0 Def7072
-S _RADIOFDATAADDR Def7040
-S _XWTCNTB Def3FFA
-S _DPTR0 Def8382
-S _PINC Def00F8
-S _OC1PIN Def00C2
-S _T1CNT DefA5A4
-S _T1MODE Def00A1
-S _T2STATUS Def00AB
-S _U0MODE Def00E7
-S _U1STATUS Def00ED
-S _WTIRQEN Def00E9
-S _IP_2 Def00BA
-S _lcd2_wait_txdone Ref0000
-S _FRCOSCKFILT1 Def7073
-S _LPOSCKFILT0 Def7062
-S _XWTCNTR1 Def3FEB
-S _DPTR1 Def8584
-S _RADIOSTAT DefBFBE
-S _T2CNT DefADAC
-S _T2MODE Def00A9
-S _U1MODE Def00EF
-S _IP_3 Def00BB
-S _LPOSCKFILT1 Def7063
-S _XIC0CAPT0 Def3FCE
-S _IP_4 Def00BC
-S _wtimer_runcallbacks Ref0000
-S _LPXOSCGM Def7054
-S _XIC0CAPT1 Def3FCF
-S _XIC1CAPT0 Def3FD6
-S _EIP_0 Def00B0
-S _IP_5 Def00BD
-S _wtimer1_addrelative Ref0000
-S _FRCOSCFREQ Def7076
-S _XTALREADY Def7F1A
-S _XCLKSTAT Def3FC7
-S _XIC1CAPT1 Def3FD7
-S _DBGLNKSTAT Def00E2
-S _NVDATA0 Def0094
-S _EIP_1 Def00B1
-S _IP_6 Def00BE
-S _LPOSCFREQ Def7066
-S _XPORTR Def3F8C
-S _NVADDR0 Def0092
-S _NVDATA1 Def0095
-S _EIP_2 Def00B2
-S _IP_7 Def00BF
-S _PCON Def0087
-S _NVADDR1 Def0093
-S _EIP_3 Def00B3
-S _XIP Def3FB8
-S _XT0CNT0 Def3F9C
-S _DIRR Def008E
-S _OC0COMP DefBDBC
-S _EIP_4 Def00B4
-S _PALTA Def7008
-S _XT0CNT1 Def3F9D
-S _XT1CNT0 Def3FA4
-S _OC1COMP DefC5C4
-S _WDTRESET Def00DB
-S _EIP_5 Def00B5
-S _ANALOGA Def7007
-S _PALTB Def7009
-S _XRADIOSTAT0 Def3FBE
-S _XT1CNT1 Def3FA5
-S _XT2CNT0 Def3FAC
-S _XWTEVTA Def3FF4
-S _EIP_6 Def00B6
-S _ADCTUNE0 Def7028
-S _PALTC Def700A
-S _XRADIOSTAT1 Def3FBF
-S _XSPSHREG Def3FDE
-S _XT2CNT1 Def3FAD
-S _XWTEVTB Def3FF6
-S _EIP_7 Def00B7
-S _ADCTUNE1 Def7029
-S _FRCOSCCTRL Def7071
-S _XWTEVTC Def3FFC
-S _XPAGE Def00D9
-S _ADCTUNE2 Def702A
-S _FRCOSCCONFIG Def7070
-S _XWTEVTD Def3FFE
-S _RADIOACC Def00B1
-S _F0 Def00D5
-S _LPOSCCONFIG Def7060
-S _T0PERIOD0 Def009E
-S _F1 Def00D1
-S _PINA_0 Def00C8
-S _DMA0CONFIG Def7014
-S _SCRATCH0 Def7084
-S _XDIRA Def3F89
-S _XIC0STATUS Def3FCD
-S _T0PERIOD1 Def009F
-S _T1PERIOD0 Def00A6
-S _PINA_1 Def00C9
-S _PINB_0 Def00E8
-S _DMA1CONFIG Def7015
-S _SCRATCH1 Def7085
-S _XANALOGCOMP Def3FE1
-S _XDIRB Def3F8A
-S _XIC0MODE Def3FCC
-S _XIC1STATUS Def3FD5
-S _XOC0COMP0 Def3FBC
-S _ADCCH0CONFIG Def00CA
-S _PINR Def008D
-S _RADIODATA0 Def00B7
-S _T1PERIOD1 Def00A7
-S _T2PERIOD0 Def00AE
-S _PINA_2 Def00CA
-S _PINB_1 Def00E9
-S _PINC_0 Def00F8
-S _FRCOSCKFILT Def7072
-S _PINCHGA Def7004
-S _SCRATCH2 Def7086
-S _XDIRC Def3F8B
-S _XIC1MODE Def3FD4
-S _XOC0COMP1 Def3FBD
-S _XOC1COMP0 Def3FC4
-S _PSW Def00D0
-S _ADCCH1CONFIG Def00CB
-S _CLKCON Def00C6
-S _RADIOADDR0 Def00B3
-S _RADIODATA1 Def00B6
-S _T2PERIOD1 Def00AF
-S _U0CTRL Def00E4
-S _PINA_3 Def00CB
-S _PINB_2 Def00EA
-S _PINC_1 Def00F9
-S _PINCHGB Def7005
-S _LPOSCKFILT Def7062
-S _SCRATCH3 Def7087
-S _XOC1COMP1 Def3FC5
-S _ADCCH2CONFIG Def00D2
-S _RADIOADDR1 Def00B2
-S _RADIODATA2 Def00B5
-S _U1CTRL Def00EC
-S _PINA_4 Def00CC
-S _PINB_3 Def00EB
-S _PINC_2 Def00FA
-S _PINCHGC Def7006
-S _RADIOFSTATADDR0 Def7042
-S _XIC0CAPT Def3FCE
-S _ADCCH3CONFIG Def00D3
-S _RADIODATA3 Def00B4
-S _WTCFGA Def00F1
-S _PINA_5 Def00CD
-S _PINB_4 Def00EC
-S _PINC_3 Def00FB
-S _RADIOFSTATADDR1 Def7043
-S _XIC1CAPT Def3FD6
-S _XSPCLKSRC Def3FDF
-S _WTCFGB Def00F9
-S _PINA_6 Def00CE
-S _PINB_5 Def00ED
-S _PINC_4 Def00FC
-S _INTCHGA Def7000
-S _SILICONREV Def7F00
-S _XOC0STATUS Def3FBB
-S _ADCCONV Def00C9
-S _NVDATA Def9594
-S _U0SHREG Def00E6
-S _PINA_7 Def00CF
-S _PINB_6 Def00EE
-S _PINC_5 Def00FD
-S _INTCHGB Def7001
-S _XOC0MODE Def3FB9
-S _XOC1STATUS Def3FC3
-S _XWTSTAT Def3FEA
-S _NVADDR Def9392
-S _U1SHREG Def00EE
-S _WDTCFG Def00DA
-S _PINB_7 Def00EF
-S _PINC_6 Def00FE
-S .__.ABS. Def0000
-S _INTCHGC Def7002
-S _OSCCALIB Def7053
-S _XPINA Def3FC8
-S _XOC1MODE Def3FC1
-S _XT0STATUS Def3F9B
-S _PINC_7 Def00FF
-S _XPINB Def3FE8
-S _XOC0PIN Def3FBA
-S _XT0CNT Def3F9C
-S _XT0MODE Def3F99
-S _XT1STATUS Def3FA3
-S _XU0STATUS Def3FE5
-S _WTCNTA0 Def00F2
-S _XDPTR0 Def3F82
-S _XPINC Def3FF8
-S _XOC1PIN Def3FC2
-S _XT1CNT Def3FA4
-S _XT1MODE Def3FA1
-S _XT2STATUS Def3FAB
-S _XU0MODE Def3FE7
-S _XU1STATUS Def3FED
-S _XWTIRQEN Def3FE9
-S _B Def00F0
-S _WTCNTA1 Def00F3
-S _WTCNTB0 Def00FA
-S _XDPTR1 Def3F84
-S _XRADIOSTAT Def3FBE
-S _XT2CNT Def3FAC
-S _XT2MODE Def3FA9
-S _XU1MODE Def3FEF
-S _WTCNTB1 Def00FB
-S _AC Def00D6
-S _E2IE Def00A0
-S _wtimer_remove Ref0000
-S _XDBGLNKSTAT Def3FE2
-S _XNVDATA0 Def3F94
-S _PORTA Def0080
-S _T0CLKSRC Def009A
-S _EA Def00AF
-S _XNVADDR0 Def3F92
-S _XNVDATA1 Def3F95
-S _ACC Def00E0
-S _PORTB Def0088
-S _SPSTATUS Def00DD
-S _T0PERIOD Def9F9E
-S _T1CLKSRC Def00A2
-S _XPCON Def3F87
-S _XNVADDR1 Def3F93
-S _PORTC Def0090
-S _NVSTATUS Def0091
-S _SPMODE Def00DC
-S _T1PERIOD DefA7A6
-S _T2CLKSRC Def00AA
-S _lcd2_writestr Ref0000
-S _OSCFORCERUN Def7050
-S _XDIRR Def3F8E
-S _XOC0COMP Def3FBC
-S _RADIODATA DefB4B5B6B7
-S _T2PERIOD DefAFAE
-S _XOC1COMP Def3FC4
-S _XWDTRESET Def3FDB
-S _ADCCLKSRC Def00D1
-S _RADIOADDR DefB2B3
-S _PINSEL Def700B
-S _WTEVTA0 Def00F4
-S _RADIOFSTATADDR Def7042
-S _WTEVTA1 Def00F5
-S _WTEVTB0 Def00F6
-S _DMA0ADDR0 Def7010
-S _FRCOSCREF0 Def7074
-S _DPH1 Def0085
-S _NVKEY Def0096
-S _WTEVTB1 Def00F7
-S _WTEVTC0 Def00FC
-S _DMA0ADDR1 Def7011
-S _DMA1ADDR0 Def7012
-S _FRCOSCREF1 Def7075
-S _LPOSCREF0 Def7064
-S _XRADIOACC Def3FB1
-S _IE Def00A8
-S _WTEVTC1 Def00FD
-S _WTEVTD0 Def00FE
-S _DMA1ADDR1 Def7013
-S _LPOSCREF1 Def7065
-S _XT0PERIOD0 Def3F9E
-S _DBGLNKBUF Def00E3
-S _WTEVTD1 Def00FF
-S _XT0PERIOD1 Def3F9F
-S _XT1PERIOD0 Def3FA6
-S _E2IP Def00C0
-S _P Def00D0
-S _XADCCH0CONFIG Def3FCA
-S _XPINR Def3F8D
-S _XRADIODATA0 Def3FB7
-S _XT1PERIOD1 Def3FA7
-S _XT2PERIOD0 Def3FAE
-S _DPL1 Def0084
-S _CODECONFIG Def0097
-S _WTCNTA DefF3F2
-S _B_0 Def00F0
-S _bp Ref0000
-S _XADCCH1CONFIG Def3FCB
-S _XCLKCON Def3FC6
-S _XRADIOADDR0 Def3FB3
-S _XRADIODATA1 Def3FB6
-S _XT2PERIOD1 Def3FAF
-S _XU0CTRL Def3FE4
-S _WTCNTB DefFBFA
-S _B_1 Def00F1
-S _XADCCH2CONFIG Def3FD2
-S _XRADIOADDR1 Def3FB2
-S _XRADIODATA2 Def3FB5
-S _XU1CTRL Def3FEC
-S _EIE Def0098
-S _WTCNTR1 Def00EB
-S _B_2 Def00F2
-S _XADCCH3CONFIG Def3FD3
-S _XRADIODATA3 Def3FB4
-S _XWTCFGA Def3FF1
-S __XPAGE Def00D9
-S _IC0CAPT0 Def00CE
-S _B_3 Def00F3
-S _E2IE_0 Def00A0
-S _XWTCFGB Def3FF9
-S _IC0CAPT1 Def00CF
-S _IC1CAPT0 Def00D6
-S _B_4 Def00F4
-S _E2IE_1 Def00A1
-S _RS0 Def00D3
-S _PORTA_0 Def0080
-S _wtimer_idle Ref0000
-S _ADCCH0VAL0 Def7020
-S _GPIOENABLE Def700C
-S _XADCCONV Def3FC9
-S _XNVDATA Def3F94
-S _XU0SHREG Def3FE6
-S _CLKSTAT Def00C7
-S _IC1CAPT1 Def00D7
-S _ACC_0 Def00E0
-S _B_5 Def00F5
-S _E2IE_2 Def00A2
-S _RS1 Def00D4
-S _PORTA_1 Def0081
-S _PORTB_0 Def0088
-S _enter_sleep Ref0000
-S _ADCCH0VAL1 Def7021
-S _ADCCH1VAL0 Def7022
-S _FRCOSCPER0 Def7078
-S _XNVADDR Def3F92
-S _XU1SHREG Def3FEE
-S _XWDTCFG Def3FDA
-S _PORTR Def008C
-S _ACC_1 Def00E1
-S _B_6 Def00F6
-S _E2IE_3 Def00A3
-S _PORTA_2 Def0082
-S _PORTB_1 Def0089
-S _PORTC_0 Def0090
-S _ADCCH1VAL1 Def7023
-S _ADCCH2VAL0 Def7024
-S _FRCOSCPER1 Def7079
-S _LPOSCPER0 Def7068
-S _ACC_2 Def00E2
-S _B_7 Def00F7
-S _E2IE_4 Def00A4
-S _PORTA_3 Def0083
-S _PORTB_2 Def008A
-S _PORTC_1 Def0091
-S _ADCCH2VAL1 Def7025
-S _ADCCH3VAL0 Def7026
-S _LPOSCPER1 Def7069
-S _XWTCNTA0 Def3FF2
-S _IP Def00B8
-S _T0CNT0 Def009C
-S _ACC_3 Def00E3
-S _E2IE_5 Def00A5
-S _PORTA_4 Def0084
-S _PORTB_3 Def008B
-S _PORTC_2 Def0092
-S _ADCCH3VAL1 Def7027
-S _OSCREADY Def7052
-S _OSCRUN Def7051
-S _RADIOFDATAADDR0 Def7040
-S _XWTCNTA1 Def3FF3
-S _XWTCNTB0 Def3FFA
-S _T0CNT1 Def009D
-S _T1CNT0 Def00A4
-S _ACC_4 Def00E4
-S _E2IE_6 Def00A6
-S _PORTA_5 Def0085
-S _PORTB_4 Def008C
-S _PORTC_3 Def0093
-S _RADIOFDATAADDR1 Def7041
-S _XWTCNTB1 Def3FFB
-S _RADIOSTAT0 Def00BE
-S _T1CNT1 Def00A5
-S _T2CNT0 Def00AC
-S _WTEVTA DefF5F4
-S _ACC_5 Def00E5
-S _E2IE_7 Def00A7
-S _PORTA_6 Def0086
-S _PORTB_5 Def008D
-S _PORTC_4 Def0094
-S _DPH Def0083
-S _RADIOSTAT1 Def00BF
-S _SPSHREG Def00DE
-S _T2CNT1 Def00AD
-S _WTEVTB DefF7F6
-S _ACC_6 Def00E6
-S _CY Def00D7
-S _PORTA_7 Def0087
-S _PORTB_6 Def008E
-S _PORTC_5 Def0095
-S _DMA0ADDR Def7010
-S _FRCOSCREF Def7074
-S _EXTIRQ Def7003
-S _WTEVTC DefFDFC
-S _ACC_7 Def00E7
-S _IE_0 Def00A8
-S _PORTB_7 Def008F
-S _PORTC_6 Def0096
-S _DMA1ADDR Def7012
-S _FRCOSCFREQ0 Def7076
-S _LPOSCREF Def7064
-S _XTALOSC Def7F18
-S _XPORTA Def3F80
-S _XT0CLKSRC Def3F9A
-S _EIP Def00B0
-S _WTEVTD DefFFFE
-S _IE_1 Def00A9
-S _PORTC_7 Def0097
-S _FRCOSCFREQ1 Def7077
-S _LPOSCFREQ0 Def7066
-S _XPORTB Def3F88
-S _XSPSTATUS Def3FDD
-S _XT0PERIOD Def3F9E
-S _XT1CLKSRC Def3FA2
-S _E2IP_0 Def00C0
-S _IE_2 Def00AA
-S _LPOSCFREQ1 Def7067
-S _XPORTC Def3F90
-S _XNVSTATUS Def3F91
-S _XSPMODE Def3FDC
-S _XT1PERIOD Def3FA6
-S _XT2CLKSRC Def3FAA
-S _DPL Def0082
-S _DIRA Def0089
-S _IC0STATUS Def00CD
-S _E2IP_1 Def00C1
-S _IE_3 Def00AB
-A _CODE size 0 flags 0 addr 0
-A RSEG size 0 flags 8 addr 0
-A RSEG0 size 0 flags 8 addr 0
-A RSEG1 size 0 flags 8 addr 0
-A REG_BANK_0 size 8 flags 4 addr 0
-A DSEG size 0 flags 0 addr 0
-A OSEG size 0 flags 4 addr 0
-A ISEG size 0 flags 0 addr 0
-A IABS size 0 flags 8 addr 0
-A BSEG size 0 flags 80 addr 0
-A PSEG size 0 flags 50 addr 0
-A XSEG size 8 flags 40 addr 0
-A XABS size 0 flags 48 addr 0
-A XISEG size 0 flags 40 addr 0
-A HOME size 0 flags 20 addr 0
-A GSINIT0 size 0 flags 20 addr 0
-A GSINIT1 size 0 flags 20 addr 0
-A GSINIT2 size 0 flags 20 addr 0
-A GSINIT3 size 0 flags 20 addr 0
-A GSINIT4 size 0 flags 20 addr 0
-A GSINIT5 size 0 flags 20 addr 0
-A GSINIT size 0 flags 20 addr 0
-A GSFINAL size 0 flags 20 addr 0
-A CSEG size 1E7 flags 20 addr 0
-S _stop_with_error Def0000
-S _display_radio_error Def0030
-S _delay_ms Def0085
-A CONST size 70 flags 20 addr 0
-A XINIT size 0 flags 20 addr 0
-A CABS size 0 flags 28 addr 0
-T 00 00
-R 00 00 00 02
-T 00 00
-R 00 00 00 03
-T 00 00
-R 00 00 00 04
-T 00 00
-R 00 00 00 0B
-T 00 00
-R 00 00 00 0B
-T 00 00
-R 00 00 00 17
-T 00 00 AD 82 AE 83 AF F0 75 82 00 C0 07 C0 06 C0
-R 00 00 00 17
-T 00 0E 05 12 00 00 D0 05 D0 06 D0 07 8D 82 8E 83
-R 00 00 00 17 02 04 00 11
-T 00 1C 8F F0 12 00 00 12 00 00 75 A0 00 75 98 00
-R 00 00 00 17 02 05 01 2D 02 08 00 57
-T 00 2A 75 A8 00 02 00 00
-R 00 00 00 17 02 06 01 88
-T 00 30
-R 00 00 00 17
-T 00 30 AF 82 7D 00 00 00 7E 00 00 00 8D 03 8E 04
-R 00 00 00 17 F1 01 05 00 18 F1 81 09 00 18
-T 00 3A
-R 00 00 00 17
-T 00 3A 8B 82 8C 83 E4 93 FA B5 07 25 75 82 00 C0
-R 00 00 00 17
-T 00 48 06 C0 05 12 00 00 D0 05 D0 06 8D 82 8E 83
-R 00 00 00 17 02 06 00 11
-T 00 56 A3 E4 93 F9 A3 E4 93 F8 7A 80 89 82 88 83
-R 00 00 00 17
-T 00 64 8A F0 02 00 00
-R 00 00 00 17 02 05 01 2D
-T 00 69
-R 00 00 00 17
-T 00 69 74 03 2B FB E4 3C FC 8B 05 8C 06 8B 82 8C
-R 00 00 00 17
-T 00 77 83 E4 93 70 BE 22
-R 00 00 00 17
-T 00 7D
-R 00 00 00 17
-T 00 7D 90 00 02 E4 F0 A3 F0 22
-R 00 00 00 17 00 03 00 0B
-T 00 85
-R 00 00 00 17
-T 00 85 C0 00 00 00 E5 81 F5 00 00 00 24 04 F5 81
-R 00 00 00 17 F1 23 03 01 5C F1 23 09 01 5C
-T 00 8F AE 82 AF 83 90 00 00 C0 07 C0 06 12 00 00
-R 00 00 00 17 00 07 00 0B 02 0E 01 19
-T 00 9D D0 06 D0 07 A8 00 00 00 08 A6 06 08 A6 07
-R 00 00 00 17 F1 23 07 01 5C
-T 00 A9 08 76 00 08 76 00 EF C3 13 CE 13 CE FF 8E
-R 00 00 00 17
-T 00 B7 04 8F 05 7E 00 7F 00 90 00 04 EC F0 A3 ED
-R 00 00 00 17 00 0A 00 0B
-T 00 C5 F0 A3 EE F0 A3 EF F0 A8 00 00 00 08 08 08
-R 00 00 00 17 F1 23 0A 01 5C
-T 00 D1 08 E6 18 C4 03 54 F8 C6 C4 03 C6 66 C6 54
-R 00 00 00 17
-T 00 DF F8 C6 66 08 F6 18 18 E6 C4 03 54 07 08 46
-R 00 00 00 17
-T 00 ED F6 18 E6 18 C4 03 54 F8 C6 C4 03 C6 66 C6
-R 00 00 00 17
-T 00 FB 54 F8 C6 66 08 F6 A8 00 00 00 08 EC C3 96
-R 00 00 00 17 F1 23 09 01 5C
-T 01 07 FC ED 08 96 FD EE 08 96 FE EF 08 96 FF 90
-R 00 00 00 17
-T 01 15 00 04 EC F0 A3 ED F0 A3 EE F0 A3 EF F0 A8
-R 00 00 00 17 00 02 00 0B
-T 01 23 00 00 00 08 08 08 08 E6 18 C4 03 54 F8 C6
-R 00 00 00 17 F1 23 02 01 5C
-T 01 2F C4 03 C6 66 C6 54 F8 C6 66 08 F6 18 18 E6
-R 00 00 00 17
-T 01 3D C4 03 54 07 08 46 F6 18 E6 18 C4 03 54 F8
-R 00 00 00 17
-T 01 4B C6 C4 03 C6 66 C6 54 F8 C6 66 08 F6 A8
-R 00 00 00 17
-T 01 58 00 00 00 08 E6 2C FC 08 E6 3D FD 08 E6 3E
-R 00 00 00 17 F1 23 02 01 5C
-T 01 64 FE 08 E6 3F FF 90 00 04 EC F0 A3 ED F0 A3
-R 00 00 00 17 00 08 00 0B
-T 01 72 EE F0 A3 EF F0 A8 00 00 00 08 E6 25 E0 F6
-R 00 00 00 17 F1 23 08 01 5C
-T 01 7E 08 E6 33 F6 08 E6 33 F6 08 E6 33 F6 18 18
-R 00 00 00 17
-T 01 8C 18 E6 25 E0 F6 08 E6 33 F6 08 E6 33 F6 08
-R 00 00 00 17
-T 01 9A E6 33 F6 A8 00 00 00 08 E6 2C FC 08 E6 3D
-R 00 00 00 17 F1 23 06 01 5C
-T 01 A6 FD 08 E6 3E FE 08 E6 3F FF 90 00 04 EC F0
-R 00 00 00 17 00 0C 00 0B
-T 01 B4 A3 ED F0 A3 EE F0 A3 EF F0 90 00 02 74
-R 00 00 00 17 00 0C 00 0B
-T 01 C1 00 00 7D F0 A3 74 00 00 7D F0 90
-R 00 00 00 17 F1 01 02 00 17 F1 81 08 00 17
-T 01 C8 00 00 12 00 00
-R 00 00 00 17 00 02 00 0B 02 05 00 6A
-T 01 CD
-R 00 00 00 17
-T 01 CD 12 00 00 75 82 02 12 00 00 90
-R 00 00 00 17 02 03 00 64 02 09 01 7A
-T 01 D7 00 02 E0 FE A3 E0 FF 4E 70 EC 85 00 00 00
-R 00 00 00 17 00 02 00 0B F1 23 0D 01 5C
-T 01 E3 81 D0 00 00 00 22
-R 00 00 00 17 F1 23 04 01 5C
-T 00 00
-R 00 00 00 18
-T 00 00 01 00 00 18 00 00 18 02
-R 00 00 00 18 F1 01 03 00 18 F1 81 06 00 18
-T 00 04 00 00 29 00 00 29 03
-R 00 00 00 18 F1 01 02 00 18 F1 81 05 00 18
-T 00 07 00 00 31 00 00 31 04
-R 00 00 00 18 F1 01 02 00 18 F1 81 05 00 18
-T 00 0A 00 00 3C 00 00 3C 05
-R 00 00 00 18 F1 01 02 00 18 F1 81 05 00 18
-T 00 0D 00 00 47 00 00 47 06
-R 00 00 00 18 F1 01 02 00 18 F1 81 05 00 18
-T 00 10 00 00 58 00 00 58 07
-R 00 00 00 18 F1 01 02 00 18 F1 81 05 00 18
-T 00 13 00 00 63 00 00 63 00 00 00
-R 00 00 00 18 F1 01 02 00 18 F1 81 05 00 18
-T 00 18
-R 00 00 00 18
-T 00 18 45 3A 20 6E 6F 74 20 73 75 70 70 6F 72 74
-R 00 00 00 18
-T 00 26 65 64 00
-R 00 00 00 18
-T 00 29
-R 00 00 00 18
-T 00 29 45 3A 20 62 75 73 79 00
-R 00 00 00 18
-T 00 31
-R 00 00 00 18
-T 00 31 45 3A 20 74 69 6D 65 6F 75 74 00
-R 00 00 00 18
-T 00 3C
-R 00 00 00 18
-T 00 3C 45 3A 20 69 6E 76 61 6C 69 64 00
-R 00 00 00 18
-T 00 47
-R 00 00 00 18
-T 00 47 45 3A 20 6E 6F 20 63 68 69 70 20 66 6F 75
-R 00 00 00 18
-T 00 55 6E 64 00
-R 00 00 00 18
-T 00 58
-R 00 00 00 18
-T 00 58 45 3A 20 72 61 6E 67 69 6E 67 00
-R 00 00 00 18
-T 00 63
-R 00 00 00 18
-T 00 63 45 3A 20 6C 6F 63 6B 20 6C 6F 73 74 00
-R 00 00 00 18
+# 1 "..\\COMMON\\misc.c"
+# 1 "<built-in>"
+# 1 "<command line>"
+# 1 "..\\COMMON\\misc.c"
+# 30 "..\\COMMON\\misc.c"
+# 1 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/ax8052.h" 1
+# 34 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/ax8052.h"
+# 1 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/axcompiler.h" 1
+# 35 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/ax8052.h" 2
+
+
+
+__sfr __at(0xE0) ACC ;
+__sbit __at(0xE0 +0) ACC_0 ;
+__sbit __at(0xE0 +1) ACC_1 ;
+__sbit __at(0xE0 +2) ACC_2 ;
+__sbit __at(0xE0 +3) ACC_3 ;
+__sbit __at(0xE0 +4) ACC_4 ;
+__sbit __at(0xE0 +5) ACC_5 ;
+__sbit __at(0xE0 +6) ACC_6 ;
+__sbit __at(0xE0 +7) ACC_7 ;
+__sfr __at(0xF0) B ;
+__sbit __at(0xF0 +0) B_0 ;
+__sbit __at(0xF0 +1) B_1 ;
+__sbit __at(0xF0 +2) B_2 ;
+__sbit __at(0xF0 +3) B_3 ;
+__sbit __at(0xF0 +4) B_4 ;
+__sbit __at(0xF0 +5) B_5 ;
+__sbit __at(0xF0 +6) B_6 ;
+__sbit __at(0xF0 +7) B_7 ;
+__sfr __at(0x83) DPH ;
+__sfr __at(0x85) DPH1 ;
+__sfr __at(0x82) DPL ;
+__sfr __at(0x84) DPL1 ;
+__sfr16 __at(((0x82 +1U)<<8) | 0x82) DPTR0 ;
+__sfr16 __at(((0x84 +1U)<<8) | 0x84) DPTR1 ;
+__sfr __at(0x86) DPS ;
+__sfr __at(0xA0) E2IE ;
+__sbit __at(0xA0 +0) E2IE_0 ;
+__sbit __at(0xA0 +1) E2IE_1 ;
+__sbit __at(0xA0 +2) E2IE_2 ;
+__sbit __at(0xA0 +3) E2IE_3 ;
+__sbit __at(0xA0 +4) E2IE_4 ;
+__sbit __at(0xA0 +5) E2IE_5 ;
+__sbit __at(0xA0 +6) E2IE_6 ;
+__sbit __at(0xA0 +7) E2IE_7 ;
+__sfr __at(0xC0) E2IP ;
+__sbit __at(0xC0 +0) E2IP_0 ;
+__sbit __at(0xC0 +1) E2IP_1 ;
+__sbit __at(0xC0 +2) E2IP_2 ;
+__sbit __at(0xC0 +3) E2IP_3 ;
+__sbit __at(0xC0 +4) E2IP_4 ;
+__sbit __at(0xC0 +5) E2IP_5 ;
+__sbit __at(0xC0 +6) E2IP_6 ;
+__sbit __at(0xC0 +7) E2IP_7 ;
+__sfr __at(0x98) EIE ;
+__sbit __at(0x98 +0) EIE_0 ;
+__sbit __at(0x98 +1) EIE_1 ;
+__sbit __at(0x98 +2) EIE_2 ;
+__sbit __at(0x98 +3) EIE_3 ;
+__sbit __at(0x98 +4) EIE_4 ;
+__sbit __at(0x98 +5) EIE_5 ;
+__sbit __at(0x98 +6) EIE_6 ;
+__sbit __at(0x98 +7) EIE_7 ;
+__sfr __at(0xB0) EIP ;
+__sbit __at(0xB0 +0) EIP_0 ;
+__sbit __at(0xB0 +1) EIP_1 ;
+__sbit __at(0xB0 +2) EIP_2 ;
+__sbit __at(0xB0 +3) EIP_3 ;
+__sbit __at(0xB0 +4) EIP_4 ;
+__sbit __at(0xB0 +5) EIP_5 ;
+__sbit __at(0xB0 +6) EIP_6 ;
+__sbit __at(0xB0 +7) EIP_7 ;
+__sfr __at(0xA8) IE ;
+__sbit __at(0xA8 +0) IE_0 ;
+__sbit __at(0xA8 +1) IE_1 ;
+__sbit __at(0xA8 +2) IE_2 ;
+__sbit __at(0xA8 +3) IE_3 ;
+__sbit __at(0xA8 +4) IE_4 ;
+__sbit __at(0xA8 +5) IE_5 ;
+__sbit __at(0xA8 +6) IE_6 ;
+__sbit __at(0xA8 +7) IE_7 ;
+__sbit __at(0xA8 +7) EA ;
+__sfr __at(0xB8) IP ;
+__sbit __at(0xB8 +0) IP_0 ;
+__sbit __at(0xB8 +1) IP_1 ;
+__sbit __at(0xB8 +2) IP_2 ;
+__sbit __at(0xB8 +3) IP_3 ;
+__sbit __at(0xB8 +4) IP_4 ;
+__sbit __at(0xB8 +5) IP_5 ;
+__sbit __at(0xB8 +6) IP_6 ;
+__sbit __at(0xB8 +7) IP_7 ;
+__sfr __at(0x87) PCON ;
+__sfr __at(0xD0) PSW ;
+__sbit __at(0xD0 +0) P ;
+__sbit __at(0xD0 +1) F1 ;
+__sbit __at(0xD0 +2) OV ;
+__sbit __at(0xD0 +3) RS0 ;
+__sbit __at(0xD0 +4) RS1 ;
+__sbit __at(0xD0 +5) F0 ;
+__sbit __at(0xD0 +6) AC ;
+__sbit __at(0xD0 +7) CY ;
+__sfr __at(0x81) SP ;
+__sfr __at(0xD9) XPAGE ;
+__sfr __at(0xD9) _XPAGE ;
+__sfr __at(0xCA) ADCCH0CONFIG ;
+__sfr __at(0xCB) ADCCH1CONFIG ;
+__sfr __at(0xD2) ADCCH2CONFIG ;
+__sfr __at(0xD3) ADCCH3CONFIG ;
+__sfr __at(0xD1) ADCCLKSRC ;
+__sfr __at(0xC9) ADCCONV ;
+__sfr __at(0xE1) ANALOGCOMP ;
+__sfr __at(0xC6) CLKCON ;
+__sfr __at(0xC7) CLKSTAT ;
+__sfr __at(0x97) CODECONFIG ;
+__sfr __at(0xE3) DBGLNKBUF ;
+__sfr __at(0xE2) DBGLNKSTAT ;
+__sfr __at(0x89) DIRA ;
+__sfr __at(0x8A) DIRB ;
+__sfr __at(0x8B) DIRC ;
+__sfr __at(0x8E) DIRR ;
+__sfr __at(0xC8) PINA ;
+__sbit __at(0xC8 +0) PINA_0 ;
+__sbit __at(0xC8 +1) PINA_1 ;
+__sbit __at(0xC8 +2) PINA_2 ;
+__sbit __at(0xC8 +3) PINA_3 ;
+__sbit __at(0xC8 +4) PINA_4 ;
+__sbit __at(0xC8 +5) PINA_5 ;
+__sbit __at(0xC8 +6) PINA_6 ;
+__sbit __at(0xC8 +7) PINA_7 ;
+__sfr __at(0xE8) PINB ;
+__sbit __at(0xE8 +0) PINB_0 ;
+__sbit __at(0xE8 +1) PINB_1 ;
+__sbit __at(0xE8 +2) PINB_2 ;
+__sbit __at(0xE8 +3) PINB_3 ;
+__sbit __at(0xE8 +4) PINB_4 ;
+__sbit __at(0xE8 +5) PINB_5 ;
+__sbit __at(0xE8 +6) PINB_6 ;
+__sbit __at(0xE8 +7) PINB_7 ;
+__sfr __at(0xF8) PINC ;
+__sbit __at(0xF8 +0) PINC_0 ;
+__sbit __at(0xF8 +1) PINC_1 ;
+__sbit __at(0xF8 +2) PINC_2 ;
+__sbit __at(0xF8 +3) PINC_3 ;
+__sbit __at(0xF8 +4) PINC_4 ;
+__sbit __at(0xF8 +5) PINC_5 ;
+__sbit __at(0xF8 +6) PINC_6 ;
+__sbit __at(0xF8 +7) PINC_7 ;
+__sfr __at(0x8D) PINR ;
+__sfr __at(0x80) PORTA ;
+__sbit __at(0x80 +0) PORTA_0 ;
+__sbit __at(0x80 +1) PORTA_1 ;
+__sbit __at(0x80 +2) PORTA_2 ;
+__sbit __at(0x80 +3) PORTA_3 ;
+__sbit __at(0x80 +4) PORTA_4 ;
+__sbit __at(0x80 +5) PORTA_5 ;
+__sbit __at(0x80 +6) PORTA_6 ;
+__sbit __at(0x80 +7) PORTA_7 ;
+__sfr __at(0x88) PORTB ;
+__sbit __at(0x88 +0) PORTB_0 ;
+__sbit __at(0x88 +1) PORTB_1 ;
+__sbit __at(0x88 +2) PORTB_2 ;
+__sbit __at(0x88 +3) PORTB_3 ;
+__sbit __at(0x88 +4) PORTB_4 ;
+__sbit __at(0x88 +5) PORTB_5 ;
+__sbit __at(0x88 +6) PORTB_6 ;
+__sbit __at(0x88 +7) PORTB_7 ;
+__sfr __at(0x90) PORTC ;
+__sbit __at(0x90 +0) PORTC_0 ;
+__sbit __at(0x90 +1) PORTC_1 ;
+__sbit __at(0x90 +2) PORTC_2 ;
+__sbit __at(0x90 +3) PORTC_3 ;
+__sbit __at(0x90 +4) PORTC_4 ;
+__sbit __at(0x90 +5) PORTC_5 ;
+__sbit __at(0x90 +6) PORTC_6 ;
+__sbit __at(0x90 +7) PORTC_7 ;
+__sfr __at(0x8C) PORTR ;
+__sfr __at(0xCE) IC0CAPT0 ;
+__sfr __at(0xCF) IC0CAPT1 ;
+__sfr16 __at(((0xCE +1U)<<8) | 0xCE) IC0CAPT ;
+__sfr __at(0xCC) IC0MODE ;
+__sfr __at(0xCD) IC0STATUS ;
+__sfr __at(0xD6) IC1CAPT0 ;
+__sfr __at(0xD7) IC1CAPT1 ;
+__sfr16 __at(((0xD6 +1U)<<8) | 0xD6) IC1CAPT ;
+__sfr __at(0xD4) IC1MODE ;
+__sfr __at(0xD5) IC1STATUS ;
+__sfr __at(0x92) NVADDR0 ;
+__sfr __at(0x93) NVADDR1 ;
+__sfr16 __at(((0x92 +1U)<<8) | 0x92) NVADDR ;
+__sfr __at(0x94) NVDATA0 ;
+__sfr __at(0x95) NVDATA1 ;
+__sfr16 __at(((0x94 +1U)<<8) | 0x94) NVDATA ;
+__sfr __at(0x96) NVKEY ;
+__sfr __at(0x91) NVSTATUS ;
+__sfr __at(0xBC) OC0COMP0 ;
+__sfr __at(0xBD) OC0COMP1 ;
+__sfr16 __at(((0xBC +1U)<<8) | 0xBC) OC0COMP ;
+__sfr __at(0xB9) OC0MODE ;
+__sfr __at(0xBA) OC0PIN ;
+__sfr __at(0xBB) OC0STATUS ;
+__sfr __at(0xC4) OC1COMP0 ;
+__sfr __at(0xC5) OC1COMP1 ;
+__sfr16 __at(((0xC4 +1U)<<8) | 0xC4) OC1COMP ;
+__sfr __at(0xC1) OC1MODE ;
+__sfr __at(0xC2) OC1PIN ;
+__sfr __at(0xC3) OC1STATUS ;
+__sfr __at(0xB1) RADIOACC ;
+__sfr __at(0xB3) RADIOADDR0 ;
+__sfr __at(0xB2) RADIOADDR1 ;
+__sfr16 __at(0xB2B3) RADIOADDR ;
+__sfr __at(0xB7) RADIODATA0 ;
+__sfr __at(0xB6) RADIODATA1 ;
+__sfr __at(0xB5) RADIODATA2 ;
+__sfr __at(0xB4) RADIODATA3 ;
+__sfr32 __at(0xB4B5B6B7) RADIODATA ;
+__sfr __at(0xBE) RADIOSTAT0 ;
+__sfr __at(0xBF) RADIOSTAT1 ;
+__sfr16 __at(((0xBE +1U)<<8) | 0xBE) RADIOSTAT ;
+__sfr __at(0xDF) SPCLKSRC ;
+__sfr __at(0xDC) SPMODE ;
+__sfr __at(0xDE) SPSHREG ;
+__sfr __at(0xDD) SPSTATUS ;
+__sfr __at(0x9A) T0CLKSRC ;
+__sfr __at(0x9C) T0CNT0 ;
+__sfr __at(0x9D) T0CNT1 ;
+__sfr16 __at(((0x9C +1U)<<8) | 0x9C) T0CNT ;
+__sfr __at(0x99) T0MODE ;
+__sfr __at(0x9E) T0PERIOD0 ;
+__sfr __at(0x9F) T0PERIOD1 ;
+__sfr16 __at(((0x9E +1U)<<8) | 0x9E) T0PERIOD ;
+__sfr __at(0x9B) T0STATUS ;
+__sfr __at(0xA2) T1CLKSRC ;
+__sfr __at(0xA4) T1CNT0 ;
+__sfr __at(0xA5) T1CNT1 ;
+__sfr16 __at(((0xA4 +1U)<<8) | 0xA4) T1CNT ;
+__sfr __at(0xA1) T1MODE ;
+__sfr __at(0xA6) T1PERIOD0 ;
+__sfr __at(0xA7) T1PERIOD1 ;
+__sfr16 __at(((0xA6 +1U)<<8) | 0xA6) T1PERIOD ;
+__sfr __at(0xA3) T1STATUS ;
+__sfr __at(0xAA) T2CLKSRC ;
+__sfr __at(0xAC) T2CNT0 ;
+__sfr __at(0xAD) T2CNT1 ;
+__sfr16 __at(((0xAC +1U)<<8) | 0xAC) T2CNT ;
+__sfr __at(0xA9) T2MODE ;
+__sfr __at(0xAE) T2PERIOD0 ;
+__sfr __at(0xAF) T2PERIOD1 ;
+__sfr16 __at(((0xAE +1U)<<8) | 0xAE) T2PERIOD ;
+__sfr __at(0xAB) T2STATUS ;
+__sfr __at(0xE4) U0CTRL ;
+__sfr __at(0xE7) U0MODE ;
+__sfr __at(0xE6) U0SHREG ;
+__sfr __at(0xE5) U0STATUS ;
+__sfr __at(0xEC) U1CTRL ;
+__sfr __at(0xEF) U1MODE ;
+__sfr __at(0xEE) U1SHREG ;
+__sfr __at(0xED) U1STATUS ;
+__sfr __at(0xDA) WDTCFG ;
+__sfr __at(0xDB) WDTRESET ;
+__sfr __at(0xF1) WTCFGA ;
+__sfr __at(0xF9) WTCFGB ;
+__sfr __at(0xF2) WTCNTA0 ;
+__sfr __at(0xF3) WTCNTA1 ;
+__sfr16 __at(((0xF2 +1U)<<8) | 0xF2) WTCNTA ;
+__sfr __at(0xFA) WTCNTB0 ;
+__sfr __at(0xFB) WTCNTB1 ;
+__sfr16 __at(((0xFA +1U)<<8) | 0xFA) WTCNTB ;
+__sfr __at(0xEB) WTCNTR1 ;
+__sfr __at(0xF4) WTEVTA0 ;
+__sfr __at(0xF5) WTEVTA1 ;
+__sfr16 __at(((0xF4 +1U)<<8) | 0xF4) WTEVTA ;
+__sfr __at(0xF6) WTEVTB0 ;
+__sfr __at(0xF7) WTEVTB1 ;
+__sfr16 __at(((0xF6 +1U)<<8) | 0xF6) WTEVTB ;
+__sfr __at(0xFC) WTEVTC0 ;
+__sfr __at(0xFD) WTEVTC1 ;
+__sfr16 __at(((0xFC +1U)<<8) | 0xFC) WTEVTC ;
+__sfr __at(0xFE) WTEVTD0 ;
+__sfr __at(0xFF) WTEVTD1 ;
+__sfr16 __at(((0xFE +1U)<<8) | 0xFE) WTEVTD ;
+__sfr __at(0xE9) WTIRQEN ;
+__sfr __at(0xEA) WTSTAT ;
+
+
+
+
+
+
+__xdata volatile unsigned char __at(0x7020) ADCCH0VAL0 ;
+__xdata volatile unsigned char __at(0x7021) ADCCH0VAL1 ;
+__xdata volatile unsigned short __at(0x7020) ADCCH0VAL ;
+__xdata volatile unsigned char __at(0x7022) ADCCH1VAL0 ;
+__xdata volatile unsigned char __at(0x7023) ADCCH1VAL1 ;
+__xdata volatile unsigned short __at(0x7022) ADCCH1VAL ;
+__xdata volatile unsigned char __at(0x7024) ADCCH2VAL0 ;
+__xdata volatile unsigned char __at(0x7025) ADCCH2VAL1 ;
+__xdata volatile unsigned short __at(0x7024) ADCCH2VAL ;
+__xdata volatile unsigned char __at(0x7026) ADCCH3VAL0 ;
+__xdata volatile unsigned char __at(0x7027) ADCCH3VAL1 ;
+__xdata volatile unsigned short __at(0x7026) ADCCH3VAL ;
+__xdata volatile unsigned char __at(0x7028) ADCTUNE0 ;
+__xdata volatile unsigned char __at(0x7029) ADCTUNE1 ;
+__xdata volatile unsigned char __at(0x702A) ADCTUNE2 ;
+__xdata volatile unsigned char __at(0x7010) DMA0ADDR0 ;
+__xdata volatile unsigned char __at(0x7011) DMA0ADDR1 ;
+__xdata volatile unsigned short __at(0x7010) DMA0ADDR ;
+__xdata volatile unsigned char __at(0x7014) DMA0CONFIG ;
+__xdata volatile unsigned char __at(0x7012) DMA1ADDR0 ;
+__xdata volatile unsigned char __at(0x7013) DMA1ADDR1 ;
+__xdata volatile unsigned short __at(0x7012) DMA1ADDR ;
+__xdata volatile unsigned char __at(0x7015) DMA1CONFIG ;
+__xdata volatile unsigned char __at(0x7070) FRCOSCCONFIG ;
+__xdata volatile unsigned char __at(0x7071) FRCOSCCTRL ;
+__xdata volatile unsigned char __at(0x7076) FRCOSCFREQ0 ;
+__xdata volatile unsigned char __at(0x7077) FRCOSCFREQ1 ;
+__xdata volatile unsigned short __at(0x7076) FRCOSCFREQ ;
+__xdata volatile unsigned char __at(0x7072) FRCOSCKFILT0 ;
+__xdata volatile unsigned char __at(0x7073) FRCOSCKFILT1 ;
+__xdata volatile unsigned short __at(0x7072) FRCOSCKFILT ;
+__xdata volatile unsigned char __at(0x7078) FRCOSCPER0 ;
+__xdata volatile unsigned char __at(0x7079) FRCOSCPER1 ;
+__xdata volatile unsigned short __at(0x7078) FRCOSCPER ;
+__xdata volatile unsigned char __at(0x7074) FRCOSCREF0 ;
+__xdata volatile unsigned char __at(0x7075) FRCOSCREF1 ;
+__xdata volatile unsigned short __at(0x7074) FRCOSCREF ;
+__xdata volatile unsigned char __at(0x7007) ANALOGA ;
+__xdata volatile unsigned char __at(0x700C) GPIOENABLE ;
+__xdata volatile unsigned char __at(0x7003) EXTIRQ ;
+__xdata volatile unsigned char __at(0x7000) INTCHGA ;
+__xdata volatile unsigned char __at(0x7001) INTCHGB ;
+__xdata volatile unsigned char __at(0x7002) INTCHGC ;
+__xdata volatile unsigned char __at(0x7008) PALTA ;
+__xdata volatile unsigned char __at(0x7009) PALTB ;
+__xdata volatile unsigned char __at(0x700A) PALTC ;
+__xdata volatile unsigned char __at(0x7004) PINCHGA ;
+__xdata volatile unsigned char __at(0x7005) PINCHGB ;
+__xdata volatile unsigned char __at(0x7006) PINCHGC ;
+__xdata volatile unsigned char __at(0x700B) PINSEL ;
+__xdata volatile unsigned char __at(0x7060) LPOSCCONFIG ;
+__xdata volatile unsigned char __at(0x7066) LPOSCFREQ0 ;
+__xdata volatile unsigned char __at(0x7067) LPOSCFREQ1 ;
+__xdata volatile unsigned short __at(0x7066) LPOSCFREQ ;
+__xdata volatile unsigned char __at(0x7062) LPOSCKFILT0 ;
+__xdata volatile unsigned char __at(0x7063) LPOSCKFILT1 ;
+__xdata volatile unsigned short __at(0x7062) LPOSCKFILT ;
+__xdata volatile unsigned char __at(0x7068) LPOSCPER0 ;
+__xdata volatile unsigned char __at(0x7069) LPOSCPER1 ;
+__xdata volatile unsigned short __at(0x7068) LPOSCPER ;
+__xdata volatile unsigned char __at(0x7064) LPOSCREF0 ;
+__xdata volatile unsigned char __at(0x7065) LPOSCREF1 ;
+__xdata volatile unsigned short __at(0x7064) LPOSCREF ;
+__xdata volatile unsigned char __at(0x7054) LPXOSCGM ;
+__xdata volatile unsigned char __at(0x7F01) MISCCTRL ;
+__xdata volatile unsigned char __at(0x7053) OSCCALIB ;
+__xdata volatile unsigned char __at(0x7050) OSCFORCERUN ;
+__xdata volatile unsigned char __at(0x7052) OSCREADY ;
+__xdata volatile unsigned char __at(0x7051) OSCRUN ;
+__xdata volatile unsigned char __at(0x7040) RADIOFDATAADDR0 ;
+__xdata volatile unsigned char __at(0x7041) RADIOFDATAADDR1 ;
+__xdata volatile unsigned short __at(0x7040) RADIOFDATAADDR ;
+__xdata volatile unsigned char __at(0x7042) RADIOFSTATADDR0 ;
+__xdata volatile unsigned char __at(0x7043) RADIOFSTATADDR1 ;
+__xdata volatile unsigned short __at(0x7042) RADIOFSTATADDR ;
+__xdata volatile unsigned char __at(0x7044) RADIOMUX ;
+__xdata volatile unsigned char __at(0x7084) SCRATCH0 ;
+__xdata volatile unsigned char __at(0x7085) SCRATCH1 ;
+__xdata volatile unsigned char __at(0x7086) SCRATCH2 ;
+__xdata volatile unsigned char __at(0x7087) SCRATCH3 ;
+__xdata volatile unsigned char __at(0x7F00) SILICONREV ;
+__xdata volatile unsigned char __at(0x7F19) XTALAMPL ;
+__xdata volatile unsigned char __at(0x7F18) XTALOSC ;
+__xdata volatile unsigned char __at(0x7F1A) XTALREADY ;
+
+
+
+__xdata volatile unsigned short __at(0x3F82) XDPTR0 ;
+__xdata volatile unsigned short __at(0x3F84) XDPTR1 ;
+__xdata volatile unsigned char __at(0x3FA8) XIE ;
+__xdata volatile unsigned char __at(0x3FB8) XIP ;
+__xdata volatile unsigned char __at(0x3F87) XPCON ;
+__xdata volatile unsigned char __at(0x3FCA) XADCCH0CONFIG ;
+__xdata volatile unsigned char __at(0x3FCB) XADCCH1CONFIG ;
+__xdata volatile unsigned char __at(0x3FD2) XADCCH2CONFIG ;
+__xdata volatile unsigned char __at(0x3FD3) XADCCH3CONFIG ;
+__xdata volatile unsigned char __at(0x3FD1) XADCCLKSRC ;
+__xdata volatile unsigned char __at(0x3FC9) XADCCONV ;
+__xdata volatile unsigned char __at(0x3FE1) XANALOGCOMP ;
+__xdata volatile unsigned char __at(0x3FC6) XCLKCON ;
+__xdata volatile unsigned char __at(0x3FC7) XCLKSTAT ;
+__xdata volatile unsigned char __at(0x3F97) XCODECONFIG ;
+__xdata volatile unsigned char __at(0x3FE3) XDBGLNKBUF ;
+__xdata volatile unsigned char __at(0x3FE2) XDBGLNKSTAT ;
+__xdata volatile unsigned char __at(0x3F89) XDIRA ;
+__xdata volatile unsigned char __at(0x3F8A) XDIRB ;
+__xdata volatile unsigned char __at(0x3F8B) XDIRC ;
+__xdata volatile unsigned char __at(0x3F8E) XDIRR ;
+__xdata volatile unsigned char __at(0x3FC8) XPINA ;
+__xdata volatile unsigned char __at(0x3FE8) XPINB ;
+__xdata volatile unsigned char __at(0x3FF8) XPINC ;
+__xdata volatile unsigned char __at(0x3F8D) XPINR ;
+__xdata volatile unsigned char __at(0x3F80) XPORTA ;
+__xdata volatile unsigned char __at(0x3F88) XPORTB ;
+__xdata volatile unsigned char __at(0x3F90) XPORTC ;
+__xdata volatile unsigned char __at(0x3F8C) XPORTR ;
+__xdata volatile unsigned char __at(0x3FCE) XIC0CAPT0 ;
+__xdata volatile unsigned char __at(0x3FCF) XIC0CAPT1 ;
+__xdata volatile unsigned short __at(0x3FCE) XIC0CAPT ;
+__xdata volatile unsigned char __at(0x3FCC) XIC0MODE ;
+__xdata volatile unsigned char __at(0x3FCD) XIC0STATUS ;
+__xdata volatile unsigned char __at(0x3FD6) XIC1CAPT0 ;
+__xdata volatile unsigned char __at(0x3FD7) XIC1CAPT1 ;
+__xdata volatile unsigned short __at(0x3FD6) XIC1CAPT ;
+__xdata volatile unsigned char __at(0x3FD4) XIC1MODE ;
+__xdata volatile unsigned char __at(0x3FD5) XIC1STATUS ;
+__xdata volatile unsigned char __at(0x3F92) XNVADDR0 ;
+__xdata volatile unsigned char __at(0x3F93) XNVADDR1 ;
+__xdata volatile unsigned short __at(0x3F92) XNVADDR ;
+__xdata volatile unsigned char __at(0x3F94) XNVDATA0 ;
+__xdata volatile unsigned char __at(0x3F95) XNVDATA1 ;
+__xdata volatile unsigned short __at(0x3F94) XNVDATA ;
+__xdata volatile unsigned char __at(0x3F96) XNVKEY ;
+__xdata volatile unsigned char __at(0x3F91) XNVSTATUS ;
+__xdata volatile unsigned char __at(0x3FBC) XOC0COMP0 ;
+__xdata volatile unsigned char __at(0x3FBD) XOC0COMP1 ;
+__xdata volatile unsigned short __at(0x3FBC) XOC0COMP ;
+__xdata volatile unsigned char __at(0x3FB9) XOC0MODE ;
+__xdata volatile unsigned char __at(0x3FBA) XOC0PIN ;
+__xdata volatile unsigned char __at(0x3FBB) XOC0STATUS ;
+__xdata volatile unsigned char __at(0x3FC4) XOC1COMP0 ;
+__xdata volatile unsigned char __at(0x3FC5) XOC1COMP1 ;
+__xdata volatile unsigned short __at(0x3FC4) XOC1COMP ;
+__xdata volatile unsigned char __at(0x3FC1) XOC1MODE ;
+__xdata volatile unsigned char __at(0x3FC2) XOC1PIN ;
+__xdata volatile unsigned char __at(0x3FC3) XOC1STATUS ;
+__xdata volatile unsigned char __at(0x3FB1) XRADIOACC ;
+__xdata volatile unsigned char __at(0x3FB3) XRADIOADDR0 ;
+__xdata volatile unsigned char __at(0x3FB2) XRADIOADDR1 ;
+__xdata volatile unsigned char __at(0x3FB7) XRADIODATA0 ;
+__xdata volatile unsigned char __at(0x3FB6) XRADIODATA1 ;
+__xdata volatile unsigned char __at(0x3FB5) XRADIODATA2 ;
+__xdata volatile unsigned char __at(0x3FB4) XRADIODATA3 ;
+__xdata volatile unsigned char __at(0x3FBE) XRADIOSTAT0 ;
+__xdata volatile unsigned char __at(0x3FBF) XRADIOSTAT1 ;
+__xdata volatile unsigned short __at(0x3FBE) XRADIOSTAT ;
+__xdata volatile unsigned char __at(0x3FDF) XSPCLKSRC ;
+__xdata volatile unsigned char __at(0x3FDC) XSPMODE ;
+__xdata volatile unsigned char __at(0x3FDE) XSPSHREG ;
+__xdata volatile unsigned char __at(0x3FDD) XSPSTATUS ;
+__xdata volatile unsigned char __at(0x3F9A) XT0CLKSRC ;
+__xdata volatile unsigned char __at(0x3F9C) XT0CNT0 ;
+__xdata volatile unsigned char __at(0x3F9D) XT0CNT1 ;
+__xdata volatile unsigned short __at(0x3F9C) XT0CNT ;
+__xdata volatile unsigned char __at(0x3F99) XT0MODE ;
+__xdata volatile unsigned char __at(0x3F9E) XT0PERIOD0 ;
+__xdata volatile unsigned char __at(0x3F9F) XT0PERIOD1 ;
+__xdata volatile unsigned short __at(0x3F9E) XT0PERIOD ;
+__xdata volatile unsigned char __at(0x3F9B) XT0STATUS ;
+__xdata volatile unsigned char __at(0x3FA2) XT1CLKSRC ;
+__xdata volatile unsigned char __at(0x3FA4) XT1CNT0 ;
+__xdata volatile unsigned char __at(0x3FA5) XT1CNT1 ;
+__xdata volatile unsigned short __at(0x3FA4) XT1CNT ;
+__xdata volatile unsigned char __at(0x3FA1) XT1MODE ;
+__xdata volatile unsigned char __at(0x3FA6) XT1PERIOD0 ;
+__xdata volatile unsigned char __at(0x3FA7) XT1PERIOD1 ;
+__xdata volatile unsigned short __at(0x3FA6) XT1PERIOD ;
+__xdata volatile unsigned char __at(0x3FA3) XT1STATUS ;
+__xdata volatile unsigned char __at(0x3FAA) XT2CLKSRC ;
+__xdata volatile unsigned char __at(0x3FAC) XT2CNT0 ;
+__xdata volatile unsigned char __at(0x3FAD) XT2CNT1 ;
+__xdata volatile unsigned short __at(0x3FAC) XT2CNT ;
+__xdata volatile unsigned char __at(0x3FA9) XT2MODE ;
+__xdata volatile unsigned char __at(0x3FAE) XT2PERIOD0 ;
+__xdata volatile unsigned char __at(0x3FAF) XT2PERIOD1 ;
+__xdata volatile unsigned short __at(0x3FAE) XT2PERIOD ;
+__xdata volatile unsigned char __at(0x3FAB) XT2STATUS ;
+__xdata volatile unsigned char __at(0x3FE4) XU0CTRL ;
+__xdata volatile unsigned char __at(0x3FE7) XU0MODE ;
+__xdata volatile unsigned char __at(0x3FE6) XU0SHREG ;
+__xdata volatile unsigned char __at(0x3FE5) XU0STATUS ;
+__xdata volatile unsigned char __at(0x3FEC) XU1CTRL ;
+__xdata volatile unsigned char __at(0x3FEF) XU1MODE ;
+__xdata volatile unsigned char __at(0x3FEE) XU1SHREG ;
+__xdata volatile unsigned char __at(0x3FED) XU1STATUS ;
+__xdata volatile unsigned char __at(0x3FDA) XWDTCFG ;
+__xdata volatile unsigned char __at(0x3FDB) XWDTRESET ;
+__xdata volatile unsigned char __at(0x3FF1) XWTCFGA ;
+__xdata volatile unsigned char __at(0x3FF9) XWTCFGB ;
+__xdata volatile unsigned char __at(0x3FF2) XWTCNTA0 ;
+__xdata volatile unsigned char __at(0x3FF3) XWTCNTA1 ;
+__xdata volatile unsigned short __at(0x3FF2) XWTCNTA ;
+__xdata volatile unsigned char __at(0x3FFA) XWTCNTB0 ;
+__xdata volatile unsigned char __at(0x3FFB) XWTCNTB1 ;
+__xdata volatile unsigned short __at(0x3FFA) XWTCNTB ;
+__xdata volatile unsigned char __at(0x3FEB) XWTCNTR1 ;
+__xdata volatile unsigned char __at(0x3FF4) XWTEVTA0 ;
+__xdata volatile unsigned char __at(0x3FF5) XWTEVTA1 ;
+__xdata volatile unsigned short __at(0x3FF4) XWTEVTA ;
+__xdata volatile unsigned char __at(0x3FF6) XWTEVTB0 ;
+__xdata volatile unsigned char __at(0x3FF7) XWTEVTB1 ;
+__xdata volatile unsigned short __at(0x3FF6) XWTEVTB ;
+__xdata volatile unsigned char __at(0x3FFC) XWTEVTC0 ;
+__xdata volatile unsigned char __at(0x3FFD) XWTEVTC1 ;
+__xdata volatile unsigned short __at(0x3FFC) XWTEVTC ;
+__xdata volatile unsigned char __at(0x3FFE) XWTEVTD0 ;
+__xdata volatile unsigned char __at(0x3FFF) XWTEVTD1 ;
+__xdata volatile unsigned short __at(0x3FFE) XWTEVTD ;
+__xdata volatile unsigned char __at(0x3FE9) XWTIRQEN ;
+__xdata volatile unsigned char __at(0x3FEA) XWTSTAT ;
+# 31 "..\\COMMON\\misc.c" 2
+# 1 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmftypes.h" 1
+# 54 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmftypes.h"
+typedef signed char int8_t;
+typedef signed int int16_t;
+typedef signed long int32_t;
+typedef unsigned char uint8_t;
+typedef unsigned int uint16_t;
+typedef unsigned long uint32_t;
+
+
+
+
+extern void delay(uint16_t us) __reentrant __naked;
+
+
+
+
+extern uint16_t __data random_seed;
+extern uint16_t random(void);
+
+
+
+
+
+#pragma callee_saves hweight8,hweight16,hweight32
+#pragma callee_saves signextend12,signextend16,signextend20,signextend24
+extern int32_t signextend12(int16_t x) __reentrant __naked;
+extern int32_t signextend16(int16_t x) __reentrant __naked;
+extern int32_t signextend20(int32_t x) __reentrant __naked;
+extern int32_t signextend24(int32_t x) __reentrant __naked;
+
+
+
+
+
+
+extern uint8_t hweight8(uint8_t x) __reentrant;
+extern uint8_t hweight16(uint16_t x) __reentrant;
+extern uint8_t hweight32(uint32_t x) __reentrant;
+
+
+
+
+#pragma callee_saves signedlimit16,checksignedlimit16,signedlimit32,checksignedlimit32
+extern int16_t signedlimit16(int16_t x, int16_t lim) __reentrant __naked;
+extern uint8_t checksignedlimit16(int16_t x, int16_t lim) __reentrant __naked;
+extern int32_t signedlimit32(int32_t x, int32_t lim) __reentrant __naked;
+extern uint8_t checksignedlimit32(int32_t x, int32_t lim) __reentrant __naked;
+# 111 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmftypes.h"
+extern uint8_t rev8(uint8_t x) __reentrant;
+# 126 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmftypes.h"
+#pragma callee_saves wtimer_standby,enter_standby,enter_sleep,enter_deepsleep
+
+extern void wtimer_standby(void) __reentrant;
+extern void enter_standby(void) __reentrant;
+extern void enter_sleep(void) __reentrant;
+
+extern void enter_sleep_cont(void) __reentrant;
+
+extern void enter_deepsleep(void) __reentrant;
+extern void reset_cpu(void) __reentrant;
+extern void turn_off_xosc(void) __reentrant;
+extern void turn_off_lpxosc(void) __reentrant;
+# 32 "..\\COMMON\\misc.c" 2
+# 1 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmfwtimer.h" 1
+
+
+
+# 1 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmftypes.h" 1
+# 5 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmfwtimer.h" 2
+
+struct wtimer_callback {
+
+
+ struct wtimer_callback __xdata *next;
+        void (*handler)(struct wtimer_callback __xdata *desc);
+};
+
+struct wtimer_desc {
+
+ struct wtimer_desc __xdata *next;
+        void (*handler)(struct wtimer_desc __xdata *desc);
+ uint32_t time;
+};
+# 27 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmfwtimer.h"
+extern void wtimer0_setconfig(uint8_t cfg) __reentrant;
+extern void wtimer1_setconfig(uint8_t cfg) __reentrant;
+# 42 "C://Program Files (x86)//AXSEM//AXSDB//libmf//include/libmfwtimer.h"
+extern void wtimer_init(void) __reentrant;
+extern uint8_t wtimer_idle(uint8_t flags) __reentrant;
+
+
+
+
+
+extern uint8_t wtimer_runcallbacks(void) __reentrant;
+
+
+extern uint32_t wtimer0_curtime(void) __reentrant;
+extern uint32_t wtimer1_curtime(void) __reentrant;
+extern void wtimer0_addabsolute(struct wtimer_desc __xdata *desc) __reentrant;
+extern void wtimer1_addabsolute(struct wtimer_desc __xdata *desc) __reentrant;
+extern void wtimer0_addrelative(struct wtimer_desc __xdata *desc) __reentrant;
+extern void wtimer1_addrelative(struct wtimer_desc __xdata *desc) __reentrant;
+extern uint8_t wtimer_remove(struct wtimer_desc __xdata *desc) __reentrant;
+extern uint8_t wtimer0_remove(struct wtimer_desc __xdata *desc) __reentrant;
+extern uint8_t wtimer1_remove(struct wtimer_desc __xdata *desc) __reentrant;
+
+extern void wtimer_add_callback(struct wtimer_callback __xdata *desc) __reentrant;
+extern uint8_t wtimer_remove_callback(struct wtimer_callback __xdata *desc) __reentrant;
+
+extern uint8_t wtimer_cansleep(void) __reentrant;
+
+
+extern void wtimer_irq(void) __interrupt(1);
+# 33 "..\\COMMON\\misc.c" 2
+# 1 "C://Program Files (x86)//AXSEM//AXSDB//libaxdvk2//include/libaxlcd2.h" 1
+# 47 "C://Program Files (x86)//AXSEM//AXSDB//libaxdvk2//include/libaxlcd2.h"
+#pragma callee_saves lcd2_txbufptr,lcd2_txfreelinear
+#pragma callee_saves lcd2_txfree,lcd2_txbuffersize,lcd2_wait_txfree,lcd2_txpokecmd,lcd2_txpoke,lcd2_txpokehex
+#pragma callee_saves lcd2_init,lcd2_poll,lcd2_wait_txfree,lcd2_tx,lcd2_txcmdshort,lcd2_txcmdlong
+extern void lcd2_irq(void) __interrupt(10) __naked;
+
+
+
+
+
+
+extern uint8_t lcd2_poll(void) __reentrant __naked;
+extern uint8_t __xdata *lcd2_txbufptr(uint8_t idx) __reentrant __naked;
+extern uint8_t lcd2_txfreelinear(void) __reentrant __naked;
+extern uint8_t lcd2_txidle(void) __reentrant __naked;
+extern uint8_t lcd2_txfree(void) __reentrant __naked;
+extern uint8_t lcd2_txbuffersize(void) __reentrant __naked;
+extern void lcd2_txpokecmd(uint8_t idx, uint16_t cmd) __reentrant __naked;
+extern void lcd2_txpoke(uint8_t idx, uint8_t ch) __reentrant __naked;
+extern void lcd2_txpokehex(uint8_t idx, uint8_t ch) __reentrant __naked;
+extern void lcd2_txadvance(uint8_t idx) __reentrant __naked;
+
+extern void lcd2_init(void) __reentrant;
+extern void lcd2_portinit(void) __reentrant;
+extern void lcd2_wait_txdone(void) __reentrant;
+extern void lcd2_wait_txfree(uint8_t v) __reentrant;
+extern void lcd2_tx(uint8_t v) __reentrant;
+extern void lcd2_txcmdshort(uint8_t v) __reentrant;
+extern void lcd2_txcmdlong(uint8_t v) __reentrant;
+extern void lcd2_setpos(uint8_t v) __reentrant;
+extern void lcd2_cleardisplay(void) __reentrant;
+extern void lcd2_clear(uint8_t pos, uint8_t len) __reentrant;
+extern void lcd2_writestr(const char *ch) __reentrant;
+extern uint8_t lcd2_writenum16(uint16_t val, uint8_t nrdig, uint8_t flags) __reentrant;
+extern uint8_t lcd2_writehex16(uint16_t val, uint8_t nrdig, uint8_t flags) __reentrant;
+
+extern uint8_t lcd2_writenum32(uint32_t val, uint8_t nrdig, uint8_t flags) __reentrant;
+extern uint8_t lcd2_writehex32(uint32_t val, uint8_t nrdig, uint8_t flags) __reentrant;
+# 34 "..\\COMMON\\misc.c" 2
+
+# 1 "..\\COMMON\\/misc.h" 1
+# 35 "..\\COMMON\\/misc.h"
+# 1 "..\\COMMON\\/../COMMON/axradio.h" 1
+# 79 "..\\COMMON\\/../COMMON/axradio.h"
+struct axradio_address {
+    uint8_t addr[4];
+};
+
+struct axradio_address_mask {
+    uint8_t addr[4];
+    uint8_t mask[4];
+};
+
+struct axradio_status {
+    uint8_t status;
+    uint8_t error;
+    uint32_t time;
+
+    union {
+
+        struct axradio_status_receive {
+            struct axradio_status_receive_phy {
+                int16_t rssi;
+                int32_t offset;
+                int16_t timeoffset;
+                int16_t period;
+            } phy;
+            struct axradio_status_receive_mac {
+                uint8_t remoteaddr[4];
+                uint8_t localaddr[4];
+                const __xdata uint8_t *raw;
+            } mac;
+            const __xdata uint8_t *pktdata;
+            uint16_t pktlen;
+        } rx;
+
+
+        struct axradio_status_channelstate {
+            int16_t rssi;
+            uint8_t busy;
+        } cs;
+    } u;
+};
+
+extern uint8_t axradio_init(void);
+extern uint8_t axradio_cansleep(void) __reentrant;
+extern uint8_t axradio_set_mode(uint8_t mode);
+extern uint8_t axradio_get_mode(void);
+extern uint8_t axradio_set_channel(uint8_t chnum);
+extern uint8_t axradio_get_channel(void);
+extern uint8_t axradio_get_pllrange(void);
+extern uint8_t axradio_get_pllrange_tx(void);
+extern void axradio_set_local_address(const struct axradio_address_mask *addr);
+extern void axradio_get_local_address(struct axradio_address_mask *addr);
+extern void axradio_set_default_remote_address(const struct axradio_address *addr);
+extern void axradio_get_default_remote_address(struct axradio_address *addr);
+extern uint8_t axradio_set_freqoffset(int32_t offs);
+extern int32_t axradio_get_freqoffset(void);
+extern int32_t axradio_conv_freq_tohz(int32_t f) __reentrant;
+extern int32_t axradio_conv_freq_fromhz(int32_t f) __reentrant;
+extern int32_t axradio_conv_timeinterval_totimer0(int32_t dt) __reentrant;
+extern uint32_t axradio_conv_time_totimer0(uint32_t dt) __reentrant;
+extern uint8_t axradio_transmit(const struct axradio_address *addr, const uint8_t *pkt, uint16_t pktlen);
+extern void axradio_statuschange(struct axradio_status __xdata *st);
+extern uint8_t axradio_agc_freeze(void);
+extern uint8_t axradio_agc_thaw(void);
+
+extern const uint8_t __code axradio_framing_maclen;
+extern const uint8_t __code axradio_framing_addrlen;
+
+
+
+
+extern void axradio_isr(void) __interrupt 4;
+# 36 "..\\COMMON\\/misc.h" 2
+
+extern void calibrate_lposc(void);
+extern uint8_t display_received_packet(struct axradio_status __xdata *st);
+extern void dbglink_received_packet(struct axradio_status __xdata *st);
+extern void delay_ms(uint16_t ms) __reentrant;
+extern void stop_with_error(uint8_t *str);
+extern void display_radio_error(uint8_t err);
+# 36 "..\\COMMON\\misc.c" 2
+# 1 "..\\COMMON\\/../COMMON/axradio.h" 1
+# 37 "..\\COMMON\\misc.c" 2
+
+void stop_with_error(uint8_t *str)
+{
+ lcd2_setpos(0);
+ lcd2_writestr(str);
+ lcd2_wait_txdone();
+ IE = EIE = E2IE = 0;
+ enter_sleep();
+}
+
+void display_radio_error(uint8_t err)
+{
+    struct errtbl {
+        uint8_t errcode;
+        const char __code *msg;
+    };
+    static const struct errtbl __code errtbl[] = {
+        { 0x01, "E: not supported" },
+        { 0x02, "E: busy" },
+        { 0x03, "E: timeout" },
+        { 0x04, "E: invalid" },
+        { 0x05, "E: no chip found" },
+        { 0x06, "E: ranging" },
+        { 0x07, "E: lock lost" },
+        { 0x00, 0 }
+    };
+    const struct errtbl __code *p = errtbl;
+    do {
+        if (p->errcode == err) {
+            lcd2_setpos(0);
+            lcd2_writestr(p->msg);
+            return;
+        }
+        ++p;
+    } while (p->errcode != 0x00);
+}
+
+static struct wtimer_desc __xdata delaymstimer;
+
+static void delayms_callback(struct wtimer_desc __xdata *desc)
+{
+    desc;
+    delaymstimer.handler = 0;
+}
+
+ void delay_ms(uint16_t ms) __reentrant
+{
+
+    uint32_t x;
+    wtimer_remove(&delaymstimer);
+    x = ms;
+    delaymstimer.time = ms >> 1;
+    x <<= 3;
+    delaymstimer.time -= x;
+    x <<= 3;
+    delaymstimer.time += x;
+    x <<= 2;
+    delaymstimer.time += x;
+    delaymstimer.handler = delayms_callback;
+    wtimer1_addrelative(&delaymstimer);
+    do {
+        wtimer_runcallbacks();
+        wtimer_idle(0x02);
+    } while (delaymstimer.handler);
+}

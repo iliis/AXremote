@@ -5,13 +5,13 @@
 
 #ifdef SAM_BOARD
 
-#define led0_toggle() do { PORTA ^= 0x02; } while (0)
-#define led0_set(x)   do { PORTA_1 = (x); } while (0)
+#define led0_toggle() do { PORTA ^= 0x10; } while (0)
+#define led0_set(x)   do { PORTA_4 = (x); } while (0)
 #define led0_on()     do { led0_set(1); } while (0)
 #define led0_off()    do { led0_set(0); } while (0)
 
-#define led1_toggle() do { PORTA ^= 0x04; } while (0)
-#define led1_set(x)   do { PORTA_2 = (x); } while (0)
+#define led1_toggle() do { PORTA ^= 0x20; } while (0)
+#define led1_set(x)   do { PORTA_5 = (x); } while (0)
 #define led1_on()     do { led1_set(1); } while (0)
 #define led1_off()    do { led1_set(0); } while (0)
 

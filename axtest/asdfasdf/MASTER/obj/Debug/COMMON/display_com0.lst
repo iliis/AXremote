@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-                              4 ; This file was generated Mon Dec 23 14:41:48 2013
+                              4 ; This file was generated Wed Feb 12 16:52:04 2014
                               5 ;--------------------------------------------------------
                               6 	.module display_com0
                               7 	.optsdcc -mmcs51 --model-small

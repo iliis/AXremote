@@ -317,7 +317,7 @@ static __reentrantb void receive_isr(void) __reentrant
 
 #ifdef USE_DBGLINK
     if (DBGLNKSTAT & 0x10)
-        dbglink_tx('.')
+        dbglink_tx('.');
 #endif // USE_DBGLINK
 
             flags = AX5043_FIFODATA;
