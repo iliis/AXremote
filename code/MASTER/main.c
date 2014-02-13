@@ -403,10 +403,7 @@ void main(void)
 
     for(;;)
     {
-        delay_ms(10);
-        led1_toggle();
-    }
-    /*
+
         uint8_t v = scan_keymatrix();
 
         led1_toggle();

@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-; This file was generated Wed Feb 12 16:52:04 2014
+; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
+; This file was generated Thu Feb 13 19:16:48 2014
 ;--------------------------------------------------------
 	.module display_com0
 	.optsdcc -mmcs51 --model-small
@@ -3154,7 +3154,7 @@ _cmd::
 	.area GSFINAL (CODE)
 	.area GSINIT  (CODE)
 	C$display_com0.c$9$1$188 ==.
-;	..\COMMON\display_com0.c:9: static const __code char *lcd_border=
+;	../COMMON/display_com0.c:9: static const __code char *lcd_border=
 	mov	_lcd_border,#__str_0
 	mov	(_lcd_border + 1),#(__str_0 >> 8)
 ;--------------------------------------------------------
@@ -3171,7 +3171,7 @@ _cmd::
 ;------------------------------------------------------------
 	G$com0_portinit$0$0 ==.
 	C$display_com0.c$20$0$0 ==.
-;	..\COMMON\display_com0.c:20: __reentrantb void com0_portinit(void) __reentrant
+;	../COMMON/display_com0.c:20: __reentrantb void com0_portinit(void) __reentrant
 ;	-----------------------------------------
 ;	 function com0_portinit
 ;	-----------------------------------------
@@ -3185,25 +3185,25 @@ _com0_portinit:
 	ar1 = 0x01
 	ar0 = 0x00
 	C$display_com0.c$22$1$173 ==.
-;	..\COMMON\display_com0.c:22: PALTB |= 0x11;
+;	../COMMON/display_com0.c:22: PALTB |= 0x11;
 	mov	dptr,#_PALTB
 	movx	a,@dptr
 	orl	a,#0x11
 	movx	@dptr,a
 	C$display_com0.c$23$1$173 ==.
-;	..\COMMON\display_com0.c:23: DIRB |= (1<<0) | (1<<4);
+;	../COMMON/display_com0.c:23: DIRB |= (1<<0) | (1<<4);
 	orl	_DIRB,#0x11
 	C$display_com0.c$24$1$173 ==.
-;	..\COMMON\display_com0.c:24: DIRB &= (uint8_t)~(1<<5);
+;	../COMMON/display_com0.c:24: DIRB &= (uint8_t)~(1<<5);
 	anl	_DIRB,#0xDF
 	C$display_com0.c$25$1$173 ==.
-;	..\COMMON\display_com0.c:25: PINSEL &= (uint8_t)~((1<<0) | (1<<1));
+;	../COMMON/display_com0.c:25: PINSEL &= (uint8_t)~((1<<0) | (1<<1));
 	mov	dptr,#_PINSEL
 	movx	a,@dptr
 	anl	a,#0xFC
 	movx	@dptr,a
 	C$display_com0.c$27$1$173 ==.
-;	..\COMMON\display_com0.c:27: uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
+;	../COMMON/display_com0.c:27: uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
 	clr	a
 	mov	_uart_timer0_baud_PARM_2,a
 	mov	(_uart_timer0_baud_PARM_2 + 1),#0xC2
@@ -3216,7 +3216,7 @@ _com0_portinit:
 	mov	dpl,#0x06
 	lcall	_uart_timer0_baud
 	C$display_com0.c$28$1$173 ==.
-;	..\COMMON\display_com0.c:28: uart0_init(0, 8, 1);
+;	../COMMON/display_com0.c:28: uart0_init(0, 8, 1);
 	mov	_uart0_init_PARM_2,#0x08
 	mov	_uart0_init_PARM_3,#0x01
 	mov	dpl,#0x00
@@ -3229,13 +3229,13 @@ _com0_portinit:
 ;------------------------------------------------------------
 	G$com0_init$0$0 ==.
 	C$display_com0.c$31$1$173 ==.
-;	..\COMMON\display_com0.c:31: __reentrantb void com0_init(void) __reentrant
+;	../COMMON/display_com0.c:31: __reentrantb void com0_init(void) __reentrant
 ;	-----------------------------------------
 ;	 function com0_init
 ;	-----------------------------------------
 _com0_init:
 	C$display_com0.c$33$1$175 ==.
-;	..\COMMON\display_com0.c:33: uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
+;	../COMMON/display_com0.c:33: uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
 	clr	a
 	mov	_uart_timer0_baud_PARM_2,a
 	mov	(_uart_timer0_baud_PARM_2 + 1),#0xC2
@@ -3248,13 +3248,13 @@ _com0_init:
 	mov	dpl,#0x06
 	lcall	_uart_timer0_baud
 	C$display_com0.c$34$1$175 ==.
-;	..\COMMON\display_com0.c:34: uart0_init(0, 8, 1);
+;	../COMMON/display_com0.c:34: uart0_init(0, 8, 1);
 	mov	_uart0_init_PARM_2,#0x08
 	mov	_uart0_init_PARM_3,#0x01
 	mov	dpl,#0x00
 	lcall	_uart0_init
 	C$display_com0.c$36$1$175 ==.
-;	..\COMMON\display_com0.c:36: com0_writestr(lcd_border);
+;	../COMMON/display_com0.c:36: com0_writestr(lcd_border);
 	mov	r5,_lcd_border
 	mov	r6,(_lcd_border + 1)
 	mov	r7,#0x80
@@ -3263,7 +3263,7 @@ _com0_init:
 	mov	b,r7
 	lcall	_com0_writestr
 	C$display_com0.c$37$1$175 ==.
-;	..\COMMON\display_com0.c:37: com0_setpos(0);
+;	../COMMON/display_com0.c:37: com0_setpos(0);
 	mov	dpl,#0x00
 	lcall	_com0_setpos
 	C$display_com0.c$38$1$175 ==.
@@ -3276,13 +3276,13 @@ _com0_init:
 ;------------------------------------------------------------
 	G$com0_writestr2$0$0 ==.
 	C$display_com0.c$40$1$175 ==.
-;	..\COMMON\display_com0.c:40: __reentrantb void com0_writestr2(const char* msg)  __reentrant
+;	../COMMON/display_com0.c:40: __reentrantb void com0_writestr2(const char* msg)  __reentrant
 ;	-----------------------------------------
 ;	 function com0_writestr2
 ;	-----------------------------------------
 _com0_writestr2:
 	C$display_com0.c$42$1$177 ==.
-;	..\COMMON\display_com0.c:42: uart0_writestr(msg);
+;	../COMMON/display_com0.c:42: uart0_writestr(msg);
 	lcall	_uart0_writestr
 	C$display_com0.c$43$1$177 ==.
 	XG$com0_writestr2$0$0 ==.
@@ -3292,50 +3292,50 @@ _com0_writestr2:
 ;------------------------------------------------------------
 	G$com0_newline$0$0 ==.
 	C$display_com0.c$45$1$177 ==.
-;	..\COMMON\display_com0.c:45: __reentrantb void com0_newline(void) __reentrant
+;	../COMMON/display_com0.c:45: __reentrantb void com0_newline(void) __reentrant
 ;	-----------------------------------------
 ;	 function com0_newline
 ;	-----------------------------------------
 _com0_newline:
 	C$display_com0.c$47$1$179 ==.
-;	..\COMMON\display_com0.c:47: if (row < 3)
+;	../COMMON/display_com0.c:47: if (row < 3)
 	mov	dptr,#_row
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x03,00107$
-00107$:
+	cjne	r7,#0x03,00108$
+00108$:
 	jnc	00102$
 	C$display_com0.c$48$1$179 ==.
-;	..\COMMON\display_com0.c:48: ++row;
+;	../COMMON/display_com0.c:48: ++row;
 	mov	dptr,#_row
 	mov	a,r7
 	inc	a
 	movx	@dptr,a
 00102$:
 	C$display_com0.c$49$1$179 ==.
-;	..\COMMON\display_com0.c:49: column = 2;
+;	../COMMON/display_com0.c:49: column = 2;
 	mov	dptr,#_column
 	mov	a,#0x02
 	movx	@dptr,a
 	C$display_com0.c$50$1$179 ==.
-;	..\COMMON\display_com0.c:50: cmd[2] = row + '0';
+;	../COMMON/display_com0.c:50: cmd[2] = row + '0';
 	mov	dptr,#_row
 	movx	a,@dptr
 	add	a,#0x30
 	mov	dptr,#(_cmd + 0x0002)
 	movx	@dptr,a
 	C$display_com0.c$51$1$179 ==.
-;	..\COMMON\display_com0.c:51: cmd[4] = '0';
+;	../COMMON/display_com0.c:51: cmd[4] = '0';
 	mov	dptr,#(_cmd + 0x0004)
 	mov	a,#0x30
 	movx	@dptr,a
 	C$display_com0.c$52$1$179 ==.
-;	..\COMMON\display_com0.c:52: cmd[5] = '2';
+;	../COMMON/display_com0.c:52: cmd[5] = '2';
 	mov	dptr,#(_cmd + 0x0005)
 	mov	a,#0x32
 	movx	@dptr,a
 	C$display_com0.c$53$1$179 ==.
-;	..\COMMON\display_com0.c:53: uart0_writestr(cmd);
+;	../COMMON/display_com0.c:53: uart0_writestr(cmd);
 	mov	dptr,#_cmd
 	mov	b,#0x00
 	lcall	_uart0_writestr
@@ -3349,13 +3349,13 @@ _com0_newline:
 ;------------------------------------------------------------
 	G$com0_setpos$0$0 ==.
 	C$display_com0.c$56$1$179 ==.
-;	..\COMMON\display_com0.c:56: __reentrantb void com0_setpos(uint8_t v) __reentrant
+;	../COMMON/display_com0.c:56: __reentrantb void com0_setpos(uint8_t v) __reentrant
 ;	-----------------------------------------
 ;	 function com0_setpos
 ;	-----------------------------------------
 _com0_setpos:
 	C$display_com0.c$60$1$181 ==.
-;	..\COMMON\display_com0.c:60: row = (v >> 6) + 2;
+;	../COMMON/display_com0.c:60: row = (v >> 6) + 2;
 	mov	a,dpl
 	mov	r7,a
 	rl	a
@@ -3368,7 +3368,7 @@ _com0_setpos:
 	mov	a,r6
 	movx	@dptr,a
 	C$display_com0.c$61$1$181 ==.
-;	..\COMMON\display_com0.c:61: column = (v & 0x3F) + 2;
+;	../COMMON/display_com0.c:61: column = (v & 0x3F) + 2;
 	mov	a,#0x3F
 	anl	a,r7
 	add	a,#0x02
@@ -3376,13 +3376,13 @@ _com0_setpos:
 	mov	dptr,#_column
 	movx	@dptr,a
 	C$display_com0.c$62$1$181 ==.
-;	..\COMMON\display_com0.c:62: cmd[2] = row + '0';
+;	../COMMON/display_com0.c:62: cmd[2] = row + '0';
 	mov	a,#0x30
 	add	a,r6
 	mov	dptr,#(_cmd + 0x0002)
 	movx	@dptr,a
 	C$display_com0.c$63$1$181 ==.
-;	..\COMMON\display_com0.c:63: cmd[4] = column / 10 + '0';
+;	../COMMON/display_com0.c:63: cmd[4] = column / 10 + '0';
 	mov	b,#0x0A
 	mov	a,r7
 	div	ab
@@ -3390,7 +3390,7 @@ _com0_setpos:
 	mov	dptr,#(_cmd + 0x0004)
 	movx	@dptr,a
 	C$display_com0.c$64$1$181 ==.
-;	..\COMMON\display_com0.c:64: cmd[5] = column % 10 + '0';
+;	../COMMON/display_com0.c:64: cmd[5] = column % 10 + '0';
 	mov	b,#0x0A
 	mov	a,r7
 	div	ab
@@ -3400,7 +3400,7 @@ _com0_setpos:
 	mov	dptr,#(_cmd + 0x0005)
 	movx	@dptr,a
 	C$display_com0.c$65$1$181 ==.
-;	..\COMMON\display_com0.c:65: uart0_writestr(cmd);
+;	../COMMON/display_com0.c:65: uart0_writestr(cmd);
 	mov	dptr,#_cmd
 	mov	b,#0x00
 	lcall	_uart0_writestr
@@ -3415,7 +3415,7 @@ _com0_setpos:
 ;------------------------------------------------------------
 	G$com0_writestr$0$0 ==.
 	C$display_com0.c$68$1$181 ==.
-;	..\COMMON\display_com0.c:68: __reentrantb void com0_writestr(const char *msg) __reentrant
+;	../COMMON/display_com0.c:68: __reentrantb void com0_writestr(const char *msg) __reentrant
 ;	-----------------------------------------
 ;	 function com0_writestr
 ;	-----------------------------------------
@@ -3425,17 +3425,17 @@ _com0_writestr:
 	mov	r7,b
 00104$:
 	C$display_com0.c$71$2$184 ==.
-;	..\COMMON\display_com0.c:71: char ch = *msg;
+;	../COMMON/display_com0.c:71: char ch = *msg;
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
 	lcall	__gptrget
 	C$display_com0.c$72$2$184 ==.
-;	..\COMMON\display_com0.c:72: if (!ch)
+;	../COMMON/display_com0.c:72: if (!ch)
 	mov	r4,a
 	jz	00106$
 	C$display_com0.c$74$2$184 ==.
-;	..\COMMON\display_com0.c:74: com0_tx(ch);
+;	../COMMON/display_com0.c:74: com0_tx(ch);
 	mov	dpl,r4
 	push	ar7
 	push	ar6
@@ -3445,7 +3445,7 @@ _com0_writestr:
 	pop	ar6
 	pop	ar7
 	C$display_com0.c$75$2$184 ==.
-;	..\COMMON\display_com0.c:75: msg++;
+;	../COMMON/display_com0.c:75: msg++;
 	inc	r5
 	cjne	r5,#0x00,00104$
 	inc	r6
@@ -3461,22 +3461,22 @@ _com0_writestr:
 ;------------------------------------------------------------
 	G$com0_tx$0$0 ==.
 	C$display_com0.c$80$1$183 ==.
-;	..\COMMON\display_com0.c:80: __reentrantb void com0_tx(uint8_t val)  __reentrant
+;	../COMMON/display_com0.c:80: __reentrantb void com0_tx(uint8_t val)  __reentrant
 ;	-----------------------------------------
 ;	 function com0_tx
 ;	-----------------------------------------
 _com0_tx:
 	mov	r7,dpl
 	C$display_com0.c$82$1$186 ==.
-;	..\COMMON\display_com0.c:82: if (val == '\n')
+;	../COMMON/display_com0.c:82: if (val == '\n')
 	cjne	r7,#0x0A,00102$
 	C$display_com0.c$83$1$186 ==.
-;	..\COMMON\display_com0.c:83: com0_newline();
+;	../COMMON/display_com0.c:83: com0_newline();
 	lcall	_com0_newline
 	sjmp	00104$
 00102$:
 	C$display_com0.c$85$1$186 ==.
-;	..\COMMON\display_com0.c:85: uart0_tx(val);
+;	../COMMON/display_com0.c:85: uart0_tx(val);
 	mov	dpl,r7
 	lcall	_uart0_tx
 00104$:
@@ -3491,7 +3491,7 @@ _com0_tx:
 ;------------------------------------------------------------
 	G$com0_clear$0$0 ==.
 	C$display_com0.c$88$1$186 ==.
-;	..\COMMON\display_com0.c:88: __reentrantb void com0_clear(uint8_t pos, uint8_t len) __reentrant
+;	../COMMON/display_com0.c:88: __reentrantb void com0_clear(uint8_t pos, uint8_t len) __reentrant
 ;	-----------------------------------------
 ;	 function com0_clear
 ;	-----------------------------------------
@@ -3499,19 +3499,19 @@ _com0_clear:
 	push	_bp
 	mov	_bp,sp
 	C$display_com0.c$90$1$188 ==.
-;	..\COMMON\display_com0.c:90: com0_setpos(pos);
+;	../COMMON/display_com0.c:90: com0_setpos(pos);
 	lcall	_com0_setpos
 	C$display_com0.c$91$1$188 ==.
-;	..\COMMON\display_com0.c:91: if (!len)
+;	../COMMON/display_com0.c:91: if (!len)
 	mov	a,_bp
 	add	a,#0xfd
 	mov	r0,a
 	mov	a,@r0
 	jnz	00109$
 	C$display_com0.c$92$1$188 ==.
-;	..\COMMON\display_com0.c:92: return;
+;	../COMMON/display_com0.c:92: return;
 	C$display_com0.c$93$1$188 ==.
-;	..\COMMON\display_com0.c:93: do {
+;	../COMMON/display_com0.c:93: do {
 	sjmp	00106$
 00109$:
 	mov	a,_bp
@@ -3520,13 +3520,13 @@ _com0_clear:
 	mov	ar7,@r0
 00103$:
 	C$display_com0.c$94$2$189 ==.
-;	..\COMMON\display_com0.c:94: com0_tx(' ');
+;	../COMMON/display_com0.c:94: com0_tx(' ');
 	mov	dpl,#0x20
 	push	ar7
 	lcall	_com0_tx
 	pop	ar7
 	C$display_com0.c$95$1$188 ==.
-;	..\COMMON\display_com0.c:95: } while (--len);
+;	../COMMON/display_com0.c:95: } while (--len);
 	djnz	r7,00103$
 00106$:
 	pop	_bp

@@ -1,4 +1,4 @@
-;!FILE obj\Debug\COMMON\display_com0.asm
+;!FILE obj/Debug/COMMON/display_com0.asm
 XH
 H 1A areas 8FC global symbols
 M display_com0

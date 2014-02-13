@@ -23,9 +23,10 @@ S:Lmain._sdcc_external_startup$c$2$197({1}SC:U),R,0,0,[]
 S:Lmain._sdcc_external_startup$p$2$197({1}SC:U),R,0,0,[]
 S:Lmain._sdcc_external_startup$c$2$198({1}SC:U),R,0,0,[]
 S:Lmain._sdcc_external_startup$p$2$198({1}SC:U),R,0,0,[]
-S:Lmain.main$prev_key$1$200({1}SC:U),R,0,0,[]
-S:Lmain.main$i$1$200({1}SC:U),R,0,0,[r7]
-S:Lmain.main$flg$3$258({1}SC:U),R,0,0,[]
+S:Lmain.main$prev_key$1$200({1}SC:U),R,0,0,[r7]
+S:Lmain.main$i$1$200({1}SC:U),R,0,0,[r6]
+S:Lmain.main$v$2$255({1}SC:U),R,0,0,[r5]
+S:Lmain.main$flg$3$264({1}SC:U),R,0,0,[]
 S:G$ADCCH0VAL0$0$0({1}SC:U),F,0,0
 S:G$ADCCH0VAL1$0$0({1}SC:U),F,0,0
 S:G$ADCCH0VAL$0$0({2}SI:U),F,0,0

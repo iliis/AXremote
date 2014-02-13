@@ -2,8 +2,9 @@ M:misc
 F:G$stop_with_error$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$display_radio_error$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:Fmisc$delayms_callback$0$0({2}DF,SV:S),C,0,0,0,0,0
-F:G$delay_ms$0$0({2}DF,SV:S),Z,0,0,0,0,0
-S:Lmisc.delay_ms$ms$1$137({2}SI:U),R,0,0,[]
+F:G$delay_ms$0$0({2}DF,SV:S),Z,0,4,0,0,0
+S:Lmisc.delay_ms$ms$1$137({2}SI:U),R,0,0,[r6,r7]
+S:Lmisc.delay_ms$x$1$138({4}SL:U),B,1,1
 T:Fmisc$wtimer_callback[({0}S:S$next$0$0({2}DX,STwtimer_callback:S),Z,0,0)({2}S:S$handler$0$0({2}DC,DF,SV:S),Z,0,0)]
 T:Fmisc$axradio_status_receive[({0}S:S$phy$0$0({10}STaxradio_status_receive_phy:S),Z,0,0)({10}S:S$mac$0$0({10}STaxradio_status_receive_mac:S),Z,0,0)({20}S:S$pktdata$0$0({2}DX,SC:U),Z,0,0)({22}S:S$pktlen$0$0({2}SI:U),Z,0,0)]
 T:Fmisc$axradio_address[({0}S:S$addr$0$0({4}DA4d,SC:U),Z,0,0)]

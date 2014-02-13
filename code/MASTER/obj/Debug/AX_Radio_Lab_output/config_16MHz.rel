@@ -1,4 +1,4 @@
-;!FILE obj\Debug\AX_Radio_Lab_output\config_16MHz.asm
+;!FILE obj/Debug/AX_Radio_Lab_output/config_16MHz.asm
 XH
 H 1A areas CD7 global symbols
 M config_16MHz

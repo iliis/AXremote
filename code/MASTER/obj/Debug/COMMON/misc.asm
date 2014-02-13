@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.2.0 #8008 (Jul  6 2012) (MINGW32)
-; This file was generated Wed Feb 12 23:09:17 2014
+; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
+; This file was generated Thu Feb 13 19:18:11 2014
 ;--------------------------------------------------------
 	.module misc
 	.optsdcc -mmcs51 --model-small
@@ -13,6 +13,7 @@
 	.globl _lcd2_setpos
 	.globl _lcd2_wait_txdone
 	.globl _wtimer1_remove
+	.globl _wtimer_remove
 	.globl _wtimer1_addrelative
 	.globl _wtimer_runcallbacks
 	.globl _wtimer_idle
@@ -1572,7 +1573,7 @@ _delaymstimer:
 ;------------------------------------------------------------
 	G$stop_with_error$0$0 ==.
 	C$misc.c$38$0$0 ==.
-;	..\COMMON\misc.c:38: void stop_with_error(uint8_t *str)
+;	../COMMON/misc.c:38: void stop_with_error(uint8_t *str)
 ;	-----------------------------------------
 ;	 function stop_with_error
 ;	-----------------------------------------
@@ -1589,7 +1590,7 @@ _stop_with_error:
 	mov	r6,dph
 	mov	r7,b
 	C$misc.c$40$1$99 ==.
-;	..\COMMON\misc.c:40: lcd2_setpos(0);
+;	../COMMON/misc.c:40: lcd2_setpos(0);
 	mov	dpl,#0x00
 	push	ar7
 	push	ar6
@@ -1599,21 +1600,21 @@ _stop_with_error:
 	pop	ar6
 	pop	ar7
 	C$misc.c$41$1$99 ==.
-;	..\COMMON\misc.c:41: lcd2_writestr(str);
+;	../COMMON/misc.c:41: lcd2_writestr(str);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
 	lcall	_lcd2_writestr
 	C$misc.c$42$1$99 ==.
-;	..\COMMON\misc.c:42: lcd2_wait_txdone();
+;	../COMMON/misc.c:42: lcd2_wait_txdone();
 	lcall	_lcd2_wait_txdone
 	C$misc.c$43$1$99 ==.
-;	..\COMMON\misc.c:43: IE = EIE = E2IE = 0;
+;	../COMMON/misc.c:43: IE = EIE = E2IE = 0;
 	mov	_E2IE,#0x00
 	mov	_EIE,#0x00
 	mov	_IE,#0x00
 	C$misc.c$44$1$99 ==.
-;	..\COMMON\misc.c:44: enter_sleep();
+;	../COMMON/misc.c:44: enter_sleep();
 	lcall	_enter_sleep
 	C$misc.c$45$1$99 ==.
 	XG$stop_with_error$0$0 ==.
@@ -1626,23 +1627,23 @@ _stop_with_error:
 ;------------------------------------------------------------
 	G$display_radio_error$0$0 ==.
 	C$misc.c$47$1$99 ==.
-;	..\COMMON\misc.c:47: void display_radio_error(uint8_t err)
+;	../COMMON/misc.c:47: void display_radio_error(uint8_t err)
 ;	-----------------------------------------
 ;	 function display_radio_error
 ;	-----------------------------------------
 _display_radio_error:
 	mov	r7,dpl
 	C$misc.c$63$1$99 ==.
-;	..\COMMON\misc.c:63: const struct errtbl __code *p = errtbl;
+;	../COMMON/misc.c:63: const struct errtbl __code *p = errtbl;
 	mov	r5,#_display_radio_error_errtbl_1_101
 	mov	r6,#(_display_radio_error_errtbl_1_101 >> 8)
 	C$misc.c$64$1$101 ==.
-;	..\COMMON\misc.c:64: do {
+;	../COMMON/misc.c:64: do {
 	mov	ar3,r5
 	mov	ar4,r6
 00103$:
 	C$misc.c$65$2$102 ==.
-;	..\COMMON\misc.c:65: if (p->errcode == err) {
+;	../COMMON/misc.c:65: if (p->errcode == err) {
 	mov	dpl,r3
 	mov	dph,r4
 	clr	a
@@ -1650,7 +1651,7 @@ _display_radio_error:
 	mov	r2,a
 	cjne	a,ar7,00102$
 	C$misc.c$66$3$103 ==.
-;	..\COMMON\misc.c:66: lcd2_setpos(0);
+;	../COMMON/misc.c:66: lcd2_setpos(0);
 	mov	dpl,#0x00
 	push	ar6
 	push	ar5
@@ -1658,7 +1659,7 @@ _display_radio_error:
 	pop	ar5
 	pop	ar6
 	C$misc.c$67$3$103 ==.
-;	..\COMMON\misc.c:67: lcd2_writestr(p->msg);
+;	../COMMON/misc.c:67: lcd2_writestr(p->msg);
 	mov	dpl,r5
 	mov	dph,r6
 	inc	dptr
@@ -1675,11 +1676,11 @@ _display_radio_error:
 	mov	b,r2
 	lcall	_lcd2_writestr
 	C$misc.c$68$3$103 ==.
-;	..\COMMON\misc.c:68: return;
+;	../COMMON/misc.c:68: return;
 	sjmp	00106$
 00102$:
 	C$misc.c$70$2$102 ==.
-;	..\COMMON\misc.c:70: ++p;
+;	../COMMON/misc.c:70: ++p;
 	mov	a,#0x03
 	add	a,r3
 	mov	r3,a
@@ -1689,7 +1690,7 @@ _display_radio_error:
 	mov	ar5,r3
 	mov	ar6,r4
 	C$misc.c$71$1$101 ==.
-;	..\COMMON\misc.c:71: } while (p->errcode != AXRADIO_ERR_NOERROR);
+;	../COMMON/misc.c:71: } while (p->errcode != AXRADIO_ERR_NOERROR);
 	mov	dpl,r3
 	mov	dph,r4
 	clr	a
@@ -1706,16 +1707,17 @@ _display_radio_error:
 ;------------------------------------------------------------
 	Fmisc$delayms_callback$0$0 ==.
 	C$misc.c$76$1$101 ==.
-;	..\COMMON\misc.c:76: static void delayms_callback(struct wtimer_desc __xdata *desc)
+;	../COMMON/misc.c:76: static void delayms_callback(struct wtimer_desc __xdata *desc)
 ;	-----------------------------------------
 ;	 function delayms_callback
 ;	-----------------------------------------
 _delayms_callback:
 	C$misc.c$79$1$105 ==.
-;	..\COMMON\misc.c:79: delaymstimer.handler = 0;
+;	../COMMON/misc.c:79: delaymstimer.handler = 0;
 	mov	dptr,#(_delaymstimer + 0x0002)
 	clr	a
 	movx	@dptr,a
+	clr	a
 	inc	dptr
 	movx	@dptr,a
 	C$misc.c$80$1$105 ==.
@@ -1724,46 +1726,320 @@ _delayms_callback:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'delay_ms'
 ;------------------------------------------------------------
-;ms                        Allocated to registers 
+;ms                        Allocated to registers r6 r7 
+;x                         Allocated to stack - _bp +1
 ;------------------------------------------------------------
 	G$delay_ms$0$0 ==.
 	C$misc.c$84$1$105 ==.
-;	..\COMMON\misc.c:84: __reentrantb void delay_ms(uint16_t ms) __reentrant
+;	../COMMON/misc.c:84: __reentrantb void delay_ms(uint16_t ms) __reentrant
 ;	-----------------------------------------
 ;	 function delay_ms
 ;	-----------------------------------------
 _delay_ms:
-	C$misc.c$97$1$138 ==.
-;	..\COMMON\misc.c:97: delaymstimer.time = 3125; // 10ms
+	push	_bp
+	mov	a,sp
+	mov	_bp,a
+	add	a,#0x04
+	mov	sp,a
+	mov	r6,dpl
+	mov	r7,dph
+	C$misc.c$88$1$138 ==.
+;	../COMMON/misc.c:88: wtimer_remove(&delaymstimer);
+	mov	dptr,#_delaymstimer
+	push	ar7
+	push	ar6
+	lcall	_wtimer_remove
+	pop	ar6
+	pop	ar7
+	C$misc.c$89$1$138 ==.
+;	../COMMON/misc.c:89: x = ms;
+	mov	r0,_bp
+	inc	r0
+	mov	@r0,ar6
+	inc	r0
+	mov	@r0,ar7
+	inc	r0
+	mov	@r0,#0x00
+	inc	r0
+	mov	@r0,#0x00
+	C$misc.c$90$1$138 ==.
+;	../COMMON/misc.c:90: delaymstimer.time = ms >> 1;
+	mov	a,r7
+	clr	c
+	rrc	a
+	xch	a,r6
+	rrc	a
+	xch	a,r6
+	mov	r7,a
+	mov	ar4,r6
+	mov	ar5,r7
+	mov	r6,#0x00
+	mov	r7,#0x00
 	mov	dptr,#(_delaymstimer + 0x0004)
-	mov	a,#0x35
+	mov	a,r4
 	movx	@dptr,a
+	mov	a,r5
 	inc	dptr
-	mov	a,#0x0C
 	movx	@dptr,a
+	mov	a,r6
 	inc	dptr
-	clr	a
 	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+	C$misc.c$91$1$138 ==.
+;	../COMMON/misc.c:91: x <<= 3;
+	mov	r0,_bp
+	inc	r0
+	inc	r0
+	inc	r0
+	inc	r0
+	mov	a,@r0
+	dec	r0
+	swap	a
+	rr	a
+	anl	a,#0xF8
+	xch	a,@r0
+	swap	a
+	rr	a
+	xch	a,@r0
+	xrl	a,@r0
+	xch	a,@r0
+	anl	a,#0xF8
+	xch	a,@r0
+	xrl	a,@r0
+	inc	r0
+	mov	@r0,a
+	dec	r0
+	dec	r0
+	mov	a,@r0
+	swap	a
+	rr	a
+	anl	a,#0x07
+	inc	r0
+	orl	a,@r0
+	mov	@r0,a
+	dec	r0
+	mov	a,@r0
+	dec	r0
+	swap	a
+	rr	a
+	anl	a,#0xF8
+	xch	a,@r0
+	swap	a
+	rr	a
+	xch	a,@r0
+	xrl	a,@r0
+	xch	a,@r0
+	anl	a,#0xF8
+	xch	a,@r0
+	xrl	a,@r0
+	inc	r0
+	mov	@r0,a
+	C$misc.c$92$1$138 ==.
+;	../COMMON/misc.c:92: delaymstimer.time -= x;
+	mov	r0,_bp
+	inc	r0
+	mov	a,r4
+	clr	c
+	subb	a,@r0
+	mov	r4,a
+	mov	a,r5
+	inc	r0
+	subb	a,@r0
+	mov	r5,a
+	mov	a,r6
+	inc	r0
+	subb	a,@r0
+	mov	r6,a
+	mov	a,r7
+	inc	r0
+	subb	a,@r0
+	mov	r7,a
+	mov	dptr,#(_delaymstimer + 0x0004)
+	mov	a,r4
+	movx	@dptr,a
+	mov	a,r5
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+	C$misc.c$93$1$138 ==.
+;	../COMMON/misc.c:93: x <<= 3;
+	mov	r0,_bp
+	inc	r0
+	inc	r0
+	inc	r0
+	inc	r0
+	mov	a,@r0
+	dec	r0
+	swap	a
+	rr	a
+	anl	a,#0xF8
+	xch	a,@r0
+	swap	a
+	rr	a
+	xch	a,@r0
+	xrl	a,@r0
+	xch	a,@r0
+	anl	a,#0xF8
+	xch	a,@r0
+	xrl	a,@r0
+	inc	r0
+	mov	@r0,a
+	dec	r0
+	dec	r0
+	mov	a,@r0
+	swap	a
+	rr	a
+	anl	a,#0x07
+	inc	r0
+	orl	a,@r0
+	mov	@r0,a
+	dec	r0
+	mov	a,@r0
+	dec	r0
+	swap	a
+	rr	a
+	anl	a,#0xF8
+	xch	a,@r0
+	swap	a
+	rr	a
+	xch	a,@r0
+	xrl	a,@r0
+	xch	a,@r0
+	anl	a,#0xF8
+	xch	a,@r0
+	xrl	a,@r0
+	inc	r0
+	mov	@r0,a
+	C$misc.c$94$1$138 ==.
+;	../COMMON/misc.c:94: delaymstimer.time += x;
+	mov	r0,_bp
+	inc	r0
+	mov	a,@r0
+	add	a,r4
+	mov	r4,a
+	inc	r0
+	mov	a,@r0
+	addc	a,r5
+	mov	r5,a
+	inc	r0
+	mov	a,@r0
+	addc	a,r6
+	mov	r6,a
+	inc	r0
+	mov	a,@r0
+	addc	a,r7
+	mov	r7,a
+	mov	dptr,#(_delaymstimer + 0x0004)
+	mov	a,r4
+	movx	@dptr,a
+	mov	a,r5
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+	C$misc.c$95$1$138 ==.
+;	../COMMON/misc.c:95: x <<= 2;
+	mov	r0,_bp
+	inc	r0
+	mov	a,@r0
+	add	a,acc
+	mov	@r0,a
+	inc	r0
+	mov	a,@r0
+	rlc	a
+	mov	@r0,a
+	inc	r0
+	mov	a,@r0
+	rlc	a
+	mov	@r0,a
+	inc	r0
+	mov	a,@r0
+	rlc	a
+	mov	@r0,a
+	dec	r0
+	dec	r0
+	dec	r0
+	mov	a,@r0
+	add	a,acc
+	mov	@r0,a
+	inc	r0
+	mov	a,@r0
+	rlc	a
+	mov	@r0,a
+	inc	r0
+	mov	a,@r0
+	rlc	a
+	mov	@r0,a
+	inc	r0
+	mov	a,@r0
+	rlc	a
+	mov	@r0,a
+	C$misc.c$96$1$138 ==.
+;	../COMMON/misc.c:96: delaymstimer.time += x;
+	mov	r0,_bp
+	inc	r0
+	mov	a,@r0
+	add	a,r4
+	mov	r4,a
+	inc	r0
+	mov	a,@r0
+	addc	a,r5
+	mov	r5,a
+	inc	r0
+	mov	a,@r0
+	addc	a,r6
+	mov	r6,a
+	inc	r0
+	mov	a,@r0
+	addc	a,r7
+	mov	r7,a
+	mov	dptr,#(_delaymstimer + 0x0004)
+	mov	a,r4
+	movx	@dptr,a
+	mov	a,r5
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 	C$misc.c$98$1$138 ==.
-;	..\COMMON\misc.c:98: wtimer1_remove(&delaymstimer);
+;	../COMMON/misc.c:98: wtimer1_remove(&delaymstimer);
 	mov	dptr,#_delaymstimer
 	lcall	_wtimer1_remove
 	C$misc.c$99$1$138 ==.
-;	..\COMMON\misc.c:99: delaymstimer.handler = delayms_callback;
+;	../COMMON/misc.c:99: delaymstimer.handler = delayms_callback;
 	mov	dptr,#(_delaymstimer + 0x0002)
 	mov	a,#_delayms_callback
 	movx	@dptr,a
-	inc	dptr
 	mov	a,#(_delayms_callback >> 8)
+	inc	dptr
 	movx	@dptr,a
 	C$misc.c$100$1$138 ==.
-;	..\COMMON\misc.c:100: wtimer1_addrelative(&delaymstimer);
+;	../COMMON/misc.c:100: wtimer1_addrelative(&delaymstimer);
 	mov	dptr,#_delaymstimer
 	lcall	_wtimer1_addrelative
 	C$misc.c$102$1$138 ==.
-;	..\COMMON\misc.c:102: if (delaymstimer.handler == 0)
+;	../COMMON/misc.c:102: do {
+00103$:
+	C$misc.c$104$2$139 ==.
+;	../COMMON/misc.c:104: wtimer_runcallbacks();
+	lcall	_wtimer_runcallbacks
+	C$misc.c$107$2$139 ==.
+;	../COMMON/misc.c:107: if (!delaymstimer.handler)
 	mov	dptr,#(_delaymstimer + 0x0002)
 	movx	a,@dptr
 	mov	r6,a
@@ -1771,39 +2047,13 @@ _delay_ms:
 	movx	a,@dptr
 	mov	r7,a
 	orl	a,r6
-	jnz	00105$
-	C$misc.c$103$2$139 ==.
-;	..\COMMON\misc.c:103: led0_toggle();
-	xrl	_PORTA,#0x10
-00105$:
-	C$misc.c$105$1$138 ==.
-;	..\COMMON\misc.c:105: wtimer_runcallbacks();
-	lcall	_wtimer_runcallbacks
-	C$misc.c$107$1$138 ==.
-;	..\COMMON\misc.c:107: if (delaymstimer.handler == 0)
-	mov	dptr,#(_delaymstimer + 0x0002)
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-	orl	a,r6
-	jnz	00111$
-	C$misc.c$108$2$140 ==.
-;	..\COMMON\misc.c:108: led0_toggle();
-	xrl	_PORTA,#0x10
-	C$misc.c$110$1$138 ==.
-;	..\COMMON\misc.c:110: do {
-00111$:
-	C$misc.c$112$2$141 ==.
-;	..\COMMON\misc.c:112: wtimer_runcallbacks();
-	lcall	_wtimer_runcallbacks
-	C$misc.c$114$2$141 ==.
-;	..\COMMON\misc.c:114: wtimer_idle(WTFLAG_CANSTANDBY);
+	jz	00106$
+	C$misc.c$110$2$139 ==.
+;	../COMMON/misc.c:110: wtimer_idle(WTFLAG_CANSTANDBY);
 	mov	dpl,#0x02
 	lcall	_wtimer_idle
-	C$misc.c$126$1$138 ==.
-;	..\COMMON\misc.c:126: } while (delaymstimer.handler);
+	C$misc.c$112$1$138 ==.
+;	../COMMON/misc.c:112: } while (delaymstimer.handler);
 	mov	dptr,#(_delaymstimer + 0x0002)
 	movx	a,@dptr
 	mov	r6,a
@@ -1811,8 +2061,11 @@ _delay_ms:
 	movx	a,@dptr
 	mov	r7,a
 	orl	a,r6
-	jnz	00111$
-	C$misc.c$127$1$138 ==.
+	jnz	00103$
+00106$:
+	mov	sp,_bp
+	pop	_bp
+	C$misc.c$113$1$138 ==.
 	XG$delay_ms$0$0 ==.
 	ret
 	.area CSEG    (CODE)
