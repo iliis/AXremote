@@ -60,11 +60,6 @@ extern uint8_t _start__stack[];
 #endif
 
 uint8_t __data coldstart = 1; // caution: initialization with 1 is necessary! Variables are initialized upon _sdcc_external_startup returning 0 -> the coldstart value returned from _sdcc_external startup does not survive in the coldstart case
-#ifdef TX_ON_DEMAND
-__bit deglitch_busy = 0;
-#endif
-
-struct wtimer_desc __xdata wakeup_desc;
 
 static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
 {
@@ -77,12 +72,21 @@ static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
         PCON |= 0x01;
 }
 
-static void transmit_packet(void)
+static void transmit_packet(uint8_t key)
 {
-    uint8_t __xdata demo_packet_[sizeof(demo_packet)];
+    uint8_t __xdata packet[] = {'K', key};
 
-    memcpy(demo_packet_, demo_packet, sizeof(demo_packet));
-    axradio_transmit(&remoteaddr, demo_packet_, sizeof(demo_packet));
+    packet[1] = key;
+
+    axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT);
+
+    axradio_transmit(&remoteaddr, packet, sizeof(packet));
+
+#ifdef USE_DBGLINK
+    if (DBGLNKSTAT & 0x10) {
+        //dbglink_writestr("sending packet\n");
+    }
+#endif // USE_DBGLINK
 }
 
 void axradio_statuschange(struct axradio_status __xdata *st)
@@ -100,77 +104,30 @@ void axradio_statuschange(struct axradio_status __xdata *st)
     {
     case AXRADIO_STAT_TRANSMITSTART:
         led0_on();
-        if (st->error == AXRADIO_ERR_RETRANSMISSION)
-            led2_on();
-#if RADIO_MODE == AXRADIO_MODE_SYNC_MASTER || RADIO_MODE == AXRADIO_MODE_SYNC_ACK_MASTER
-        display_transmit_packet();
-#endif
+        dbglink_tx('[');
         break;
 
     case AXRADIO_STAT_TRANSMITEND:
         led0_off();
-        if (st->error == AXRADIO_ERR_NOERROR) {
-            led2_off();
-#ifdef TX_ON_DEMAND
-            deglitch_busy = 0;
-#endif
-#if RADIO_MODE == AXRADIO_MODE_ACK_TRANSMIT || RADIO_MODE == AXRADIO_MODE_WOR_ACK_TRANSMIT || RADIO_MODE == AXRADIO_MODE_SYNC_ACK_MASTER
-            display_setpos(0x0d);
-            display_writestr(":-)");
+        dbglink_tx(']');
+        // power down radio
+        axradio_set_mode(AXRADIO_MODE_OFF);
+
+        if (st->error != AXRADIO_ERR_NOERROR) {
+            // TODO: retry sending or something
 #ifdef USE_DBGLINK
-            if (DBGLNKSTAT & 0x10)
-                dbglink_writestr(":-)\n");
+            if (DBGLNKSTAT & 0x10) {
+                dbglink_writestr("ERROR transmitting packet\n");
+            }
 #endif // USE_DBGLINK
-#endif // RADIO_MODE
-        } else if (st->error == AXRADIO_ERR_TIMEOUT) {
-            led2_on();
-#ifdef TX_ON_DEMAND
-            deglitch_busy = 0;
-#endif
-#if RADIO_MODE == AXRADIO_MODE_ACK_TRANSMIT || RADIO_MODE == AXRADIO_MODE_WOR_ACK_TRANSMIT || RADIO_MODE == AXRADIO_MODE_SYNC_ACK_MASTER
-            display_setpos(0x0d);
-            display_writestr(":-(");
-#ifdef USE_DBGLINK
-            if (DBGLNKSTAT & 0x10)
-                dbglink_writestr(":-(\n");
-#endif // USE_DBGLINK
-#endif // RADIO_MODE
         }
-        if (st->error == AXRADIO_ERR_BUSY)
-            led3_on();
-        else
-            led3_off();
-        break;
-
-#if RADIO_MODE == AXRADIO_MODE_SYNC_MASTER || RADIO_MODE == AXRADIO_MODE_SYNC_ACK_MASTER
-    case AXRADIO_STAT_TRANSMITDATA:
-        // in SYNC_MASTER mode, transmit data may be prepared between the call to TRANSMITEND until the call to TRANSMITSTART
-        // TRANSMITDATA is called when the crystal oscillator is enabled, approximately 1ms before transmission
-        transmit_packet();
-        break;
-#endif
-
-    case AXRADIO_STAT_CHANNELSTATE:
-        if (st->u.cs.busy)
-            led3_on();
-        else
-            led3_off();
         break;
 
     default:
         break;
     }
 }
-static void wakeup_callback(struct wtimer_desc __xdata *desc)
-{
-    desc;
-#if defined(WTIMER0_PERIOD)
-    wakeup_desc.time += WTIMER0_PERIOD;
-    wtimer0_addabsolute(&wakeup_desc);
-    transmit_packet();
-    display_transmit_packet();
-#endif
-}
+
 
 #if defined(__ICC8051__)
 //
@@ -195,33 +152,18 @@ uint8_t _sdcc_external_startup(void)
 
     coldstart = !(PCON & 0x40);
 
-    ANALOGA = 0x18; // PA[3,4] LPXOSC, other PA are used as digital pins
+    ANALOGA = 0x00; // every PA pin is used in digital mode (no analog I/O)
 
-#ifdef SAM_BOARD
-    PORTA = 0xC0 | (PINA & 0x25); 	// pull-up for PA[6,7] which are not bonded, no pull up for PA[3,4] (LPXOSC). Output 0 in PA[0,1,2,5] to prevent current consumption in all DIP switch states
+    PORTA = 0xC0 | (PINA & 0x30); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..4]
     // init LEDs to previous (frozen) state
-    PORTB = 0xFE; //PB[0,1]  (LCD RS, LCD RST) are overwritten by lcd2_portinit(), enable pull-ups for PB[2..7]  (PB[2,3] for buttons, PB[4..7] unused)
-    PORTC = 0xF3 | (PINC & 0x08); 	// set PC0 = 1 (LCD SEL), PC1 = 1 (LCD SCK), PC2 = 0 (LCD MOSI), PC3 =0 (LED), enable pull-ups for PC[4..7] which are not bonded Mind: PORTC[0:1] is set to 0x3 by lcd2_portinit()
-    // init LEDs to previous (frozen) state
+    PORTB = 0xFF; // pull-ups on everything
+    PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
     PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
 
-
-    DIRA = 0x37; // output 0 on PA[0,1,2,5] to prevent current consumption in all DIP switch states. Other PA are inputs, PA[3,4] (LPXOSC) must have disabled digital output drivers
-    DIRB = 0x03; // PB[0,1] are outputs (LCD RS, LCD RST), PB[2..7] are inputs (PB[2,3] for buttons,  PB[4..7]  unused)
-    DIRC = 0x0F; // PC[0..3] are outputs (LCD SEL, LCD,SCK, LCD MOSI, LED), PC[4..7] are inputs (not bonded).
+    DIRA = 0x37; // PA[0..3] are outputs (rows), PA4 and 5 are LEDs
+    DIRB = 0x00; // PB[0..5] are inputs (cols), B6 and 7 are debug connections (inputs as well)
+    DIRC = 0x1F; // PC[0..4] are outputs (rows), PC[5..7] are inputs (not bonded).
     DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
-#else //
-    PORTA = 0xFF; //
-    PORTB = 0xFD | (PINB & 0x02); // init LEDs to previous (frozen) state
-    PORTC = 0xFF; //
-    PORTR = 0xCB; //
-
-    DIRA = 0x00; //
-    DIRB = 0x06; //  PB1 = LED, PB2 = TCXO ON/OFF
-    DIRC = 0x00; //  PC4 = button
-    DIRR = 0x15; //
-    PALTRADIO |= (1<<6);
-#endif // else MINI_KIT
 
     DPS = 0;
     IE = 0x40;
@@ -260,8 +202,6 @@ void main(void)
 #ifdef USE_DBGLINK
     dbglink_init();
 
-    dbglink_writestr("booting up ...\n");
-
     led0_off();
     led1_off();
     delay_ms( 50);
@@ -298,16 +238,6 @@ void main(void)
         led0_off();
         led1_off();
 
-
-
-        wakeup_desc.handler = wakeup_callback;
-#ifdef TX_ON_DEMAND
-        BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
-#endif // TX_ON_DEMAND
-
-
-
-
         i = axradio_init();
         if (i != AXRADIO_ERR_NOERROR) {
             if (i == AXRADIO_ERR_NOCHIP) {
@@ -340,30 +270,10 @@ void main(void)
         axradio_set_local_address(&localaddr);
         axradio_set_default_remote_address(&remoteaddr);
 
-#if RADIO_MODE == AXRADIO_MODE_SYNC_MASTER || RADIO_MODE == AXRADIO_MODE_SYNC_ACK_MASTER || RADIO_MODE == AXRADIO_MODE_SYNC_SLAVE || RADIO_MODE == AXRADIO_MODE_SYNC_ACK_SLAVE
-        display_writestr("settle LPXOSC");
-#ifdef USE_DBGLINK
-        if (DBGLNKSTAT & 0x10)
-            dbglink_writestr("settle LPXOSC\n");
-#endif // USE_DBGLINK
-        delay_ms(lpxosc_settlingtime);
-        display_clear(0x40, 16);
-        display_setpos(0x40);
-#endif  // RADIO_MODE
 
         led0_off();
         led1_on();
         delay_ms(100);
-
-#ifdef USE_DISPLAY
-        display_writestr("RNG=");
-        display_writenum16(axradio_get_pllrange(), 2, 0);
-        delay_ms(1000); // just to show PLL RNG
-        display_clear(0, 16);
-        display_clear(0x40, 16);
-        display_setpos(0);
-        display_writestr("MASTER");
-#endif // USE_DISPLAY
 
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
@@ -373,97 +283,74 @@ void main(void)
         }
 #endif // USE_DBGLINK
 
-
-        i = axradio_set_mode(RADIO_MODE);
+        // don't turn on radio, we only need if when a key gets pressed
+        i = axradio_set_mode(AXRADIO_MODE_OFF);
         if (i != AXRADIO_ERR_NOERROR)
             goto terminate_radio_error;
 
         led0_on();
         led1_on();
         delay_ms(100);
-
-#if defined(WTIMER0_PERIOD)
-        wakeup_desc.time = WTIMER0_PERIOD;
-        wtimer0_addrelative(&wakeup_desc);
-#endif
     } else {
         // warmstart
         ax5043_commsleepexit();
-        IE_4 = 1;
+        IE_4 = 1; // Radio Interrupt enable
     }
-
-#ifdef TX_ON_DEMAND
-    BUTTON_INTCHG |= BUTTON_MASK; //interrupt on button changed (button SW5 on DVK-2) for wake on button pressed
-#endif // TX_ON_DEMAND
 
     led0_off();
     led1_on();
-    //delay_ms(100);
 
 
     for(;;)
     {
 
-        uint8_t v = scan_keymatrix();
-
-        led1_toggle();
+        uint8_t key = scan_keymatrix();
 
         wtimer_runcallbacks();
 
-        if (v) {
-            led0_on();
-            if (v != prev_key) {
-                dbglink_writenum16(v, 2, 0);
-                dbglink_tx('\n');
-            }
-        } else
-            led0_off();
+        if (key > 0) {
+            //led0_on();
+            if (key != prev_key) {
 
-        prev_key = v;
-    }
-/*
-        EA = 0;
-
-#ifdef TX_ON_DEMAND
-        {
-            uint8_t buttonedge;
-            {
-                uint8_t p;
-                p = BUTTON_PIN;
-                buttonedge = saved_button_state & ~p;
-                saved_button_state = p;
-            }
-            if (buttonedge & BUTTON_MASK)
-            {
-                EA = 1;
-                if( !deglitch_busy )
-                {
-                    //led1_toggle();
-                    deglitch_busy = 1;
-                    transmit_packet();
-                    display_transmit_packet();
+#ifdef USE_DBGLINK
+                if (DBGLNKSTAT & 0x10) {
+                    dbglink_writenum16(key, 2, 0);
+                    dbglink_tx('\n');
                 }
-                continue;
+#endif // USE_DBGLINK
+
+                transmit_packet(key);
             }
+        } else {
+            //led0_off();
         }
-        IE_3 = 1;
-#endif  // TX_ON_DEMAND
+
+        prev_key = key;
+
+        // drive all rows, so if any button is pressed we will wake up
+        INIT_COL_FOR_SLEEP();
+
+        // disable interrupts before going to sleep
+        //EA=0;
+        IE = 0x18; // no interrupts at all, save for GPIO and radio
         {
-        //    uint8_t flg = WTFLAG_CANSTANDBY;
+            uint8_t flg = WTFLAG_CANSTANDBY;
 #ifdef MCU_SLEEP
             if (axradio_cansleep()
 #ifdef USE_DBGLINK
                     && dbglink_txidle()
 #endif
-                    && display_txidle())
+                    )
                 flg |= WTFLAG_CANSLEEP;
 #endif // MCU_SLEEP
-        //    wtimer_idle(flg);
+            // green led on if chip is active
+            led1_off();
+            wtimer_idle(flg);
+            led1_on();
         }
-        IE_3 = 0; // no ISR!
-        EA = 1;
+        // turn interrupts back on
+        IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
     }
-*/
 
 terminate_radio_error:
     display_radio_error(i);
@@ -474,9 +361,10 @@ terminate_error:
         dbglink_writestr("TERMINATE ERROR\n");
 #endif // USE_DBGLINK
 
+    led0_on();
+    led1_off();
+
     for (;;) {
-        //led0_on();
-        //led1_on();
 
         wtimer_runcallbacks();
         {
@@ -486,7 +374,7 @@ terminate_error:
 #ifdef USE_DBGLINK
                     && dbglink_txidle()
 #endif
-                    && display_txidle())
+                    )
                 flg |= WTFLAG_CANSLEEP;
 #endif
             wtimer_idle(flg);

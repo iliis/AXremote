@@ -7,370 +7,421 @@ Symbol Table
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0001 L
     A                                                           =  00E0 L
-  F A$main$3170                                                    0000 GR
-  F A$main$3171                                                    0003 GR
-  F A$main$3173                                                    000B GR
-  F A$main$3175                                                    0013 GR
-  F A$main$3177                                                    001B GR
-  F A$main$3179                                                    0023 GR
-  F A$main$3181                                                    002B GR
-  F A$main$3183                                                    0033 GR
-  F A$main$3185                                                    003B GR
-  F A$main$3187                                                    0043 GR
-  F A$main$3189                                                    004B GR
-  F A$main$3191                                                    0053 GR
-  F A$main$3193                                                    005B GR
-  F A$main$3195                                                    0063 GR
-  F A$main$3197                                                    006B GR
-  F A$main$3199                                                    0073 GR
-  F A$main$3201                                                    007B GR
-  F A$main$3203                                                    0083 GR
-  F A$main$3205                                                    008B GR
-  F A$main$3207                                                    0093 GR
-  F A$main$3209                                                    009B GR
-  F A$main$3211                                                    00A3 GR
-  F A$main$3213                                                    00AB GR
- 16 A$main$3229                                                    0000 GR
- 17 A$main$3231                                                    0000 GR
-  F A$main$3238                                                    00AE GR
- 18 A$main$3264                                                    0000 GR
- 18 A$main$3265                                                    0002 GR
- 18 A$main$3266                                                    0004 GR
- 18 A$main$3267                                                    0006 GR
- 18 A$main$3268                                                    0008 GR
- 18 A$main$3269                                                    000A GR
- 18 A$main$3274                                                    000D GR
- 18 A$main$3275                                                    000F GR
- 18 A$main$3276                                                    0010 GR
- 18 A$main$3279                                                    0013 GR
- 18 A$main$3283                                                    0015 GR
- 18 A$main$3284                                                    0018 GR
- 18 A$main$3285                                                    0019 GR
- 18 A$main$3288                                                    001A GR
- 18 A$main$3289                                                    001D GR
- 18 A$main$3290                                                    0020 GR
- 18 A$main$3294                                                    0023 GR
- 18 A$main$3295                                                    0026 GR
- 18 A$main$3297                                                    0028 GR
- 18 A$main$3298                                                    002A GR
- 18 A$main$3299                                                    002C GR
- 18 A$main$3300                                                    002E GR
- 18 A$main$3301                                                    0030 GR
- 18 A$main$3304                                                    0032 GR
- 18 A$main$3320                                                    0033 GR
+  E A$main$3165                                                    0000 GR
+  E A$main$3166                                                    0003 GR
+  E A$main$3168                                                    000B GR
+  E A$main$3170                                                    0013 GR
+  E A$main$3172                                                    001B GR
+  E A$main$3174                                                    0023 GR
+  E A$main$3176                                                    002B GR
+  E A$main$3178                                                    0033 GR
+  E A$main$3180                                                    003B GR
+  E A$main$3182                                                    0043 GR
+  E A$main$3184                                                    004B GR
+  E A$main$3186                                                    0053 GR
+  E A$main$3188                                                    005B GR
+  E A$main$3190                                                    0063 GR
+  E A$main$3192                                                    006B GR
+  E A$main$3194                                                    0073 GR
+  E A$main$3196                                                    007B GR
+  E A$main$3198                                                    0083 GR
+  E A$main$3200                                                    008B GR
+  E A$main$3202                                                    0093 GR
+  E A$main$3204                                                    009B GR
+  E A$main$3206                                                    00A3 GR
+  E A$main$3208                                                    00AB GR
+ 15 A$main$3224                                                    0000 GR
+ 16 A$main$3226                                                    0000 GR
+  E A$main$3233                                                    00AE GR
+ 17 A$main$3259                                                    0000 GR
+ 17 A$main$3260                                                    0002 GR
+ 17 A$main$3261                                                    0004 GR
+ 17 A$main$3262                                                    0006 GR
+ 17 A$main$3263                                                    0008 GR
+ 17 A$main$3264                                                    000A GR
+ 17 A$main$3269                                                    000D GR
+ 17 A$main$3270                                                    000F GR
+ 17 A$main$3271                                                    0010 GR
+ 17 A$main$3274                                                    0013 GR
+ 17 A$main$3278                                                    0015 GR
+ 17 A$main$3279                                                    0018 GR
+ 17 A$main$3280                                                    0019 GR
+ 17 A$main$3283                                                    001A GR
+ 17 A$main$3284                                                    001D GR
+ 17 A$main$3285                                                    0020 GR
+ 17 A$main$3289                                                    0023 GR
+ 17 A$main$3290                                                    0026 GR
+ 17 A$main$3292                                                    0028 GR
+ 17 A$main$3293                                                    002A GR
+ 17 A$main$3294                                                    002C GR
+ 17 A$main$3295                                                    002E GR
+ 17 A$main$3296                                                    0030 GR
+ 17 A$main$3299                                                    0032 GR
+ 17 A$main$3314                                                    0033 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 2.
 
 Symbol Table
 
- 18 A$main$3321                                                    0036 GR
- 18 A$main$3322                                                    0039 GR
- 18 A$main$3323                                                    003C GR
- 18 A$main$3324                                                    003F GR
- 18 A$main$3325                                                    0042 GR
- 18 A$main$3326                                                    0045 GR
- 18 A$main$3327                                                    0048 GR
- 18 A$main$3330                                                    004B GR
- 18 A$main$3331                                                    004E GR
- 18 A$main$3332                                                    0051 GR
- 18 A$main$3333                                                    0054 GR
- 18 A$main$3334                                                    0057 GR
- 18 A$main$3335                                                    005A GR
- 18 A$main$3336                                                    005D GR
- 18 A$main$3337                                                    0060 GR
- 18 A$main$3340                                                    0063 GR
- 18 A$main$3355                                                    0064 GR
- 18 A$main$3356                                                    0066 GR
- 18 A$main$3357                                                    0068 GR
- 18 A$main$3358                                                    0069 GR
- 18 A$main$3359                                                    006A GR
- 18 A$main$3360                                                    006D GR
- 18 A$main$3362                                                    006F GR
- 18 A$main$3363                                                    0072 GR
- 18 A$main$3367                                                    0074 GR
- 18 A$main$3368                                                    0077 GR
- 18 A$main$3370                                                    0079 GR
- 18 A$main$3375                                                    007B GR
- 18 A$main$3377                                                    007D GR
- 18 A$main$3382                                                    007F GR
- 18 A$main$3386                                                    0081 GR
- 18 A$main$3387                                                    0083 GR
- 18 A$main$3388                                                    0084 GR
- 18 A$main$3389                                                    0085 GR
- 18 A$main$3390                                                    0086 GR
- 18 A$main$3391                                                    0087 GR
- 18 A$main$3392                                                    0088 GR
- 18 A$main$3393                                                    008A GR
- 18 A$main$3394                                                    008C GR
- 18 A$main$3395                                                    008D GR
- 18 A$main$3396                                                    008E GR
- 18 A$main$3402                                                    008F GR
- 18 A$main$3419                                                    0090 GR
- 18 A$main$3437                                                    0091 GR
- 18 A$main$3438                                                    0094 GR
- 18 A$main$3439                                                    0096 GR
- 18 A$main$3442                                                    0097 GR
- 18 A$main$3443                                                    009A GR
- 18 A$main$3446                                                    009D GR
- 18 A$main$3447                                                    00A0 GR
- 18 A$main$3450                                                    00A3 GR
- 18 A$main$3451                                                    00A6 GR
- 18 A$main$3452                                                    00A8 GR
- 18 A$main$3455                                                    00A9 GR
- 18 A$main$3456                                                    00AB GR
- 18 A$main$3457                                                    00AD GR
+ 17 A$main$3317                                                    0035 GR
+ 17 A$main$3318                                                    0038 GR
+ 17 A$main$3319                                                    003A GR
+ 17 A$main$3322                                                    003B GR
+ 17 A$main$3323                                                    003E GR
+ 17 A$main$3324                                                    003F GR
+ 17 A$main$3325                                                    0040 GR
+ 17 A$main$3326                                                    0041 GR
+ 17 A$main$3329                                                    0042 GR
+ 17 A$main$3330                                                    0045 GR
+ 17 A$main$3333                                                    0048 GR
+ 17 A$main$3334                                                    004B GR
+ 17 A$main$3335                                                    004E GR
+ 17 A$main$3336                                                    0051 GR
+ 17 A$main$3337                                                    0054 GR
+ 17 A$main$3338                                                    0057 GR
+ 17 A$main$3339                                                    005A GR
+ 17 A$main$3340                                                    005D GR
+ 17 A$main$3343                                                    0060 GR
+ 17 A$main$3346                                                    0062 GR
+ 17 A$main$3361                                                    0063 GR
+ 17 A$main$3362                                                    0065 GR
+ 17 A$main$3363                                                    0067 GR
+ 17 A$main$3364                                                    0068 GR
+ 17 A$main$3365                                                    0069 GR
+ 17 A$main$3366                                                    006C GR
+ 17 A$main$3370                                                    006E GR
+ 17 A$main$3371                                                    0071 GR
+ 17 A$main$3373                                                    0073 GR
+ 17 A$main$3376                                                    0075 GR
+ 17 A$main$3377                                                    0078 GR
+ 17 A$main$3382                                                    007B GR
+ 17 A$main$3384                                                    007D GR
+ 17 A$main$3387                                                    007F GR
+ 17 A$main$3388                                                    0082 GR
+ 17 A$main$3391                                                    0085 GR
+ 17 A$main$3392                                                    0088 GR
+ 17 A$main$3393                                                    008A GR
+ 17 A$main$3394                                                    008C GR
+ 17 A$main$3395                                                    008F GR
+ 17 A$main$3396                                                    0091 GR
+ 17 A$main$3399                                                    0093 GR
+ 17 A$main$3400                                                    0094 GR
+ 17 A$main$3401                                                    0097 GR
+ 17 A$main$3403                                                    0098 GR
+ 17 A$main$3404                                                    009A GR
+ 17 A$main$3405                                                    009C GR
+ 17 A$main$3406                                                    009D GR
+ 17 A$main$3409                                                    009F GR
+ 17 A$main$3410                                                    00A1 GR
+ 17 A$main$3413                                                    00A4 GR
+ 17 A$main$3414                                                    00A7 GR
+ 17 A$main$3415                                                    00AA GR
+ 17 A$main$3421                                                    00AD GR
+ 17 A$main$3439                                                    00AE GR
+ 17 A$main$3440                                                    00B1 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 3.
 
 Symbol Table
 
- 18 A$main$3458                                                    00AE GR
- 18 A$main$3460                                                    00B1 GR
- 18 A$main$3461                                                    00B2 GR
- 18 A$main$3462                                                    00B3 GR
- 18 A$main$3465                                                    00B5 GR
- 18 A$main$3466                                                    00B8 GR
- 18 A$main$3467                                                    00BA GR
- 18 A$main$3470                                                    00BB GR
- 18 A$main$3471                                                    00BD GR
- 18 A$main$3472                                                    00BF GR
- 18 A$main$3473                                                    00C1 GR
- 18 A$main$3476                                                    00C3 GR
- 18 A$main$3479                                                    00C6 GR
- 18 A$main$3480                                                    00C8 GR
- 18 A$main$3481                                                    00CA GR
- 18 A$main$3482                                                    00CC GR
- 18 A$main$3485                                                    00CE GR
- 18 A$main$3488                                                    00D1 GR
- 18 A$main$3491                                                    00D4 GR
- 18 A$main$3494                                                    00D7 GR
- 18 A$main$3497                                                    00DA GR
- 18 A$main$3500                                                    00DD GR
- 18 A$main$3503                                                    00E0 GR
- 18 A$main$3506                                                    00E3 GR
- 18 A$main$3509                                                    00E6 GR
- 18 A$main$3512                                                    00E9 GR
- 18 A$main$3513                                                    00EC GR
- 18 A$main$3514                                                    00EE GR
- 18 A$main$3517                                                    00EF GR
- 18 A$main$3518                                                    00F1 GR
- 18 A$main$3520                                                    00F4 GR
- 18 A$main$3521                                                    00F5 GR
- 18 A$main$3522                                                    00F6 GR
- 18 A$main$3525                                                    00F8 GR
- 18 A$main$3543                                                    00F9 GR
- 18 A$main$3550                                                    00FB GR
- 18 A$main$3553                                                    00FD GR
- 18 A$main$3554                                                    00FF GR
- 18 A$main$3557                                                    0102 GR
- 18 A$main$3560                                                    0105 GR
- 18 A$main$3563                                                    0108 GR
- 18 A$main$3566                                                    010B GR
- 18 A$main$3567                                                    010E GR
- 18 A$main$3568                                                    0111 GR
- 18 A$main$3571                                                    0114 GR
- 18 A$main$3574                                                    0116 GR
- 18 A$main$3577                                                    0118 GR
- 18 A$main$3578                                                    011B GR
- 18 A$main$3581                                                    011E GR
- 18 A$main$3584                                                    0120 GR
- 18 A$main$3587                                                    0122 GR
- 18 A$main$3588                                                    0125 GR
- 18 A$main$3591                                                    0128 GR
- 18 A$main$3594                                                    012A GR
- 18 A$main$3597                                                    012C GR
- 18 A$main$3598                                                    012F GR
+ 17 A$main$3441                                                    00B3 GR
+ 17 A$main$3444                                                    00B4 GR
+ 17 A$main$3445                                                    00B7 GR
+ 17 A$main$3448                                                    00BA GR
+ 17 A$main$3449                                                    00BD GR
+ 17 A$main$3452                                                    00C0 GR
+ 17 A$main$3453                                                    00C3 GR
+ 17 A$main$3454                                                    00C5 GR
+ 17 A$main$3457                                                    00C6 GR
+ 17 A$main$3458                                                    00C8 GR
+ 17 A$main$3459                                                    00CA GR
+ 17 A$main$3460                                                    00CB GR
+ 17 A$main$3462                                                    00CE GR
+ 17 A$main$3463                                                    00CF GR
+ 17 A$main$3464                                                    00D0 GR
+ 17 A$main$3467                                                    00D2 GR
+ 17 A$main$3468                                                    00D5 GR
+ 17 A$main$3469                                                    00D6 GR
+ 17 A$main$3472                                                    00D7 GR
+ 17 A$main$3473                                                    00D9 GR
+ 17 A$main$3474                                                    00DB GR
+ 17 A$main$3475                                                    00DD GR
+ 17 A$main$3478                                                    00DF GR
+ 17 A$main$3481                                                    00E2 GR
+ 17 A$main$3484                                                    00E5 GR
+ 17 A$main$3487                                                    00E8 GR
+ 17 A$main$3490                                                    00EB GR
+ 17 A$main$3493                                                    00EE GR
+ 17 A$main$3496                                                    00F1 GR
+ 17 A$main$3499                                                    00F4 GR
+ 17 A$main$3502                                                    00F7 GR
+ 17 A$main$3505                                                    00FA GR
+ 17 A$main$3508                                                    00FD GR
+ 17 A$main$3511                                                    0100 GR
+ 17 A$main$3512                                                    0103 GR
+ 17 A$main$3513                                                    0105 GR
+ 17 A$main$3516                                                    0106 GR
+ 17 A$main$3517                                                    0108 GR
+ 17 A$main$3519                                                    010B GR
+ 17 A$main$3520                                                    010C GR
+ 17 A$main$3521                                                    010D GR
+ 17 A$main$3524                                                    010F GR
+ 17 A$main$3543                                                    0110 GR
+ 17 A$main$3550                                                    0112 GR
+ 17 A$main$3553                                                    0114 GR
+ 17 A$main$3554                                                    0116 GR
+ 17 A$main$3557                                                    0119 GR
+ 17 A$main$3560                                                    011C GR
+ 17 A$main$3563                                                    011F GR
+ 17 A$main$3566                                                    0122 GR
+ 17 A$main$3569                                                    0124 GR
+ 17 A$main$3572                                                    0126 GR
+ 17 A$main$3573                                                    0129 GR
+ 17 A$main$3576                                                    012C GR
+ 17 A$main$3579                                                    012E GR
+ 17 A$main$3582                                                    0130 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 4.
 
 Symbol Table
 
- 18 A$main$3601                                                    0132 GR
- 18 A$main$3604                                                    0134 GR
- 18 A$main$3607                                                    0136 GR
- 18 A$main$3608                                                    0139 GR
- 18 A$main$3611                                                    013C GR
- 18 A$main$3614                                                    013E GR
- 18 A$main$3617                                                    0140 GR
- 18 A$main$3618                                                    0143 GR
- 18 A$main$3621                                                    0146 GR
- 18 A$main$3624                                                    0148 GR
- 18 A$main$3627                                                    014A GR
- 18 A$main$3628                                                    014D GR
- 18 A$main$3631                                                    0150 GR
- 18 A$main$3634                                                    0152 GR
- 18 A$main$3637                                                    0154 GR
- 18 A$main$3638                                                    0157 GR
- 18 A$main$3639                                                    015A GR
- 18 A$main$3642                                                    015C GR
- 18 A$main$3643                                                    015E GR
- 18 A$main$3644                                                    0160 GR
- 18 A$main$3648                                                    0163 GR
- 18 A$main$3651                                                    0165 GR
- 18 A$main$3654                                                    0167 GR
- 18 A$main$3655                                                    016A GR
- 18 A$main$3656                                                    016C GR
- 18 A$main$3657                                                    016D GR
- 18 A$main$3658                                                    016F GR
- 18 A$main$3659                                                    0170 GR
- 18 A$main$3662                                                    0171 GR
- 18 A$main$3663                                                    0173 GR
- 18 A$main$3664                                                    0176 GR
- 18 A$main$3665                                                    0178 GR
- 18 A$main$3668                                                    017A GR
- 18 A$main$3669                                                    017B GR
- 18 A$main$3672                                                    017D GR
- 18 A$main$3675                                                    0180 GR
- 18 A$main$3676                                                    0182 GR
- 18 A$main$3677                                                    0185 GR
- 18 A$main$3681                                                    0188 GR
- 18 A$main$3682                                                    018B GR
- 18 A$main$3683                                                    018E GR
- 18 A$main$3686                                                    0191 GR
- 18 A$main$3690                                                    0194 GR
- 18 A$main$3691                                                    0196 GR
- 18 A$main$3692                                                    0199 GR
- 18 A$main$3696                                                    019C GR
- 18 A$main$3697                                                    019F GR
- 18 A$main$3698                                                    01A2 GR
- 18 A$main$3699                                                    01A4 GR
- 18 A$main$3700                                                    01A7 GR
- 18 A$main$3703                                                    01A9 GR
- 18 A$main$3704                                                    01AB GR
- 18 A$main$3705                                                    01AD GR
- 18 A$main$3706                                                    01AF GR
- 18 A$main$3707                                                    01B1 GR
- 18 A$main$3708                                                    01B3 GR
+ 17 A$main$3583                                                    0133 GR
+ 17 A$main$3586                                                    0136 GR
+ 17 A$main$3589                                                    0138 GR
+ 17 A$main$3592                                                    013A GR
+ 17 A$main$3593                                                    013D GR
+ 17 A$main$3596                                                    0140 GR
+ 17 A$main$3599                                                    0142 GR
+ 17 A$main$3602                                                    0144 GR
+ 17 A$main$3603                                                    0147 GR
+ 17 A$main$3606                                                    014A GR
+ 17 A$main$3609                                                    014C GR
+ 17 A$main$3612                                                    014E GR
+ 17 A$main$3613                                                    0151 GR
+ 17 A$main$3616                                                    0154 GR
+ 17 A$main$3619                                                    0156 GR
+ 17 A$main$3622                                                    0158 GR
+ 17 A$main$3623                                                    015B GR
+ 17 A$main$3626                                                    015E GR
+ 17 A$main$3629                                                    0160 GR
+ 17 A$main$3632                                                    0162 GR
+ 17 A$main$3633                                                    0165 GR
+ 17 A$main$3634                                                    0168 GR
+ 17 A$main$3637                                                    016A GR
+ 17 A$main$3638                                                    016C GR
+ 17 A$main$3639                                                    016E GR
+ 17 A$main$3643                                                    0171 GR
+ 17 A$main$3646                                                    0173 GR
+ 17 A$main$3649                                                    0175 GR
+ 17 A$main$3650                                                    0177 GR
+ 17 A$main$3651                                                    017A GR
+ 17 A$main$3652                                                    017C GR
+ 17 A$main$3655                                                    017E GR
+ 17 A$main$3656                                                    017F GR
+ 17 A$main$3659                                                    0181 GR
+ 17 A$main$3662                                                    0184 GR
+ 17 A$main$3663                                                    0186 GR
+ 17 A$main$3664                                                    0189 GR
+ 17 A$main$3668                                                    018C GR
+ 17 A$main$3669                                                    018F GR
+ 17 A$main$3670                                                    0192 GR
+ 17 A$main$3673                                                    0195 GR
+ 17 A$main$3677                                                    0198 GR
+ 17 A$main$3678                                                    019A GR
+ 17 A$main$3679                                                    019D GR
+ 17 A$main$3683                                                    01A0 GR
+ 17 A$main$3684                                                    01A3 GR
+ 17 A$main$3685                                                    01A6 GR
+ 17 A$main$3686                                                    01A8 GR
+ 17 A$main$3687                                                    01AB GR
+ 17 A$main$3690                                                    01AD GR
+ 17 A$main$3691                                                    01AF GR
+ 17 A$main$3692                                                    01B1 GR
+ 17 A$main$3693                                                    01B3 GR
+ 17 A$main$3694                                                    01B5 GR
+ 17 A$main$3695                                                    01B7 GR
+ 17 A$main$3696                                                    01B9 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
 
 Symbol Table
 
- 18 A$main$3709                                                    01B5 GR
- 18 A$main$3710                                                    01B7 GR
- 18 A$main$3711                                                    01BA GR
- 18 A$main$3712                                                    01BC GR
- 18 A$main$3715                                                    01BE GR
- 18 A$main$3716                                                    01C1 GR
- 18 A$main$3719                                                    01C4 GR
- 18 A$main$3723                                                    01C7 GR
- 18 A$main$3726                                                    01C9 GR
- 18 A$main$3729                                                    01CB GR
- 18 A$main$3730                                                    01CE GR
- 18 A$main$3731                                                    01D0 GR
- 18 A$main$3732                                                    01D3 GR
- 18 A$main$3735                                                    01D5 GR
- 18 A$main$3736                                                    01D7 GR
- 18 A$main$3739                                                    01DA GR
- 18 A$main$3740                                                    01DD GR
- 18 A$main$3741                                                    01E0 GR
- 18 A$main$3742                                                    01E2 GR
- 18 A$main$3743                                                    01E5 GR
- 18 A$main$3747                                                    01E7 GR
- 18 A$main$3748                                                    01EA GR
- 18 A$main$3749                                                    01ED GR
- 18 A$main$3750                                                    01EF GR
- 18 A$main$3753                                                    01F2 GR
- 18 A$main$3754                                                    01F5 GR
- 18 A$main$3755                                                    01F8 GR
- 18 A$main$3758                                                    01FB GR
- 18 A$main$3761                                                    01FD GR
- 18 A$main$3764                                                    01FF GR
- 18 A$main$3765                                                    0202 GR
- 18 A$main$3766                                                    0205 GR
- 18 A$main$3769                                                    0207 GR
- 18 A$main$3770                                                    0209 GR
- 18 A$main$3773                                                    020C GR
- 18 A$main$3774                                                    020F GR
- 18 A$main$3775                                                    0212 GR
- 18 A$main$3776                                                    0214 GR
- 18 A$main$3779                                                    0217 GR
- 18 A$main$3780                                                    021A GR
- 18 A$main$3781                                                    021C GR
- 18 A$main$3782                                                    021D GR
- 18 A$main$3783                                                    021E GR
- 18 A$main$3784                                                    0220 GR
- 18 A$main$3785                                                    0222 GR
- 18 A$main$3786                                                    0224 GR
- 18 A$main$3787                                                    0226 GR
- 18 A$main$3788                                                    0228 GR
- 18 A$main$3789                                                    022B GR
- 18 A$main$3790                                                    022D GR
- 18 A$main$3793                                                    022F GR
- 18 A$main$3794                                                    0232 GR
- 18 A$main$3795                                                    0235 GR
- 18 A$main$3796                                                    0238 GR
- 18 A$main$3800                                                    023A GR
- 18 A$main$3801                                                    023D GR
+ 17 A$main$3697                                                    01BB GR
+ 17 A$main$3698                                                    01BE GR
+ 17 A$main$3699                                                    01C0 GR
+ 17 A$main$3702                                                    01C2 GR
+ 17 A$main$3703                                                    01C5 GR
+ 17 A$main$3706                                                    01C8 GR
+ 17 A$main$3710                                                    01CB GR
+ 17 A$main$3713                                                    01CD GR
+ 17 A$main$3716                                                    01CF GR
+ 17 A$main$3717                                                    01D2 GR
+ 17 A$main$3718                                                    01D4 GR
+ 17 A$main$3719                                                    01D7 GR
+ 17 A$main$3722                                                    01D9 GR
+ 17 A$main$3723                                                    01DB GR
+ 17 A$main$3726                                                    01DE GR
+ 17 A$main$3727                                                    01E1 GR
+ 17 A$main$3728                                                    01E4 GR
+ 17 A$main$3729                                                    01E6 GR
+ 17 A$main$3730                                                    01E9 GR
+ 17 A$main$3734                                                    01EB GR
+ 17 A$main$3735                                                    01EE GR
+ 17 A$main$3736                                                    01F1 GR
+ 17 A$main$3737                                                    01F3 GR
+ 17 A$main$3740                                                    01F6 GR
+ 17 A$main$3741                                                    01F9 GR
+ 17 A$main$3742                                                    01FC GR
+ 17 A$main$3745                                                    01FF GR
+ 17 A$main$3748                                                    0201 GR
+ 17 A$main$3751                                                    0203 GR
+ 17 A$main$3752                                                    0206 GR
+ 17 A$main$3753                                                    0209 GR
+ 17 A$main$3756                                                    020B GR
+ 17 A$main$3757                                                    020D GR
+ 17 A$main$3760                                                    0210 GR
+ 17 A$main$3761                                                    0213 GR
+ 17 A$main$3762                                                    0216 GR
+ 17 A$main$3763                                                    0218 GR
+ 17 A$main$3766                                                    021B GR
+ 17 A$main$3767                                                    021E GR
+ 17 A$main$3768                                                    0220 GR
+ 17 A$main$3769                                                    0221 GR
+ 17 A$main$3770                                                    0222 GR
+ 17 A$main$3771                                                    0224 GR
+ 17 A$main$3772                                                    0226 GR
+ 17 A$main$3773                                                    0228 GR
+ 17 A$main$3774                                                    022A GR
+ 17 A$main$3775                                                    022C GR
+ 17 A$main$3776                                                    022F GR
+ 17 A$main$3777                                                    0231 GR
+ 17 A$main$3780                                                    0233 GR
+ 17 A$main$3781                                                    0236 GR
+ 17 A$main$3782                                                    0239 GR
+ 17 A$main$3783                                                    023C GR
+ 17 A$main$3787                                                    023E GR
+ 17 A$main$3788                                                    0241 GR
+ 17 A$main$3789                                                    0243 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
 
 Symbol Table
 
- 18 A$main$3802                                                    023F GR
- 18 A$main$3803                                                    0242 GR
- 18 A$main$3804                                                    0244 GR
- 18 A$main$3807                                                    0246 GR
- 18 A$main$3808                                                    0247 GR
- 18 A$main$3811                                                    0249 GR
- 18 A$main$3814                                                    024B GR
- 18 A$main$3817                                                    024D GR
- 18 A$main$3818                                                    0250 GR
- 18 A$main$3819                                                    0252 GR
- 18 A$main$3820                                                    0255 GR
- 18 A$main$3821                                                    0257 GR
- 18 A$main$3825                                                    0259 GR
- 18 A$main$3826                                                    025B GR
- 18 A$main$3827                                                    025E GR
- 18 A$main$3830                                                    0260 GR
- 18 A$main$3834                                                    0262 GR
- 18 A$main$3837                                                    0264 GR
- 18 A$main$3841                                                    0266 GR
- 18 A$main$3842                                                    0268 GR
- 18 A$main$3843                                                    026B GR
- 18 A$main$3846                                                    026D GR
- 18 A$main$3849                                                    0270 GR
- 18 A$main$3850                                                    0272 GR
- 18 A$main$3851                                                    0275 GR
- 18 A$main$3852                                                    0277 GR
- 18 A$main$3855                                                    0279 GR
- 18 A$main$3856                                                    027A GR
- 18 A$main$3859                                                    027C GR
- 18 A$main$3862                                                    027E GR
- 18 A$main$3863                                                    027F GR
- 18 A$main$3864                                                    0282 GR
- 18 A$main$3868                                                    0284 GR
- 18 A$main$3869                                                    0286 GR
- 18 A$main$3870                                                    0288 GR
- 18 A$main$3871                                                    028A GR
- 18 A$main$3872                                                    028B GR
- 18 A$main$3873                                                    028D GR
- 18 A$main$3874                                                    028F GR
- 18 A$main$3875                                                    0291 GR
- 18 A$main$3876                                                    0293 GR
- 18 A$main$3877                                                    0295 GR
- 18 A$main$3878                                                    0298 GR
- 18 A$main$3879                                                    029A GR
- 18 A$main$3880                                                    029C GR
- 18 A$main$3883                                                    029E GR
- 18 A$main$3884                                                    02A1 GR
- 18 A$main$3887                                                    02A4 GR
- 18 A$main$3889                                                    02A6 GR
- 18 A$main$3893                                                    02A8 GR
- 18 A$main$3896                                                    02AA GR
- 18 A$main$3900                                                    02AC GR
- 18 A$main$3901                                                    02AE GR
- 18 A$main$3907                                                    02B1 GR
- 18 A$main$3908                                                    02B3 GR
- 18 A$main$3911                                                    02B6 GR
+ 17 A$main$3790                                                    0246 GR
+ 17 A$main$3791                                                    0248 GR
+ 17 A$main$3794                                                    024A GR
+ 17 A$main$3795                                                    024B GR
+ 17 A$main$3796                                                    024D GR
+ 17 A$main$3800                                                    0250 GR
+ 17 A$main$3803                                                    0252 GR
+ 17 A$main$3806                                                    0254 GR
+ 17 A$main$3807                                                    0257 GR
+ 17 A$main$3808                                                    0259 GR
+ 17 A$main$3809                                                    025C GR
+ 17 A$main$3810                                                    025E GR
+ 17 A$main$3814                                                    0260 GR
+ 17 A$main$3815                                                    0262 GR
+ 17 A$main$3816                                                    0265 GR
+ 17 A$main$3819                                                    0267 GR
+ 17 A$main$3823                                                    0269 GR
+ 17 A$main$3826                                                    026B GR
+ 17 A$main$3830                                                    026D GR
+ 17 A$main$3831                                                    026F GR
+ 17 A$main$3832                                                    0272 GR
+ 17 A$main$3835                                                    0274 GR
+ 17 A$main$3836                                                    0276 GR
+ 17 A$main$3837                                                    0279 GR
+ 17 A$main$3838                                                    027B GR
+ 17 A$main$3841                                                    027D GR
+ 17 A$main$3842                                                    027E GR
+ 17 A$main$3845                                                    0280 GR
+ 17 A$main$3846                                                    0281 GR
+ 17 A$main$3847                                                    0284 GR
+ 17 A$main$3851                                                    0286 GR
+ 17 A$main$3852                                                    0288 GR
+ 17 A$main$3855                                                    028B GR
+ 17 A$main$3856                                                    028D GR
+ 17 A$main$3857                                                    028F GR
+ 17 A$main$3858                                                    0291 GR
+ 17 A$main$3859                                                    0292 GR
+ 17 A$main$3860                                                    0294 GR
+ 17 A$main$3861                                                    0296 GR
+ 17 A$main$3862                                                    0298 GR
+ 17 A$main$3863                                                    029A GR
+ 17 A$main$3864                                                    029C GR
+ 17 A$main$3865                                                    029F GR
+ 17 A$main$3866                                                    02A1 GR
+ 17 A$main$3867                                                    02A3 GR
+ 17 A$main$3870                                                    02A5 GR
+ 17 A$main$3871                                                    02A8 GR
+ 17 A$main$3875                                                    02AB GR
+ 17 A$main$3876                                                    02AD GR
+ 17 A$main$3877                                                    02AF GR
+ 17 A$main$3878                                                    02B2 GR
+ 17 A$main$3882                                                    02B4 GR
+ 17 A$main$3885                                                    02B6 GR
+ 17 A$main$3886                                                    02B9 GR
+ 17 A$main$3887                                                    02BC GR
+ 17 A$main$3888                                                    02BF GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
 
 Symbol Table
 
- 18 A$main$3912                                                    02B9 GR
- 18 A$main$3913                                                    02BC GR
- 18 A$main$3917                                                    02BF GR
- 18 A$main$3920                                                    02C2 GR
- 18 A$main$3921                                                    02C5 GR
- 18 A$main$3922                                                    02C8 GR
- 18 A$main$3925                                                    02CA GR
+ 17 A$main$3889                                                    02C2 GR
+ 17 A$main$3890                                                    02C5 GR
+ 17 A$main$3891                                                    02C6 GR
+ 17 A$main$3892                                                    02C7 GR
+ 17 A$main$3893                                                    02CA GR
+ 17 A$main$3894                                                    02CC GR
+ 17 A$main$3895                                                    02CD GR
+ 17 A$main$3896                                                    02D0 GR
+ 17 A$main$3897                                                    02D1 GR
+ 17 A$main$3900                                                    02D2 GR
+ 17 A$main$3903                                                    02D5 GR
+ 17 A$main$3906                                                    02D7 GR
+ 17 A$main$3907                                                    02D9 GR
+ 17 A$main$3908                                                    02DB GR
+ 17 A$main$3909                                                    02DE GR
+ 17 A$main$3910                                                    02E0 GR
+ 17 A$main$3911                                                    02E2 GR
+ 17 A$main$3912                                                    02E4 GR
+ 17 A$main$3915                                                    02E6 GR
+ 17 A$main$3916                                                    02E9 GR
+ 17 A$main$3917                                                    02EB GR
+ 17 A$main$3920                                                    02ED GR
+ 17 A$main$3924                                                    02EF GR
+ 17 A$main$3927                                                    02F1 GR
+ 17 A$main$3928                                                    02F3 GR
+ 17 A$main$3929                                                    02F5 GR
+ 17 A$main$3930                                                    02F8 GR
+ 17 A$main$3933                                                    02FA GR
+ 17 A$main$3936                                                    02FC GR
+ 17 A$main$3937                                                    02FF GR
+ 17 A$main$3943                                                    0302 GR
+ 17 A$main$3944                                                    0304 GR
+ 17 A$main$3950                                                    0307 GR
+ 17 A$main$3951                                                    0309 GR
+ 17 A$main$3954                                                    030C GR
+ 17 A$main$3955                                                    030F GR
+ 17 A$main$3956                                                    0312 GR
+ 17 A$main$3960                                                    0315 GR
+ 17 A$main$3963                                                    0317 GR
+ 17 A$main$3967                                                    0319 GR
+ 17 A$main$3970                                                    031C GR
+ 17 A$main$3973                                                    031E GR
+ 17 A$main$3974                                                    0320 GR
+ 17 A$main$3975                                                    0323 GR
+ 17 A$main$3976                                                    0325 GR
+ 17 A$main$3977                                                    0327 GR
+ 17 A$main$3980                                                    0329 GR
+ 17 A$main$3981                                                    032C GR
+ 17 A$main$3982                                                    032E GR
+ 17 A$main$3985                                                    0330 GR
+ 17 A$main$3989                                                    0332 GR
+ 17 A$main$3990                                                    0334 GR
+ 17 A$main$3991                                                    0337 GR
+ 17 A$main$3994                                                    0339 GR
     A.0                                                         =  00E0 L
     A.1                                                         =  00E1 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
+
+Symbol Table
+
     A.2                                                         =  00E2 L
     A.3                                                         =  00E3 L
     A.4                                                         =  00E4 L
@@ -396,152 +447,168 @@ Symbol Table
     B.5                                                         =  00F5 L
     B.6                                                         =  00F6 L
     B.7                                                         =  00F7 L
- 18 C$main.c$102$2$172                                          =  0074 GR
- 18 C$main.c$108$2$172                                          =  007B GR
- 18 C$main.c$111$2$172                                          =  007B GR
- 18 C$main.c$143$2$172                                          =  007F GR
- 18 C$main.c$153$2$172                                          =  007F GR
- 18 C$main.c$154$2$172                                          =  0081 GR
- 18 C$main.c$162$1$171                                          =  008F GR
- 18 C$main.c$163$1$171                                          =  008F GR
- 18 C$main.c$164$1$171                                          =  0090 GR
- 18 C$main.c$166$1$194                                          =  0090 GR
- 18 C$main.c$173$1$194                                          =  0090 GR
- 18 C$main.c$187$1$194                                          =  0091 GR
- 18 C$main.c$190$1$196                                          =  0091 GR
- 18 C$main.c$191$2$197                                          =  0097 GR
- 18 C$main.c$192$2$198                                          =  009D GR
- 18 C$main.c$194$1$196                                          =  00A3 GR
- 18 C$main.c$196$1$196                                          =  00A9 GR
- 18 C$main.c$198$1$196                                          =  00B5 GR
- 18 C$main.c$201$1$196                                          =  00BB GR
- 18 C$main.c$203$1$196                                          =  00C3 GR
- 18 C$main.c$204$1$196                                          =  00C6 GR
- 18 C$main.c$206$1$196                                          =  00CE GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
-
-Symbol Table
-
- 18 C$main.c$209$1$196                                          =  00D1 GR
- 18 C$main.c$210$1$196                                          =  00D4 GR
- 18 C$main.c$211$1$196                                          =  00D7 GR
- 18 C$main.c$212$1$196                                          =  00DA GR
- 18 C$main.c$226$1$196                                          =  00DD GR
- 18 C$main.c$227$1$196                                          =  00E0 GR
- 18 C$main.c$228$1$196                                          =  00E3 GR
- 18 C$main.c$229$1$196                                          =  00E6 GR
- 18 C$main.c$231$1$196                                          =  00E9 GR
- 18 C$main.c$235$1$196                                          =  00EF GR
- 18 C$main.c$237$1$196                                          =  00F8 GR
- 18 C$main.c$239$1$196                                          =  00F9 GR
- 18 C$main.c$241$1$196                                          =  00F9 GR
- 18 C$main.c$252$1$200                                          =  00FB GR
- 18 C$main.c$255$1$200                                          =  00FB GR
- 18 C$main.c$256$1$200                                          =  00FD GR
- 18 C$main.c$257$1$200                                          =  0102 GR
- 18 C$main.c$258$1$200                                          =  0105 GR
- 18 C$main.c$261$1$200                                          =  0108 GR
- 18 C$main.c$263$1$200                                          =  010B GR
- 18 C$main.c$265$3$202                                          =  0114 GR
- 18 C$main.c$266$3$204                                          =  0116 GR
- 18 C$main.c$267$1$200                                          =  0118 GR
- 18 C$main.c$269$3$206                                          =  011E GR
- 18 C$main.c$270$3$208                                          =  0120 GR
- 18 C$main.c$271$1$200                                          =  0122 GR
- 18 C$main.c$273$3$210                                          =  0128 GR
- 18 C$main.c$274$3$212                                          =  012A GR
- 18 C$main.c$275$1$200                                          =  012C GR
- 18 C$main.c$277$3$214                                          =  0132 GR
- 18 C$main.c$278$3$216                                          =  0134 GR
- 18 C$main.c$279$1$200                                          =  0136 GR
- 18 C$main.c$281$3$218                                          =  013C GR
- 18 C$main.c$282$3$220                                          =  013E GR
- 18 C$main.c$283$1$200                                          =  0140 GR
- 18 C$main.c$285$3$222                                          =  0146 GR
- 18 C$main.c$286$3$224                                          =  0148 GR
- 18 C$main.c$287$1$200                                          =  014A GR
- 18 C$main.c$289$3$226                                          =  0150 GR
- 18 C$main.c$290$3$228                                          =  0152 GR
- 18 C$main.c$292$1$200                                          =  0154 GR
- 18 C$main.c$296$1$200                                          =  015C GR
- 18 C$main.c$298$4$231                                          =  0163 GR
- 18 C$main.c$299$4$233                                          =  0165 GR
- 18 C$main.c$303$2$229                                          =  0167 GR
- 18 C$main.c$311$2$229                                          =  0171 GR
- 18 C$main.c$312$2$229                                          =  017A GR
- 18 C$main.c$313$3$234                                          =  017D GR
- 18 C$main.c$316$4$235                                          =  0180 GR
- 18 C$main.c$317$4$235                                          =  0188 GR
- 18 C$main.c$319$4$235                                          =  0191 GR
- 18 C$main.c$323$3$234                                          =  0194 GR
- 18 C$main.c$324$4$236                                          =  019C GR
- 18 C$main.c$325$4$236                                          =  01A9 GR
- 18 C$main.c$326$4$236                                          =  01BE GR
- 18 C$main.c$329$3$234                                          =  01C4 GR
+ 17 C$main.c$103$1$172                                          =  0063 GR
+ 17 C$main.c$106$2$173                                          =  006E GR
+ 17 C$main.c$107$2$173                                          =  0075 GR
+ 17 C$main.c$108$2$173                                          =  007B GR
+ 17 C$main.c$111$2$173                                          =  007B GR
+ 17 C$main.c$112$2$173                                          =  007F GR
+ 17 C$main.c$114$2$173                                          =  0085 GR
+ 17 C$main.c$116$2$173                                          =  0093 GR
+ 17 C$main.c$119$3$178                                          =  009F GR
+ 17 C$main.c$120$4$179                                          =  00A4 GR
+ 17 C$main.c$128$1$172                                          =  00AD GR
+ 17 C$main.c$129$1$172                                          =  00AD GR
+ 17 C$main.c$144$1$172                                          =  00AE GR
+ 17 C$main.c$147$1$181                                          =  00AE GR
+ 17 C$main.c$148$2$182                                          =  00B4 GR
+ 17 C$main.c$149$2$183                                          =  00BA GR
+ 17 C$main.c$151$1$181                                          =  00C0 GR
+ 17 C$main.c$153$1$181                                          =  00C6 GR
+ 17 C$main.c$155$1$181                                          =  00D2 GR
+ 17 C$main.c$157$1$181                                          =  00D7 GR
+ 17 C$main.c$159$1$181                                          =  00DF GR
+ 17 C$main.c$160$1$181                                          =  00E2 GR
+ 17 C$main.c$161$1$181                                          =  00E5 GR
+ 17 C$main.c$163$1$181                                          =  00E8 GR
+ 17 C$main.c$164$1$181                                          =  00EB GR
+ 17 C$main.c$165$1$181                                          =  00EE GR
+ 17 C$main.c$166$1$181                                          =  00F1 GR
+ 17 C$main.c$168$1$181                                          =  00F4 GR
+ 17 C$main.c$169$1$181                                          =  00F7 GR
+ 17 C$main.c$170$1$181                                          =  00FA GR
+ 17 C$main.c$171$1$181                                          =  00FD GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
 
 Symbol Table
 
- 18 C$main.c$332$2$229                                          =  01C7 GR
- 18 C$main.c$333$4$240                                          =  01C9 GR
- 18 C$main.c$334$2$229                                          =  01CB GR
- 18 C$main.c$337$2$229                                          =  01D5 GR
- 18 C$main.c$338$2$229                                          =  01DA GR
- 18 C$main.c$340$2$229                                          =  01E7 GR
- 18 C$main.c$341$2$229                                          =  01F2 GR
- 18 C$main.c$354$4$242                                          =  01FB GR
- 18 C$main.c$355$4$244                                          =  01FD GR
- 18 C$main.c$356$2$229                                          =  01FF GR
- 18 C$main.c$369$2$229                                          =  0207 GR
- 18 C$main.c$370$3$245                                          =  020C GR
- 18 C$main.c$371$3$245                                          =  0217 GR
- 18 C$main.c$372$3$245                                          =  022F GR
- 18 C$main.c$377$2$229                                          =  023A GR
- 18 C$main.c$378$2$229                                          =  0246 GR
- 18 C$main.c$381$4$247                                          =  0249 GR
- 18 C$main.c$382$4$249                                          =  024B GR
- 18 C$main.c$383$2$229                                          =  024D GR
- 18 C$main.c$391$2$250                                          =  0259 GR
- 18 C$main.c$392$2$250                                          =  0260 GR
- 18 C$main.c$399$1$200                                          =  0262 GR
- 18 C$main.c$400$3$254                                          =  0264 GR
- 18 C$main.c$407$2$255                                          =  0266 GR
- 18 C$main.c$409$3$256                                          =  026D GR
- 18 C$main.c$411$2$255                                          =  0270 GR
- 18 C$main.c$413$2$255                                          =  0279 GR
- 18 C$main.c$414$5$259                                          =  027C GR
- 18 C$main.c$415$3$257                                          =  027E GR
- 18 C$main.c$416$4$260                                          =  0284 GR
- 18 C$main.c$417$4$260                                          =  029E GR
- 18 C$main.c$420$2$255                                          =  02A4 GR
- 18 C$main.c$422$2$255                                          =  02A8 GR
- 18 C$main.c$468$1$200                                          =  02AA GR
- 18 C$main.c$469$1$200                                          =  02AC GR
- 18 C$main.c$470$1$200                                          =  02B1 GR
- 18 C$main.c$473$1$200                                          =  02B1 GR
- 18 C$main.c$474$1$200                                          =  02B6 GR
- 18 C$main.c$481$2$263                                          =  02BF GR
- 18 C$main.c$492$3$264                                          =  02C2 GR
- 18 C$main.c$495$1$200                                          =  02CA GR
- 16 C$main.c$62$1$200                                           =  0000 GR
- 18 C$main.c$69$0$0                                             =  0000 GR
- 18 C$main.c$71$1$0                                             =  000D GR
- 18 C$main.c$72$1$167                                           =  000D GR
- 18 C$main.c$73$1$167                                           =  0013 GR
- 18 C$main.c$74$1$167                                           =  0015 GR
- 18 C$main.c$75$1$167                                           =  001A GR
- 18 C$main.c$77$1$167                                           =  0023 GR
- 18 C$main.c$78$1$167                                           =  0032 GR
- 18 C$main.c$80$1$167                                           =  0033 GR
- 18 C$main.c$84$1$169                                           =  0033 GR
- 18 C$main.c$85$1$169                                           =  004B GR
- 18 C$main.c$86$1$169                                           =  0063 GR
- 18 C$main.c$88$1$169                                           =  0064 GR
- 18 C$main.c$99$1$171                                           =  0064 GR
+ 17 C$main.c$173$1$181                                          =  0100 GR
+ 17 C$main.c$177$1$181                                          =  0106 GR
+ 17 C$main.c$179$1$181                                          =  010F GR
+ 17 C$main.c$181$1$181                                          =  0110 GR
+ 17 C$main.c$183$1$181                                          =  0110 GR
+ 17 C$main.c$194$1$185                                          =  0112 GR
+ 17 C$main.c$197$1$185                                          =  0112 GR
+ 17 C$main.c$198$1$185                                          =  0114 GR
+ 17 C$main.c$199$1$185                                          =  0119 GR
+ 17 C$main.c$200$1$185                                          =  011C GR
+ 17 C$main.c$203$1$185                                          =  011F GR
+ 17 C$main.c$205$3$187                                          =  0122 GR
+ 17 C$main.c$206$3$189                                          =  0124 GR
+ 17 C$main.c$207$1$185                                          =  0126 GR
+ 17 C$main.c$209$3$191                                          =  012C GR
+ 17 C$main.c$210$3$193                                          =  012E GR
+ 17 C$main.c$211$1$185                                          =  0130 GR
+ 17 C$main.c$213$3$195                                          =  0136 GR
+ 17 C$main.c$214$3$197                                          =  0138 GR
+ 17 C$main.c$215$1$185                                          =  013A GR
+ 17 C$main.c$217$3$199                                          =  0140 GR
+ 17 C$main.c$218$3$201                                          =  0142 GR
+ 17 C$main.c$219$1$185                                          =  0144 GR
+ 17 C$main.c$221$3$203                                          =  014A GR
+ 17 C$main.c$222$3$205                                          =  014C GR
+ 17 C$main.c$223$1$185                                          =  014E GR
+ 17 C$main.c$225$3$207                                          =  0154 GR
+ 17 C$main.c$226$3$209                                          =  0156 GR
+ 17 C$main.c$227$1$185                                          =  0158 GR
+ 17 C$main.c$229$3$211                                          =  015E GR
+ 17 C$main.c$230$3$213                                          =  0160 GR
+ 17 C$main.c$232$1$185                                          =  0162 GR
+ 17 C$main.c$236$1$185                                          =  016A GR
+ 17 C$main.c$238$4$216                                          =  0171 GR
+ 17 C$main.c$239$4$218                                          =  0173 GR
+ 17 C$main.c$241$2$214                                          =  0175 GR
+ 17 C$main.c$242$2$214                                          =  017E GR
+ 17 C$main.c$243$3$219                                          =  0181 GR
+ 17 C$main.c$246$4$220                                          =  0184 GR
+ 17 C$main.c$247$4$220                                          =  018C GR
+ 17 C$main.c$249$4$220                                          =  0195 GR
+ 17 C$main.c$253$3$219                                          =  0198 GR
+ 17 C$main.c$254$4$221                                          =  01A0 GR
+ 17 C$main.c$255$4$221                                          =  01AD GR
+ 17 C$main.c$256$4$221                                          =  01C2 GR
+ 17 C$main.c$259$3$219                                          =  01C8 GR
+ 17 C$main.c$262$2$214                                          =  01CB GR
+ 17 C$main.c$263$4$225                                          =  01CD GR
+ 17 C$main.c$264$2$214                                          =  01CF GR
+ 17 C$main.c$267$2$214                                          =  01D9 GR
+ 17 C$main.c$268$2$214                                          =  01DE GR
+ 17 C$main.c$270$2$214                                          =  01EB GR
+ 17 C$main.c$271$2$214                                          =  01F6 GR
+ 17 C$main.c$274$4$227                                          =  01FF GR
+ 17 C$main.c$275$4$229                                          =  0201 GR
+ 17 C$main.c$276$2$214                                          =  0203 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
 
 Symbol Table
 
+ 17 C$main.c$279$2$214                                          =  020B GR
+ 17 C$main.c$280$3$230                                          =  0210 GR
+ 17 C$main.c$281$3$230                                          =  021B GR
+ 17 C$main.c$282$3$230                                          =  0233 GR
+ 17 C$main.c$287$2$214                                          =  023E GR
+ 17 C$main.c$288$2$214                                          =  024A GR
+ 17 C$main.c$291$4$232                                          =  0250 GR
+ 17 C$main.c$292$4$234                                          =  0252 GR
+ 17 C$main.c$293$2$214                                          =  0254 GR
+ 17 C$main.c$296$2$235                                          =  0260 GR
+ 17 C$main.c$297$2$235                                          =  0267 GR
+ 17 C$main.c$300$1$185                                          =  0269 GR
+ 17 C$main.c$301$3$239                                          =  026B GR
+ 17 C$main.c$307$2$240                                          =  026D GR
+ 17 C$main.c$309$2$240                                          =  0274 GR
+ 17 C$main.c$311$2$240                                          =  027D GR
+ 17 C$main.c$313$3$241                                          =  0280 GR
+ 17 C$main.c$316$4$242                                          =  0286 GR
+ 17 C$main.c$317$5$243                                          =  028B GR
+ 17 C$main.c$318$5$243                                          =  02A5 GR
+ 17 C$main.c$322$4$242                                          =  02AB GR
+ 17 C$main.c$328$2$240                                          =  02B4 GR
+ 17 C$main.c$331$3$245                                          =  02B6 GR
+ 17 C$main.c$335$2$240                                          =  02D2 GR
+ 17 C$main.c$337$3$240                                          =  02D5 GR
+ 17 C$main.c$339$3$246                                          =  02D7 GR
+ 17 C$main.c$341$3$246                                          =  02E6 GR
+ 17 C$main.c$344$3$246                                          =  02ED GR
+ 17 C$main.c$347$3$246                                          =  02EF GR
+ 17 C$main.c$348$3$246                                          =  02F1 GR
+ 17 C$main.c$349$5$250                                          =  02FA GR
+ 17 C$main.c$352$2$240                                          =  02FC GR
+ 17 C$main.c$355$1$185                                          =  0302 GR
+ 17 C$main.c$356$1$185                                          =  0302 GR
+ 17 C$main.c$357$1$185                                          =  0307 GR
+ 17 C$main.c$360$1$185                                          =  0307 GR
+ 17 C$main.c$361$1$185                                          =  030C GR
+ 17 C$main.c$364$1$185                                          =  0315 GR
+ 17 C$main.c$365$3$254                                          =  0317 GR
+ 17 C$main.c$369$2$255                                          =  0319 GR
+ 17 C$main.c$371$3$255                                          =  031C GR
+ 17 C$main.c$373$3$256                                          =  031E GR
+ 17 C$main.c$375$3$256                                          =  0329 GR
+ 17 C$main.c$378$3$256                                          =  0330 GR
+ 17 C$main.c$380$3$256                                          =  0332 GR
+ 17 C$main.c$383$1$185                                          =  0339 GR
+ 15 C$main.c$62$1$185                                           =  0000 GR
+ 17 C$main.c$64$0$0                                             =  0000 GR
+ 17 C$main.c$66$1$0                                             =  000D GR
+ 17 C$main.c$67$1$167                                           =  000D GR
+ 17 C$main.c$68$1$167                                           =  0013 GR
+ 17 C$main.c$69$1$167                                           =  0015 GR
+ 17 C$main.c$70$1$167                                           =  001A GR
+ 17 C$main.c$72$1$167                                           =  0023 GR
+ 17 C$main.c$73$1$167                                           =  0032 GR
+ 17 C$main.c$75$1$167                                           =  0033 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
+
+Symbol Table
+
+ 17 C$main.c$77$1$167                                           =  0035 GR
+ 17 C$main.c$79$1$169                                           =  003B GR
+ 17 C$main.c$81$1$169                                           =  0042 GR
+ 17 C$main.c$83$1$169                                           =  0048 GR
+ 17 C$main.c$86$1$169                                           =  0060 GR
+ 17 C$main.c$90$1$169                                           =  0062 GR
+ 17 C$main.c$92$1$169                                           =  0063 GR
     CPRL2                                                       =  00C8 L
     CT2                                                         =  00C9 L
     CY                                                          =  00D7 L
@@ -557,17 +624,16 @@ Symbol Table
     EXEN2                                                       =  00CB L
     EXF2                                                        =  00CE L
     F0                                                          =  00D5 L
- 19 Fmain$_str_0$0$0                                            =  0000 GR
- 19 Fmain$_str_1$0$0                                            =  0010 GR
- 19 Fmain$_str_2$0$0                                            =  002A GR
- 19 Fmain$_str_3$0$0                                            =  0045 GR
- 19 Fmain$_str_4$0$0                                            =  0053 GR
- 19 Fmain$_str_5$0$0                                            =  005A GR
- 19 Fmain$_str_6$0$0                                            =  0064 GR
+ 18 Fmain$_str_0$0$0                                            =  0000 GR
+ 18 Fmain$_str_1$0$0                                            =  001B GR
+ 18 Fmain$_str_2$0$0                                            =  0035 GR
+ 18 Fmain$_str_3$0$0                                            =  0050 GR
+ 18 Fmain$_str_4$0$0                                            =  005E GR
+ 18 Fmain$_str_5$0$0                                            =  0065 GR
+ 18 Fmain$_str_6$0$0                                            =  006F GR
     Fmain$flash_deviceid$0$0                                    =  FC06 G
- 18 Fmain$pwrmgmt_irq$0$0                                       =  0000 GR
- 18 Fmain$transmit_packet$0$0                                   =  0033 GR
- 18 Fmain$wakeup_callback$0$0                                   =  0090 GR
+ 17 Fmain$pwrmgmt_irq$0$0                                       =  0000 GR
+ 17 Fmain$transmit_packet$0$0                                   =  0033 GR
     G$AC$0$0                                                    =  00D6 G
     G$ACC$0$0                                                   =  00E0 G
     G$ACC_0$0$0                                                 =  00E0 G
@@ -592,16 +658,16 @@ Symbol Table
     G$ADCCH2VAL1$0$0                                            =  7025 G
     G$ADCCH3CONFIG$0$0                                          =  00D3 G
     G$ADCCH3VAL$0$0                                             =  7026 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
+
+Symbol Table
+
     G$ADCCH3VAL0$0$0                                            =  7026 G
     G$ADCCH3VAL1$0$0                                            =  7027 G
     G$ADCCLKSRC$0$0                                             =  00D1 G
     G$ADCCONV$0$0                                               =  00C9 G
     G$ADCTUNE0$0$0                                              =  7028 G
     G$ADCTUNE1$0$0                                              =  7029 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
-
-Symbol Table
-
     G$ADCTUNE2$0$0                                              =  702A G
     G$ANALOGA$0$0                                               =  7007 G
     G$ANALOGCOMP$0$0                                            =  00E1 G
@@ -652,16 +718,16 @@ Symbol Table
     G$AX5043_AMPLFILTER$0$0                                     =  4115 G
     G$AX5043_AMPLFILTERNB$0$0                                   =  5115 G
     G$AX5043_AMPLITUDEGAIN0$0$0                                 =  412B G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
+
+Symbol Table
+
     G$AX5043_AMPLITUDEGAIN0NB$0$0                               =  512B G
     G$AX5043_AMPLITUDEGAIN1$0$0                                 =  413B G
     G$AX5043_AMPLITUDEGAIN1NB$0$0                               =  513B G
     G$AX5043_AMPLITUDEGAIN2$0$0                                 =  414B G
     G$AX5043_AMPLITUDEGAIN2NB$0$0                               =  514B G
     G$AX5043_AMPLITUDEGAIN3$0$0                                 =  415B G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
-
-Symbol Table
-
     G$AX5043_AMPLITUDEGAIN3NB$0$0                               =  515B G
     G$AX5043_BBOFFSCAP$0$0                                      =  4189 G
     G$AX5043_BBOFFSCAPNB$0$0                                    =  5189 G
@@ -712,16 +778,16 @@ Symbol Table
     G$AX5043_FEC$0$0                                            =  4018 G
     G$AX5043_FECNB$0$0                                          =  5018 G
     G$AX5043_FECSTATUS$0$0                                      =  401A G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
+
+Symbol Table
+
     G$AX5043_FECSTATUSNB$0$0                                    =  501A G
     G$AX5043_FECSYNC$0$0                                        =  4019 G
     G$AX5043_FECSYNCNB$0$0                                      =  5019 G
     G$AX5043_FIFOCOUNT0$0$0                                     =  402B G
     G$AX5043_FIFOCOUNT0NB$0$0                                   =  502B G
     G$AX5043_FIFOCOUNT1$0$0                                     =  402A G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
-
-Symbol Table
-
     G$AX5043_FIFOCOUNT1NB$0$0                                   =  502A G
     G$AX5043_FIFODATA$0$0                                       =  4029 G
     G$AX5043_FIFODATANB$0$0                                     =  5029 G
@@ -772,16 +838,16 @@ Symbol Table
     G$AX5043_FREQDEV10$0$0                                      =  412C G
     G$AX5043_FREQDEV10NB$0$0                                    =  512C G
     G$AX5043_FREQDEV11$0$0                                      =  413C G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
+
+Symbol Table
+
     G$AX5043_FREQDEV11NB$0$0                                    =  513C G
     G$AX5043_FREQDEV12$0$0                                      =  414C G
     G$AX5043_FREQDEV12NB$0$0                                    =  514C G
     G$AX5043_FREQDEV13$0$0                                      =  415C G
     G$AX5043_FREQDEV13NB$0$0                                    =  515C G
     G$AX5043_FREQUENCYGAINA0$0$0                                =  4127 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
-
-Symbol Table
-
     G$AX5043_FREQUENCYGAINA0NB$0$0                              =  5127 G
     G$AX5043_FREQUENCYGAINA1$0$0                                =  4137 G
     G$AX5043_FREQUENCYGAINA1NB$0$0                              =  5137 G
@@ -832,16 +898,16 @@ Symbol Table
     G$AX5043_GPADC13VALUE0$0$0                                  =  4309 G
     G$AX5043_GPADC13VALUE0NB$0$0                                =  5309 G
     G$AX5043_GPADC13VALUE1$0$0                                  =  4308 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 16.
+
+Symbol Table
+
     G$AX5043_GPADC13VALUE1NB$0$0                                =  5308 G
     G$AX5043_GPADCCTRL$0$0                                      =  4300 G
     G$AX5043_GPADCCTRLNB$0$0                                    =  5300 G
     G$AX5043_GPADCPERIOD$0$0                                    =  4301 G
     G$AX5043_GPADCPERIODNB$0$0                                  =  5301 G
     G$AX5043_IFFREQ0$0$0                                        =  4101 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
-
-Symbol Table
-
     G$AX5043_IFFREQ0NB$0$0                                      =  5101 G
     G$AX5043_IFFREQ1$0$0                                        =  4100 G
     G$AX5043_IFFREQ1NB$0$0                                      =  5100 G
@@ -892,16 +958,16 @@ Symbol Table
     G$AX5043_MATCH0PAT3$0$0                                     =  4210 G
     G$AX5043_MATCH0PAT3NB$0$0                                   =  5210 G
     G$AX5043_MATCH1LEN$0$0                                      =  421C G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 17.
+
+Symbol Table
+
     G$AX5043_MATCH1LENNB$0$0                                    =  521C G
     G$AX5043_MATCH1MAX$0$0                                      =  421E G
     G$AX5043_MATCH1MAXNB$0$0                                    =  521E G
     G$AX5043_MATCH1MIN$0$0                                      =  421D G
     G$AX5043_MATCH1MINNB$0$0                                    =  521D G
     G$AX5043_MATCH1PAT0$0$0                                     =  4219 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 16.
-
-Symbol Table
-
     G$AX5043_MATCH1PAT0NB$0$0                                   =  5219 G
     G$AX5043_MATCH1PAT1$0$0                                     =  4218 G
     G$AX5043_MATCH1PAT1NB$0$0                                   =  5218 G
@@ -952,16 +1018,16 @@ Symbol Table
     G$AX5043_PKTADDR1$0$0                                       =  4206 G
     G$AX5043_PKTADDR1NB$0$0                                     =  5206 G
     G$AX5043_PKTADDR2$0$0                                       =  4205 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 18.
+
+Symbol Table
+
     G$AX5043_PKTADDR2NB$0$0                                     =  5205 G
     G$AX5043_PKTADDR3$0$0                                       =  4204 G
     G$AX5043_PKTADDR3NB$0$0                                     =  5204 G
     G$AX5043_PKTADDRCFG$0$0                                     =  4200 G
     G$AX5043_PKTADDRCFGNB$0$0                                   =  5200 G
     G$AX5043_PKTADDRMASK0$0$0                                   =  420B G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 17.
-
-Symbol Table
-
     G$AX5043_PKTADDRMASK0NB$0$0                                 =  520B G
     G$AX5043_PKTADDRMASK1$0$0                                   =  420A G
     G$AX5043_PKTADDRMASK1NB$0$0                                 =  520A G
@@ -1012,16 +1078,16 @@ Symbol Table
     G$AX5043_PWRAMP$0$0                                         =  4027 G
     G$AX5043_PWRAMPNB$0$0                                       =  5027 G
     G$AX5043_PWRMODE$0$0                                        =  4002 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 19.
+
+Symbol Table
+
     G$AX5043_PWRMODENB$0$0                                      =  5002 G
     G$AX5043_RADIOEVENTMASK0$0$0                                =  4009 G
     G$AX5043_RADIOEVENTMASK0NB$0$0                              =  5009 G
     G$AX5043_RADIOEVENTMASK1$0$0                                =  4008 G
     G$AX5043_RADIOEVENTMASK1NB$0$0                              =  5008 G
     G$AX5043_RADIOEVENTREQ0$0$0                                 =  400F G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 18.
-
-Symbol Table
-
     G$AX5043_RADIOEVENTREQ0NB$0$0                               =  500F G
     G$AX5043_RADIOEVENTREQ1$0$0                                 =  400E G
     G$AX5043_RADIOEVENTREQ1NB$0$0                               =  500E G
@@ -1072,16 +1138,16 @@ Symbol Table
     G$AX5043_TMGRXPREAMBLE1$0$0                                 =  4229 G
     G$AX5043_TMGRXPREAMBLE1NB$0$0                               =  5229 G
     G$AX5043_TMGRXPREAMBLE2$0$0                                 =  422A G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 20.
+
+Symbol Table
+
     G$AX5043_TMGRXPREAMBLE2NB$0$0                               =  522A G
     G$AX5043_TMGRXPREAMBLE3$0$0                                 =  422B G
     G$AX5043_TMGRXPREAMBLE3NB$0$0                               =  522B G
     G$AX5043_TMGRXRSSI$0$0                                      =  4228 G
     G$AX5043_TMGRXRSSINB$0$0                                    =  5228 G
     G$AX5043_TMGRXSETTLE$0$0                                    =  4224 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 19.
-
-Symbol Table
-
     G$AX5043_TMGRXSETTLENB$0$0                                  =  5224 G
     G$AX5043_TMGTXBOOST$0$0                                     =  4220 G
     G$AX5043_TMGTXBOOSTNB$0$0                                   =  5220 G
@@ -1132,16 +1198,16 @@ Symbol Table
     G$AX5043_TXPWRCOEFFC1$0$0                                   =  416C G
     G$AX5043_TXPWRCOEFFC1NB$0$0                                 =  516C G
     G$AX5043_TXPWRCOEFFD0$0$0                                   =  416F G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 21.
+
+Symbol Table
+
     G$AX5043_TXPWRCOEFFD0NB$0$0                                 =  516F G
     G$AX5043_TXPWRCOEFFD1$0$0                                   =  416E G
     G$AX5043_TXPWRCOEFFD1NB$0$0                                 =  516E G
     G$AX5043_TXPWRCOEFFE0$0$0                                   =  4171 G
     G$AX5043_TXPWRCOEFFE0NB$0$0                                 =  5171 G
     G$AX5043_TXPWRCOEFFE1$0$0                                   =  4170 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 20.
-
-Symbol Table
-
     G$AX5043_TXPWRCOEFFE1NB$0$0                                 =  5170 G
     G$AX5043_TXRATE0$0$0                                        =  4167 G
     G$AX5043_TXRATE0NB$0$0                                      =  5167 G
@@ -1192,16 +1258,16 @@ Symbol Table
     G$DMA0CONFIG$0$0                                            =  7014 G
     G$DMA1ADDR$0$0                                              =  7012 G
     G$DMA1ADDR0$0$0                                             =  7012 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 22.
+
+Symbol Table
+
     G$DMA1ADDR1$0$0                                             =  7013 G
     G$DMA1CONFIG$0$0                                            =  7015 G
     G$DPH$0$0                                                   =  0083 G
     G$DPH1$0$0                                                  =  0085 G
     G$DPL$0$0                                                   =  0082 G
     G$DPL1$0$0                                                  =  0084 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 21.
-
-Symbol Table
-
     G$DPS$0$0                                                   =  0086 G
     G$DPTR0$0$0                                                 =  8382 G
     G$DPTR1$0$0                                                 =  8584 G
@@ -1252,16 +1318,16 @@ Symbol Table
     G$FRCOSCFREQ1$0$0                                           =  7077 G
     G$FRCOSCKFILT$0$0                                           =  7072 G
     G$FRCOSCKFILT0$0$0                                          =  7072 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 23.
+
+Symbol Table
+
     G$FRCOSCKFILT1$0$0                                          =  7073 G
     G$FRCOSCPER$0$0                                             =  7078 G
     G$FRCOSCPER0$0$0                                            =  7078 G
     G$FRCOSCPER1$0$0                                            =  7079 G
     G$FRCOSCREF$0$0                                             =  7074 G
     G$FRCOSCREF0$0$0                                            =  7074 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 22.
-
-Symbol Table
-
     G$FRCOSCREF1$0$0                                            =  7075 G
     G$GPIOENABLE$0$0                                            =  700C G
     G$IC0CAPT$0$0                                               =  CFCE G
@@ -1312,16 +1378,16 @@ Symbol Table
     G$MISCCTRL$0$0                                              =  7F01 G
     G$NVADDR$0$0                                                =  9392 G
     G$NVADDR0$0$0                                               =  0092 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 24.
+
+Symbol Table
+
     G$NVADDR1$0$0                                               =  0093 G
     G$NVDATA$0$0                                                =  9594 G
     G$NVDATA0$0$0                                               =  0094 G
     G$NVDATA1$0$0                                               =  0095 G
     G$NVKEY$0$0                                                 =  0096 G
     G$NVSTATUS$0$0                                              =  0091 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 23.
-
-Symbol Table
-
     G$OC0COMP$0$0                                               =  BDBC G
     G$OC0COMP0$0$0                                              =  00BC G
     G$OC0COMP1$0$0                                              =  00BD G
@@ -1372,16 +1438,16 @@ Symbol Table
     G$PINC_2$0$0                                                =  00FA G
     G$PINC_3$0$0                                                =  00FB G
     G$PINC_4$0$0                                                =  00FC G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 25.
+
+Symbol Table
+
     G$PINC_5$0$0                                                =  00FD G
     G$PINC_6$0$0                                                =  00FE G
     G$PINC_7$0$0                                                =  00FF G
     G$PINR$0$0                                                  =  008D G
     G$PINSEL$0$0                                                =  700B G
     G$PORTA$0$0                                                 =  0080 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 24.
-
-Symbol Table
-
     G$PORTA_0$0$0                                               =  0080 G
     G$PORTA_1$0$0                                               =  0081 G
     G$PORTA_2$0$0                                               =  0082 G
@@ -1432,16 +1498,16 @@ Symbol Table
     G$RS0$0$0                                                   =  00D3 G
     G$RS1$0$0                                                   =  00D4 G
     G$SCRATCH0$0$0                                              =  7084 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 26.
+
+Symbol Table
+
     G$SCRATCH1$0$0                                              =  7085 G
     G$SCRATCH2$0$0                                              =  7086 G
     G$SCRATCH3$0$0                                              =  7087 G
     G$SILICONREV$0$0                                            =  7F00 G
     G$SP$0$0                                                    =  0081 G
     G$SPCLKSRC$0$0                                              =  00DF G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 25.
-
-Symbol Table
-
     G$SPMODE$0$0                                                =  00DC G
     G$SPSHREG$0$0                                               =  00DE G
     G$SPSTATUS$0$0                                              =  00DD G
@@ -1492,16 +1558,16 @@ Symbol Table
     G$WTCNTB1$0$0                                               =  00FB G
     G$WTCNTR1$0$0                                               =  00EB G
     G$WTEVTA$0$0                                                =  F5F4 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 27.
+
+Symbol Table
+
     G$WTEVTA0$0$0                                               =  00F4 G
     G$WTEVTA1$0$0                                               =  00F5 G
     G$WTEVTB$0$0                                                =  F7F6 G
     G$WTEVTB0$0$0                                               =  00F6 G
     G$WTEVTB1$0$0                                               =  00F7 G
     G$WTEVTC$0$0                                                =  FDFC G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 26.
-
-Symbol Table
-
     G$WTEVTC0$0$0                                               =  00FC G
     G$WTEVTC1$0$0                                               =  00FD G
     G$WTEVTD$0$0                                                =  FFFE G
@@ -1552,16 +1618,16 @@ Symbol Table
     G$XOC0COMP1$0$0                                             =  3FBD G
     G$XOC0MODE$0$0                                              =  3FB9 G
     G$XOC0PIN$0$0                                               =  3FBA G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 28.
+
+Symbol Table
+
     G$XOC0STATUS$0$0                                            =  3FBB G
     G$XOC1COMP$0$0                                              =  3FC4 G
     G$XOC1COMP0$0$0                                             =  3FC4 G
     G$XOC1COMP1$0$0                                             =  3FC5 G
     G$XOC1MODE$0$0                                              =  3FC1 G
     G$XOC1PIN$0$0                                               =  3FC2 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 27.
-
-Symbol Table
-
     G$XOC1STATUS$0$0                                            =  3FC3 G
     G$XPAGE$0$0                                                 =  00D9 G
     G$XPCON$0$0                                                 =  3F87 G
@@ -1612,16 +1678,16 @@ Symbol Table
     G$XT2MODE$0$0                                               =  3FA9 G
     G$XT2PERIOD$0$0                                             =  3FAE G
     G$XT2PERIOD0$0$0                                            =  3FAE G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 29.
+
+Symbol Table
+
     G$XT2PERIOD1$0$0                                            =  3FAF G
     G$XT2STATUS$0$0                                             =  3FAB G
     G$XTALAMPL$0$0                                              =  7F19 G
     G$XTALOSC$0$0                                               =  7F18 G
     G$XTALREADY$0$0                                             =  7F1A G
     G$XU0CTRL$0$0                                               =  3FE4 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 28.
-
-Symbol Table
-
     G$XU0MODE$0$0                                               =  3FE7 G
     G$XU0SHREG$0$0                                              =  3FE6 G
     G$XU0STATUS$0$0                                             =  3FE5 G
@@ -1655,12 +1721,11 @@ Symbol Table
     G$XWTIRQEN$0$0                                              =  3FE9 G
     G$XWTSTAT$0$0                                               =  3FEA G
     G$_XPAGE$0$0                                                =  00D9 G
- 18 G$_sdcc_external_startup$0$0                                =  0091 GR
-  7 G$_start__stack$0$0                                         =  0000 GR
- 18 G$axradio_statuschange$0$0                                  =  0064 GR
+ 17 G$_sdcc_external_startup$0$0                                =  00AE GR
+  6 G$_start__stack$0$0                                         =  0000 GR
+ 17 G$axradio_statuschange$0$0                                  =  0063 GR
   5 G$coldstart$0$0                                             =  0000 GR
- 18 G$main$0$0                                                  =  00F9 GR
-  C G$wakeup_desc$0$0                                           =  0000 GR
+ 17 G$main$0$0                                                  =  0110 GR
     IE                                                          =  00A8 L
     IE.0                                                        =  00A8 L
     IE.1                                                        =  00A9 L
@@ -1673,20 +1738,20 @@ Symbol Table
     IE1                                                         =  008B L
     INT0                                                        =  00B2 L
     INT1                                                        =  00B3 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 30.
+
+Symbol Table
+
     IP                                                          =  00B8 L
     IP.0                                                        =  00B8 L
     IP.1                                                        =  00B9 L
     IP.2                                                        =  00BA L
     IP.3                                                        =  00BB L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 29.
-
-Symbol Table
-
     IP.4                                                        =  00BC L
     IP.5                                                        =  00BD L
     IT0                                                         =  0088 L
     IT1                                                         =  008A L
-  C Lmain.transmit_packet$demo_packet_$1$169                    =  0008 GR
+  B Lmain.transmit_packet$packet$1$169                          =  0000 GR
     OV                                                          =  00D2 L
     P                                                           =  00D0 L
     P0                                                          =  0080 L
@@ -1733,15 +1798,15 @@ Symbol Table
     PSW.2                                                       =  00D2 L
     PSW.3                                                       =  00D3 L
     PSW.4                                                       =  00D4 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 31.
+
+Symbol Table
+
     PSW.5                                                       =  00D5 L
     PSW.6                                                       =  00D6 L
     PSW.7                                                       =  00D7 L
     PT0                                                         =  00B9 L
     PT1                                                         =  00BB L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 30.
-
-Symbol Table
-
     PT2                                                         =  00BD L
     PX0                                                         =  00B8 L
     PX1                                                         =  00BA L
@@ -1793,26 +1858,25 @@ Symbol Table
     TF2                                                         =  00CF L
     TH0                                                         =  008C L
     TH1                                                         =  008D L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 32.
+
+Symbol Table
+
     TH2                                                         =  00CD L
     TI                                                          =  0099 L
     TL0                                                         =  008A L
     TL1                                                         =  008B L
     TL2                                                         =  00CC L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 31.
-
-Symbol Table
-
     TMOD                                                        =  0089 L
     TR0                                                         =  008C L
     TR1                                                         =  008E L
     TR2                                                         =  00CA L
     TXD                                                         =  00B1 L
- 18 XFmain$pwrmgmt_irq$0$0                                      =  0032 GR
- 18 XFmain$transmit_packet$0$0                                  =  0063 GR
- 18 XFmain$wakeup_callback$0$0                                  =  0090 GR
- 18 XG$_sdcc_external_startup$0$0                               =  00F8 GR
- 18 XG$axradio_statuschange$0$0                                 =  008F GR
- 18 XG$main$0$0                                                 =  02CA GR
+ 17 XFmain$pwrmgmt_irq$0$0                                      =  0032 GR
+ 17 XFmain$transmit_packet$0$0                                  =  0062 GR
+ 17 XG$_sdcc_external_startup$0$0                               =  010F GR
+ 17 XG$axradio_statuschange$0$0                                 =  00AD GR
+ 17 XG$main$0$0                                                 =  0339 GR
     _AC                                                         =  00D6 G
     _ACC                                                        =  00E0 G
     _ACC_0                                                      =  00E0 G
@@ -1854,14 +1918,14 @@ Symbol Table
     _AX5043_AFSKMARK1NB                                         =  5112 G
     _AX5043_AFSKSPACE0                                          =  4111 G
     _AX5043_AFSKSPACE0NB                                        =  5111 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 33.
+
+Symbol Table
+
     _AX5043_AFSKSPACE1                                          =  4110 G
     _AX5043_AFSKSPACE1NB                                        =  5110 G
     _AX5043_AGCAHYST0                                           =  4122 G
     _AX5043_AGCAHYST0NB                                         =  5122 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 32.
-
-Symbol Table
-
     _AX5043_AGCAHYST1                                           =  4132 G
     _AX5043_AGCAHYST1NB                                         =  5132 G
     _AX5043_AGCAHYST2                                           =  4142 G
@@ -1914,14 +1978,14 @@ Symbol Table
     _AX5043_BBOFFSRES2NB                                        =  514F G
     _AX5043_BBOFFSRES3                                          =  415F G
     _AX5043_BBOFFSRES3NB                                        =  515F G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 34.
+
+Symbol Table
+
     _AX5043_BBTUNE                                              =  4188 G
     _AX5043_BBTUNENB                                            =  5188 G
     _AX5043_BGNDRSSI                                            =  4041 G
     _AX5043_BGNDRSSIGAIN                                        =  422E G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 33.
-
-Symbol Table
-
     _AX5043_BGNDRSSIGAINNB                                      =  522E G
     _AX5043_BGNDRSSINB                                          =  5041 G
     _AX5043_BGNDRSSITHR                                         =  422F G
@@ -1974,14 +2038,14 @@ Symbol Table
     _AX5043_FIFOSTATNB                                          =  5028 G
     _AX5043_FIFOTHRESH0                                         =  402F G
     _AX5043_FIFOTHRESH0NB                                       =  502F G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 35.
+
+Symbol Table
+
     _AX5043_FIFOTHRESH1                                         =  402E G
     _AX5043_FIFOTHRESH1NB                                       =  502E G
     _AX5043_FOURFSK0                                            =  412E G
     _AX5043_FOURFSK0NB                                          =  512E G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 34.
-
-Symbol Table
-
     _AX5043_FOURFSK1                                            =  413E G
     _AX5043_FOURFSK1NB                                          =  513E G
     _AX5043_FOURFSK2                                            =  414E G
@@ -2034,14 +2098,14 @@ Symbol Table
     _AX5043_FREQUENCYGAINB0NB                                   =  5128 G
     _AX5043_FREQUENCYGAINB1                                     =  4138 G
     _AX5043_FREQUENCYGAINB1NB                                   =  5138 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 36.
+
+Symbol Table
+
     _AX5043_FREQUENCYGAINB2                                     =  4148 G
     _AX5043_FREQUENCYGAINB2NB                                   =  5148 G
     _AX5043_FREQUENCYGAINB3                                     =  4158 G
     _AX5043_FREQUENCYGAINB3NB                                   =  5158 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 35.
-
-Symbol Table
-
     _AX5043_FREQUENCYGAINC0                                     =  4129 G
     _AX5043_FREQUENCYGAINC0NB                                   =  5129 G
     _AX5043_FREQUENCYGAINC1                                     =  4139 G
@@ -2094,14 +2158,14 @@ Symbol Table
     _AX5043_IRQMASK0NB                                          =  5007 G
     _AX5043_IRQMASK1                                            =  4006 G
     _AX5043_IRQMASK1NB                                          =  5006 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 37.
+
+Symbol Table
+
     _AX5043_IRQREQUEST0                                         =  400D G
     _AX5043_IRQREQUEST0NB                                       =  500D G
     _AX5043_IRQREQUEST1                                         =  400C G
     _AX5043_IRQREQUEST1NB                                       =  500C G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 36.
-
-Symbol Table
-
     _AX5043_LPOSCCONFIG                                         =  4310 G
     _AX5043_LPOSCCONFIGNB                                       =  5310 G
     _AX5043_LPOSCFREQ0                                          =  4317 G
@@ -2154,14 +2218,14 @@ Symbol Table
     _AX5043_MAXDROFFSET2NB                                      =  5106 G
     _AX5043_MAXRFOFFSET0                                        =  410B G
     _AX5043_MAXRFOFFSET0NB                                      =  510B G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 38.
+
+Symbol Table
+
     _AX5043_MAXRFOFFSET1                                        =  410A G
     _AX5043_MAXRFOFFSET1NB                                      =  510A G
     _AX5043_MAXRFOFFSET2                                        =  4109 G
     _AX5043_MAXRFOFFSET2NB                                      =  5109 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 37.
-
-Symbol Table
-
     _AX5043_MODCFGA                                             =  4164 G
     _AX5043_MODCFGANB                                           =  5164 G
     _AX5043_MODCFGF                                             =  4160 G
@@ -2214,14 +2278,14 @@ Symbol Table
     _AX5043_PKTCHUNKSIZENB                                      =  5230 G
     _AX5043_PKTLENCFG                                           =  4201 G
     _AX5043_PKTLENCFGNB                                         =  5201 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 39.
+
+Symbol Table
+
     _AX5043_PKTLENOFFSET                                        =  4202 G
     _AX5043_PKTLENOFFSETNB                                      =  5202 G
     _AX5043_PKTMAXLEN                                           =  4203 G
     _AX5043_PKTMAXLENNB                                         =  5203 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 38.
-
-Symbol Table
-
     _AX5043_PKTMISCFLAGS                                        =  4231 G
     _AX5043_PKTMISCFLAGSNB                                      =  5231 G
     _AX5043_PKTSTOREFLAGS                                       =  4232 G
@@ -2274,14 +2338,14 @@ Symbol Table
     _AX5043_RSSINB                                              =  5040 G
     _AX5043_RSSIREFERENCE                                       =  422C G
     _AX5043_RSSIREFERENCENB                                     =  522C G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 40.
+
+Symbol Table
+
     _AX5043_RXDATARATE0                                         =  4105 G
     _AX5043_RXDATARATE0NB                                       =  5105 G
     _AX5043_RXDATARATE1                                         =  4104 G
     _AX5043_RXDATARATE1NB                                       =  5104 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 39.
-
-Symbol Table
-
     _AX5043_RXDATARATE2                                         =  4103 G
     _AX5043_RXDATARATE2NB                                       =  5103 G
     _AX5043_RXPARAMCURSET                                       =  4118 G
@@ -2334,14 +2398,14 @@ Symbol Table
     _AX5043_TRKAFSKDEMOD1NB                                     =  5054 G
     _AX5043_TRKAMPLITUDE0                                       =  4049 G
     _AX5043_TRKAMPLITUDE0NB                                     =  5049 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 41.
+
+Symbol Table
+
     _AX5043_TRKAMPLITUDE1                                       =  4048 G
     _AX5043_TRKAMPLITUDE1NB                                     =  5048 G
     _AX5043_TRKDATARATE0                                        =  4047 G
     _AX5043_TRKDATARATE0NB                                      =  5047 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 40.
-
-Symbol Table
-
     _AX5043_TRKDATARATE1                                        =  4046 G
     _AX5043_TRKDATARATE1NB                                      =  5046 G
     _AX5043_TRKDATARATE2                                        =  4045 G
@@ -2394,14 +2458,14 @@ Symbol Table
     _AX5043_WAKEUP0NB                                           =  506B G
     _AX5043_WAKEUP1                                             =  406A G
     _AX5043_WAKEUP1NB                                           =  506A G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 42.
+
+Symbol Table
+
     _AX5043_WAKEUPFREQ0                                         =  406D G
     _AX5043_WAKEUPFREQ0NB                                       =  506D G
     _AX5043_WAKEUPFREQ1                                         =  406C G
     _AX5043_WAKEUPFREQ1NB                                       =  506C G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 41.
-
-Symbol Table
-
     _AX5043_WAKEUPTIMER0                                        =  4069 G
     _AX5043_WAKEUPTIMER0NB                                      =  5069 G
     _AX5043_WAKEUPTIMER1                                        =  4068 G
@@ -2454,14 +2518,14 @@ Symbol Table
     _E2IE_4                                                     =  00A4 G
     _E2IE_5                                                     =  00A5 G
     _E2IE_6                                                     =  00A6 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 43.
+
+Symbol Table
+
     _E2IE_7                                                     =  00A7 G
     _E2IP                                                       =  00C0 G
     _E2IP_0                                                     =  00C0 G
     _E2IP_1                                                     =  00C1 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 42.
-
-Symbol Table
-
     _E2IP_2                                                     =  00C2 G
     _E2IP_3                                                     =  00C3 G
     _E2IP_4                                                     =  00C4 G
@@ -2514,14 +2578,14 @@ Symbol Table
     _IC1CAPT0                                                   =  00D6 G
     _IC1CAPT1                                                   =  00D7 G
     _IC1MODE                                                    =  00D4 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 44.
+
+Symbol Table
+
     _IC1STATUS                                                  =  00D5 G
     _IE                                                         =  00A8 G
     _IE_0                                                       =  00A8 G
     _IE_1                                                       =  00A9 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 43.
-
-Symbol Table
-
     _IE_2                                                       =  00AA G
     _IE_3                                                       =  00AB G
     _IE_4                                                       =  00AC G
@@ -2574,14 +2638,14 @@ Symbol Table
     _OC1COMP1                                                   =  00C5 G
     _OC1MODE                                                    =  00C1 G
     _OC1PIN                                                     =  00C2 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 45.
+
+Symbol Table
+
     _OC1STATUS                                                  =  00C3 G
     _OSCCALIB                                                   =  7053 G
     _OSCFORCERUN                                                =  7050 G
     _OSCREADY                                                   =  7052 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 44.
-
-Symbol Table
-
     _OSCRUN                                                     =  7051 G
     _OV                                                         =  00D2 G
     _P                                                          =  00D0 G
@@ -2634,14 +2698,14 @@ Symbol Table
     _PORTB                                                      =  0088 G
     _PORTB_0                                                    =  0088 G
     _PORTB_1                                                    =  0089 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 46.
+
+Symbol Table
+
     _PORTB_2                                                    =  008A G
     _PORTB_3                                                    =  008B G
     _PORTB_4                                                    =  008C G
     _PORTB_5                                                    =  008D G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 45.
-
-Symbol Table
-
     _PORTB_6                                                    =  008E G
     _PORTB_7                                                    =  008F G
     _PORTC                                                      =  0090 G
@@ -2694,14 +2758,14 @@ Symbol Table
     _T0PERIOD                                                   =  9F9E G
     _T0PERIOD0                                                  =  009E G
     _T0PERIOD1                                                  =  009F G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 47.
+
+Symbol Table
+
     _T0STATUS                                                   =  009B G
     _T1CLKSRC                                                   =  00A2 G
     _T1CNT                                                      =  A5A4 G
     _T1CNT0                                                     =  00A4 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 46.
-
-Symbol Table
-
     _T1CNT1                                                     =  00A5 G
     _T1MODE                                                     =  00A1 G
     _T1PERIOD                                                   =  A7A6 G
@@ -2754,14 +2818,14 @@ Symbol Table
     _XADCCH1CONFIG                                              =  3FCB G
     _XADCCH2CONFIG                                              =  3FD2 G
     _XADCCH3CONFIG                                              =  3FD3 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 48.
+
+Symbol Table
+
     _XADCCLKSRC                                                 =  3FD1 G
     _XADCCONV                                                   =  3FC9 G
     _XANALOGCOMP                                                =  3FE1 G
     _XCLKCON                                                    =  3FC6 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 47.
-
-Symbol Table
-
     _XCLKSTAT                                                   =  3FC7 G
     _XCODECONFIG                                                =  3F97 G
     _XDBGLNKBUF                                                 =  3FE3 G
@@ -2814,14 +2878,14 @@ Symbol Table
     _XPORTB                                                     =  3F88 G
     _XPORTC                                                     =  3F90 G
     _XPORTR                                                     =  3F8C G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 49.
+
+Symbol Table
+
     _XRADIOACC                                                  =  3FB1 G
     _XRADIOADDR0                                                =  3FB3 G
     _XRADIOADDR1                                                =  3FB2 G
     _XRADIODATA0                                                =  3FB7 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 48.
-
-Symbol Table
-
     _XRADIODATA1                                                =  3FB6 G
     _XRADIODATA2                                                =  3FB5 G
     _XRADIODATA3                                                =  3FB4 G
@@ -2874,14 +2938,14 @@ Symbol Table
     _XWDTRESET                                                  =  3FDB G
     _XWTCFGA                                                    =  3FF1 G
     _XWTCFGB                                                    =  3FF9 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 50.
+
+Symbol Table
+
     _XWTCNTA                                                    =  3FF2 G
     _XWTCNTA0                                                   =  3FF2 G
     _XWTCNTA1                                                   =  3FF3 G
     _XWTCNTB                                                    =  3FFA G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 49.
-
-Symbol Table
-
     _XWTCNTB0                                                   =  3FFA G
     _XWTCNTB1                                                   =  3FFB G
     _XWTCNTR1                                                   =  3FEB G
@@ -2900,29 +2964,30 @@ Symbol Table
     _XWTIRQEN                                                   =  3FE9 G
     _XWTSTAT                                                    =  3FEA G
     __XPAGE                                                     =  00D9 G
-  F __interrupt_vect                                               0000 R
+  E __interrupt_vect                                               0000 R
     __mcs51_genRAMCLEAR                                            **** GX
     __mcs51_genXINIT                                               **** GX
     __mcs51_genXRAMCLEAR                                           **** GX
- 18 __sdcc_external_startup                                        0091 GR
+ 17 __sdcc_external_startup                                        00AE GR
     __sdcc_gsinit_startup                                          **** GX
-  F __sdcc_program_startup                                         00AE GR
-  7 __start__stack                                                 0000 GR
- 19 __str_0                                                        0000 R
- 19 __str_1                                                        0010 R
- 19 __str_2                                                        002A R
- 19 __str_3                                                        0045 R
- 19 __str_4                                                        0053 R
- 19 __str_5                                                        005A R
- 19 __str_6                                                        0064 R
+  E __sdcc_program_startup                                         00AE GR
+  6 __start__stack                                                 0000 GR
+ 18 __str_0                                                        0000 R
+ 18 __str_1                                                        001B R
+ 18 __str_2                                                        0035 R
+ 18 __str_3                                                        0050 R
+ 18 __str_4                                                        005E R
+ 18 __str_5                                                        0065 R
+ 18 __str_6                                                        006F R
     _ax5043_commsleepexit                                          **** GX
+    _axradio_cansleep                                              **** GX
     _axradio_get_pllrange                                          **** GX
     _axradio_init                                                  **** GX
     _axradio_isr                                                   **** GX
     _axradio_set_default_remote_address                            **** GX
     _axradio_set_local_address                                     **** GX
     _axradio_set_mode                                              **** GX
- 18 _axradio_statuschange                                          0064 GR
+ 17 _axradio_statuschange                                          0063 GR
     _axradio_transmit                                              **** GX
     _axradio_transmit_PARM_2                                       **** GX
     _axradio_transmit_PARM_3                                       **** GX
@@ -2930,30 +2995,25 @@ Symbol Table
     _dbglink_init                                                  **** GX
     _dbglink_irq                                                   **** GX
     _dbglink_tx                                                    **** GX
+    _dbglink_txidle                                                **** GX
     _dbglink_writehexu16                                           **** GX
     _dbglink_writenum16                                            **** GX
-    _dbglink_writestr                                              **** GX
-    _delay_ms                                                      **** GX
-    _demo_packet                                                   **** GX
-    _display_radio_error                                           **** GX
-    _flash_apply_calibration                                       **** GX
-    _flash_deviceid                                             =  FC06 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 50.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 51.
 
 Symbol Table
 
+    _dbglink_writestr                                              **** GX
+    _delay_ms                                                      **** GX
+    _display_radio_error                                           **** GX
+    _flash_apply_calibration                                       **** GX
+    _flash_deviceid                                             =  FC06 
     _localaddr                                                     **** GX
- 18 _main                                                          00F9 GR
-    _memcpy                                                        **** GX
-    _memcpy_PARM_2                                                 **** GX
-    _memcpy_PARM_3                                                 **** GX
- 18 _pwrmgmt_irq                                                   0000 R
+ 17 _main                                                          0110 GR
+ 17 _pwrmgmt_irq                                                   0000 R
     _remoteaddr                                                    **** GX
     _scan_keymatrix                                                **** GX
- 18 _transmit_packet                                               0033 R
-  C _transmit_packet_demo_packet__1_169                            0008 R
- 18 _wakeup_callback                                               0090 R
-  C _wakeup_desc                                                   0000 GR
+ 17 _transmit_packet                                               0033 R
+  B _transmit_packet_packet_1_169                                  0000 R
     _wtimer0_setconfig                                             **** GX
     _wtimer1_setconfig                                             **** GX
     _wtimer_idle                                                   **** GX
@@ -2998,7 +3058,7 @@ Symbol Table
     b.7                                                         =  00F7 L
     cprl2                                                       =  00C8 L
     ct2                                                         =  00C9 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 51.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 52.
 
 Symbol Table
 
@@ -3058,7 +3118,7 @@ Symbol Table
     p1.7                                                        =  0097 L
     p2                                                          =  00A0 L
     p2.0                                                        =  00A0 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 52.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 53.
 
 Symbol Table
 
@@ -3118,7 +3178,7 @@ Symbol Table
     sm2                                                         =  009D L
     sp                                                          =  0081 L
     t2con                                                       =  00C8 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 53.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 54.
 
 Symbol Table
 
@@ -3157,7 +3217,8 @@ Symbol Table
     tr2                                                         =  00CA L
     txd                                                         =  00B1 L
 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 54.
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 55.
 
 Area Table
 
@@ -3167,26 +3228,25 @@ Area Table
    3 RSEG1                                      size    0   flags    8
    4 REG_BANK_0                                 size    8   flags    4
    5 DSEG                                       size    1   flags    0
-   6 OSEG                                       size    0   flags    4
-   7 SSEG                                       size    1   flags    0
-   8 ISEG                                       size    0   flags    0
-   9 IABS                                       size    0   flags    8
-   A BSEG                                       size    0   flags   80
-   B PSEG                                       size    0   flags   50
-   C XSEG                                       size    E   flags   40
-   D XABS                                       size    0   flags   48
-   E XISEG                                      size    0   flags   40
-   F HOME                                       size   B1   flags   20
-  10 GSINIT0                                    size    0   flags   20
-  11 GSINIT1                                    size    0   flags   20
-  12 GSINIT2                                    size    0   flags   20
-  13 GSINIT3                                    size    0   flags   20
-  14 GSINIT4                                    size    0   flags   20
-  15 GSINIT5                                    size    0   flags   20
-  16 GSINIT                                     size    3   flags   20
-  17 GSFINAL                                    size    3   flags   20
-  18 CSEG                                       size  2CB   flags   20
-  19 CONST                                      size   75   flags   20
-  1A XINIT                                      size    0   flags   20
-  1B CABS                                       size    0   flags   28
+   6 SSEG                                       size    1   flags    0
+   7 ISEG                                       size    0   flags    0
+   8 IABS                                       size    0   flags    8
+   9 BSEG                                       size    0   flags   80
+   A PSEG                                       size    0   flags   50
+   B XSEG                                       size    2   flags   40
+   C XABS                                       size    0   flags   48
+   D XISEG                                      size    0   flags   40
+   E HOME                                       size   B1   flags   20
+   F GSINIT0                                    size    0   flags   20
+  10 GSINIT1                                    size    0   flags   20
+  11 GSINIT2                                    size    0   flags   20
+  12 GSINIT3                                    size    0   flags   20
+  13 GSINIT4                                    size    0   flags   20
+  14 GSINIT5                                    size    0   flags   20
+  15 GSINIT                                     size    3   flags   20
+  16 GSFINAL                                    size    3   flags   20
+  17 CSEG                                       size  33A   flags   20
+  18 CONST                                      size   80   flags   20
+  19 XINIT                                      size    0   flags   20
+  1A CABS                                       size    0   flags   28
 

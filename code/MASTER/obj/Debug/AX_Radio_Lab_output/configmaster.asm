@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
-; This file was generated Thu Feb 13 19:16:48 2014
+; This file was generated Thu Feb 13 20:05:28 2014
 ;--------------------------------------------------------
 	.module configmaster
 	.optsdcc -mmcs51 --model-small
@@ -10,9 +10,6 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _lpxosc_settlingtime
-	.globl _demo_packet
-	.globl _framing_counter_pos
-	.globl _framing_insert_counter
 	.globl _localaddr
 	.globl _remoteaddr
 ;--------------------------------------------------------
@@ -110,20 +107,6 @@ _localaddr:
 	.db #0xFF	; 255
 	.db #0x00	; 0
 	.db #0x00	; 0
-G$framing_insert_counter$0$0 == .
-_framing_insert_counter:
-	.db #0x01	; 1
-G$framing_counter_pos$0$0 == .
-_framing_counter_pos:
-	.db #0x00	; 0
-G$demo_packet$0$0 == .
-_demo_packet:
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x55	; 85	'U'
-	.db #0x66	; 102	'f'
-	.db #0x77	; 119	'w'
-	.db #0x88	; 136
 G$lpxosc_settlingtime$0$0 == .
 _lpxosc_settlingtime:
 	.byte #0xB8,#0x0B	; 3000

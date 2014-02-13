@@ -1,5 +1,5 @@
 XH
-H 1A areas D global symbols
+H 1A areas 7 global symbols
 M configmaster
 O -mmcs51 --model-small
 S .__.ABS. Def0000
@@ -26,17 +26,11 @@ A GSINIT5 size 0 flags 20 addr 0
 A GSINIT size 0 flags 20 addr 0
 A GSFINAL size 0 flags 20 addr 0
 A CSEG size 0 flags 20 addr 0
-A CONST size 16 flags 20 addr 0
+A CONST size E flags 20 addr 0
 S _localaddr Def0004
 S _remoteaddr Def0000
-S G$framing_counter_pos$0$0 Def000D
-S G$framing_insert_counter$0$0 Def000C
-S G$demo_packet$0$0 Def000E
-S _framing_counter_pos Def000D
-S _framing_insert_counter Def000C
-S _demo_packet Def000E
-S G$lpxosc_settlingtime$0$0 Def0014
-S _lpxosc_settlingtime Def0014
+S G$lpxosc_settlingtime$0$0 Def000C
+S _lpxosc_settlingtime Def000C
 S G$localaddr$0$0 Def0004
 S G$remoteaddr$0$0 Def0000
 A XINIT size 0 flags 20 addr 0
@@ -57,17 +51,5 @@ T 00 04 32 34 00 00 FF FF 00 00
 R 00 00 00 17
 T 00 0C
 R 00 00 00 17
-T 00 0C 01
-R 00 00 00 17
-T 00 0D
-R 00 00 00 17
-T 00 0D 00
-R 00 00 00 17
-T 00 0E
-R 00 00 00 17
-T 00 0E 00 00 55 66 77 88
-R 00 00 00 17
-T 00 14
-R 00 00 00 17
-T 00 14 B8 0B
+T 00 0C B8 0B
 R 00 00 00 17

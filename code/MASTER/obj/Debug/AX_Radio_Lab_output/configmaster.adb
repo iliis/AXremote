@@ -57,7 +57,4 @@ S:G$axradio_framing_maclen$0$0({1}SC:U),D,0,0
 S:G$axradio_framing_addrlen$0$0({1}SC:U),D,0,0
 S:G$remoteaddr$0$0({4}STaxradio_address:S),D,0,0
 S:G$localaddr$0$0({8}STaxradio_address_mask:S),D,0,0
-S:G$framing_insert_counter$0$0({1}SC:U),D,0,0
-S:G$framing_counter_pos$0$0({1}SC:U),D,0,0
-S:G$demo_packet$0$0({6}DA6d,SC:U),D,0,0
 S:G$lpxosc_settlingtime$0$0({2}SI:U),D,0,0

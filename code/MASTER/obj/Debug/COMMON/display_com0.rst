@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
-                              4 ; This file was generated Thu Feb 13 19:16:48 2014
+                              4 ; This file was generated Thu Feb 13 20:05:28 2014
                               5 ;--------------------------------------------------------
                               6 	.module display_com0
                               7 	.optsdcc -mmcs51 --model-small
@@ -3134,8 +3134,8 @@
                            3134 ;--------------------------------------------------------
                            3135 	.area XISEG   (XDATA)
                      0000  3136 G$cmd$0$0==.
-   0439                    3137 _cmd::
-   0439                    3138 	.ds 8
+   042D                    3137 _cmd::
+   042D                    3138 	.ds 8
                            3139 	.area HOME    (CODE)
                            3140 	.area GSINIT0 (CODE)
                            3141 	.area GSINIT1 (CODE)
@@ -3155,8 +3155,8 @@
                            3155 	.area GSINIT  (CODE)
                      0000  3156 	C$display_com0.c$9$1$188 ==.
                            3157 ;	../COMMON/display_com0.c:9: static const __code char *lcd_border=
-   0124 75 08 FF      [24] 3158 	mov	_lcd_border,#__str_0
-   0127 75 09 52      [24] 3159 	mov	(_lcd_border + 1),#(__str_0 >> 8)
+   0124 75 08 C9      [24] 3158 	mov	_lcd_border,#__str_0
+   0127 75 09 53      [24] 3159 	mov	(_lcd_border + 1),#(__str_0 >> 8)
                            3160 ;--------------------------------------------------------
                            3161 ; Home
                            3162 ;--------------------------------------------------------
@@ -3205,22 +3205,22 @@
                      0014  3205 	C$display_com0.c$27$1$173 ==.
                            3206 ;	../COMMON/display_com0.c:27: uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
    06EA E4            [12] 3207 	clr	a
-   06EB F5 13         [12] 3208 	mov	_uart_timer0_baud_PARM_2,a
-   06ED 75 14 C2      [24] 3209 	mov	(_uart_timer0_baud_PARM_2 + 1),#0xC2
-   06F0 75 15 01      [24] 3210 	mov	(_uart_timer0_baud_PARM_2 + 2),#0x01
-   06F3 F5 16         [12] 3211 	mov	(_uart_timer0_baud_PARM_2 + 3),a
-   06F5 75 17 00      [24] 3212 	mov	_uart_timer0_baud_PARM_3,#0x00
-   06F8 75 18 2D      [24] 3213 	mov	(_uart_timer0_baud_PARM_3 + 1),#0x2D
-   06FB 75 19 31      [24] 3214 	mov	(_uart_timer0_baud_PARM_3 + 2),#0x31
-   06FE 75 1A 01      [24] 3215 	mov	(_uart_timer0_baud_PARM_3 + 3),#0x01
+   06EB F5 12         [12] 3208 	mov	_uart_timer0_baud_PARM_2,a
+   06ED 75 13 C2      [24] 3209 	mov	(_uart_timer0_baud_PARM_2 + 1),#0xC2
+   06F0 75 14 01      [24] 3210 	mov	(_uart_timer0_baud_PARM_2 + 2),#0x01
+   06F3 F5 15         [12] 3211 	mov	(_uart_timer0_baud_PARM_2 + 3),a
+   06F5 75 16 00      [24] 3212 	mov	_uart_timer0_baud_PARM_3,#0x00
+   06F8 75 17 2D      [24] 3213 	mov	(_uart_timer0_baud_PARM_3 + 1),#0x2D
+   06FB 75 18 31      [24] 3214 	mov	(_uart_timer0_baud_PARM_3 + 2),#0x31
+   06FE 75 19 01      [24] 3215 	mov	(_uart_timer0_baud_PARM_3 + 3),#0x01
    0701 75 82 06      [24] 3216 	mov	dpl,#0x06
-   0704 12 3C 60      [24] 3217 	lcall	_uart_timer0_baud
+   0704 12 3D 32      [24] 3217 	lcall	_uart_timer0_baud
                      0031  3218 	C$display_com0.c$28$1$173 ==.
                            3219 ;	../COMMON/display_com0.c:28: uart0_init(0, 8, 1);
-   0707 75 27 08      [24] 3220 	mov	_uart0_init_PARM_2,#0x08
-   070A 75 28 01      [24] 3221 	mov	_uart0_init_PARM_3,#0x01
+   0707 75 26 08      [24] 3220 	mov	_uart0_init_PARM_2,#0x08
+   070A 75 27 01      [24] 3221 	mov	_uart0_init_PARM_3,#0x01
    070D 75 82 00      [24] 3222 	mov	dpl,#0x00
-   0710 12 4B 98      [24] 3223 	lcall	_uart0_init
+   0710 12 4C 6A      [24] 3223 	lcall	_uart0_init
                      003D  3224 	C$display_com0.c$29$1$173 ==.
                      003D  3225 	XG$com0_portinit$0$0 ==.
    0713 22            [24] 3226 	ret
@@ -3237,22 +3237,22 @@
                      003E  3237 	C$display_com0.c$33$1$175 ==.
                            3238 ;	../COMMON/display_com0.c:33: uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
    0714 E4            [12] 3239 	clr	a
-   0715 F5 13         [12] 3240 	mov	_uart_timer0_baud_PARM_2,a
-   0717 75 14 C2      [24] 3241 	mov	(_uart_timer0_baud_PARM_2 + 1),#0xC2
-   071A 75 15 01      [24] 3242 	mov	(_uart_timer0_baud_PARM_2 + 2),#0x01
-   071D F5 16         [12] 3243 	mov	(_uart_timer0_baud_PARM_2 + 3),a
-   071F 75 17 00      [24] 3244 	mov	_uart_timer0_baud_PARM_3,#0x00
-   0722 75 18 2D      [24] 3245 	mov	(_uart_timer0_baud_PARM_3 + 1),#0x2D
-   0725 75 19 31      [24] 3246 	mov	(_uart_timer0_baud_PARM_3 + 2),#0x31
-   0728 75 1A 01      [24] 3247 	mov	(_uart_timer0_baud_PARM_3 + 3),#0x01
+   0715 F5 12         [12] 3240 	mov	_uart_timer0_baud_PARM_2,a
+   0717 75 13 C2      [24] 3241 	mov	(_uart_timer0_baud_PARM_2 + 1),#0xC2
+   071A 75 14 01      [24] 3242 	mov	(_uart_timer0_baud_PARM_2 + 2),#0x01
+   071D F5 15         [12] 3243 	mov	(_uart_timer0_baud_PARM_2 + 3),a
+   071F 75 16 00      [24] 3244 	mov	_uart_timer0_baud_PARM_3,#0x00
+   0722 75 17 2D      [24] 3245 	mov	(_uart_timer0_baud_PARM_3 + 1),#0x2D
+   0725 75 18 31      [24] 3246 	mov	(_uart_timer0_baud_PARM_3 + 2),#0x31
+   0728 75 19 01      [24] 3247 	mov	(_uart_timer0_baud_PARM_3 + 3),#0x01
    072B 75 82 06      [24] 3248 	mov	dpl,#0x06
-   072E 12 3C 60      [24] 3249 	lcall	_uart_timer0_baud
+   072E 12 3D 32      [24] 3249 	lcall	_uart_timer0_baud
                      005B  3250 	C$display_com0.c$34$1$175 ==.
                            3251 ;	../COMMON/display_com0.c:34: uart0_init(0, 8, 1);
-   0731 75 27 08      [24] 3252 	mov	_uart0_init_PARM_2,#0x08
-   0734 75 28 01      [24] 3253 	mov	_uart0_init_PARM_3,#0x01
+   0731 75 26 08      [24] 3252 	mov	_uart0_init_PARM_2,#0x08
+   0734 75 27 01      [24] 3253 	mov	_uart0_init_PARM_3,#0x01
    0737 75 82 00      [24] 3254 	mov	dpl,#0x00
-   073A 12 4B 98      [24] 3255 	lcall	_uart0_init
+   073A 12 4C 6A      [24] 3255 	lcall	_uart0_init
                      0067  3256 	C$display_com0.c$36$1$175 ==.
                            3257 ;	../COMMON/display_com0.c:36: com0_writestr(lcd_border);
    073D AD 08         [24] 3258 	mov	r5,_lcd_border
@@ -3283,7 +3283,7 @@
    0753                    3283 _com0_writestr2:
                      007D  3284 	C$display_com0.c$42$1$177 ==.
                            3285 ;	../COMMON/display_com0.c:42: uart0_writestr(msg);
-   0753 12 4E 67      [24] 3286 	lcall	_uart0_writestr
+   0753 12 4F 39      [24] 3286 	lcall	_uart0_writestr
                      0080  3287 	C$display_com0.c$43$1$177 ==.
                      0080  3288 	XG$com0_writestr2$0$0 ==.
    0756 22            [24] 3289 	ret
@@ -3322,23 +3322,23 @@
    076D 90 00 02      [24] 3322 	mov	dptr,#_row
    0770 E0            [24] 3323 	movx	a,@dptr
    0771 24 30         [12] 3324 	add	a,#0x30
-   0773 90 04 3B      [24] 3325 	mov	dptr,#(_cmd + 0x0002)
+   0773 90 04 2F      [24] 3325 	mov	dptr,#(_cmd + 0x0002)
    0776 F0            [24] 3326 	movx	@dptr,a
                      00A1  3327 	C$display_com0.c$51$1$179 ==.
                            3328 ;	../COMMON/display_com0.c:51: cmd[4] = '0';
-   0777 90 04 3D      [24] 3329 	mov	dptr,#(_cmd + 0x0004)
+   0777 90 04 31      [24] 3329 	mov	dptr,#(_cmd + 0x0004)
    077A 74 30         [12] 3330 	mov	a,#0x30
    077C F0            [24] 3331 	movx	@dptr,a
                      00A7  3332 	C$display_com0.c$52$1$179 ==.
                            3333 ;	../COMMON/display_com0.c:52: cmd[5] = '2';
-   077D 90 04 3E      [24] 3334 	mov	dptr,#(_cmd + 0x0005)
+   077D 90 04 32      [24] 3334 	mov	dptr,#(_cmd + 0x0005)
    0780 74 32         [12] 3335 	mov	a,#0x32
    0782 F0            [24] 3336 	movx	@dptr,a
                      00AD  3337 	C$display_com0.c$53$1$179 ==.
                            3338 ;	../COMMON/display_com0.c:53: uart0_writestr(cmd);
-   0783 90 04 39      [24] 3339 	mov	dptr,#_cmd
+   0783 90 04 2D      [24] 3339 	mov	dptr,#_cmd
    0786 75 F0 00      [24] 3340 	mov	b,#0x00
-   0789 12 4E 67      [24] 3341 	lcall	_uart0_writestr
+   0789 12 4F 39      [24] 3341 	lcall	_uart0_writestr
                      00B6  3342 	C$display_com0.c$54$1$179 ==.
                      00B6  3343 	XG$com0_newline$0$0 ==.
    078C 22            [24] 3344 	ret
@@ -3379,7 +3379,7 @@
                            3379 ;	../COMMON/display_com0.c:62: cmd[2] = row + '0';
    07A6 74 30         [12] 3380 	mov	a,#0x30
    07A8 2E            [12] 3381 	add	a,r6
-   07A9 90 04 3B      [24] 3382 	mov	dptr,#(_cmd + 0x0002)
+   07A9 90 04 2F      [24] 3382 	mov	dptr,#(_cmd + 0x0002)
    07AC F0            [24] 3383 	movx	@dptr,a
                      00D7  3384 	C$display_com0.c$63$1$181 ==.
                            3385 ;	../COMMON/display_com0.c:63: cmd[4] = column / 10 + '0';
@@ -3387,7 +3387,7 @@
    07B0 EF            [12] 3387 	mov	a,r7
    07B1 84            [48] 3388 	div	ab
    07B2 24 30         [12] 3389 	add	a,#0x30
-   07B4 90 04 3D      [24] 3390 	mov	dptr,#(_cmd + 0x0004)
+   07B4 90 04 31      [24] 3390 	mov	dptr,#(_cmd + 0x0004)
    07B7 F0            [24] 3391 	movx	@dptr,a
                      00E2  3392 	C$display_com0.c$64$1$181 ==.
                            3393 ;	../COMMON/display_com0.c:64: cmd[5] = column % 10 + '0';
@@ -3397,13 +3397,13 @@
    07BD AF F0         [24] 3397 	mov	r7,b
    07BF 74 30         [12] 3398 	mov	a,#0x30
    07C1 2F            [12] 3399 	add	a,r7
-   07C2 90 04 3E      [24] 3400 	mov	dptr,#(_cmd + 0x0005)
+   07C2 90 04 32      [24] 3400 	mov	dptr,#(_cmd + 0x0005)
    07C5 F0            [24] 3401 	movx	@dptr,a
                      00F0  3402 	C$display_com0.c$65$1$181 ==.
                            3403 ;	../COMMON/display_com0.c:65: uart0_writestr(cmd);
-   07C6 90 04 39      [24] 3404 	mov	dptr,#_cmd
+   07C6 90 04 2D      [24] 3404 	mov	dptr,#_cmd
    07C9 75 F0 00      [24] 3405 	mov	b,#0x00
-   07CC 12 4E 67      [24] 3406 	lcall	_uart0_writestr
+   07CC 12 4F 39      [24] 3406 	lcall	_uart0_writestr
                      00F9  3407 	C$display_com0.c$66$1$181 ==.
                      00F9  3408 	XG$com0_setpos$0$0 ==.
    07CF 22            [24] 3409 	ret
@@ -3429,7 +3429,7 @@
    07D6 8D 82         [24] 3429 	mov	dpl,r5
    07D8 8E 83         [24] 3430 	mov	dph,r6
    07DA 8F F0         [24] 3431 	mov	b,r7
-   07DC 12 51 31      [24] 3432 	lcall	__gptrget
+   07DC 12 52 03      [24] 3432 	lcall	__gptrget
                      0109  3433 	C$display_com0.c$72$2$184 ==.
                            3434 ;	../COMMON/display_com0.c:72: if (!ch)
    07DF FC            [12] 3435 	mov	r4,a
@@ -3478,7 +3478,7 @@
                      012F  3478 	C$display_com0.c$85$1$186 ==.
                            3479 ;	../COMMON/display_com0.c:85: uart0_tx(val);
    0805 8F 82         [24] 3480 	mov	dpl,r7
-   0807 12 47 59      [24] 3481 	lcall	_uart0_tx
+   0807 12 48 2B      [24] 3481 	lcall	_uart0_tx
    080A                    3482 00104$:
                      0134  3483 	C$display_com0.c$86$1$186 ==.
                      0134  3484 	XG$com0_tx$0$0 ==.
@@ -3496,14 +3496,14 @@
                            3496 ;	 function com0_clear
                            3497 ;	-----------------------------------------
    080B                    3498 _com0_clear:
-   080B C0 1F         [24] 3499 	push	_bp
-   080D 85 81 1F      [24] 3500 	mov	_bp,sp
+   080B C0 25         [24] 3499 	push	_bp
+   080D 85 81 25      [24] 3500 	mov	_bp,sp
                      013A  3501 	C$display_com0.c$90$1$188 ==.
                            3502 ;	../COMMON/display_com0.c:90: com0_setpos(pos);
    0810 12 07 8D      [24] 3503 	lcall	_com0_setpos
                      013D  3504 	C$display_com0.c$91$1$188 ==.
                            3505 ;	../COMMON/display_com0.c:91: if (!len)
-   0813 E5 1F         [12] 3506 	mov	a,_bp
+   0813 E5 25         [12] 3506 	mov	a,_bp
    0815 24 FD         [12] 3507 	add	a,#0xfd
    0817 F8            [12] 3508 	mov	r0,a
    0818 E6            [12] 3509 	mov	a,@r0
@@ -3514,7 +3514,7 @@
                            3514 ;	../COMMON/display_com0.c:93: do {
    081B 80 13         [24] 3515 	sjmp	00106$
    081D                    3516 00109$:
-   081D E5 1F         [12] 3517 	mov	a,_bp
+   081D E5 25         [12] 3517 	mov	a,_bp
    081F 24 FD         [12] 3518 	add	a,#0xfd
    0821 F8            [12] 3519 	mov	r0,a
    0822 86 07         [24] 3520 	mov	ar7,@r0
@@ -3529,53 +3529,53 @@
                            3529 ;	../COMMON/display_com0.c:95: } while (--len);
    082E DF F4         [24] 3530 	djnz	r7,00103$
    0830                    3531 00106$:
-   0830 D0 1F         [24] 3532 	pop	_bp
+   0830 D0 25         [24] 3532 	pop	_bp
                      015C  3533 	C$display_com0.c$96$1$188 ==.
                      015C  3534 	XG$com0_clear$0$0 ==.
    0832 22            [24] 3535 	ret
                            3536 	.area CSEG    (CODE)
                            3537 	.area CONST   (CODE)
                      0000  3538 Fdisplay_com0$_str_0$0$0 == .
-   52FF                    3539 __str_0:
-   52FF 1B                 3540 	.db 0x1B
-   5300 5B 30 3B 38 3B 34  3541 	.ascii "[0;8;44;30m"
+   53C9                    3539 __str_0:
+   53C9 1B                 3540 	.db 0x1B
+   53CA 5B 30 3B 38 3B 34  3541 	.ascii "[0;8;44;30m"
         34 3B 33 30 6D
-   530B 1B                 3542 	.db 0x1B
-   530C 5B 31 3B 31 66 2A  3543 	.ascii "[1;1f******************"
+   53D5 1B                 3542 	.db 0x1B
+   53D6 5B 31 3B 31 66 2A  3543 	.ascii "[1;1f******************"
         2A 2A 2A 2A 2A 2A
         2A 2A 2A 2A 2A 2A
         2A 2A 2A 2A 2A
-   5323 1B                 3544 	.db 0x1B
-   5324 5B 32 3B 31 66 2A  3545 	.ascii "[2;1f*                *"
+   53ED 1B                 3544 	.db 0x1B
+   53EE 5B 32 3B 31 66 2A  3545 	.ascii "[2;1f*                *"
         20 20 20 20 20 20
         20 20 20 20 20 20
         20 20 20 20 2A
-   533B 1B                 3546 	.db 0x1B
-   533C 5B 33 3B 31 66 2A  3547 	.ascii "[3;1f*                *"
+   5405 1B                 3546 	.db 0x1B
+   5406 5B 33 3B 31 66 2A  3547 	.ascii "[3;1f*                *"
         20 20 20 20 20 20
         20 20 20 20 20 20
         20 20 20 20 2A
-   5353 1B                 3548 	.db 0x1B
-   5354 5B 34 3B 31 66 2A  3549 	.ascii "[4;1f******************"
+   541D 1B                 3548 	.db 0x1B
+   541E 5B 34 3B 31 66 2A  3549 	.ascii "[4;1f******************"
         2A 2A 2A 2A 2A 2A
         2A 2A 2A 2A 2A 2A
         2A 2A 2A 2A 2A
-   536B 1B                 3550 	.db 0x1B
-   536C 5B 35 3B 31 66     3551 	.ascii "[5;1f"
-   5371 1B                 3552 	.db 0x1B
-   5372 5B 33 37 6D        3553 	.ascii "[37m"
-   5376 1B                 3554 	.db 0x1B
-   5377 5B 3F 32 35 6C     3555 	.ascii "[?25l"
-   537C 00                 3556 	.db 0x00
+   5435 1B                 3550 	.db 0x1B
+   5436 5B 35 3B 31 66     3551 	.ascii "[5;1f"
+   543B 1B                 3552 	.db 0x1B
+   543C 5B 33 37 6D        3553 	.ascii "[37m"
+   5440 1B                 3554 	.db 0x1B
+   5441 5B 3F 32 35 6C     3555 	.ascii "[?25l"
+   5446 00                 3556 	.db 0x00
                            3557 	.area XINIT   (CODE)
                      0000  3558 Fdisplay_com0$__xinit_cmd$0$0 == .
-   569E                    3559 __xinit__cmd:
-   569E 1B                 3560 	.db #0x1B	; 27
-   569F 5B                 3561 	.db #0x5B	; 91
-   56A0 FF                 3562 	.db #0xFF	; 255
-   56A1 3B                 3563 	.db #0x3B	; 59
-   56A2 FF                 3564 	.db #0xFF	; 255
-   56A3 FF                 3565 	.db #0xFF	; 255
-   56A4 66                 3566 	.db #0x66	; 102	'f'
-   56A5 00                 3567 	.db #0x00	; 0
+   5773                    3559 __xinit__cmd:
+   5773 1B                 3560 	.db #0x1B	; 27
+   5774 5B                 3561 	.db #0x5B	; 91
+   5775 FF                 3562 	.db #0xFF	; 255
+   5776 3B                 3563 	.db #0x3B	; 59
+   5777 FF                 3564 	.db #0xFF	; 255
+   5778 FF                 3565 	.db #0xFF	; 255
+   5779 66                 3566 	.db #0x66	; 102	'f'
+   577A 00                 3567 	.db #0x00	; 0
                            3568 	.area CABS    (ABS,CODE)

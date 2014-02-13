@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
-; This file was generated Thu Feb 13 19:16:48 2014
+; This file was generated Thu Feb 13 20:05:28 2014
 ;--------------------------------------------------------
 	.module display_com0
 	.optsdcc -mmcs51 --model-small

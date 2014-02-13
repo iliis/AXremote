@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
-                              4 ; This file was generated Thu Feb 13 19:18:11 2014
+                              4 ; This file was generated Thu Feb 13 20:05:28 2014
                               5 ;--------------------------------------------------------
                               6 	.module config_16MHz
                               7 	.optsdcc -mmcs51 --model-small
@@ -4498,11 +4498,11 @@
                            4498 ;	 function axradio_byteconv_buffer
                            4499 ;	-----------------------------------------
    0623                    4500 _axradio_byteconv_buffer:
-   0623 C0 1F         [24] 4501 	push	_bp
-   0625 85 81 1F      [24] 4502 	mov	_bp,sp
+   0623 C0 25         [24] 4501 	push	_bp
+   0625 85 81 25      [24] 4502 	mov	_bp,sp
                      04F2  4503 	C$config_16MHz.c$234$1$93 ==.
                            4504 ;	../AX_Radio_Lab_output/config_16MHz.c:234: }
-   0628 D0 1F         [24] 4505 	pop	_bp
+   0628 D0 25         [24] 4505 	pop	_bp
                      04F4  4506 	C$config_16MHz.c$234$1$93 ==.
                      04F4  4507 	XG$axradio_byteconv_buffer$0$0 ==.
    062A 22            [24] 4508 	ret
@@ -4519,8 +4519,8 @@
                            4519 ;	 function axradio_framing_check_crc
                            4520 ;	-----------------------------------------
    062B                    4521 _axradio_framing_check_crc:
-   062B C0 1F         [24] 4522 	push	_bp
-   062D 85 81 1F      [24] 4523 	mov	_bp,sp
+   062B C0 25         [24] 4522 	push	_bp
+   062D 85 81 25      [24] 4523 	mov	_bp,sp
    0630 AE 82         [24] 4524 	mov	r6,dpl
    0632 AF 83         [24] 4525 	mov	r7,dph
                      04FE  4526 	C$config_16MHz.c$239$1$97 ==.
@@ -4529,7 +4529,7 @@
    0636 74 FF         [12] 4529 	mov	a,#0xFF
    0638 C0 E0         [24] 4530 	push	acc
    063A C0 E0         [24] 4531 	push	acc
-   063C E5 1F         [12] 4532 	mov	a,_bp
+   063C E5 25         [12] 4532 	mov	a,_bp
    063E 24 FC         [12] 4533 	add	a,#0xfc
    0640 F8            [12] 4534 	mov	r0,a
    0641 E6            [12] 4535 	mov	a,@r0
@@ -4540,7 +4540,7 @@
    0648 8E 82         [24] 4540 	mov	dpl,r6
    064A 8F 83         [24] 4541 	mov	dph,r7
    064C 8D F0         [24] 4542 	mov	b,r5
-   064E 12 46 50      [24] 4543 	lcall	_crc_crc16
+   064E 12 47 22      [24] 4543 	lcall	_crc_crc16
    0651 AE 82         [24] 4544 	mov	r6,dpl
    0653 AF 83         [24] 4545 	mov	r7,dph
    0655 E5 81         [12] 4546 	mov	a,sp
@@ -4552,7 +4552,7 @@
    0662 04            [12] 4552 	inc	a
    0663                    4553 00103$:
    0663 F5 82         [12] 4554 	mov	dpl,a
-   0665 D0 1F         [24] 4555 	pop	_bp
+   0665 D0 25         [24] 4555 	pop	_bp
                      0531  4556 	C$config_16MHz.c$240$1$97 ==.
                      0531  4557 	XG$axradio_framing_check_crc$0$0 ==.
    0667 22            [24] 4558 	ret
@@ -4570,8 +4570,8 @@
                            4570 ;	 function axradio_framing_append_crc
                            4571 ;	-----------------------------------------
    0668                    4572 _axradio_framing_append_crc:
-   0668 C0 1F         [24] 4573 	push	_bp
-   066A 85 81 1F      [24] 4574 	mov	_bp,sp
+   0668 C0 25         [24] 4573 	push	_bp
+   066A 85 81 25      [24] 4574 	mov	_bp,sp
    066D AE 82         [24] 4575 	mov	r6,dpl
    066F AF 83         [24] 4576 	mov	r7,dph
                      053B  4577 	C$config_16MHz.c$245$1$99 ==.
@@ -4584,7 +4584,7 @@
    067B 74 FF         [12] 4584 	mov	a,#0xFF
    067D C0 E0         [24] 4585 	push	acc
    067F C0 E0         [24] 4586 	push	acc
-   0681 E5 1F         [12] 4587 	mov	a,_bp
+   0681 E5 25         [12] 4587 	mov	a,_bp
    0683 24 FC         [12] 4588 	add	a,#0xfc
    0685 F8            [12] 4589 	mov	r0,a
    0686 E6            [12] 4590 	mov	a,@r0
@@ -4595,7 +4595,7 @@
    068D 8B 82         [24] 4595 	mov	dpl,r3
    068F 8C 83         [24] 4596 	mov	dph,r4
    0691 8D F0         [24] 4597 	mov	b,r5
-   0693 12 46 50      [24] 4598 	lcall	_crc_crc16
+   0693 12 47 22      [24] 4598 	lcall	_crc_crc16
    0696 AC 82         [24] 4599 	mov	r4,dpl
    0698 AD 83         [24] 4600 	mov	r5,dph
    069A E5 81         [12] 4601 	mov	a,sp
@@ -4605,7 +4605,7 @@
    06A2 D0 07         [24] 4605 	pop	ar7
                      056E  4606 	C$config_16MHz.c$246$1$99 ==.
                            4607 ;	../AX_Radio_Lab_output/config_16MHz.c:246: pkt += cnt;
-   06A4 E5 1F         [12] 4608 	mov	a,_bp
+   06A4 E5 25         [12] 4608 	mov	a,_bp
    06A6 24 FC         [12] 4609 	add	a,#0xfc
    06A8 F8            [12] 4610 	mov	r0,a
    06A9 E6            [12] 4611 	mov	a,@r0
@@ -4636,7 +4636,7 @@
    06C6 F0            [24] 4636 	movx	@dptr,a
                      0591  4637 	C$config_16MHz.c$249$1$99 ==.
                            4638 ;	../AX_Radio_Lab_output/config_16MHz.c:249: return cnt + 2;
-   06C7 E5 1F         [12] 4639 	mov	a,_bp
+   06C7 E5 25         [12] 4639 	mov	a,_bp
    06C9 24 FC         [12] 4640 	add	a,#0xfc
    06CB F8            [12] 4641 	mov	r0,a
    06CC 86 82         [24] 4642 	mov	dpl,@r0
@@ -4644,171 +4644,171 @@
    06CF 86 83         [24] 4644 	mov	dph,@r0
    06D1 A3            [24] 4645 	inc	dptr
    06D2 A3            [24] 4646 	inc	dptr
-   06D3 D0 1F         [24] 4647 	pop	_bp
+   06D3 D0 25         [24] 4647 	pop	_bp
                      059F  4648 	C$config_16MHz.c$250$1$99 ==.
                      059F  4649 	XG$axradio_framing_append_crc$0$0 ==.
    06D5 22            [24] 4650 	ret
                            4651 	.area CSEG    (CODE)
                            4652 	.area CONST   (CODE)
                      0000  4653 G$axradio_phy_pn9$0$0 == .
-   5278                    4654 _axradio_phy_pn9:
-   5278 00                 4655 	.db #0x00	; 0
+   534A                    4654 _axradio_phy_pn9:
+   534A 00                 4655 	.db #0x00	; 0
                      0001  4656 G$axradio_phy_nrchannels$0$0 == .
-   5279                    4657 _axradio_phy_nrchannels:
-   5279 01                 4658 	.db #0x01	; 1
+   534B                    4657 _axradio_phy_nrchannels:
+   534B 01                 4658 	.db #0x01	; 1
                      0002  4659 G$axradio_phy_chanfreq$0$0 == .
-   527A                    4660 _axradio_phy_chanfreq:
-   527A CD CC 44 36        4661 	.byte #0xCD,#0xCC,#0x44,#0x36	; 910478541
+   534C                    4660 _axradio_phy_chanfreq:
+   534C CD CC 44 36        4661 	.byte #0xCD,#0xCC,#0x44,#0x36	; 910478541
                      0006  4662 G$axradio_phy_chanpllrnginit$0$0 == .
-   527E                    4663 _axradio_phy_chanpllrnginit:
-   527E 0A                 4664 	.db #0x0A	; 10
+   5350                    4663 _axradio_phy_chanpllrnginit:
+   5350 0A                 4664 	.db #0x0A	; 10
                      0007  4665 G$axradio_phy_maxfreqoffset$0$0 == .
-   527F                    4666 _axradio_phy_maxfreqoffset:
-   527F 66 D5 00 00        4667 	.byte #0x66,#0xD5,#0x00,#0x00	;  54630
+   5351                    4666 _axradio_phy_maxfreqoffset:
+   5351 66 D5 00 00        4667 	.byte #0x66,#0xD5,#0x00,#0x00	;  54630
                      000B  4668 G$axradio_phy_rssioffset$0$0 == .
-   5283                    4669 _axradio_phy_rssioffset:
-   5283 20                 4670 	.db #0x20	;  32
+   5355                    4669 _axradio_phy_rssioffset:
+   5355 20                 4670 	.db #0x20	;  32
                      000C  4671 G$axradio_phy_rssireference$0$0 == .
-   5284                    4672 _axradio_phy_rssireference:
-   5284 19                 4673 	.db #0x19	;  25
+   5356                    4672 _axradio_phy_rssireference:
+   5356 19                 4673 	.db #0x19	;  25
                      000D  4674 G$axradio_phy_channelbusy$0$0 == .
-   5285                    4675 _axradio_phy_channelbusy:
-   5285 C6                 4676 	.db #0xC6	; -58
+   5357                    4675 _axradio_phy_channelbusy:
+   5357 C6                 4676 	.db #0xC6	; -58
                      000E  4677 G$axradio_phy_cs_period$0$0 == .
-   5286                    4678 _axradio_phy_cs_period:
-   5286 07 00              4679 	.byte #0x07,#0x00	; 7
+   5358                    4678 _axradio_phy_cs_period:
+   5358 07 00              4679 	.byte #0x07,#0x00	; 7
                      0010  4680 G$axradio_phy_cs_enabled$0$0 == .
-   5288                    4681 _axradio_phy_cs_enabled:
-   5288 00                 4682 	.db #0x00	; 0
+   535A                    4681 _axradio_phy_cs_enabled:
+   535A 00                 4682 	.db #0x00	; 0
                      0011  4683 G$axradio_phy_lbt_retries$0$0 == .
-   5289                    4684 _axradio_phy_lbt_retries:
-   5289 00                 4685 	.db #0x00	; 0
+   535B                    4684 _axradio_phy_lbt_retries:
+   535B 00                 4685 	.db #0x00	; 0
                      0012  4686 G$axradio_phy_lbt_forcetx$0$0 == .
-   528A                    4687 _axradio_phy_lbt_forcetx:
-   528A 00                 4688 	.db #0x00	; 0
+   535C                    4687 _axradio_phy_lbt_forcetx:
+   535C 00                 4688 	.db #0x00	; 0
                      0013  4689 G$axradio_phy_tmgrxpreamble1_wor$0$0 == .
-   528B                    4690 _axradio_phy_tmgrxpreamble1_wor:
-   528B 4C                 4691 	.db #0x4C	; 76	'L'
+   535D                    4690 _axradio_phy_tmgrxpreamble1_wor:
+   535D 4C                 4691 	.db #0x4C	; 76	'L'
                      0014  4692 G$axradio_phy_tmgrxpreamble1_cont$0$0 == .
-   528C                    4693 _axradio_phy_tmgrxpreamble1_cont:
-   528C 00                 4694 	.db #0x00	; 0
+   535E                    4693 _axradio_phy_tmgrxpreamble1_cont:
+   535E 00                 4694 	.db #0x00	; 0
                      0015  4695 G$axradio_phy_preamble_wor_longlen$0$0 == .
-   528D                    4696 _axradio_phy_preamble_wor_longlen:
-   528D 04 00              4697 	.byte #0x04,#0x00	; 4
+   535F                    4696 _axradio_phy_preamble_wor_longlen:
+   535F 04 00              4697 	.byte #0x04,#0x00	; 4
                      0017  4698 G$axradio_phy_preamble_wor_len$0$0 == .
-   528F                    4699 _axradio_phy_preamble_wor_len:
-   528F B8 00              4700 	.byte #0xB8,#0x00	; 184
+   5361                    4699 _axradio_phy_preamble_wor_len:
+   5361 B8 00              4700 	.byte #0xB8,#0x00	; 184
                      0019  4701 G$axradio_phy_preamble_longlen$0$0 == .
-   5291                    4702 _axradio_phy_preamble_longlen:
-   5291 00 00              4703 	.byte #0x00,#0x00	; 0
+   5363                    4702 _axradio_phy_preamble_longlen:
+   5363 00 00              4703 	.byte #0x00,#0x00	; 0
                      001B  4704 G$axradio_phy_preamble_len$0$0 == .
-   5293                    4705 _axradio_phy_preamble_len:
-   5293 38 00              4706 	.byte #0x38,#0x00	; 56
+   5365                    4705 _axradio_phy_preamble_len:
+   5365 38 00              4706 	.byte #0x38,#0x00	; 56
                      001D  4707 G$axradio_phy_preamble_byte$0$0 == .
-   5295                    4708 _axradio_phy_preamble_byte:
-   5295 55                 4709 	.db #0x55	; 85	'U'
+   5367                    4708 _axradio_phy_preamble_byte:
+   5367 55                 4709 	.db #0x55	; 85	'U'
                      001E  4710 G$axradio_phy_preamble_flags$0$0 == .
-   5296                    4711 _axradio_phy_preamble_flags:
-   5296 38                 4712 	.db #0x38	; 56	'8'
+   5368                    4711 _axradio_phy_preamble_flags:
+   5368 38                 4712 	.db #0x38	; 56	'8'
                      001F  4713 G$axradio_phy_preamble_appendbits$0$0 == .
-   5297                    4714 _axradio_phy_preamble_appendbits:
-   5297 00                 4715 	.db #0x00	; 0
+   5369                    4714 _axradio_phy_preamble_appendbits:
+   5369 00                 4715 	.db #0x00	; 0
                      0020  4716 G$axradio_phy_preamble_appendpattern$0$0 == .
-   5298                    4717 _axradio_phy_preamble_appendpattern:
-   5298 00                 4718 	.db #0x00	; 0
+   536A                    4717 _axradio_phy_preamble_appendpattern:
+   536A 00                 4718 	.db #0x00	; 0
                      0021  4719 G$axradio_framing_maclen$0$0 == .
-   5299                    4720 _axradio_framing_maclen:
-   5299 03                 4721 	.db #0x03	; 3
+   536B                    4720 _axradio_framing_maclen:
+   536B 03                 4721 	.db #0x03	; 3
                      0022  4722 G$axradio_framing_addrlen$0$0 == .
-   529A                    4723 _axradio_framing_addrlen:
-   529A 02                 4724 	.db #0x02	; 2
+   536C                    4723 _axradio_framing_addrlen:
+   536C 02                 4724 	.db #0x02	; 2
                      0023  4725 G$axradio_framing_destaddrpos$0$0 == .
-   529B                    4726 _axradio_framing_destaddrpos:
-   529B 01                 4727 	.db #0x01	; 1
+   536D                    4726 _axradio_framing_destaddrpos:
+   536D 01                 4727 	.db #0x01	; 1
                      0024  4728 G$axradio_framing_sourceaddrpos$0$0 == .
-   529C                    4729 _axradio_framing_sourceaddrpos:
-   529C FF                 4730 	.db #0xFF	; 255
+   536E                    4729 _axradio_framing_sourceaddrpos:
+   536E FF                 4730 	.db #0xFF	; 255
                      0025  4731 G$axradio_framing_lenpos$0$0 == .
-   529D                    4732 _axradio_framing_lenpos:
-   529D 00                 4733 	.db #0x00	; 0
+   536F                    4732 _axradio_framing_lenpos:
+   536F 00                 4733 	.db #0x00	; 0
                      0026  4734 G$axradio_framing_lenoffs$0$0 == .
-   529E                    4735 _axradio_framing_lenoffs:
-   529E 00                 4736 	.db #0x00	; 0
+   5370                    4735 _axradio_framing_lenoffs:
+   5370 00                 4736 	.db #0x00	; 0
                      0027  4737 G$axradio_framing_lenmask$0$0 == .
-   529F                    4738 _axradio_framing_lenmask:
-   529F FF                 4739 	.db #0xFF	; 255
+   5371                    4738 _axradio_framing_lenmask:
+   5371 FF                 4739 	.db #0xFF	; 255
                      0028  4740 G$axradio_framing_swcrclen$0$0 == .
-   52A0                    4741 _axradio_framing_swcrclen:
-   52A0 00                 4742 	.db #0x00	; 0
+   5372                    4741 _axradio_framing_swcrclen:
+   5372 00                 4742 	.db #0x00	; 0
                      0029  4743 G$axradio_framing_synclen$0$0 == .
-   52A1                    4744 _axradio_framing_synclen:
-   52A1 20                 4745 	.db #0x20	; 32
+   5373                    4744 _axradio_framing_synclen:
+   5373 20                 4745 	.db #0x20	; 32
                      002A  4746 G$axradio_framing_syncword$0$0 == .
-   52A2                    4747 _axradio_framing_syncword:
-   52A2 CC                 4748 	.db #0xCC	; 204
-   52A3 AA                 4749 	.db #0xAA	; 170
-   52A4 CC                 4750 	.db #0xCC	; 204
-   52A5 AA                 4751 	.db #0xAA	; 170
+   5374                    4747 _axradio_framing_syncword:
+   5374 CC                 4748 	.db #0xCC	; 204
+   5375 AA                 4749 	.db #0xAA	; 170
+   5376 CC                 4750 	.db #0xCC	; 204
+   5377 AA                 4751 	.db #0xAA	; 170
                      002E  4752 G$axradio_framing_syncflags$0$0 == .
-   52A6                    4753 _axradio_framing_syncflags:
-   52A6 18                 4754 	.db #0x18	; 24
+   5378                    4753 _axradio_framing_syncflags:
+   5378 18                 4754 	.db #0x18	; 24
                      002F  4755 G$axradio_framing_enable_sfdcallback$0$0 == .
-   52A7                    4756 _axradio_framing_enable_sfdcallback:
-   52A7 00                 4757 	.db #0x00	; 0
+   5379                    4756 _axradio_framing_enable_sfdcallback:
+   5379 00                 4757 	.db #0x00	; 0
                      0030  4758 G$axradio_framing_ack_timeout$0$0 == .
-   52A8                    4759 _axradio_framing_ack_timeout:
-   52A8 1D 00 00 00        4760 	.byte #0x1D,#0x00,#0x00,#0x00	; 29
+   537A                    4759 _axradio_framing_ack_timeout:
+   537A 1D 00 00 00        4760 	.byte #0x1D,#0x00,#0x00,#0x00	; 29
                      0034  4761 G$axradio_framing_ack_delay$0$0 == .
-   52AC                    4762 _axradio_framing_ack_delay:
-   52AC 39 01 00 00        4763 	.byte #0x39,#0x01,#0x00,#0x00	; 313
+   537E                    4762 _axradio_framing_ack_delay:
+   537E 39 01 00 00        4763 	.byte #0x39,#0x01,#0x00,#0x00	; 313
                      0038  4764 G$axradio_framing_ack_retransmissions$0$0 == .
-   52B0                    4765 _axradio_framing_ack_retransmissions:
-   52B0 00                 4766 	.db #0x00	; 0
+   5382                    4765 _axradio_framing_ack_retransmissions:
+   5382 00                 4766 	.db #0x00	; 0
                      0039  4767 G$axradio_framing_ack_seqnrpos$0$0 == .
-   52B1                    4768 _axradio_framing_ack_seqnrpos:
-   52B1 FF                 4769 	.db #0xFF	; 255
+   5383                    4768 _axradio_framing_ack_seqnrpos:
+   5383 FF                 4769 	.db #0xFF	; 255
                      003A  4770 G$axradio_framing_minpayloadlen$0$0 == .
-   52B2                    4771 _axradio_framing_minpayloadlen:
-   52B2 01                 4772 	.db #0x01	; 1
+   5384                    4771 _axradio_framing_minpayloadlen:
+   5384 01                 4772 	.db #0x01	; 1
                      003B  4773 G$axradio_wor_period$0$0 == .
-   52B3                    4774 _axradio_wor_period:
-   52B3 80 00              4775 	.byte #0x80,#0x00	; 128
+   5385                    4774 _axradio_wor_period:
+   5385 80 00              4775 	.byte #0x80,#0x00	; 128
                      003D  4776 G$axradio_sync_period$0$0 == .
-   52B5                    4777 _axradio_sync_period:
-   52B5 00 80 00 00        4778 	.byte #0x00,#0x80,#0x00,#0x00	; 32768
+   5387                    4777 _axradio_sync_period:
+   5387 00 80 00 00        4778 	.byte #0x00,#0x80,#0x00,#0x00	; 32768
                      0041  4779 G$axradio_sync_xoscstartup$0$0 == .
-   52B9                    4780 _axradio_sync_xoscstartup:
-   52B9 31 00 00 00        4781 	.byte #0x31,#0x00,#0x00,#0x00	; 49
+   538B                    4780 _axradio_sync_xoscstartup:
+   538B 31 00 00 00        4781 	.byte #0x31,#0x00,#0x00,#0x00	; 49
                      0045  4782 G$axradio_sync_slave_syncwindow$0$0 == .
-   52BD                    4783 _axradio_sync_slave_syncwindow:
-   52BD 00 80 01 00        4784 	.byte #0x00,#0x80,#0x01,#0x00	; 98304
+   538F                    4783 _axradio_sync_slave_syncwindow:
+   538F 00 80 01 00        4784 	.byte #0x00,#0x80,#0x01,#0x00	; 98304
                      0049  4785 G$axradio_sync_slave_initialsyncwindow$0$0 == .
-   52C1                    4786 _axradio_sync_slave_initialsyncwindow:
-   52C1 00 00 5A 00        4787 	.byte #0x00,#0x00,#0x5A,#0x00	; 5898240
+   5393                    4786 _axradio_sync_slave_initialsyncwindow:
+   5393 00 00 5A 00        4787 	.byte #0x00,#0x00,#0x5A,#0x00	; 5898240
                      004D  4788 G$axradio_sync_slave_syncpause$0$0 == .
-   52C5                    4789 _axradio_sync_slave_syncpause:
-   52C5 00 00 2C 01        4790 	.byte #0x00,#0x00,#0x2C,#0x01	; 19660800
+   5397                    4789 _axradio_sync_slave_syncpause:
+   5397 00 00 2C 01        4790 	.byte #0x00,#0x00,#0x2C,#0x01	; 19660800
                      0051  4791 G$axradio_sync_slave_maxperiod$0$0 == .
-   52C9                    4792 _axradio_sync_slave_maxperiod:
-   52C9 E4 07              4793 	.byte #0xE4,#0x07	;  2020
+   539B                    4792 _axradio_sync_slave_maxperiod:
+   539B E4 07              4793 	.byte #0xE4,#0x07	;  2020
                      0053  4794 G$axradio_sync_slave_resyncloss$0$0 == .
-   52CB                    4795 _axradio_sync_slave_resyncloss:
-   52CB 0B                 4796 	.db #0x0B	; 11
+   539D                    4795 _axradio_sync_slave_resyncloss:
+   539D 0B                 4796 	.db #0x0B	; 11
                      0054  4797 G$axradio_sync_slave_nrrx$0$0 == .
-   52CC                    4798 _axradio_sync_slave_nrrx:
-   52CC 03                 4799 	.db #0x03	; 3
+   539E                    4798 _axradio_sync_slave_nrrx:
+   539E 03                 4799 	.db #0x03	; 3
                      0055  4800 G$axradio_sync_slave_rxadvance$0$0 == .
-   52CD                    4801 _axradio_sync_slave_rxadvance:
-   52CD 52 03 00 00        4802 	.byte #0x52,#0x03,#0x00,#0x00	; 850
-   52D1 2D 03 00 00        4803 	.byte #0x2D,#0x03,#0x00,#0x00	; 813
-   52D5 7B 03 00 00        4804 	.byte #0x7B,#0x03,#0x00,#0x00	; 891
+   539F                    4801 _axradio_sync_slave_rxadvance:
+   539F 52 03 00 00        4802 	.byte #0x52,#0x03,#0x00,#0x00	; 850
+   53A3 2D 03 00 00        4803 	.byte #0x2D,#0x03,#0x00,#0x00	; 813
+   53A7 7B 03 00 00        4804 	.byte #0x7B,#0x03,#0x00,#0x00	; 891
                      0061  4805 G$axradio_sync_slave_rxwindow$0$0 == .
-   52D9                    4806 _axradio_sync_slave_rxwindow:
-   52D9 60 03 00 00        4807 	.byte #0x60,#0x03,#0x00,#0x00	; 864
-   52DD 16 03 00 00        4808 	.byte #0x16,#0x03,#0x00,#0x00	; 790
-   52E1 B2 03 00 00        4809 	.byte #0xB2,#0x03,#0x00,#0x00	; 946
+   53AB                    4806 _axradio_sync_slave_rxwindow:
+   53AB 60 03 00 00        4807 	.byte #0x60,#0x03,#0x00,#0x00	; 864
+   53AF 16 03 00 00        4808 	.byte #0x16,#0x03,#0x00,#0x00	; 790
+   53B3 B2 03 00 00        4809 	.byte #0xB2,#0x03,#0x00,#0x00	; 946
                      006D  4810 G$axradio_sync_slave_rxtimeout$0$0 == .
-   52E5                    4811 _axradio_sync_slave_rxtimeout:
-   52E5 C0 04 00 00        4812 	.byte #0xC0,#0x04,#0x00,#0x00	; 1216
+   53B7                    4811 _axradio_sync_slave_rxtimeout:
+   53B7 C0 04 00 00        4812 	.byte #0xC0,#0x04,#0x00,#0x00	; 1216
                            4813 	.area XINIT   (CODE)
                            4814 	.area CABS    (ABS,CODE)

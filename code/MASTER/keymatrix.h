@@ -71,6 +71,20 @@
         PORTB |= 0x3F; \
     } while (0)
 
+#define INIT_COL_FOR_SLEEP()    do {    \
+        /* drive all rows to GND */ \
+        /* set to output */ \
+        DIRC |= (uint8_t) 0x1F;    \
+        DIRA |= (uint8_t) 0x0F;    \
+        /* drive to GND */ \
+        PORTC &= (uint8_t) ~0x1F;    \
+        PORTA &= (uint8_t) ~0x0F;    \
+        /* enable interrupt on change for columns (PB[0..5])*/ \
+        INTCHGA = 0; \
+        INTCHGB = 0x3F; \
+        INTCHGC = 0; \
+    } while (0)
+
 
 // DIR: 0 = input, 1 = output
 // PIN: value of pin (read only)
@@ -78,10 +92,16 @@
 //       if output: value of pin
 
 #define ALL_ROWS_Z()    do { \
+        /* set to output */ \
+        DIRC |= (uint8_t) 0x1F;    \
+        DIRA |= (uint8_t) 0x0F;    \
+        /* set output to HIGH (clear any charges) */ \
+        PORTC |= (uint8_t) 0x1F;    \
+        PORTA |= (uint8_t) 0x0F;    \
         /* set to input */ \
         DIRC &= (uint8_t) ~0x1F;    \
         DIRA &= (uint8_t) ~0x0F;    \
-        /* disable pull-up */ \
+        /* disable pull-up (rows are now floating) */ \
         PORTC &= (uint8_t) ~0x1F;    \
         PORTA &= (uint8_t) ~0x0F;    \
     } while (0)
@@ -118,13 +138,18 @@
                         ( x & 0x01 ? 1 : 0))))))))
 
 // X-Macro for "looping" over rows
-#define FOR_0_TO_5  \
+#define FOR_0_TO_5()  \
     F(0)    \
     F(1)    \
     F(2)    \
     F(3)    \
     F(4)    \
     F(5)
+
+// unfortunately, there seems to be quite a long delay necessary, otherwise glitches occur
+//#define SHORT_SLEEP()   do { nop(); nop(); nop(); nop(); nop(); nop(); } while(0)
+//#define SHORT_SLEEP()   do { delay_ms(1); } while(0)
+#define SHORT_SLEEP()   do { uint8_t i = 255; while(--i>0){nop();} } while(0)
 
 uint8_t scan_keymatrix();
 

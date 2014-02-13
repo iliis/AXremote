@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.3.0 #8604 (Sep  2 2013) (Linux)
-                              4 ; This file was generated Thu Feb 13 19:18:11 2014
+                              4 ; This file was generated Thu Feb 13 20:05:30 2014
                               5 ;--------------------------------------------------------
                               6 	.module misc
                               7 	.optsdcc -mmcs51 --model-small
@@ -1595,7 +1595,7 @@
    32AC C0 07         [24] 1595 	push	ar7
    32AE C0 06         [24] 1596 	push	ar6
    32B0 C0 05         [24] 1597 	push	ar5
-   32B2 12 3A 54      [24] 1598 	lcall	_lcd2_setpos
+   32B2 12 3B 26      [24] 1598 	lcall	_lcd2_setpos
    32B5 D0 05         [24] 1599 	pop	ar5
    32B7 D0 06         [24] 1600 	pop	ar6
    32B9 D0 07         [24] 1601 	pop	ar7
@@ -1604,10 +1604,10 @@
    32BB 8D 82         [24] 1604 	mov	dpl,r5
    32BD 8E 83         [24] 1605 	mov	dph,r6
    32BF 8F F0         [24] 1606 	mov	b,r7
-   32C1 12 4D CD      [24] 1607 	lcall	_lcd2_writestr
+   32C1 12 4E 9F      [24] 1607 	lcall	_lcd2_writestr
                      0021  1608 	C$misc.c$42$1$99 ==.
                            1609 ;	../COMMON/misc.c:42: lcd2_wait_txdone();
-   32C4 12 3E 1C      [24] 1610 	lcall	_lcd2_wait_txdone
+   32C4 12 3E EE      [24] 1610 	lcall	_lcd2_wait_txdone
                      0024  1611 	C$misc.c$43$1$99 ==.
                            1612 ;	../COMMON/misc.c:43: IE = EIE = E2IE = 0;
    32C7 75 A0 00      [24] 1613 	mov	_E2IE,#0x00
@@ -1615,7 +1615,7 @@
    32CD 75 A8 00      [24] 1615 	mov	_IE,#0x00
                      002D  1616 	C$misc.c$44$1$99 ==.
                            1617 ;	../COMMON/misc.c:44: enter_sleep();
-   32D0 12 4F 7C      [24] 1618 	lcall	_enter_sleep
+   32D0 12 50 4E      [24] 1618 	lcall	_enter_sleep
                      0030  1619 	C$misc.c$45$1$99 ==.
                      0030  1620 	XG$stop_with_error$0$0 ==.
    32D3 22            [24] 1621 	ret
@@ -1635,8 +1635,8 @@
    32D4 AF 82         [24] 1635 	mov	r7,dpl
                      0033  1636 	C$misc.c$63$1$99 ==.
                            1637 ;	../COMMON/misc.c:63: const struct errtbl __code *p = errtbl;
-   32D6 7D 81         [12] 1638 	mov	r5,#_display_radio_error_errtbl_1_101
-   32D8 7E 53         [12] 1639 	mov	r6,#(_display_radio_error_errtbl_1_101 >> 8)
+   32D6 7D 4B         [12] 1638 	mov	r5,#_display_radio_error_errtbl_1_101
+   32D8 7E 54         [12] 1639 	mov	r6,#(_display_radio_error_errtbl_1_101 >> 8)
                      0037  1640 	C$misc.c$64$1$101 ==.
                            1641 ;	../COMMON/misc.c:64: do {
    32DA 8D 03         [24] 1642 	mov	ar3,r5
@@ -1655,7 +1655,7 @@
    32E8 75 82 00      [24] 1655 	mov	dpl,#0x00
    32EB C0 06         [24] 1656 	push	ar6
    32ED C0 05         [24] 1657 	push	ar5
-   32EF 12 3A 54      [24] 1658 	lcall	_lcd2_setpos
+   32EF 12 3B 26      [24] 1658 	lcall	_lcd2_setpos
    32F2 D0 05         [24] 1659 	pop	ar5
    32F4 D0 06         [24] 1660 	pop	ar6
                      0053  1661 	C$misc.c$67$3$103 ==.
@@ -1674,7 +1674,7 @@
    3304 89 82         [24] 1674 	mov	dpl,r1
    3306 88 83         [24] 1675 	mov	dph,r0
    3308 8A F0         [24] 1676 	mov	b,r2
-   330A 12 4D CD      [24] 1677 	lcall	_lcd2_writestr
+   330A 12 4E 9F      [24] 1677 	lcall	_lcd2_writestr
                      006A  1678 	C$misc.c$68$3$103 ==.
                            1679 ;	../COMMON/misc.c:68: return;
    330D 80 13         [24] 1680 	sjmp	00106$
@@ -1736,9 +1736,9 @@
                            1736 ;	 function delay_ms
                            1737 ;	-----------------------------------------
    332C                    1738 _delay_ms:
-   332C C0 1F         [24] 1739 	push	_bp
+   332C C0 25         [24] 1739 	push	_bp
    332E E5 81         [12] 1740 	mov	a,sp
-   3330 F5 1F         [12] 1741 	mov	_bp,a
+   3330 F5 25         [12] 1741 	mov	_bp,a
    3332 24 04         [12] 1742 	add	a,#0x04
    3334 F5 81         [12] 1743 	mov	sp,a
    3336 AE 82         [24] 1744 	mov	r6,dpl
@@ -1748,12 +1748,12 @@
    333A 90 02 91      [24] 1748 	mov	dptr,#_delaymstimer
    333D C0 07         [24] 1749 	push	ar7
    333F C0 06         [24] 1750 	push	ar6
-   3341 12 4C D4      [24] 1751 	lcall	_wtimer_remove
+   3341 12 4D A6      [24] 1751 	lcall	_wtimer_remove
    3344 D0 06         [24] 1752 	pop	ar6
    3346 D0 07         [24] 1753 	pop	ar7
                      00A5  1754 	C$misc.c$89$1$138 ==.
                            1755 ;	../COMMON/misc.c:89: x = ms;
-   3348 A8 1F         [24] 1756 	mov	r0,_bp
+   3348 A8 25         [24] 1756 	mov	r0,_bp
    334A 08            [12] 1757 	inc	r0
    334B A6 06         [24] 1758 	mov	@r0,ar6
    334D 08            [12] 1759 	inc	r0
@@ -1789,7 +1789,7 @@
    3372 F0            [24] 1789 	movx	@dptr,a
                      00D0  1790 	C$misc.c$91$1$138 ==.
                            1791 ;	../COMMON/misc.c:91: x <<= 3;
-   3373 A8 1F         [24] 1792 	mov	r0,_bp
+   3373 A8 25         [24] 1792 	mov	r0,_bp
    3375 08            [12] 1793 	inc	r0
    3376 08            [12] 1794 	inc	r0
    3377 08            [12] 1795 	inc	r0
@@ -1838,7 +1838,7 @@
    33A7 F6            [12] 1838 	mov	@r0,a
                      0105  1839 	C$misc.c$92$1$138 ==.
                            1840 ;	../COMMON/misc.c:92: delaymstimer.time -= x;
-   33A8 A8 1F         [24] 1841 	mov	r0,_bp
+   33A8 A8 25         [24] 1841 	mov	r0,_bp
    33AA 08            [12] 1842 	inc	r0
    33AB EC            [12] 1843 	mov	a,r4
    33AC C3            [12] 1844 	clr	c
@@ -1870,7 +1870,7 @@
    33C8 F0            [24] 1870 	movx	@dptr,a
                      0126  1871 	C$misc.c$93$1$138 ==.
                            1872 ;	../COMMON/misc.c:93: x <<= 3;
-   33C9 A8 1F         [24] 1873 	mov	r0,_bp
+   33C9 A8 25         [24] 1873 	mov	r0,_bp
    33CB 08            [12] 1874 	inc	r0
    33CC 08            [12] 1875 	inc	r0
    33CD 08            [12] 1876 	inc	r0
@@ -1919,7 +1919,7 @@
    33FD F6            [12] 1919 	mov	@r0,a
                      015B  1920 	C$misc.c$94$1$138 ==.
                            1921 ;	../COMMON/misc.c:94: delaymstimer.time += x;
-   33FE A8 1F         [24] 1922 	mov	r0,_bp
+   33FE A8 25         [24] 1922 	mov	r0,_bp
    3400 08            [12] 1923 	inc	r0
    3401 E6            [12] 1924 	mov	a,@r0
    3402 2C            [12] 1925 	add	a,r4
@@ -1950,7 +1950,7 @@
    341D F0            [24] 1950 	movx	@dptr,a
                      017B  1951 	C$misc.c$95$1$138 ==.
                            1952 ;	../COMMON/misc.c:95: x <<= 2;
-   341E A8 1F         [24] 1953 	mov	r0,_bp
+   341E A8 25         [24] 1953 	mov	r0,_bp
    3420 08            [12] 1954 	inc	r0
    3421 E6            [12] 1955 	mov	a,@r0
    3422 25 E0         [12] 1956 	add	a,acc
@@ -1987,7 +1987,7 @@
    3443 F6            [12] 1987 	mov	@r0,a
                      01A1  1988 	C$misc.c$96$1$138 ==.
                            1989 ;	../COMMON/misc.c:96: delaymstimer.time += x;
-   3444 A8 1F         [24] 1990 	mov	r0,_bp
+   3444 A8 25         [24] 1990 	mov	r0,_bp
    3446 08            [12] 1991 	inc	r0
    3447 E6            [12] 1992 	mov	a,@r0
    3448 2C            [12] 1993 	add	a,r4
@@ -2019,7 +2019,7 @@
                      01C1  2019 	C$misc.c$98$1$138 ==.
                            2020 ;	../COMMON/misc.c:98: wtimer1_remove(&delaymstimer);
    3464 90 02 91      [24] 2021 	mov	dptr,#_delaymstimer
-   3467 12 46 16      [24] 2022 	lcall	_wtimer1_remove
+   3467 12 46 E8      [24] 2022 	lcall	_wtimer1_remove
                      01C7  2023 	C$misc.c$99$1$138 ==.
                            2024 ;	../COMMON/misc.c:99: delaymstimer.handler = delayms_callback;
    346A 90 02 93      [24] 2025 	mov	dptr,#(_delaymstimer + 0x0002)
@@ -2031,13 +2031,13 @@
                      01D1  2031 	C$misc.c$100$1$138 ==.
                            2032 ;	../COMMON/misc.c:100: wtimer1_addrelative(&delaymstimer);
    3474 90 02 91      [24] 2033 	mov	dptr,#_delaymstimer
-   3477 12 43 98      [24] 2034 	lcall	_wtimer1_addrelative
+   3477 12 44 6A      [24] 2034 	lcall	_wtimer1_addrelative
                      01D7  2035 	C$misc.c$102$1$138 ==.
                            2036 ;	../COMMON/misc.c:102: do {
    347A                    2037 00103$:
                      01D7  2038 	C$misc.c$104$2$139 ==.
                            2039 ;	../COMMON/misc.c:104: wtimer_runcallbacks();
-   347A 12 41 C0      [24] 2040 	lcall	_wtimer_runcallbacks
+   347A 12 42 92      [24] 2040 	lcall	_wtimer_runcallbacks
                      01DA  2041 	C$misc.c$107$2$139 ==.
                            2042 ;	../COMMON/misc.c:107: if (!delaymstimer.handler)
    347D 90 02 93      [24] 2043 	mov	dptr,#(_delaymstimer + 0x0002)
@@ -2051,7 +2051,7 @@
                      01E5  2051 	C$misc.c$110$2$139 ==.
                            2052 ;	../COMMON/misc.c:110: wtimer_idle(WTFLAG_CANSTANDBY);
    3488 75 82 02      [24] 2053 	mov	dpl,#0x02
-   348B 12 42 44      [24] 2054 	lcall	_wtimer_idle
+   348B 12 43 16      [24] 2054 	lcall	_wtimer_idle
                      01EB  2055 	C$misc.c$112$1$138 ==.
                            2056 ;	../COMMON/misc.c:112: } while (delaymstimer.handler);
    348E 90 02 93      [24] 2057 	mov	dptr,#(_delaymstimer + 0x0002)
@@ -2063,67 +2063,67 @@
    3496 4E            [12] 2063 	orl	a,r6
    3497 70 E1         [24] 2064 	jnz	00103$
    3499                    2065 00106$:
-   3499 85 1F 81      [24] 2066 	mov	sp,_bp
-   349C D0 1F         [24] 2067 	pop	_bp
+   3499 85 25 81      [24] 2066 	mov	sp,_bp
+   349C D0 25         [24] 2067 	pop	_bp
                      01FB  2068 	C$misc.c$113$1$138 ==.
                      01FB  2069 	XG$delay_ms$0$0 ==.
    349E 22            [24] 2070 	ret
                            2071 	.area CSEG    (CODE)
                            2072 	.area CONST   (CODE)
                      0000  2073 Lmisc.display_radio_error$errtbl$1$101 == .
-   5381                    2074 _display_radio_error_errtbl_1_101:
-   5381 01                 2075 	.db #0x01	; 1
-   5382 99 53              2076 	.byte __str_0,(__str_0 >> 8)
-   5384 02                 2077 	.db #0x02	; 2
-   5385 AA 53              2078 	.byte __str_1,(__str_1 >> 8)
-   5387 03                 2079 	.db #0x03	; 3
-   5388 B2 53              2080 	.byte __str_2,(__str_2 >> 8)
-   538A 04                 2081 	.db #0x04	; 4
-   538B BD 53              2082 	.byte __str_3,(__str_3 >> 8)
-   538D 05                 2083 	.db #0x05	; 5
-   538E C8 53              2084 	.byte __str_4,(__str_4 >> 8)
-   5390 06                 2085 	.db #0x06	; 6
-   5391 D9 53              2086 	.byte __str_5,(__str_5 >> 8)
-   5393 07                 2087 	.db #0x07	; 7
-   5394 E4 53              2088 	.byte __str_6,(__str_6 >> 8)
-   5396 00                 2089 	.db #0x00	; 0
-   5397 00 00              2090 	.byte #0x00,#0x00
+   544B                    2074 _display_radio_error_errtbl_1_101:
+   544B 01                 2075 	.db #0x01	; 1
+   544C 63 54              2076 	.byte __str_0,(__str_0 >> 8)
+   544E 02                 2077 	.db #0x02	; 2
+   544F 74 54              2078 	.byte __str_1,(__str_1 >> 8)
+   5451 03                 2079 	.db #0x03	; 3
+   5452 7C 54              2080 	.byte __str_2,(__str_2 >> 8)
+   5454 04                 2081 	.db #0x04	; 4
+   5455 87 54              2082 	.byte __str_3,(__str_3 >> 8)
+   5457 05                 2083 	.db #0x05	; 5
+   5458 92 54              2084 	.byte __str_4,(__str_4 >> 8)
+   545A 06                 2085 	.db #0x06	; 6
+   545B A3 54              2086 	.byte __str_5,(__str_5 >> 8)
+   545D 07                 2087 	.db #0x07	; 7
+   545E AE 54              2088 	.byte __str_6,(__str_6 >> 8)
+   5460 00                 2089 	.db #0x00	; 0
+   5461 00 00              2090 	.byte #0x00,#0x00
                      0018  2091 Fmisc$_str_0$0$0 == .
-   5399                    2092 __str_0:
-   5399 45 3A 20 6E 6F 74  2093 	.ascii "E: not supported"
+   5463                    2092 __str_0:
+   5463 45 3A 20 6E 6F 74  2093 	.ascii "E: not supported"
         20 73 75 70 70 6F
         72 74 65 64
-   53A9 00                 2094 	.db 0x00
+   5473 00                 2094 	.db 0x00
                      0029  2095 Fmisc$_str_1$0$0 == .
-   53AA                    2096 __str_1:
-   53AA 45 3A 20 62 75 73  2097 	.ascii "E: busy"
+   5474                    2096 __str_1:
+   5474 45 3A 20 62 75 73  2097 	.ascii "E: busy"
         79
-   53B1 00                 2098 	.db 0x00
+   547B 00                 2098 	.db 0x00
                      0031  2099 Fmisc$_str_2$0$0 == .
-   53B2                    2100 __str_2:
-   53B2 45 3A 20 74 69 6D  2101 	.ascii "E: timeout"
+   547C                    2100 __str_2:
+   547C 45 3A 20 74 69 6D  2101 	.ascii "E: timeout"
         65 6F 75 74
-   53BC 00                 2102 	.db 0x00
+   5486 00                 2102 	.db 0x00
                      003C  2103 Fmisc$_str_3$0$0 == .
-   53BD                    2104 __str_3:
-   53BD 45 3A 20 69 6E 76  2105 	.ascii "E: invalid"
+   5487                    2104 __str_3:
+   5487 45 3A 20 69 6E 76  2105 	.ascii "E: invalid"
         61 6C 69 64
-   53C7 00                 2106 	.db 0x00
+   5491 00                 2106 	.db 0x00
                      0047  2107 Fmisc$_str_4$0$0 == .
-   53C8                    2108 __str_4:
-   53C8 45 3A 20 6E 6F 20  2109 	.ascii "E: no chip found"
+   5492                    2108 __str_4:
+   5492 45 3A 20 6E 6F 20  2109 	.ascii "E: no chip found"
         63 68 69 70 20 66
         6F 75 6E 64
-   53D8 00                 2110 	.db 0x00
+   54A2 00                 2110 	.db 0x00
                      0058  2111 Fmisc$_str_5$0$0 == .
-   53D9                    2112 __str_5:
-   53D9 45 3A 20 72 61 6E  2113 	.ascii "E: ranging"
+   54A3                    2112 __str_5:
+   54A3 45 3A 20 72 61 6E  2113 	.ascii "E: ranging"
         67 69 6E 67
-   53E3 00                 2114 	.db 0x00
+   54AD 00                 2114 	.db 0x00
                      0063  2115 Fmisc$_str_6$0$0 == .
-   53E4                    2116 __str_6:
-   53E4 45 3A 20 6C 6F 63  2117 	.ascii "E: lock lost"
+   54AE                    2116 __str_6:
+   54AE 45 3A 20 6C 6F 63  2117 	.ascii "E: lock lost"
         6B 20 6C 6F 73 74
-   53F0 00                 2118 	.db 0x00
+   54BA 00                 2118 	.db 0x00
                            2119 	.area XINIT   (CODE)
                            2120 	.area CABS    (ABS,CODE)

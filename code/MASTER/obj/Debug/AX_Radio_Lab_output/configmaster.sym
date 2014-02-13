@@ -49,22 +49,19 @@ Symbol Table
     EXEN2                                                       =  00CB L
     EXF2                                                        =  00CE L
     F0                                                          =  00D5 L
- 17 G$demo_packet$0$0                                           =  000E GR
- 17 G$framing_counter_pos$0$0                                   =  000D GR
- 17 G$framing_insert_counter$0$0                                =  000C GR
  17 G$localaddr$0$0                                             =  0004 GR
- 17 G$lpxosc_settlingtime$0$0                                   =  0014 GR
+ 17 G$lpxosc_settlingtime$0$0                                   =  000C GR
  17 G$remoteaddr$0$0                                            =  0000 GR
     IE                                                          =  00A8 L
     IE.0                                                        =  00A8 L
     IE.1                                                        =  00A9 L
+    IE.2                                                        =  00AA L
+    IE.3                                                        =  00AB L
+    IE.4                                                        =  00AC L
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 2.
 
 Symbol Table
 
-    IE.2                                                        =  00AA L
-    IE.3                                                        =  00AB L
-    IE.4                                                        =  00AC L
     IE.5                                                        =  00AD L
     IE.7                                                        =  00AF L
     IE0                                                         =  0089 L
@@ -118,13 +115,13 @@ Symbol Table
     P3.5                                                        =  00B5 L
     P3.6                                                        =  00B6 L
     P3.7                                                        =  00B7 L
+    PCON                                                        =  0087 L
+    PS                                                          =  00BC L
+    PSW                                                         =  00D0 L
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 3.
 
 Symbol Table
 
-    PCON                                                        =  0087 L
-    PS                                                          =  00BC L
-    PSW                                                         =  00D0 L
     PSW.0                                                       =  00D0 L
     PSW.1                                                       =  00D1 L
     PSW.2                                                       =  00D2 L
@@ -178,13 +175,13 @@ Symbol Table
     TCON.2                                                      =  008A L
     TCON.3                                                      =  008B L
     TCON.4                                                      =  008C L
+    TCON.5                                                      =  008D L
+    TCON.6                                                      =  008E L
+    TCON.7                                                      =  008F L
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 4.
 
 Symbol Table
 
-    TCON.5                                                      =  008D L
-    TCON.6                                                      =  008E L
-    TCON.7                                                      =  008F L
     TF0                                                         =  008D L
     TF1                                                         =  008F L
     TF2                                                         =  00CF L
@@ -200,11 +197,8 @@ Symbol Table
     TR1                                                         =  008E L
     TR2                                                         =  00CA L
     TXD                                                         =  00B1 L
- 17 _demo_packet                                                   000E GR
- 17 _framing_counter_pos                                           000D GR
- 17 _framing_insert_counter                                        000C GR
  17 _localaddr                                                     0004 GR
- 17 _lpxosc_settlingtime                                           0014 GR
+ 17 _lpxosc_settlingtime                                           000C GR
  17 _remoteaddr                                                    0000 GR
     a                                                           =  00E0 L
     a.0                                                         =  00E0 L
@@ -238,16 +232,16 @@ Symbol Table
     ct2                                                         =  00C9 L
     cy                                                          =  00D7 L
     dph                                                         =  0083 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
-
-Symbol Table
-
     dpl                                                         =  0082 L
     ea                                                          =  00AF L
     es                                                          =  00AC L
     et0                                                         =  00A9 L
     et1                                                         =  00AB L
     et2                                                         =  00AD L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
+
+Symbol Table
+
     ex0                                                         =  00A8 L
     ex1                                                         =  00AA L
     exen2                                                       =  00CB L
@@ -298,16 +292,16 @@ Symbol Table
     p2.0                                                        =  00A0 L
     p2.1                                                        =  00A1 L
     p2.2                                                        =  00A2 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
-
-Symbol Table
-
     p2.3                                                        =  00A3 L
     p2.4                                                        =  00A4 L
     p2.5                                                        =  00A5 L
     p2.6                                                        =  00A6 L
     p2.7                                                        =  00A7 L
     p3                                                          =  00B0 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
+
+Symbol Table
+
     p3.0                                                        =  00B0 L
     p3.1                                                        =  00B1 L
     p3.2                                                        =  00B2 L
@@ -358,16 +352,16 @@ Symbol Table
     t2con                                                       =  00C8 L
     t2con.0                                                     =  00C8 L
     t2con.1                                                     =  00C9 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
-
-Symbol Table
-
     t2con.2                                                     =  00CA L
     t2con.3                                                     =  00CB L
     t2con.4                                                     =  00CC L
     t2con.5                                                     =  00CD L
     t2con.6                                                     =  00CE L
     t2con.7                                                     =  00CF L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
+
+Symbol Table
+
     tb8                                                         =  009B L
     tclk                                                        =  00CC L
     tcon                                                        =  0088 L
@@ -423,7 +417,7 @@ Area Table
   14 GSINIT                                     size    0   flags   20
   15 GSFINAL                                    size    0   flags   20
   16 CSEG                                       size    0   flags   20
-  17 CONST                                      size   16   flags   20
+  17 CONST                                      size    E   flags   20
   18 XINIT                                      size    0   flags   20
   19 CABS                                       size    0   flags   28
 
