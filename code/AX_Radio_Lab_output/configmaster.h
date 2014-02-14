@@ -7,7 +7,7 @@ Manual changes are overwritten! */
 #include "../COMMON/axradio.h"
 
 
-//#define DEBUGMSG
+#define DEBUGMSG
 
 // allow sleep (not just standby)
 #define MCU_SLEEP

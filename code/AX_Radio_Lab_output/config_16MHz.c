@@ -233,9 +233,10 @@ __reentrantb void axradio_byteconv_buffer(uint8_t __xdata *buf, uint16_t buflen)
 {
 }
 
-
+#include "../COMMON/libminidvkled.h"
 __reentrantb uint8_t axradio_framing_check_crc(const __xdata uint8_t *pkt, uint16_t cnt) __reentrant
 {
+    led3_toggle();
 	return crc_crc16(pkt, cnt, 0xFFFF) == 0xB001;
 }
 
@@ -283,14 +284,14 @@ const uint8_t __code axradio_phy_preamble_appendbits = 0;
 const uint8_t __code axradio_phy_preamble_appendpattern = 0x00;
 
 //framing
-const uint8_t __code axradio_framing_maclen = 3;
-const uint8_t __code axradio_framing_addrlen = 2;
-const uint8_t __code axradio_framing_destaddrpos = 1;
-const uint8_t __code axradio_framing_sourceaddrpos = 0xff;
+const uint8_t __code axradio_framing_maclen = 0;
+const uint8_t __code axradio_framing_addrlen = 0;
+const uint8_t __code axradio_framing_destaddrpos = 0xff; // no dest. addr.
+const uint8_t __code axradio_framing_sourceaddrpos = 0xff; // no source addr.
 const uint8_t __code axradio_framing_lenpos = 0;
 const uint8_t __code axradio_framing_lenoffs = 0;
-const uint8_t __code axradio_framing_lenmask = 0xff;
-const uint8_t __code axradio_framing_swcrclen = 0;
+const uint8_t __code axradio_framing_lenmask = 0; // no length
+const uint8_t __code axradio_framing_swcrclen = 2; // two bytes CRC
 
 const uint8_t __code axradio_framing_synclen = 32;
 const uint8_t __code axradio_framing_syncword[] = { 0xcc, 0xaa, 0xcc, 0xaa};

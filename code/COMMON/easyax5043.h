@@ -1,3 +1,6 @@
+#ifndef HEADER_A74177A7F3A0E8EC
+#define HEADER_A74177A7F3A0E8EC
+
 // Copyright (c) 2007,2008,2009,2010,2011,2012,2013 AXSEM AG
 // All rights reserved.
 //
@@ -35,6 +38,8 @@
 
 #include <ax8052f143.h>
 #include <libmftypes.h>
+
+#include "../COMMON/libminidvkled.h"
 
 //#define DBGPKT
 //#define FREQ_FULL_ADJUST
@@ -238,3 +243,5 @@ extern const uint32_t __code axradio_sync_slave_rxwindow[];
 extern const uint32_t __code axradio_sync_slave_rxtimeout;
 
 #endif /* EASYAX5043_H */
+
+#endif // header guard

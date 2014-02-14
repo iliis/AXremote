@@ -104,14 +104,14 @@ void axradio_statuschange(struct axradio_status __xdata *st)
     {
     case AXRADIO_STAT_TRANSMITSTART:
         led0_on();
-        dbglink_tx('[');
         break;
 
     case AXRADIO_STAT_TRANSMITEND:
         led0_off();
-        dbglink_tx(']');
-        // power down radio
+#ifdef AXREMOTE_TRANSMITTER
+        // power down radio when not actively transmitting keypresses
         axradio_set_mode(AXRADIO_MODE_OFF);
+#endif
 
         if (st->error != AXRADIO_ERR_NOERROR) {
             // TODO: retry sending or something
@@ -121,6 +121,15 @@ void axradio_statuschange(struct axradio_status __xdata *st)
             }
 #endif // USE_DBGLINK
         }
+        break;
+
+    case AXRADIO_STAT_RECEIVE:
+        led2_toggle();
+#ifdef USE_DBGLINK
+        if (DBGLNKSTAT & 0x10) {
+            dbglink_writestr("got packet\n");
+        }
+#endif // USE_DBGLINK
         break;
 
     default:
@@ -154,6 +163,8 @@ uint8_t _sdcc_external_startup(void)
 
     ANALOGA = 0x00; // every PA pin is used in digital mode (no analog I/O)
 
+#ifdef AXREMOTE_TRANSMITTER
+
     PORTA = 0xC0 | (PINA & 0x30); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..4]
     // init LEDs to previous (frozen) state
     PORTB = 0xFF; // pull-ups on everything
@@ -164,6 +175,21 @@ uint8_t _sdcc_external_startup(void)
     DIRB = 0x00; // PB[0..5] are inputs (cols), B6 and 7 are debug connections (inputs as well)
     DIRC = 0x1F; // PC[0..4] are outputs (rows), PC[5..7] are inputs (not bonded).
     DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
+
+#else
+
+    PORTA = 0xC0 | (PINA & 0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..2]
+    // init LEDs to previous (frozen) state
+    PORTB = 0xFF; // pull-ups on everything
+    PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
+    PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
+
+    DIRA = 0x3E; // PA0 is input (button), PA1 not connected (output), PA[2..5] are LEDs
+    DIRB = 0x0F; // PB[0..3] are outputs (IR LEDs etc.), B[4..7] are debug connections (inputs) and UART
+    DIRC = 0x03; // PC[0..1] are outputs (IR LEDs), PC[2..7] are inputs (not bonded / connected).
+    DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
+
+#endif // AXREMOTE_RECEIVER
 
     DPS = 0;
     IE = 0x40;
@@ -181,7 +207,7 @@ uint8_t _sdcc_external_startup(void)
 void main(void)
 {
     uint8_t prev_key = 0;
-    uint8_t i;
+    uint8_t err = 0;
 
 #if !defined(SDCC) && !defined(__ICC8051__)
     _sdcc_external_startup();
@@ -230,17 +256,18 @@ void main(void)
     led1_off();
 
     delay_ms(200);
-
 #endif
 
     if (coldstart) {
         // coldstart
         led0_off();
         led1_off();
+        led2_off();
+        led3_off();
 
-        i = axradio_init();
-        if (i != AXRADIO_ERR_NOERROR) {
-            if (i == AXRADIO_ERR_NOCHIP) {
+        err = axradio_init();
+        if (err != AXRADIO_ERR_NOERROR) {
+            if (err == AXRADIO_ERR_NOCHIP) {
 
 #ifdef USE_DBGLINK
                 if (DBGLNKSTAT & 0x10)
@@ -252,7 +279,7 @@ void main(void)
 #ifdef USE_DBGLINK
                 if (DBGLNKSTAT & 0x10) {
                     dbglink_writestr("error initializing radio: ");
-                    dbglink_writehexu16(i, 2);
+                    dbglink_writehexu16(err, 2);
                     dbglink_tx('\n');
                 }
 #endif // USE_DBGLINK
@@ -279,13 +306,23 @@ void main(void)
         if (DBGLNKSTAT & 0x10) {
             dbglink_writestr("RNG = ");
             dbglink_writenum16(axradio_get_pllrange(), 2, 0);
-            dbglink_writestr("\n\nMASTER\n");
+            #ifdef AXREMOTE_TRANSMITTER
+                dbglink_writestr("\n\nMASTER\n");
+            #endif // AXREMOTE_TRANSMITTER
+            #ifdef AXREMOTE_RECEIVER
+                dbglink_writestr("\n\nRECEIVER\n");
+            #endif
         }
 #endif // USE_DBGLINK
 
+#ifdef AXREMOTE_TRANSMITTER
         // don't turn on radio, we only need if when a key gets pressed
-        i = axradio_set_mode(AXRADIO_MODE_OFF);
-        if (i != AXRADIO_ERR_NOERROR)
+        err = axradio_set_mode(AXRADIO_MODE_OFF);
+#else
+        err = axradio_set_mode(AXRADIO_MODE_ASYNC_RECEIVE);
+#endif
+
+        if (err != AXRADIO_ERR_NOERROR)
             goto terminate_radio_error;
 
         led0_on();
@@ -300,7 +337,7 @@ void main(void)
     led0_off();
     led1_on();
 
-
+#ifdef AXREMOTE_TRANSMITTER
     for(;;)
     {
 
@@ -352,8 +389,35 @@ void main(void)
         IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
     }
 
+#else
+
+    for(;;) {
+
+        wtimer_runcallbacks();
+
+        EA = 0;
+        {
+            uint8_t flg = WTFLAG_CANSTANDBY;
+#ifdef MCU_SLEEP
+            if (axradio_cansleep()
+#ifdef USE_DBGLINK
+                    && dbglink_txidle()
+#endif
+                    )
+                flg |= WTFLAG_CANSLEEP;
+#endif // MCU_SLEEP
+            // green led on if chip is active
+            led1_off();
+            wtimer_idle(flg);
+            led1_on();
+        }
+        // turn interrupts back on
+        EA = 1;
+    }
+#endif // AXREMOTE_TRANSMITTER
+
 terminate_radio_error:
-    display_radio_error(i);
+    display_radio_error(err);
 terminate_error:
 
 #ifdef USE_DBGLINK

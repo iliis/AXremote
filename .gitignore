@@ -16,6 +16,7 @@ obj/
 # Executables
 *.exe
 *.app
+bin/
 
 #temporary files
 *.swp

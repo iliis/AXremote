@@ -382,15 +382,17 @@
 1389908821 z:\sam\axremote\axtest\asdfasdf\common\libminidvkled.h
 	"libmftypes.h"
 
-1392315467 source:/home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
+1392378480 source:/home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
 	"../COMMON/easyax5043.h"
 	<libmftypes.h>
 	<libmfcrc.h>
+	"../COMMON/libminidvkled.h"
 
-1386284092 /home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.h
+1392379456 /home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.h
 	"axradio.h"
 	<ax8052f143.h>
 	<libmftypes.h>
+	"../COMMON/libminidvkled.h"
 
 1386284092 /home/samuel/projects/elektronik/AXremote/code/COMMON/axradio.h
 	<libmftypes.h>
@@ -408,7 +410,7 @@
 1386284092 /home/samuel/projects/elektronik/AXremote/code/COMMON/display_com0.h
 	<libmf.h>
 
-1390068184 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.c
+1392379395 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.c
 	"easyax5043.h"
 	<libmfcrc.h>
 	<libmfradio.h>
@@ -429,7 +431,7 @@
 	<libmftypes.h>
 	"../COMMON/axradio.h"
 
-1392320802 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
+1392379101 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
 	"../AX_Radio_Lab_output/configmaster.h"
 	<ax8052f143.h>
 	<libmftypes.h>
@@ -442,10 +444,10 @@
 	"../COMMON/libminidvkled.h"
 	"../COMMON/misc.h"
 
-1392318232 /home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.h
+1392379269 /home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.h
 	"../COMMON/axradio.h"
 
-1389908821 /home/samuel/projects/elektronik/AXremote/code/COMMON/libminidvkled.h
+1392377282 /home/samuel/projects/elektronik/AXremote/code/COMMON/libminidvkled.h
 	"libmftypes.h"
 
 1392315488 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/misc.c
