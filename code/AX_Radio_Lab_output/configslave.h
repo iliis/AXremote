@@ -13,7 +13,7 @@ Manual changes are overwritten! */
 #define WTIMER0_CLKSRC    CLKSRC_LPOSC
 #define WTIMER0_PRESCALER 0x01
 #define RADIO_MODE        AXRADIO_MODE_ASYNC_RECEIVE
-#define FXTAL	48000000
+#define FXTAL	16000000
 
 extern const struct axradio_address __code remoteaddr;
 extern const struct axradio_address_mask __code localaddr;

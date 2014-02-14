@@ -7,10 +7,10 @@ Manual changes are overwritten! */
 #include "../COMMON/axradio.h"
 
 
-#define DEBUGMSG
+//#define DEBUGMSG
 
-// allow sleep (not just standby)
 #define MCU_SLEEP
+
 #define WTIMER0_CLKSRC	CLKSRC_LPOSC
 #define WTIMER0_PRESCALER 0x01
 

@@ -315,11 +315,6 @@ static __reentrantb void receive_isr(void) __reentrant
             if (!len)
                 break;
 
-#ifdef USE_DBGLINK
-    if (DBGLNKSTAT & 0x10)
-        dbglink_tx('.');
-#endif // USE_DBGLINK
-
             flags = AX5043_FIFODATA;
             --len;
             ax5043_readfifo(axradio_rxbuffer, len);
@@ -584,8 +579,6 @@ __interrupt void axradio_isr(void)
 #error "Compiler unsupported"
 #endif
 {
-    led3_toggle();
-
     switch (axradio_trxstate) {
     default:
         AX5043_IRQMASK1 = 0x00;
@@ -1281,11 +1274,6 @@ static void axradio_receive_callback_fwd(struct wtimer_callback __xdata *desc)
 {
     //struct axradio_status __xdata *st = (struct axradio_status __xdata *)(desc + 1);
     desc;
-
-#ifdef USE_DBGLINK
-    if (DBGLNKSTAT & 0x10)
-        dbglink_writestr("RX\n");
-#endif // USE_DBGLINK
 
     if (axradio_cb_receive.st.error != AXRADIO_ERR_NOERROR) {
         axradio_statuschange((struct axradio_status __xdata *)&axradio_cb_receive.st);

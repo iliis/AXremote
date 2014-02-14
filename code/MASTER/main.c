@@ -110,6 +110,7 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         led0_off();
 #ifdef AXREMOTE_TRANSMITTER
         // power down radio when not actively transmitting keypresses
+        delay_ms(10);
         axradio_set_mode(AXRADIO_MODE_OFF);
 #endif
 
@@ -128,6 +129,15 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
             dbglink_writestr("got packet\n");
+
+            if (st->u.rx.pktdata[0] == 'K') {
+                dbglink_writehexu16(st->u.rx.pktdata[1], 2);
+                dbglink_tx('\n');
+            } else {
+                dbglink_writestr("unknown packet type: ");
+                dbglink_writehexu16(st->u.rx.pktdata[0], 2);
+                dbglink_tx('\n');
+            }
         }
 #endif // USE_DBGLINK
         break;
@@ -178,7 +188,7 @@ uint8_t _sdcc_external_startup(void)
 
 #else
 
-    PORTA = 0xC0 | (PINA & 0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..2]
+    PORTA = 0xC1 | (PINA & 0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..2], pull-
     // init LEDs to previous (frozen) state
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
@@ -307,7 +317,7 @@ void main(void)
             dbglink_writestr("RNG = ");
             dbglink_writenum16(axradio_get_pllrange(), 2, 0);
             #ifdef AXREMOTE_TRANSMITTER
-                dbglink_writestr("\n\nMASTER\n");
+                dbglink_writestr("\n\nTRANSMITTER\n");
             #endif // AXREMOTE_TRANSMITTER
             #ifdef AXREMOTE_RECEIVER
                 dbglink_writestr("\n\nRECEIVER\n");
@@ -395,9 +405,17 @@ void main(void)
 
         wtimer_runcallbacks();
 
+
+        // work-around for reading button state, as button connects to VCC and AX8052 can only apply a pull-up
+        DIRA |= 1; // A1 = output
+        PORTA &= 0xFE; // A1 = low ("discharge pin")
+        DIRA &= 0xFE; // A1 = input (no pull-up = floating)
+        led0_set(PINA & 0x01 == 1); // if button pressed, pin is charged quickly enough, otherwise it will probably remain floating at GND
+
         EA = 0;
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
+
 #ifdef MCU_SLEEP
             if (axradio_cansleep()
 #ifdef USE_DBGLINK
@@ -406,10 +424,11 @@ void main(void)
                     )
                 flg |= WTFLAG_CANSLEEP;
 #endif // MCU_SLEEP
+
             // green led on if chip is active
-            led1_off();
+            led2_off();
             wtimer_idle(flg);
-            led1_on();
+            led2_on();
         }
         // turn interrupts back on
         EA = 1;
@@ -431,6 +450,7 @@ terminate_error:
     for (;;) {
 
         wtimer_runcallbacks();
+        led0_toggle(); delay_ms(400);
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
 #ifdef MCU_SLEEP

@@ -17,7 +17,7 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_PINFUNCDCLK             = 0x01;
 	AX5043_PINFUNCDATA             = 0x01;
 	AX5043_PINFUNCANTSEL           = 0x01;
-	AX5043_PINFUNCPWRAMP           = 0x07;
+	AX5043_PINFUNCPWRAMP           = 0x01;
 	AX5043_WAKEUPXOEARLY           = 0x01;
 	AX5043_IFFREQ1                 = 0x0C;
 	AX5043_IFFREQ0                 = 0x9A;
@@ -96,7 +96,7 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_PLLRNGCLK               = 0x03;
 	AX5043_BBTUNE                  = 0x0C;
 	AX5043_BBOFFSCAP               = 0x77;
-	AX5043_PKTADDRCFG              = 0x01;
+	AX5043_PKTADDRCFG              = 0x00;
 	AX5043_PKTLENCFG               = 0x80;
 	AX5043_PKTLENOFFSET            = 0x00;
 	AX5043_PKTMAXLEN               = 0xC8;
@@ -233,10 +233,9 @@ __reentrantb void axradio_byteconv_buffer(uint8_t __xdata *buf, uint16_t buflen)
 {
 }
 
-#include "../COMMON/libminidvkled.h"
+
 __reentrantb uint8_t axradio_framing_check_crc(const __xdata uint8_t *pkt, uint16_t cnt) __reentrant
 {
-    led3_toggle();
 	return crc_crc16(pkt, cnt, 0xFFFF) == 0xB001;
 }
 
@@ -284,26 +283,26 @@ const uint8_t __code axradio_phy_preamble_appendbits = 0;
 const uint8_t __code axradio_phy_preamble_appendpattern = 0x00;
 
 //framing
-const uint8_t __code axradio_framing_maclen = 0;
+const uint8_t __code axradio_framing_maclen = 1;
 const uint8_t __code axradio_framing_addrlen = 0;
-const uint8_t __code axradio_framing_destaddrpos = 0xff; // no dest. addr.
-const uint8_t __code axradio_framing_sourceaddrpos = 0xff; // no source addr.
+const uint8_t __code axradio_framing_destaddrpos = 0;
+const uint8_t __code axradio_framing_sourceaddrpos = 0xff;
 const uint8_t __code axradio_framing_lenpos = 0;
 const uint8_t __code axradio_framing_lenoffs = 0;
-const uint8_t __code axradio_framing_lenmask = 0; // no length
-const uint8_t __code axradio_framing_swcrclen = 2; // two bytes CRC
+const uint8_t __code axradio_framing_lenmask = 0xff;
+const uint8_t __code axradio_framing_swcrclen = 0;
 
 const uint8_t __code axradio_framing_synclen = 32;
 const uint8_t __code axradio_framing_syncword[] = { 0xcc, 0xaa, 0xcc, 0xaa};
 const uint8_t __code axradio_framing_syncflags = 0x18;
 const uint8_t __code axradio_framing_enable_sfdcallback = 0;
 
-const uint32_t __code axradio_framing_ack_timeout = 29; // 42.5ms in wtimer0 units (640Hz)
+const uint32_t __code axradio_framing_ack_timeout = 25; // 37.0ms in wtimer0 units (640Hz)
 const uint32_t __code axradio_framing_ack_delay = 313; // 1.0ms in wtimer1 units (20MHz/64)
 const uint8_t __code axradio_framing_ack_retransmissions = 0;
 const uint8_t __code axradio_framing_ack_seqnrpos = 0xff;
 
-const uint8_t __code axradio_framing_minpayloadlen = 1; // must be set to 1 if the payload directly follows the destination address, and a CRC is configured
+const uint8_t __code axradio_framing_minpayloadlen = 0; // must be set to 1 if the payload directly follows the destination address, and a CRC is configured
 //WOR
 const uint16_t __code axradio_wor_period = 128;
 
@@ -321,4 +320,4 @@ const uint8_t __code axradio_sync_slave_resyncloss = 11;  // resyncloss is one m
 const uint8_t __code axradio_sync_slave_nrrx = 3;
 const uint32_t __code axradio_sync_slave_rxadvance[] = { 850, 813, 891 };// 25.918ms, 24.788ms, 27.167ms
 const uint32_t __code axradio_sync_slave_rxwindow[] = { 864, 790, 946 }; // 26.346ms, 24.086ms, 28.844ms
-const uint32_t __code axradio_sync_slave_rxtimeout = 1216; // 37.1ms, maximum duration of a packet
+const uint32_t __code axradio_sync_slave_rxtimeout = 1106; // 33.8ms, maximum duration of a packet
