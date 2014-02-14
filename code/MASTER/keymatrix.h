@@ -6,6 +6,8 @@
 
 #include "../COMMON/misc.h"
 
+///////////////////////////////////////////////////////////////////////////////
+
 // Mapping between physical pins on microcontroller
 // and logical rows/cols
 
@@ -63,6 +65,8 @@
 #define COL4    B_1
 #define COL5    B_0
 
+///////////////////////////////////////////////////////////////////////////////
+
 #define READ_COL()  ((~PINB) & 0x3F)    // 0 == pressed -> invert
 #define INIT_COL()  do { \
         /* set as input */ \
@@ -85,6 +89,7 @@
         INTCHGC = 0; \
     } while (0)
 
+///////////////////////////////////////////////////////////////////////////////
 
 // DIR: 0 = input, 1 = output
 // PIN: value of pin (read only)
@@ -106,6 +111,7 @@
         PORTA &= (uint8_t) ~0x0F;    \
     } while (0)
 
+///////////////////////////////////////////////////////////////////////////////
 
 #define SET_REGISTER_0(reg, port, pin)  do { reg##port &= (uint8_t) (~(1<<(pin))); } while(0)
 #define SET_REGISTER_1(reg, port, pin)  do { reg##port |= (uint8_t) ( (1<<(pin))); } while(0)
@@ -115,6 +121,7 @@
 #define SET_REGISTER_ROW(reg, x, value) SET_REGISTER(reg, ROW_PORT_##x, ROW_PIN_##x, value)
 #define SET_REGISTER_COL(reg, x, value) SET_REGISTER(reg, COL_PORT_##x, COL_PIN_##x, value)
 
+///////////////////////////////////////////////////////////////////////////////
 
 #define DRIVE_ROW(x)    do { \
         /* set to output */ \
@@ -123,7 +130,7 @@
         SET_REGISTER_ROW(PORT, x, 0); \
     } while (0)
 
-
+///////////////////////////////////////////////////////////////////////////////
 // "reverse" shift, i.e. discrete log (READ_COL() gives a bitmask, we want a number)
 // e.g. "0x04" --> 3
 //      "0x10" --> 5
@@ -137,6 +144,7 @@
                         ( x & 0x02 ? 2 :    \
                         ( x & 0x01 ? 1 : 0))))))))
 
+///////////////////////////////////////////////////////////////////////////////
 // X-Macro for "looping" over rows
 #define FOR_0_TO_5()  \
     F(0)    \
@@ -146,11 +154,17 @@
     F(4)    \
     F(5)
 
+///////////////////////////////////////////////////////////////////////////////
+
 // unfortunately, there seems to be quite a long delay necessary, otherwise glitches occur
 //#define SHORT_SLEEP()   do { nop(); nop(); nop(); nop(); nop(); nop(); } while(0)
 //#define SHORT_SLEEP()   do { delay_ms(1); } while(0)
 #define SHORT_SLEEP()   do { uint8_t i = 255; while(--i>0){nop();} } while(0)
 
+///////////////////////////////////////////////////////////////////////////////
+
 uint8_t scan_keymatrix();
+
+///////////////////////////////////////////////////////////////////////////////
 
 #endif // KEYMATRIX_H_INCLUDED

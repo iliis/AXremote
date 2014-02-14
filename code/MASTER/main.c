@@ -54,6 +54,11 @@
 #include "../COMMON/libminidvkled.h"
 #include "../COMMON/misc.h"
 
+#ifdef AXREMOTE_RECEIVER
+#include "key_routing.h"
+#include <libmfuart0.h>
+#endif
+
 
 #if defined(SDCC)
 extern uint8_t _start__stack[];
@@ -125,21 +130,29 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         break;
 
     case AXRADIO_STAT_RECEIVE:
-        led2_toggle();
+        led3_toggle();
+
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
-            dbglink_writestr("got packet\n");
+            dbglink_writestr("got packet (");
 
             if (st->u.rx.pktdata[0] == 'K') {
-                dbglink_writehexu16(st->u.rx.pktdata[1], 2);
-                dbglink_tx('\n');
+                dbglink_writenum16(st->u.rx.pktdata[1], 2, 0);
             } else {
-                dbglink_writestr("unknown packet type: ");
+                dbglink_writestr("unknown type: ");
                 dbglink_writehexu16(st->u.rx.pktdata[0], 2);
-                dbglink_tx('\n');
+                dbglink_tx(':');
+                dbglink_writehexu16(st->u.rx.pktdata[1], 2);
             }
+
+            dbglink_writestr(")\n");
         }
 #endif // USE_DBGLINK
+
+        if (st->u.rx.pktdata[0] == 'K') {
+            handle_keycode(st->u.rx.pktdata[1]);
+        }
+
         break;
 
     default:
@@ -335,6 +348,10 @@ void main(void)
         if (err != AXRADIO_ERR_NOERROR)
             goto terminate_radio_error;
 
+#ifdef AXREMOTE_RECEIVER
+        uart_init();
+#endif // AXREMOTE_RECEIVER
+
         led0_on();
         led1_on();
         delay_ms(100);
@@ -446,11 +463,14 @@ terminate_error:
 
     led0_on();
     led1_off();
+    led2_off();
+    led3_off();
 
     for (;;) {
 
         wtimer_runcallbacks();
         led0_toggle(); delay_ms(400);
+
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
 #ifdef MCU_SLEEP

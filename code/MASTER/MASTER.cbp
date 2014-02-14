@@ -85,6 +85,13 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/misc.h" />
+		<Unit filename="key_routing.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+		</Unit>
+		<Unit filename="key_routing.h">
+			<Option target="Debug Receiver" />
+		</Unit>
 		<Unit filename="keymatrix.c">
 			<Option compilerVar="CPP" />
 			<Option target="Debug Transmitter" />

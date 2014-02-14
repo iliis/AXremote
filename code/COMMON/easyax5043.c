@@ -33,7 +33,6 @@
 #include <libmfwtimer.h>
 #include <stdlib.h>
 #include <string.h>
-#include <libmfdbglink.h>
 
 
 typedef enum {
@@ -1974,19 +1973,6 @@ uint8_t axradio_transmit(const struct axradio_address *addr, const uint8_t *pkt,
             axradio_framing_append_crc(axradio_txbuffer, axradio_txbuffer_len);
             axradio_txbuffer_len += axradio_framing_swcrclen;
         }
-
-#ifdef USE_DBGLINK
-        if (DBGLNKSTAT & 0x10)
-        {
-            uint8_t i = 0;
-            dbglink_writestr("tx raw: ");
-            for (;i<axradio_txbuffer_len;i++) {
-                dbglink_writehexu16(axradio_txbuffer[i], 2);
-                dbglink_tx(':');
-            }
-            dbglink_tx('\n');
-        }
-#endif // USE_DBGLINK
 
         if (axradio_phy_pn9)
             pn9_buffer(axradio_txbuffer, axradio_txbuffer_len, 0x1ff, -(AX5043_ENCODING & 0x01));

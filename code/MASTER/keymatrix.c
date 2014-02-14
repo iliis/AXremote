@@ -1,5 +1,6 @@
 #include "keymatrix.h"
 
+///////////////////////////////////////////////////////////////////////////////
 // rows are driven, cols are measured (Port B)
 // one row is set to GND, the others are held floating
 // columns have pull-ups enabled
@@ -29,3 +30,4 @@ uint8_t scan_keymatrix() {
 
     return 0; // no key pressed
 }
+///////////////////////////////////////////////////////////////////////////////
