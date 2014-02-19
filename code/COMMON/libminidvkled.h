@@ -32,8 +32,8 @@
 #define led0_on()     do { led0_set(1); } while (0)
 #define led0_off()    do { led0_set(0); } while (0)
 
-#define led1_toggle() do { /* TODO: fix board */ } while (0)
-#define led1_set(x)   do { /* TODO: fix board */ } while (0)
+#define led1_toggle() do { PORTA ^= 0x08; } while (0)
+#define led1_set(x)   do { PORTA_3 = (x); } while (0)
 #define led1_on()     do { led1_set(1); } while (0)
 #define led1_off()    do { led1_set(0); } while (0)
 

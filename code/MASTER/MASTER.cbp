@@ -88,9 +88,11 @@
 		<Unit filename="key_routing.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
 		</Unit>
 		<Unit filename="key_routing.h">
 			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
 		</Unit>
 		<Unit filename="keymatrix.c">
 			<Option compilerVar="CPP" />

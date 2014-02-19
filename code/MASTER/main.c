@@ -47,16 +47,22 @@
 #include <libmfdbglink.h>
 #endif // USE_DBGLINK
 
-#include "keymatrix.h"
-
 #include <string.h>
 
 #include "../COMMON/libminidvkled.h"
 #include "../COMMON/misc.h"
 
+#ifdef AXREMOTE_TRANSMITTER
+#include "keymatrix.h"
+#endif
+
 #ifdef AXREMOTE_RECEIVER
 #include "key_routing.h"
 #include <libmfuart0.h>
+#endif
+
+#if !defined(AXREMOTE_RECEIVER) && !defined(AXREMOTE_TRANSMITTER)
+#error Please define either AXREMOTE_TRANSMITTER or AXREMOTE_RECEIVER
 #endif
 
 
@@ -250,43 +256,47 @@ void main(void)
 
 #ifdef USE_DBGLINK
     dbglink_init();
+#endif
 
+    // display a nice startup animation
     led0_off();
     led1_off();
-    delay_ms( 50);
+    led2_off();
+    led3_off();
+    delay_ms(100);
+
+    led0_on();
+    led1_off();
+    led2_off();
+    led3_off();
+    delay_ms(100);
 
     led0_on();
     led1_on();
-    delay_ms( 50);
-
-    led0_off();
-    led1_off();
-    delay_ms( 50);
+    led2_off();
+    led3_off();
+    delay_ms(100);
 
     led0_on();
     led1_on();
-    delay_ms( 50);
-
-    led0_off();
-    led1_off();
-    delay_ms( 50);
+    led2_on();
+    led3_off();
+    delay_ms(100);
 
     led0_on();
     led1_on();
-    delay_ms( 50);
-
-    led0_off();
-    led1_off();
+    led2_on();
+    led3_on();
 
     delay_ms(200);
-#endif
+
+    led0_off();
+    led1_off();
+    led2_off();
+    led3_off();
 
     if (coldstart) {
         // coldstart
-        led0_off();
-        led1_off();
-        led2_off();
-        led3_off();
 
         err = axradio_init();
         if (err != AXRADIO_ERR_NOERROR) {
@@ -362,7 +372,7 @@ void main(void)
     }
 
     led0_off();
-    led1_on();
+    led1_off();
 
 #ifdef AXREMOTE_TRANSMITTER
     for(;;)
@@ -462,13 +472,15 @@ terminate_error:
 #endif // USE_DBGLINK
 
     led0_on();
-    led1_off();
-    led2_off();
-    led3_off();
 
     for (;;) {
 
         wtimer_runcallbacks();
+
+        led1_off();
+        led2_off();
+        led3_off();
+
         led0_toggle(); delay_ms(400);
 
         {
