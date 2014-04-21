@@ -11,10 +11,9 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
-#include <avr/wdt.h>
 
-// we're using a 16 MHz crystal
-// #define F_CPU 16000000UL // defined by makefile
+// we're using a 12 MHz crystal
+// #define F_CPU 12000000UL // defined by makefile
 #include <util/delay.h>
 
 
@@ -46,12 +45,12 @@
 #define OUTPUT(reg, pin)	DDR  ## reg |=  (1<<(pin));
 
 #define led_red_toggle()	do { PORTD ^= 0x10; } while(0)
-#define led_red_set(x)	do { if (x) { PORTD |= 0x10; } else { PORTD &= ~0x10; } } while(0)
+#define led_red_set(x)		do { if (x) { PORTD |= 0x10; } else { PORTD &= ~0x10; } } while(0)
 #define led_red_off()		led_red_set(0)
 #define led_red_on()		led_red_set(1)
 
 #define led_green_toggle()	do { PORTC ^= 0x20; } while(0)
-#define led_green_set(x)		do { if (x) { PORTC |= 0x20; } else { PORTC &= ~0x20; } } while(0)
+#define led_green_set(x)	do { if (x) { PORTC |= 0x20; } else { PORTC &= ~0x20; } } while(0)
 #define led_green_off()		led_green_set(0)
 #define led_green_on()		led_green_set(1)
 
@@ -122,7 +121,7 @@ static void hardwareInit(void)
 
     DDRD = 0x00;    /* 0000 0000 bin: remove USB reset condition */
     /* configure timer 0 for a rate of 16M/(1024 * 256) = 61.035 Hz (~16ms) */
-    TCCR0A = 5;      /* timer 0 prescaler: 1024 */
+    //TCCR0A = 5;      /* timer 0 prescaler: 1024 */
 
 	// DDRD |= (1<<5) | (1<<6);
 	// HIGH(D,5);
@@ -141,12 +140,12 @@ static void hardwareInit(void)
 
 	// initialization done
 
-	_delay_ms(100);
+	//_delay_ms(100);
 
 	led_green_on();
 	led_red_off();
 
-	_delay_ms(100);
+	//_delay_ms(100);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -158,7 +157,28 @@ static void hardwareInit(void)
 static uint8_t    idleRate;           /* in 4 ms units */
 
 // change length in usbconfig.h!
-const PROGMEM char usbDescriptorHidReport[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = {   /* USB report descriptor */
+/*const PROGMEM char usbDescriptorHidReport[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = {   // USB report descriptor
+    0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
+    0x09, 0x06,                    // USAGE (Keyboard)
+    0xa1, 0x01,                    // COLLECTION (Application)
+    0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
+    0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)
+    0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
+    0x75, 0x01,                    //   REPORT_SIZE (1)
+    0x95, 0x08,                    //   REPORT_COUNT (8)
+    0x81, 0x02,                    //   INPUT (Data,Var,Abs)
+    0x95, 0x01,                    //   REPORT_COUNT (1)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x25, 0x65,                    //   LOGICAL_MAXIMUM (101)
+    0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
+    0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)
+    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+    0xc0                           // END_COLLECTION
+};*/
+
+const PROGMEM char usbDescriptorHidReport[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = {   // USB report descriptor
     0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
     0x09, 0x06,                    // USAGE (Keyboard)
     0xa1, 0x01,                    // COLLECTION (Application)
@@ -358,7 +378,7 @@ static const uint8_t  keyReport[NUM_KEYS + 1][3] PROGMEM = {
 
 static uint8_t report_buf_keyb[3] = {1, 0, 0};
 static uint8_t report_buf_mult[3] = {2, 0};
-static uint8_t send_keyb = 0, send_mult = 0;
+static uint8_t send_keyb = 0, send_mult = 0, enqueue_keyup = 0;
 
 static void buildReport(uint8_t key)
 {
@@ -370,11 +390,13 @@ static void buildReport(uint8_t key)
 		report_buf_keyb[1] = pgm_read_byte(&keyReport[key][1]);
 		report_buf_keyb[2] = pgm_read_byte(&keyReport[key][2]);
 		send_keyb = 1;
+		enqueue_keyup = 1;
 	} else if (page == 2) {
 		report_buf_mult[0] = 2;
 		report_buf_mult[1] = pgm_read_byte(&keyReport[key][1]);
 		// report_buf_mult[2] = pgm_read_byte(&keyReport[key][2]);
 		send_mult = 1;
+		enqueue_keyup = 1;
 	} else { // page == 0 --> reset
 		// always send reset for both keyboard and multimedia device
 		report_buf_keyb[1] = 0;
@@ -396,6 +418,7 @@ uint8_t usbFunctionSetup(uint8_t data[8])
     if ((rq->bmRequestType & USBRQ_TYPE_MASK) == USBRQ_TYPE_CLASS) {    /* class request type */
         if (rq->bRequest == USBRQ_HID_GET_REPORT) {  /* wValue: ReportType (highbyte), ReportID (lowbyte) */
             /* we only have one report type, so don't look at wValue */
+			// nope: two different types
 
 			if (rq->wValue.bytes[0] == 1) {
 				usbMsgPtr = report_buf_keyb;
@@ -405,8 +428,6 @@ uint8_t usbFunctionSetup(uint8_t data[8])
 				return sizeof(report_buf_mult);
 			} else
 				return 0;
-		} else if (rq->bRequest == USBRQ_HID_SET_REPORT) {
-			return 0; // no output/feature reports
         } else if (rq->bRequest == USBRQ_HID_GET_IDLE){
             usbMsgPtr = &idleRate;
             return 1;
@@ -424,17 +445,12 @@ uint8_t usbFunctionSetup(uint8_t data[8])
 
 int	main(void)
 {
-	wdt_enable(WDTO_2S);
     hardwareInit();
 
-	odDebugInit();
 	usbInit();
 	sei();
-    // DBG1(0x00, 0, 0);
-	wdt_enable(WDTO_8S);
 
 	while(1) {	/* main even loop */
-		wdt_reset();
 		usbPoll();
 
 		// buildReport(key);
@@ -443,16 +459,32 @@ int	main(void)
 			led_green_toggle();
 
 			switch (uart_rx_data) {
-				case 'a':
+				case 10:
 					buildReport(18); // up
 					break;
 
-				case 'b':
+				case 9:
 					buildReport(13); // enter
 					break;
 
-				case 'c':
+				case 16:
 					buildReport(8); // down
+					break;
+
+				case 7:
+					buildReport(12); // left
+					break;
+
+				case 11:
+					buildReport(14); // right
+					break;
+
+				case 8:
+					buildReport(15); // backspace
+					break;
+
+				default:
+					led_red_toggle(); // error: unknown key
 					break;
 			}
 		}
@@ -461,13 +493,18 @@ int	main(void)
 			if (send_keyb) {
 				usbSetInterrupt(report_buf_keyb, sizeof(report_buf_keyb));
 				send_keyb = 0;
-				// toggle debug led (D1)
-				PORTD ^= 2;
+
+				//led_red_toggle();
 			} else if (send_mult) {
 				usbSetInterrupt(report_buf_mult, sizeof(report_buf_mult));
 				send_mult = 0;
-				// toggle debug led (D1)
-				PORTD ^= 2;
+
+				//led_red_toggle();
+			}
+
+			if (enqueue_keyup) {
+				enqueue_keyup = 0;
+				buildReport(0);
 			}
         }
 	}

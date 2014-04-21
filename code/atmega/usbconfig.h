@@ -165,6 +165,7 @@ the newest features and options.
  * protocol.
  */
 #define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH    75  /* total length of report descriptor */
+//#define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH    35  /* total length of report descriptor */
 /* Define this to the length of the HID report descriptor, if you implement
  * an HID device. Otherwise don't define it or define it to 0.
  */

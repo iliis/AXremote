@@ -13,13 +13,15 @@ UISP = uisp -dprog=avr910 -dserial=$(SERIAL) -dpart=auto
 # to a Keyspan USB to serial converter to a Mac running Mac OS X.
 # Choose your favorite programmer and interface.
 
-COMPILE = avr-gcc -Wall -Os -Iusbdrv -I. -mmcu=atmega88 -DF_CPU=16000000L #-DDEBUG_LEVEL=1
+COMPILE = avr-gcc -Wall -Os -Iusbdrv -I. -mmcu=atmega88 -DF_CPU=12000000L #-DDEBUG_LEVEL=1
 
 OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o
 
 
 # symbolic targets:
 all:	main.hex
+
+asm:	main.asm
 
 .c.o:
 	$(COMPILE) -std=c99 -c $< -o $@
@@ -71,6 +73,9 @@ main.hex:	main.bin
 	./checksize main.bin
 # do the checksize script as our last action to allow successful compilation
 # on Windows with WinAVR where the Unix commands will fail.
+
+main.asm:	main.c
+	$(COMPILE) -S -o main.asm main.c
 
 disasm:	main.bin
 	avr-objdump -d main.bin
