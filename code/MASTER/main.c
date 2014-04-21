@@ -209,7 +209,7 @@ uint8_t _sdcc_external_startup(void)
 
 #else
 
-    PORTA = 0xC1 | (PINA & 0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..2], pull-
+    PORTA = 0xC0 | (PINA & 0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[1..2], A0 (button) floating (has external pull-down)
     // init LEDs to previous (frozen) state
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
@@ -447,10 +447,11 @@ void main(void)
 
         // work-around for reading button state, as button connects to VCC and AX8052 can only apply a pull-up
         // TODO: remove this, there is now a physical pull-down resistor soldered on
-        DIRA |= 1; // A1 = output
+        /*DIRA |= 1; // A1 = output
         PORTA &= 0xFE; // A1 = low ("discharge pin")
         DIRA &= 0xFE; // A1 = input (no pull-up = floating)
         led0_set(PINA & 0x01 == 1); // if button pressed, pin is charged quickly enough, otherwise it will probably remain floating at GND
+        */
 
         EA = 0;
         {
