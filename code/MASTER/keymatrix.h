@@ -75,7 +75,9 @@
         PORTB |= 0x3F; \
     } while (0)
 
-#define INIT_COL_FOR_SLEEP()    do {    \
+#define INIT_MATRIX_FOR_SLEEP()    do {    \
+        /* all cols inputs with pullups*/ \
+        INIT_COL(); \
         /* drive all rows to GND */ \
         /* set to output */ \
         DIRC |= (uint8_t) 0x1F;    \

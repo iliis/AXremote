@@ -469,37 +469,37 @@
 	<libmfuart.h>
 	<libmfuart0.h>
 
-1392812292 source:z:\userspaces\sam\axremote\code\ax_radio_lab_output\config_16mhz.c
+1392815892 source:z:\userspaces\sam\axremote\code\ax_radio_lab_output\config_16mhz.c
 	"../COMMON/easyax5043.h"
 	<libmftypes.h>
 	<libmfcrc.h>
 
-1392812292 z:\userspaces\sam\axremote\code\common\easyax5043.h
+1392815892 z:\userspaces\sam\axremote\code\common\easyax5043.h
 	"axradio.h"
 	<ax8052f143.h>
 	<libmftypes.h>
 	"../COMMON/libminidvkled.h"
 
-1392812292 z:\userspaces\sam\axremote\code\common\axradio.h
+1392815892 z:\userspaces\sam\axremote\code\common\axradio.h
 	<libmftypes.h>
 
-1392814836 z:\userspaces\sam\axremote\code\common\libminidvkled.h
+1392818436 z:\userspaces\sam\axremote\code\common\libminidvkled.h
 	"libmftypes.h"
 
-1392812292 source:z:\userspaces\sam\axremote\code\ax_radio_lab_output\configmaster.c
+1392815892 source:z:\userspaces\sam\axremote\code\ax_radio_lab_output\configmaster.c
 	"../COMMON/axradio.h"
 
-1392812292 source:z:\userspaces\sam\axremote\code\common\display_com0.c
+1392815892 source:z:\userspaces\sam\axremote\code\common\display_com0.c
 	"display_com0.h"
 	<ax8052f143.h>
 	<libmf.h>
 	<libmfuart.h>
 	<libmfuart0.h>
 
-1392812292 z:\userspaces\sam\axremote\code\common\display_com0.h
+1392815892 z:\userspaces\sam\axremote\code\common\display_com0.h
 	<libmf.h>
 
-1392812292 source:z:\userspaces\sam\axremote\code\common\easyax5043.c
+1392815892 source:z:\userspaces\sam\axremote\code\common\easyax5043.c
 	"easyax5043.h"
 	<libmfcrc.h>
 	<libmfradio.h>
@@ -507,7 +507,7 @@
 	<stdlib.h>
 	<string.h>
 
-1392812292 source:z:\userspaces\sam\axremote\code\common\misc.c
+1392815892 source:z:\userspaces\sam\axremote\code\common\misc.c
 	<ax8052.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
@@ -517,11 +517,11 @@
 	"../COMMON/libminidvkled.h"
 	<libmfdbglink.h>
 
-1392812292 z:\userspaces\sam\axremote\code\common\misc.h
+1392815892 z:\userspaces\sam\axremote\code\common\misc.h
 	<libmftypes.h>
 	"../COMMON/axradio.h"
 
-1392815066 source:z:\userspaces\sam\axremote\code\master\main.c
+1398081421 source:z:\userspaces\sam\axremote\code\master\main.c
 	"../AX_Radio_Lab_output/configmaster.h"
 	<ax8052f143.h>
 	<libmftypes.h>
@@ -536,15 +536,15 @@
 	"key_routing.h"
 	<libmfuart0.h>
 
-1392812292 z:\userspaces\sam\axremote\code\ax_radio_lab_output\configmaster.h
+1392815892 z:\userspaces\sam\axremote\code\ax_radio_lab_output\configmaster.h
 	"../COMMON/axradio.h"
 
-1392812292 z:\userspaces\sam\axremote\code\master\keymatrix.h
+1398081548 z:\userspaces\sam\axremote\code\master\keymatrix.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	"../COMMON/misc.h"
 
-1392812292 z:\userspaces\sam\axremote\code\master\key_routing.h
+1392815892 z:\userspaces\sam\axremote\code\master\key_routing.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfuart.h>
@@ -552,4 +552,7 @@
 
 1392812292 source:z:\userspaces\sam\axremote\code\master\key_routing.c
 	"key_routing.h"
+
+1392815892 source:z:\userspaces\sam\axremote\code\master\keymatrix.c
+	"keymatrix.h"
 

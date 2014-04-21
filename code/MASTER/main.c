@@ -135,6 +135,7 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         }
         break;
 
+#ifdef AXREMOTE_RECEIVER
     case AXRADIO_STAT_RECEIVE:
         led3_toggle();
 
@@ -160,6 +161,7 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         }
 
         break;
+#endif // AXREMOTE_RECEIVER
 
     default:
         break;
@@ -194,13 +196,13 @@ uint8_t _sdcc_external_startup(void)
 
 #ifdef AXREMOTE_TRANSMITTER
 
-    PORTA = 0xC0 | (PINA & 0x30); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[0..4]
+    PORTA = 0xCE | (PINA & 0x30); // pull-up for PA[6,7] which are not bonded, Output 0 in PA0, pull-up PA[1..3] (unused rows)
     // init LEDs to previous (frozen) state
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
     PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
 
-    DIRA = 0x37; // PA[0..3] are outputs (rows), PA4 and 5 are LEDs
+    DIRA = 0x31; // PA[0] is output (row5), PA[1..3] is inputs (unused rows), PA4 and 5 are LEDs, PA[6..7] are not bonded
     DIRB = 0x00; // PB[0..5] are inputs (cols), B6 and 7 are debug connections (inputs as well)
     DIRC = 0x1F; // PC[0..4] are outputs (rows), PC[5..7] are inputs (not bonded).
     DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
@@ -402,10 +404,20 @@ void main(void)
         prev_key = key;
 
         // drive all rows, so if any button is pressed we will wake up
-        INIT_COL_FOR_SLEEP();
+        INIT_MATRIX_FOR_SLEEP();
+
+
+        // everything output HIGH
+        /*DIRA |= (uint8_t) (0x0F);
+        DIRB |= (uint8_t) (0x3F);
+        DIRC |= (uint8_t) (0x1F);
+
+        PORTA |= 0x0F;
+        PORTB |= 0x3F;
+        PORTC |= 0x1F;*/
 
         // disable interrupts before going to sleep
-        //EA=0;
+        EA = 0;
         IE = 0x18; // no interrupts at all, save for GPIO and radio
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
@@ -434,6 +446,7 @@ void main(void)
 
 
         // work-around for reading button state, as button connects to VCC and AX8052 can only apply a pull-up
+        // TODO: remove this, there is now a physical pull-down resistor soldered on
         DIRA |= 1; // A1 = output
         PORTA &= 0xFE; // A1 = low ("discharge pin")
         DIRA &= 0xFE; // A1 = input (no pull-up = floating)
