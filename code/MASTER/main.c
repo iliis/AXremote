@@ -321,21 +321,12 @@ void main(void)
             goto terminate_radio_error;
         }
 
-        led0_on();
-        led1_off();
-        delay_ms(100);
-
 #ifdef USE_DBGLINK
        if (DBGLNKSTAT & 0x10)
             dbglink_writestr("found AX5043\n");
 #endif // USE_DBGLINK
         axradio_set_local_address(&localaddr);
         axradio_set_default_remote_address(&remoteaddr);
-
-
-        led0_off();
-        led1_on();
-        delay_ms(100);
 
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
@@ -364,17 +355,11 @@ void main(void)
         uart_init();
 #endif // AXREMOTE_RECEIVER
 
-        led0_on();
-        led1_on();
-        delay_ms(100);
     } else {
         // warmstart
         ax5043_commsleepexit();
         IE_4 = 1; // Radio Interrupt enable
     }
-
-    led0_off();
-    led1_off();
 
 #ifdef AXREMOTE_TRANSMITTER
     for(;;)
@@ -438,7 +423,7 @@ void main(void)
         IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
     }
 
-#else
+#else // RECEIVER
 
     for(;;) {
 
@@ -495,7 +480,8 @@ terminate_error:
         led2_off();
         led3_off();
 
-        led0_toggle(); delay_ms(400);
+        led0_toggle();
+        delay_ms(400);
 
         {
             uint8_t flg = WTFLAG_CANSTANDBY;

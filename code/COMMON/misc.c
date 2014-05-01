@@ -80,7 +80,6 @@ static void delayms_callback(struct wtimer_desc __xdata *desc)
 }
 
 #include "../COMMON/libminidvkled.h"
-#include <libmfdbglink.h>
 __reentrantb void delay_ms(uint16_t ms) __reentrant
 {
     // scaling: 20e6/64/1e3=312.5=2^8+2^6-2^3+2^-1
