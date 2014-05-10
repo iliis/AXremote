@@ -393,8 +393,7 @@ static void buildReport(uint8_t key)
 		enqueue_keyup = 1;
 	} else if (page == 2) {
 		report_buf_mult[0] = 2;
-		report_buf_mult[1] = pgm_read_byte(&keyReport[key][1]);
-		// report_buf_mult[2] = pgm_read_byte(&keyReport[key][2]);
+		report_buf_mult[1] = pgm_read_byte(&keyReport[key][2]);
 		send_mult = 1;
 		enqueue_keyup = 1;
 	} else { // page == 0 --> reset
