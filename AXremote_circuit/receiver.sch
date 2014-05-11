@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -19332,6 +19332,10 @@ High-power, low thermal resistance package.</description>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
 <part name="Q3" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS138"/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="LOCK_LONGPADS"/>
+<part name="R17" library="resistor" deviceset="R-EU_" device="R0603" value="100"/>
+<part name="P+10" library="supply1" deviceset="VCC" device=""/>
+<part name="R18" library="resistor" deviceset="R-EU_" device="R0603" value="100"/>
+<part name="GND48" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19466,6 +19470,10 @@ High-power, low thermal resistance package.</description>
 <instance part="GND47" gate="1" x="71.12" y="-55.88"/>
 <instance part="Q3" gate="G$1" x="63.5" y="-38.1" rot="R270"/>
 <instance part="JP1" gate="G$1" x="175.26" y="134.62" rot="R180"/>
+<instance part="R17" gate="G$1" x="50.8" y="12.7" rot="R180"/>
+<instance part="P+10" gate="VCC" x="40.64" y="12.7" rot="R90"/>
+<instance part="R18" gate="G$1" x="10.16" y="88.9" rot="R270"/>
+<instance part="GND48" gate="1" x="10.16" y="99.06" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -19829,6 +19837,11 @@ High-power, low thermal resistance package.</description>
 <pinref part="Q3" gate="G$1" pin="S"/>
 <wire x1="58.42" y1="-38.1" x2="55.88" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="1"/>
+<pinref part="GND48" gate="1" pin="GND"/>
+<wire x1="10.16" y1="96.52" x2="10.16" y2="93.98" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -19939,6 +19952,11 @@ High-power, low thermal resistance package.</description>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="P+9" gate="VCC" pin="VCC"/>
 <wire x1="152.4" y1="119.38" x2="152.4" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+10" gate="VCC" pin="VCC"/>
+<pinref part="R17" gate="G$1" pin="2"/>
+<wire x1="43.18" y1="12.7" x2="45.72" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -20068,6 +20086,10 @@ High-power, low thermal resistance package.</description>
 <pinref part="U$3" gate="G$1" pin="3:!RST"/>
 <wire x1="68.58" y1="0" x2="60.96" y2="0" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="0" x2="60.96" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="1"/>
+<wire x1="55.88" y1="12.7" x2="60.96" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="12.7" x2="60.96" y2="5.08" width="0.1524" layer="91"/>
+<junction x="60.96" y="5.08"/>
 </segment>
 </net>
 <net name="DBG_EN" class="0">
@@ -20265,6 +20287,9 @@ High-power, low thermal resistance package.</description>
 <wire x1="10.16" y1="73.66" x2="10.16" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U1" gate="IC" pin="PA0"/>
 <junction x="10.16" y="73.66"/>
+<pinref part="R18" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="83.82" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
+<junction x="10.16" y="76.2"/>
 </segment>
 </net>
 <net name="N$28" class="0">

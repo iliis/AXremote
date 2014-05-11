@@ -20,8 +20,9 @@ uint8_t scan_keymatrix() {
         DRIVE_ROW(i);   \
         SHORT_SLEEP(); \
         val = READ_COL();   \
-        if (val)    \
+        if (val) {   \
             return DISC_LOG(val) + i*6; \
+        } \
     } while(0);
 
     FOR_0_TO_5();

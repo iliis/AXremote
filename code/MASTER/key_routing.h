@@ -6,6 +6,8 @@
 #include <libmfuart.h>
 #include <libmfuart0.h>
 
+#include "../COMMON/libminidvkled.h"
+
 ///////////////////////////////////////////////////////////////////////////////
 
 #define ACTION_IGNORE           0x00

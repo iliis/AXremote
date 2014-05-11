@@ -48,11 +48,13 @@
 #define led_red_set(x)		do { if (x) { PORTD |= 0x10; } else { PORTD &= ~0x10; } } while(0)
 #define led_red_off()		led_red_set(0)
 #define led_red_on()		led_red_set(1)
+#define led_red_blink()		do { led_red_on(); _delay_ms(100); led_red_off(); } while(0)
 
 #define led_green_toggle()	do { PORTC ^= 0x20; } while(0)
 #define led_green_set(x)	do { if (x) { PORTC |= 0x20; } else { PORTC &= ~0x20; } } while(0)
 #define led_green_off()		led_green_set(0)
 #define led_green_on()		led_green_set(1)
+#define led_green_blink()	do { led_green_on(); _delay_ms(100); led_green_off(); } while(0)
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -142,8 +144,8 @@ static void hardwareInit(void)
 
 	//_delay_ms(100);
 
-	led_green_on();
-	led_red_off();
+	led_red_blink();
+	led_green_blink();
 
 	//_delay_ms(100);
 }
@@ -312,6 +314,9 @@ const PROGMEM char usbDescriptorHidReport[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 #define KEY_PAUSE		0x48
 #define KEY_PAGE_UP		0x4B
 #define KEY_PAGE_DOWN	0x4E
+#define KEY_HOME		0x4A
+#define KEY_END			0x4D
+
 #define KEY_CUR_RIGHT	0x4F
 #define KEY_CUR_LEFT	0x50
 #define KEY_CUR_DOWN	0x51
@@ -321,14 +326,17 @@ const PROGMEM char usbDescriptorHidReport[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 #define KEY_RETURN		0x28
 #define KEY_ESCAPE		0x29
 #define KEY_SPACE		0x2C
-#define KEY_PLUS		0x2D
-#define KEY_MINUS		0x2E
+#define KEY_PLUS		0x57 // keypad
+#define KEY_MINUS		0x56 // keypad
+#define KEY_EQUALS		0x67 // keypad
 #define KEY_BACKSPACE	0x2A
 
-
-#define MULT_MUTE		0xE2
-#define MULT_VOL_UP		0xE9
-#define MULT_VOL_DOWN	0xEA
+#define KEY_COMMA		0x36
+#define KEY_PERIOD		0x37
+#define KEY_SLASH		0x38
+#define KEY_BACKSLASH	0x31
+#define KEY_LSQUARE_BRACKET 0x2F // [
+#define KEY_RSQUARE_BRACKET 0x30 // ]
 
 #define MULT_BIT_PREV		(1<<0)
 #define MULT_BIT_NEXT		(1<<1)
@@ -336,13 +344,13 @@ const PROGMEM char usbDescriptorHidReport[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 #define MULT_BIT_PLAYP		(1<<3)
 #define MULT_BIT_PLAY		(1<<4)
 #define MULT_BIT_MUTE		(1<<5)
-#define MULT_BIT_VOLUP		(1<<6)
-#define MULT_BIT_VOLDOWN	(1<<7)
+#define MULT_BIT_VOL_UP		(1<<6)
+#define MULT_BIT_VOL_DOWN	(1<<7)
 
 
 #define NUM_KEYS    90
 static const uint8_t  keyReport[NUM_KEYS + 1][3] PROGMEM = {
-/* none */  {0, 0, 0},                     /* no key pressed */
+/*   0 */   {0, 0, 0 /* unused */},
 /*   1 */   {1, 0, KEY_PAUSE},
 /*   2 */   {1, 0, KEY_PAGE_UP},
 /*   3 */   {1, 0, KEY_PAGE_DOWN},
@@ -353,34 +361,34 @@ static const uint8_t  keyReport[NUM_KEYS + 1][3] PROGMEM = {
 /*   8 */   {1, 0, KEY_BACKSPACE},
 /*   9 */   {1, 0, KEY_STOP},
 /*  10 */   {1, 0, KEY_RETURN},
-/*  11 */   {2, 0, MULT_MUTE},
-/*  12 */   {2, 0, MULT_VOL_UP},
-/*  13 */   {2, 0, MULT_VOL_DOWN},
-/*  14 */   {1, 0, KEY_F1},
-/*  15 */   {1, 0, KEY_F2},
-/*  16 */   {1, 0, KEY_F3},
-/*  17 */   {1, 0, KEY_F4},
-/*  18 */   {1, 0, KEY_F5},
-/*  19 */   {1, 0, KEY_F6},
-/*  20 */   {1, 0, KEY_F7},
-/*  21 */   {1, 0, KEY_F8},
-/*  22 */   {1, 0, KEY_F9},
-/*  23 */   {1, 0, KEY_F10},
-/*  24 */   {1, 0, KEY_F11},
-/*  25 */   {1, 0, KEY_F12},
-/*  26 */   {0, 0, 0 /* unused */},
+/*  11 */   {1, 0, KEY_HOME},
+/*  12 */   {1, 0, KEY_PERIOD},
+/*  13 */   {1, 0, KEY_COMMA},
+/*  14 */   {1, 0, KEY_LSQUARE_BRACKET},
+/*  15 */   {1, 0, KEY_RSQUARE_BRACKET},
+/*  16 */   {1, 0, KEY_COMMA},
+/*  17 */   {2, 0, MULT_BIT_PREV},
+/*  18 */   {2, 0, MULT_BIT_NEXT},
+/*  19 */   {2, 0, MULT_BIT_STOP},
+/*  20 */   {2, 0, MULT_BIT_PLAYP},
+/*  21 */   {2, 0, MULT_BIT_PLAY},
+/*  22 */   {2, 0, MULT_BIT_MUTE},
+/*  23 */   {2, 0, MULT_BIT_VOL_UP},
+/*  24 */   {2, 0, MULT_BIT_VOL_DOWN},
+/*  25 */   {1, 0, KEY_F1},
+/*  26 */   {1, 0, KEY_F2},
 /*  27 */   {1, 0, KEY_ESCAPE},
-/*  28 */   {0, 0, 0 /* unused */},
-/*  29 */   {0, 0, 0 /* unused */},
-/*  30 */   {0, 0, 0 /* unused */},
-/*  31 */   {0, 0, 0 /* unused */},
+/*  28 */   {1, 0, KEY_F3},
+/*  29 */   {1, 0, KEY_F4},
+/*  30 */   {1, 0, KEY_F5},
+/*  31 */   {1, 0, KEY_F6},
 /*  32 */   {1, 0, KEY_SPACE},
-/*  33 */   {0, 0, 0 /* unused */},
-/*  34 */   {0, 0, 0 /* unused */},
-/*  35 */   {0, 0, 0 /* unused */},
-/*  36 */   {0, 0, 0 /* unused */},
-/*  37 */   {0, 0, 0 /* unused */},
-/*  38 */   {0, 0, 0 /* unused */},
+/*  33 */   {1, 0, KEY_F7},
+/*  34 */   {1, 0, KEY_F8},
+/*  35 */   {1, 0, KEY_F9},
+/*  36 */   {1, 0, KEY_F10},
+/*  37 */   {1, 0, KEY_F11},
+/*  38 */   {1, 0, KEY_F12},
 /*  39 */   {0, 0, 0 /* unused */},
 /*  40 */   {0, 0, 0 /* unused */},
 /*  41 */   {0, 0, 0 /* unused */},
@@ -389,7 +397,7 @@ static const uint8_t  keyReport[NUM_KEYS + 1][3] PROGMEM = {
 /*  44 */   {0, 0, 0 /* unused */},
 /*  45 */   {1, 0, KEY_MINUS},
 /*  46 */   {0, 0, 0 /* unused */},
-/*  47 */   {0, 0, 0 /* unused */},
+/*  47 */   {1, 0, KEY_SLASH},
 /*  48 */   {1, 0, KEY_0},
 /*  49 */   {1, 0, KEY_1},
 /*  50 */   {1, 0, KEY_2},
@@ -403,7 +411,7 @@ static const uint8_t  keyReport[NUM_KEYS + 1][3] PROGMEM = {
 /*  58 */   {0, 0, 0 /* unused */},
 /*  59 */   {0, 0, 0 /* unused */},
 /*  60 */   {0, 0, 0 /* unused */},
-/*  61 */   {0, 0, 0 /* unused */},
+/*  61 */   {1, 0, KEY_EQUALS},
 /*  62 */   {0, 0, 0 /* unused */},
 /*  63 */   {0, 0, 0 /* unused */},
 /*  64 */   {0, 0, 0 /* unused */},
@@ -438,7 +446,7 @@ static const uint8_t  keyReport[NUM_KEYS + 1][3] PROGMEM = {
 ///////////////////////////////////////////////////////////////////////////////
 
 static uint8_t report_buf_keyb[3] = {1, 0, 0};
-static uint8_t report_buf_mult[3] = {2, 0};
+static uint8_t report_buf_mult[2] = {2, 0};
 static uint8_t send_keyb = 0, send_mult = 0, enqueue_keyup = 0;
 
 static void buildReport(uint8_t key)
@@ -465,6 +473,9 @@ static void buildReport(uint8_t key)
 		// report_buf_mult[2] = 0;
 		send_keyb = 1;
 		send_mult = 1;
+
+		if (key > 0)
+			led_red_blink();
 	}
 }
 
@@ -516,57 +527,32 @@ int	main(void)
 		// buildReport(key);
 		if (uart_rx_available) {
 			uart_rx_available = 0;
-			led_green_toggle();
 
-			switch (uart_rx_data) {
-				case 10:
-					buildReport(18); // up
-					break;
-
-				case 9:
-					buildReport(13); // enter
-					break;
-
-				case 16:
-					buildReport(8); // down
-					break;
-
-				case 7:
-					buildReport(12); // left
-					break;
-
-				case 11:
-					buildReport(14); // right
-					break;
-
-				case 8:
-					buildReport(15); // backspace
-					break;
-
-				default:
-					led_red_toggle(); // error: unknown key
-					break;
-			}
+			if (uart_rx_data < NUM_KEYS)
+				buildReport(uart_rx_data);
+			else
+				led_red_blink(); // error: keycode out of range
 		}
 
 		if (usbInterruptIsReady()) {
+			led_red_off();
 			if (send_keyb) {
 				usbSetInterrupt(report_buf_keyb, sizeof(report_buf_keyb));
 				send_keyb = 0;
-
-				//led_red_toggle();
-			} else if (send_mult) {
+				led_green_toggle();
+			}
+			else if (send_mult) {
 				usbSetInterrupt(report_buf_mult, sizeof(report_buf_mult));
 				send_mult = 0;
-
-				//led_red_toggle();
+				led_green_toggle();
 			}
 
 			if (enqueue_keyup) {
 				enqueue_keyup = 0;
 				buildReport(0);
 			}
-        }
+        } else
+			led_red_on();
 	}
 	return 0;
 }

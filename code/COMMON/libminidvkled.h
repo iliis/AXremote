@@ -1,7 +1,8 @@
 #ifndef LIBMINIDVKLED_H
 #define LIBMINIDVKLED_H
 
-#include "libmftypes.h"
+#include <libmftypes.h>
+#include "../COMMON/misc.h"
 
 #ifdef AXREMOTE_TRANSMITTER
 
@@ -46,6 +47,11 @@
 #define led3_set(x)   do { PORTA_5 = (x); } while (0)
 #define led3_on()     do { led3_set(1); } while (0)
 #define led3_off()    do { led3_set(0); } while (0)
+
+#define led_blink_ok()    do { led3_on(); delay_ms(100); led3_off(); } while (0)
+// led 2 is for 'chip running'
+#define led_blink_warn()  do { led1_on(); delay_ms(100); led1_off(); } while (0)
+#define led_blink_error() do { led0_on(); delay_ms(100); led0_off(); } while (0)
 
 #else
 

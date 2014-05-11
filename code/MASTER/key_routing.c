@@ -4,21 +4,21 @@
 const uint8_t __code keycode_actions[37][2] = {
     { ACTION_IGNORE, 0 }, //  0 (should never be sent)
     { ACTION_IGNORE, 0 }, //  1
-    { ACTION_SEND_USB_KEY, 2 }, //  2
-    { ACTION_IGNORE, 0 }, //  3
-    { ACTION_SEND_USB_KEY, 4 }, //  4
-    { ACTION_IGNORE, 0 }, //  5
-    { ACTION_SEND_USB_KEY, 6 }, //  6
-    { ACTION_SEND_USB_KEY, 7 }, //  7
-    { ACTION_SEND_USB_KEY, 8 }, //  8
-    { ACTION_SEND_USB_KEY,  9 }, //  9
-    { ACTION_SEND_USB_KEY, 10 }, // 10
-    { ACTION_SEND_USB_KEY, 11 }, // 11
-    { ACTION_IGNORE, 0 }, // 12
+    { ACTION_IGNORE, 0 }, //  2
+    { ACTION_SEND_USB_KEY, ' ' }, //  3  // play/pause
+    { ACTION_IGNORE, 0 }, //  4
+    { ACTION_SEND_USB_KEY, 'X' }, //  5  // stop
+    { ACTION_SEND_USB_KEY, 'S' }, //  6  // Power (PC)
+    { ACTION_SEND_USB_KEY,   5 }, //  7  // LEFT
+    { ACTION_SEND_USB_KEY,   8 }, //  8  // BACK (backspace)
+    { ACTION_SEND_USB_KEY, '\n'}, //  9  // OK (enter)
+    { ACTION_SEND_USB_KEY,   2 }, // 10  // UP
+    { ACTION_SEND_USB_KEY,   4 }, // 11  // RIGHT
+    { ACTION_SEND_USB_KEY,  11 }, // 12  // home
     { ACTION_IGNORE, 0 }, // 13
-    { ACTION_IGNORE, 0 }, // 14
+    { ACTION_SEND_USB_KEY,  27 }, // 14  // BACK (esc)
     { ACTION_IGNORE, 0 }, // 15
-    { ACTION_SEND_USB_KEY, 16 }, // 16
+    { ACTION_SEND_USB_KEY,   2 }, // 16  // DOWN
     { ACTION_IGNORE, 0 }, // 17
     { ACTION_IGNORE, 0 }, // 18
     { ACTION_IGNORE, 0 }, // 19
@@ -26,7 +26,7 @@ const uint8_t __code keycode_actions[37][2] = {
     { ACTION_IGNORE, 0 }, // 21
     { ACTION_IGNORE, 0 }, // 22
     { ACTION_IGNORE, 0 }, // 23
-    { ACTION_IGNORE, 0 }, // 24
+    { ACTION_SEND_USB_KEY, 'F' }, // 24
     { ACTION_IGNORE, 0 }, // 25
     { ACTION_IGNORE, 0 }, // 26
     { ACTION_IGNORE, 0 }, // 27
@@ -65,14 +65,17 @@ void handle_keycode(uint8_t code) {
 
     case ACTION_SEND_USB_KEY:
         uart0_tx(keycode_actions[code][1]);
+        led_blink_ok();
         break;
 
     case ACTION_SEND_IR_CODE:
         // TODO: implement this
+        led_blink_error(); // not implemented!
         break;
 
     case ACTION_IGNORE:
     default:
+        led_blink_warn();
         break;
     }
 }

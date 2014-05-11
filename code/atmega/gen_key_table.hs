@@ -16,7 +16,7 @@ code_mod (KeyMultimedia k) = "0" -- multimedia keys don't have modifiers
 
 code_key KeyNone = "0 /* unused */"
 code_key (KeyKeyboard _ k) = "KEY_" ++ k
-code_key (KeyMultimedia k) = "MULT_" ++ k
+code_key (KeyMultimedia k) = "MULT_BIT_" ++ k
 
 fromChar c = KeyKeyboard "0" c
 
@@ -31,7 +31,9 @@ non_readable_keys = [(ord '\b', "BACKSPACE"),
            (27, "ESCAPE"),
            (ord '+', "PLUS"),
            (ord '-', "MINUS"),
-           (ord ' ', "SPACE")]
+           (ord '=', "EQUALS"),
+           (ord ' ', "SPACE"),
+           (ord '/', "SLASH")]
 
 non_ascii_keys = 
   [ KeyKeyboard "0" "PAUSE"
@@ -42,6 +44,17 @@ non_ascii_keys =
   , KeyKeyboard "0" "CUR_DOWN"
   , KeyKeyboard "0" "CUR_UP"
   , KeyKeyboard "0" "STOP"
+  , KeyKeyboard "0" "HOME"
+  , KeyKeyboard "0" "PERIOD"
+  , KeyKeyboard "0" "COMMA"
+  , KeyKeyboard "0" "LSQUARE_BRACKET"
+  , KeyKeyboard "0" "RSQUARE_BRACKET"
+  , KeyKeyboard "0" "COMMA"
+  , KeyMultimedia "PREV"
+  , KeyMultimedia "NEXT"
+  , KeyMultimedia "STOP"
+  , KeyMultimedia "PLAYP"
+  , KeyMultimedia "PLAY"
   , KeyMultimedia "MUTE"
   , KeyMultimedia "VOL_UP"
   , KeyMultimedia "VOL_DOWN" ]
@@ -68,4 +81,4 @@ keylines i non_ascii = case (lookup i ascii_keys) of
           [ keyline i (head non_ascii) ] ++ (keylines (i+1) (tail non_ascii))
 
 main = do
-  putStrLn (foldl1 (\ l r -> l ++ ",\n" ++ r) (keylines 1 non_ascii_keys))
+  putStrLn (foldl1 (\ l r -> l ++ ",\n" ++ r) (keylines 0 (KeyNone : non_ascii_keys)))

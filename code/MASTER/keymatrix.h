@@ -4,6 +4,10 @@
 #include <ax8052f143.h>
 #include <libmftypes.h>
 
+#ifdef USE_DBGLINK
+#include <libmfdbglink.h>
+#endif // USE_DBGLINK
+
 #include "../COMMON/misc.h"
 
 ///////////////////////////////////////////////////////////////////////////////

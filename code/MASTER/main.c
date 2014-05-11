@@ -137,7 +137,6 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 
 #ifdef AXREMOTE_RECEIVER
     case AXRADIO_STAT_RECEIVE:
-        led3_toggle();
 
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
@@ -158,7 +157,8 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 
         if (st->u.rx.pktdata[0] == 'K') {
             handle_keycode(st->u.rx.pktdata[1]);
-        }
+        } else
+            led_blink_error();
 
         break;
 #endif // AXREMOTE_RECEIVER
