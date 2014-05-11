@@ -85,6 +85,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/misc.h" />
+		<Unit filename="infrared.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infrared.h">
+			<Option target="Debug Receiver" />
+		</Unit>
 		<Unit filename="key_routing.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug Receiver" />

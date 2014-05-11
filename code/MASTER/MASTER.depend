@@ -430,7 +430,7 @@
 	<libmftypes.h>
 	"../COMMON/axradio.h"
 
-1399802944 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
+1399816565 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
 	"../AX_Radio_Lab_output/configmaster.h"
 	<ax8052f143.h>
 	<libmftypes.h>
@@ -444,6 +444,7 @@
 	"keymatrix.h"
 	"key_routing.h"
 	<libmfuart0.h>
+	"infrared.h"
 
 1392388655 /home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.h
 	"../COMMON/axradio.h"
@@ -461,7 +462,7 @@
 	"../COMMON/axradio.h"
 	"../COMMON/libminidvkled.h"
 
-1399802982 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.c
+1399805583 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.c
 	"key_routing.h"
 
 1399803031 /home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.h
@@ -643,4 +644,13 @@
 
 1398090165 source:x:\sam\axremote\code\master\key_routing.c
 	"key_routing.h"
+
+1399816591 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.c
+	"infrared.h"
+
+1399818205 /home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.h
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfwtimer.h>
+	<libmfdbglink.h>
 

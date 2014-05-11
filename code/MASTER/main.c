@@ -59,6 +59,7 @@
 #ifdef AXREMOTE_RECEIVER
 #include "key_routing.h"
 #include <libmfuart0.h>
+#include "infrared.h"
 #endif
 
 #if !defined(AXREMOTE_RECEIVER) && !defined(AXREMOTE_TRANSMITTER)
@@ -82,6 +83,15 @@ static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
     for (;;)
         PCON |= 0x01;
 }
+
+#ifdef AXREMOTE_RECEIVER
+// to record infrared signals
+static void gpio_irq(void) __interrupt(INT_GPIO)
+{
+    record_input();
+    led3_set(PINC_1 == 0);
+}
+#endif
 
 static void transmit_packet(uint8_t key)
 {
@@ -137,6 +147,7 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 
 #ifdef AXREMOTE_RECEIVER
     case AXRADIO_STAT_RECEIVE:
+        print_recorded_input();
 
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
@@ -186,7 +197,7 @@ uint8_t _sdcc_external_startup(void)
 {
     LPXOSCGM = 0x8A;
     wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
-    wtimer1_setclksrc(CLKSRC_FRCOSC, 7);
+    wtimer1_setclksrc(CLKSRC_FRCOSC, 1); // 20MHz x 1
 
     LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
 
@@ -425,18 +436,21 @@ void main(void)
 
 #else // RECEIVER
 
+    infrared_init();
+
     for(;;) {
 
         wtimer_runcallbacks();
 
 
-        // work-around for reading button state, as button connects to VCC and AX8052 can only apply a pull-up
-        // TODO: remove this, there is now a physical pull-down resistor soldered on
-        /*DIRA |= 1; // A1 = output
-        PORTA &= 0xFE; // A1 = low ("discharge pin")
-        DIRA &= 0xFE; // A1 = input (no pull-up = floating)
-        led0_set(PINA & 0x01 == 1); // if button pressed, pin is charged quickly enough, otherwise it will probably remain floating at GND
-        */
+        // TODO: solder pull-down to correct button-pin
+        /*DIRA &= ~0x01; // input
+        PORTA_0 = 0; // no pull up
+        led3_set(PINA & 0x01 == 1);
+
+        if (PINA & 0x01) {
+            //print_recorded_input();
+        }*/
 
         EA = 0;
         {

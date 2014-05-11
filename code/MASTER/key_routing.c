@@ -12,13 +12,13 @@ const uint8_t __code keycode_actions[37][2] = {
     { ACTION_SEND_USB_KEY,   5 }, //  7  // LEFT
     { ACTION_SEND_USB_KEY,   8 }, //  8  // BACK (backspace)
     { ACTION_SEND_USB_KEY, '\n'}, //  9  // OK (enter)
-    { ACTION_SEND_USB_KEY,   2 }, // 10  // UP
+    { ACTION_SEND_USB_KEY,   7 }, // 10  // UP
     { ACTION_SEND_USB_KEY,   4 }, // 11  // RIGHT
     { ACTION_SEND_USB_KEY,  11 }, // 12  // home
     { ACTION_IGNORE, 0 }, // 13
     { ACTION_SEND_USB_KEY,  27 }, // 14  // BACK (esc)
     { ACTION_IGNORE, 0 }, // 15
-    { ACTION_SEND_USB_KEY,   2 }, // 16  // DOWN
+    { ACTION_SEND_USB_KEY,   6 }, // 16  // DOWN
     { ACTION_IGNORE, 0 }, // 17
     { ACTION_IGNORE, 0 }, // 18
     { ACTION_IGNORE, 0 }, // 19
