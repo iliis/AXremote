@@ -64,7 +64,7 @@ clean:
 	rm -f main.hex main.lst main.obj main.cof main.list main.map main.eep.hex main.bin *.o usbdrv/*.o main.s usbdrv/oddebug.s usbdrv/usbdrv.s
 
 # file targets:
-main.bin:	$(OBJECTS)
+main.bin:	$(OBJECTS) key_table.h usbconfig.h
 	$(COMPILE) -o main.bin $(OBJECTS)
 
 main.hex:	main.bin
@@ -74,7 +74,7 @@ main.hex:	main.bin
 # do the checksize script as our last action to allow successful compilation
 # on Windows with WinAVR where the Unix commands will fail.
 
-main.asm:	main.c
+main.asm:	main.c key_table.h usbconfig.h
 	$(COMPILE) -S -o main.asm main.c
 
 disasm:	main.bin
