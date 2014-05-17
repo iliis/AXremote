@@ -9,6 +9,8 @@
 #include <libmfdbglink.h>
 #endif // USE_DBGLINK
 
+#include "../COMMON/misc.h"
+
 ///////////////////////////////////////////////////////////////////////////////
 // ANALOG INPUT
 
@@ -91,6 +93,12 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 
 ///////////////////////////////////////////////////////////////////////////////
 
+#define WTIMER1_CYCLES_PER_US   10
+#define WTIMER1_CYCLES_PER_MS   (WTIMER1_CYCLES_PER_US*1000)
+#define WTIMER1_MS(ms)          ((ms) * WTIMER1_CYCLES_PER_MS)
+
+///////////////////////////////////////////////////////////////////////////////
+
 #define infrared_B2_on()    do { \
         PALTB |= 0x04; /* enable T2OUT on Port B2 */ \
 }    while(0)
@@ -100,6 +108,7 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
         PORTB_2 = 0; /* output GND on B2 */ \
 }    while(0)
 
+// PWR: C1C0817E
 void infrared_init();
 void infrared_transmit_samsung(uint32_t data);
 

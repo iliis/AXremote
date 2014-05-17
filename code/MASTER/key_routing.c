@@ -6,7 +6,7 @@ const uint8_t __code keycode_actions[37][2] = {
     { ACTION_IGNORE, 0 }, //  1
     { ACTION_IGNORE, 0 }, //  2
     { ACTION_SEND_USB_KEY, ' ' }, //  3  // play/pause
-    { ACTION_IGNORE, 0 }, //  4
+    { ACTION_SEND_IR_CODE, 0 }, //  4
     { ACTION_SEND_USB_KEY, 'X' }, //  5  // stop
     { ACTION_SEND_USB_KEY, 'S' }, //  6  // Power (PC)
     { ACTION_SEND_USB_KEY,   5 }, //  7  // LEFT
@@ -41,6 +41,10 @@ const uint8_t __code keycode_actions[37][2] = {
     { ACTION_IGNORE, 0 } // 36
 };
 
+const uint32_t __code ir_codes[] = {
+    0xe0e040bf // Power
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 void uart_init(void)
 {
@@ -69,8 +73,8 @@ void handle_keycode(uint8_t code) {
         break;
 
     case ACTION_SEND_IR_CODE:
-        // TODO: implement this
-        led_blink_error(); // not implemented!
+        infrared_transmit_samsung(ir_codes[keycode_actions[code][1]]);
+        led_blink_ok();
         break;
 
     case ACTION_IGNORE:

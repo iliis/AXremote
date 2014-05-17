@@ -79,7 +79,6 @@ static void delayms_callback(struct wtimer_desc __xdata *desc)
     delaymstimer.handler = 0;
 }
 
-#include "../COMMON/libminidvkled.h"
 __reentrantb void delay_ms(uint16_t ms) __reentrant
 {
     // scaling: 20e6/64/1e3=312.5=2^8+2^6-2^3+2^-1
@@ -94,9 +93,36 @@ __reentrantb void delay_ms(uint16_t ms) __reentrant
     x <<= 2;
     delaymstimer.time += x;
 
-    wtimer1_remove(&delaymstimer);
     delaymstimer.handler = delayms_callback;
     wtimer1_addrelative(&delaymstimer);
+
+    do {
+
+        wtimer_runcallbacks();
+
+        // otherwise, runcallbacks() clears the timer correctly, but we still enter standby
+        if (!delaymstimer.handler)
+            break;
+
+        wtimer_idle(WTFLAG_CANSTANDBY);
+
+    } while (delaymstimer.handler);
+}
+
+__reentrantb void delay_raw(uint32_t cycles, uint8_t relative) __reentrant
+{
+    wtimer_remove(&delaymstimer);
+    delaymstimer.handler = delayms_callback;
+
+    if (relative) {
+        delaymstimer.time = cycles;
+        wtimer1_addrelative(&delaymstimer);
+    }
+    else
+    {
+        delaymstimer.time += cycles;
+        wtimer1_addabsolute(&delaymstimer);
+    }
 
     do {
 

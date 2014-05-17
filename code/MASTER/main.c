@@ -197,7 +197,7 @@ uint8_t _sdcc_external_startup(void)
 {
     LPXOSCGM = 0x8A;
     wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
-    wtimer1_setclksrc(CLKSRC_FRCOSC, 1); // 20MHz x 1
+    wtimer1_setclksrc(CLKSRC_FRCOSC, 2); // 20MHz / 2
 
     LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
 

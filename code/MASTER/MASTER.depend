@@ -486,8 +486,9 @@
 1392815892 z:\userspaces\sam\axremote\code\common\axradio.h
 	<libmftypes.h>
 
-1392818436 z:\userspaces\sam\axremote\code\common\libminidvkled.h
-	"libmftypes.h"
+1400339981 z:\userspaces\sam\axremote\code\common\libminidvkled.h
+	<libmftypes.h>
+	"../COMMON/misc.h"
 
 1392815892 source:z:\userspaces\sam\axremote\code\ax_radio_lab_output\configmaster.c
 	"../COMMON/axradio.h"
@@ -510,21 +511,19 @@
 	<stdlib.h>
 	<string.h>
 
-1392815892 source:z:\userspaces\sam\axremote\code\common\misc.c
+1400345372 source:z:\userspaces\sam\axremote\code\common\misc.c
 	<ax8052.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
 	<libaxlcd2.h>
 	"misc.h"
 	"../COMMON/axradio.h"
-	"../COMMON/libminidvkled.h"
-	<libmfdbglink.h>
 
-1392815892 z:\userspaces\sam\axremote\code\common\misc.h
+1400345387 z:\userspaces\sam\axremote\code\common\misc.h
 	<libmftypes.h>
 	"../COMMON/axradio.h"
 
-1398089449 source:z:\userspaces\sam\axremote\code\master\main.c
+1400347677 source:z:\userspaces\sam\axremote\code\master\main.c
 	"../AX_Radio_Lab_output/configmaster.h"
 	<ax8052f143.h>
 	<libmftypes.h>
@@ -538,22 +537,26 @@
 	"keymatrix.h"
 	"key_routing.h"
 	<libmfuart0.h>
+	"infrared.h"
 
 1392815892 z:\userspaces\sam\axremote\code\ax_radio_lab_output\configmaster.h
 	"../COMMON/axradio.h"
 
-1398081548 z:\userspaces\sam\axremote\code\master\keymatrix.h
+1400339981 z:\userspaces\sam\axremote\code\master\keymatrix.h
 	<ax8052f143.h>
 	<libmftypes.h>
+	<libmfdbglink.h>
 	"../COMMON/misc.h"
 
-1398090092 z:\userspaces\sam\axremote\code\master\key_routing.h
+1400342972 z:\userspaces\sam\axremote\code\master\key_routing.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfuart.h>
 	<libmfuart0.h>
+	"../COMMON/libminidvkled.h"
+	"../MASTER/infrared.h"
 
-1392815892 source:z:\userspaces\sam\axremote\code\master\key_routing.c
+1400345224 source:z:\userspaces\sam\axremote\code\master\key_routing.c
 	"key_routing.h"
 
 1392815892 source:z:\userspaces\sam\axremote\code\master\keymatrix.c
@@ -653,4 +656,14 @@
 	<libmftypes.h>
 	<libmfwtimer.h>
 	<libmfdbglink.h>
+
+1400347893 z:\userspaces\sam\axremote\code\master\infrared.h
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfwtimer.h>
+	<libmfdbglink.h>
+	"../COMMON/misc.h"
+
+1400345403 source:z:\userspaces\sam\axremote\code\master\infrared.c
+	"infrared.h"
 

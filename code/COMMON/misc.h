@@ -38,6 +38,7 @@ extern void calibrate_lposc(void);
 extern uint8_t display_received_packet(struct axradio_status __xdata *st);
 extern void dbglink_received_packet(struct axradio_status __xdata *st);
 extern __reentrantb void delay_ms(uint16_t ms) __reentrant;
+extern __reentrantb void delay_raw(uint32_t cycles, uint8_t relative) __reentrant;
 extern void stop_with_error(uint8_t *str);
 extern void display_radio_error(uint8_t err);
 

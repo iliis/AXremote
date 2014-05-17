@@ -98,7 +98,7 @@ void print_recorded_input()
 //	0 bit: 0.59ms 1, 0.59ms 0
 // stop bit: same as 0
 #define JITTER	100 // in microseconds
-#define LENGTH(length) ( ((length)-JITTER) < (delta) && (delta) < ((length)+JITTER) )
+#define LENGTH(length) ( (((length)-JITTER) < (delta)) && (delta) < (((length)+JITTER)) )
 
 #define NEXT_BIT()	do { \
     ++i; \
@@ -106,7 +106,7 @@ void print_recorded_input()
 	state = input_recording_state[i-1]; \
 	delta = input_recording[i]; \
 	delta -= input_recording[i-1]; \
-	delta /= 20; /* convert to microseconds */ \
+	delta /= WTIMER1_CYCLES_PER_US; /* convert to microseconds */ \
 } while (0);
 
 #define PRINT_DELTA()   do { dbglink_writestr("delta: "); dbglink_writeu32(delta, 10); dbglink_tx('\n'); } while(0)
@@ -136,8 +136,8 @@ uint32_t parse_input_samsung()
                         NEXT_BIT();
                         if (LENGTH(1690) && state == 0) {
                             // one bit
-                            result |= 1;
                             result <<= 1;
+                            result |= 1;
                         } else if (LENGTH(560) && state == 0) {
                             // zero bit
                             result <<= 1;
@@ -156,11 +156,49 @@ uint32_t parse_input_samsung()
                         return result;
                     }
                 }
-                return 0;
+                return 0; // error
             }
 		}
 	}
 
 	return 0; // error parsing
+}
+///////////////////////////////////////////////////////////////////////////////
+// format:
+// start bit: 4.5ms 1, 4.5ms 0
+// 32 data bits:
+//	1 bit: 0.59ms 1, 1.69ms 0
+//	0 bit: 0.59ms 1, 0.59ms 0
+// stop bit: same as 0
+void infrared_transmit_samsung(uint32_t data)
+{
+    uint8_t i = 0;
+
+    // 20 MHz --> 1ms = 20000 cycles
+
+    // start bit
+    infrared_B2_on();
+    delay_raw(WTIMER1_MS(4.5), 1);
+    infrared_B2_off();
+    delay_raw(WTIMER1_MS(4.5), 0);
+
+    for (; i < 32; ++i) {
+        infrared_B2_on();
+        delay_raw(WTIMER1_MS(0.56), 0);
+        infrared_B2_off();
+
+        if (data & 0x80000000)
+            delay_raw(WTIMER1_MS(1.69), 0);
+        else
+            delay_raw(WTIMER1_MS(0.56), 0);
+
+        data <<= 1;
+    }
+
+    // stop bit
+    infrared_B2_on();
+    delay_raw(WTIMER1_MS(0.56), 0);
+    infrared_B2_off();
+    delay_raw(WTIMER1_MS(0.56), 0);
 }
 ///////////////////////////////////////////////////////////////////////////////
