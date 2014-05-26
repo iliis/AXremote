@@ -15905,6 +15905,9 @@ Source: www.kingbright.com</description>
 <junction x="193.04" y="33.02"/>
 <junction x="215.9" y="33.02"/>
 <junction x="238.76" y="33.02"/>
+<junction x="307.34" y="33.02"/>
+<junction x="284.48" y="33.02"/>
+<junction x="261.62" y="33.02"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PC0"/>
@@ -15970,6 +15973,8 @@ Source: www.kingbright.com</description>
 <wire x1="208.28" y1="-119.38" x2="205.74" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="208.28" y="-116.84"/>
 <junction x="208.28" y="33.02"/>
+<junction x="208.28" y="-88.9"/>
+<junction x="208.28" y="2.54"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-30.48" x2="38.1" y2="-30.48" width="0.1524" layer="91"/>
@@ -16035,6 +16040,9 @@ Source: www.kingbright.com</description>
 <wire x1="231.14" y1="-116.84" x2="231.14" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="-119.38" x2="228.6" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="231.14" y="-116.84"/>
+<junction x="231.14" y="-88.9"/>
+<junction x="231.14" y="2.54"/>
+<junction x="231.14" y="33.02"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
@@ -16104,6 +16112,7 @@ Source: www.kingbright.com</description>
 <junction x="254" y="-116.84"/>
 <junction x="254" y="2.54"/>
 <junction x="254" y="33.02"/>
+<junction x="254" y="-88.9"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-35.56" x2="33.02" y2="-35.56" width="0.1524" layer="91"/>
@@ -16171,6 +16180,7 @@ Source: www.kingbright.com</description>
 <junction x="276.86" y="-116.84"/>
 <junction x="276.86" y="2.54"/>
 <junction x="276.86" y="33.02"/>
+<junction x="276.86" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PB2"/>
@@ -16239,6 +16249,7 @@ Source: www.kingbright.com</description>
 <junction x="299.72" y="-116.84"/>
 <junction x="299.72" y="2.54"/>
 <junction x="299.72" y="33.02"/>
+<junction x="299.72" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PB1"/>
@@ -16505,6 +16516,12 @@ Source: www.kingbright.com</description>
 <wire x1="284.48" y1="-88.9" x2="287.02" y2="-88.9" width="0.1524" layer="91"/>
 <pinref part="S45" gate="1" pin="P1"/>
 <wire x1="307.34" y1="-88.9" x2="309.88" y2="-88.9" width="0.1524" layer="91"/>
+<junction x="193.04" y="-88.9"/>
+<junction x="215.9" y="-88.9"/>
+<junction x="238.76" y="-88.9"/>
+<junction x="261.62" y="-88.9"/>
+<junction x="284.48" y="-88.9"/>
+<junction x="307.34" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PC4"/>
@@ -16704,6 +16721,7 @@ Source: www.kingbright.com</description>
 <junction x="322.58" y="-116.84"/>
 <junction x="322.58" y="2.54"/>
 <junction x="322.58" y="33.02"/>
+<junction x="322.58" y="-88.9"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PB0"/>

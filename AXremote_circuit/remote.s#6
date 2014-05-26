@@ -13609,23 +13609,23 @@ Source: www.farnell.com/datasheets/247.pdf</description>
 <wire x1="7.62" y1="0" x2="5.08" y2="0" width="0.127" layer="21"/>
 </package>
 <package name="APERTURE_LOGO">
-<circle x="0" y="0" radius="4" width="0.2" layer="39"/>
-<wire x1="-0.8" y1="2" x2="-3.4" y2="2" width="0.2" layer="39"/>
-<wire x1="0.8" y1="-2" x2="3.4" y2="-2" width="0.2" layer="39"/>
-<wire x1="-2" y1="-0.8" x2="-2" y2="-3.4" width="0.2" layer="39"/>
-<wire x1="2" y1="0.8" x2="2" y2="3.4" width="0.2" layer="39"/>
-<wire x1="2" y1="0.8" x2="0.8" y2="2" width="0.2" layer="39"/>
-<wire x1="0.8" y1="2" x2="-1" y2="3.8" width="0.2" layer="39"/>
-<wire x1="-0.8" y1="2" x2="-2" y2="0.8" width="0.2" layer="39"/>
-<wire x1="-2" y1="0.8" x2="-3.8" y2="-1" width="0.2" layer="39"/>
-<wire x1="-2" y1="-0.8" x2="-0.8" y2="-2" width="0.2" layer="39"/>
-<wire x1="-0.8" y1="-2" x2="1" y2="-3.8" width="0.2" layer="39"/>
-<wire x1="0.8" y1="-2" x2="2" y2="-0.8" width="0.2" layer="39"/>
-<wire x1="2" y1="-0.8" x2="3.8" y2="1" width="0.2" layer="39"/>
-<wire x1="-0.8" y1="2" x2="0.8" y2="2" width="0.2" layer="39"/>
-<wire x1="-2" y1="-0.8" x2="-2" y2="0.8" width="0.2" layer="39"/>
-<wire x1="2" y1="0.8" x2="2" y2="-0.8" width="0.2" layer="39"/>
-<wire x1="0.8" y1="-2" x2="-0.8" y2="-2" width="0.2" layer="39"/>
+<circle x="0" y="0" radius="4" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="2" x2="-3.4" y2="2" width="0.2" layer="41"/>
+<wire x1="0.8" y1="-2" x2="3.4" y2="-2" width="0.2" layer="41"/>
+<wire x1="-2" y1="-0.8" x2="-2" y2="-3.4" width="0.2" layer="41"/>
+<wire x1="2" y1="0.8" x2="2" y2="3.4" width="0.2" layer="41"/>
+<wire x1="2" y1="0.8" x2="0.8" y2="2" width="0.2" layer="41"/>
+<wire x1="0.8" y1="2" x2="-1" y2="3.8" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="2" x2="-2" y2="0.8" width="0.2" layer="41"/>
+<wire x1="-2" y1="0.8" x2="-3.8" y2="-1" width="0.2" layer="41"/>
+<wire x1="-2" y1="-0.8" x2="-0.8" y2="-2" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="-2" x2="1" y2="-3.8" width="0.2" layer="41"/>
+<wire x1="0.8" y1="-2" x2="2" y2="-0.8" width="0.2" layer="41"/>
+<wire x1="2" y1="-0.8" x2="3.8" y2="1" width="0.2" layer="41"/>
+<wire x1="-0.8" y1="2" x2="0.8" y2="2" width="0.2" layer="41"/>
+<wire x1="-2" y1="-0.8" x2="-2" y2="0.8" width="0.2" layer="41"/>
+<wire x1="2" y1="0.8" x2="2" y2="-0.8" width="0.2" layer="41"/>
+<wire x1="0.8" y1="-2" x2="-0.8" y2="-2" width="0.2" layer="41"/>
 </package>
 </packages>
 <symbols>
@@ -15905,6 +15905,9 @@ Source: www.kingbright.com</description>
 <junction x="193.04" y="33.02"/>
 <junction x="215.9" y="33.02"/>
 <junction x="238.76" y="33.02"/>
+<junction x="307.34" y="33.02"/>
+<junction x="284.48" y="33.02"/>
+<junction x="261.62" y="33.02"/>
 </segment>
 <segment>
 <pinref part="U1" gate="IC" pin="PC0"/>
@@ -15971,6 +15974,7 @@ Source: www.kingbright.com</description>
 <junction x="208.28" y="-116.84"/>
 <junction x="208.28" y="33.02"/>
 <junction x="208.28" y="-88.9"/>
+<junction x="208.28" y="2.54"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-30.48" x2="38.1" y2="-30.48" width="0.1524" layer="91"/>
@@ -16037,6 +16041,8 @@ Source: www.kingbright.com</description>
 <wire x1="231.14" y1="-119.38" x2="228.6" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="231.14" y="-116.84"/>
 <junction x="231.14" y="-88.9"/>
+<junction x="231.14" y="2.54"/>
+<junction x="231.14" y="33.02"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
