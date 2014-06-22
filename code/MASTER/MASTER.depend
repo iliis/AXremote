@@ -648,10 +648,13 @@
 1398090165 source:x:\sam\axremote\code\master\key_routing.c
 	"key_routing.h"
 
-1403386494 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.c
+1403445125 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.c
 	"infrared.h"
+	"infared_protocols/samsung.h"
+	"infared_protocols/sony.h"
+	"infared_protocols/philips_rc5.h"
 
-1403387167 /home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.h
+1403442218 /home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
@@ -667,4 +670,13 @@
 
 1400345403 source:z:\userspaces\sam\axremote\code\master\infrared.c
 	"infrared.h"
+
+1403445239 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/samsung.h
+	"../infrared.h"
+
+1403445263 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.h
+	"../infrared.h"
+
+1403445252 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.h
+	"../infrared.h"
 

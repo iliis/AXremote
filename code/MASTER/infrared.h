@@ -105,9 +105,9 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 #define _WTIMER1_UNITS(unit, time)			WTIMER1_UNITS_FROM_##unit(time)
 #define WTIMER1_UNITS(...)					_WTIMER1_UNITS(__VA_ARGS__)
 
-#define US(time)							US, ((uint32_t) time)
-#define MS(time)							MS, ((uint32_t) time)
-#define  S(time)							 S, ((uint32_t) time)
+#define US(time)							US, ((uint32_t) (time))
+#define MS(time)							MS, ((uint32_t) (time))
+#define  S(time)							 S, ((uint32_t) (time))
 
 // usage e.g.:
 // WTIMER1_UNITS(MS(100))
@@ -127,6 +127,7 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 
 #define IR_RX_BUFFER_SIZE		200	// uint8_t !
 
+// minimum amount of time between two infrared packets
 #define IR_RX_TIMEOUT			MS(20)
 
 #define IR_TIMING_TOLERANCE 25  // percent tolerance in measurements
@@ -141,10 +142,11 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 ///////////////////////////////////////////////////////////////////////////////
 // INFRARED PROTOCOLS
 
-# define IR_PROTOCOL_SAMSUNG	1
+#define IR_PROTOCOL_SAMSUNG	1
 // PWR: C1C0817E
 
-//# define IR_PROTOCOL_
+#define IR_PROTOCOL_SONY		2
+#define IR_PROTOCOL_PHILIPS_RC5	3
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -165,17 +167,24 @@ struct ir_packet
 };
 
 void infrared_transmit(uint8_t protocol, uint32_t data);
-void infrared_transmit_samsung(uint32_t data);
 
-uint8_t infrared_parse_samsung(uint32_t* result);
 void register_ir_rx_callback(void (*callback)(__xdata struct ir_packet* packet));
 
 void infrared_start_rx();
 
 ///////////////////////////////////////////////////////////////////////////////
-// internal IR functions
+// internal IR functions / data
 
-void infrared_init_tx(uint16_t khz);
+// received data
+extern __xdata uint32_t ir_rx_buffer[IR_RX_BUFFER_SIZE];
+extern uint8_t ir_rx_count;
+
+#define NEXT_BIT(i)	do { \
+    ++(i); \
+	if ((i) >= ir_rx_count) return 0; \
+} while (0);
+
+void infrared_init_tx(uint32_t hz);
 void handle_pin_change();
 void print_recorded_input();
 
