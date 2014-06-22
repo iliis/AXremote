@@ -308,6 +308,8 @@ void main(void)
     led2_off();
     led3_off();
 
+//-----------------------------------------------------------------------------
+
     if (coldstart) {
         // coldstart
 
@@ -372,6 +374,7 @@ void main(void)
         IE_4 = 1; // Radio Interrupt enable
     }
 
+//-----------------------------------------------------------------------------
 #ifdef AXREMOTE_TRANSMITTER
     for(;;)
     {
@@ -434,6 +437,8 @@ void main(void)
         IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
     }
 
+
+//-----------------------------------------------------------------------------
 #else // RECEIVER
 
     infrared_init();
@@ -474,6 +479,8 @@ void main(void)
         EA = 1;
     }
 #endif // AXREMOTE_TRANSMITTER
+
+//-----------------------------------------------------------------------------
 
 terminate_radio_error:
     display_radio_error(err);

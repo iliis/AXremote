@@ -109,6 +109,8 @@ __reentrantb void delay_ms(uint16_t ms) __reentrant
     } while (delaymstimer.handler);
 }
 
+// 'relative' = 1: relative to now
+//              0: relative to last issued delay
 __reentrantb void delay_raw(uint32_t cycles, uint8_t relative) __reentrant
 {
     wtimer_remove(&delaymstimer);

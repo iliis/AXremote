@@ -2,9 +2,19 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-__xdata uint32_t input_recording[100];
-__xdata uint8_t input_recording_state[100];
-uint8_t input_rec_idx;
+#define IR_RX_STATE_READY		0
+#define IR_RX_STATE_RECEIVING	1
+#define IR_RX_STATE_FINISHED	2
+
+uint8_t  ir_rx_state = IR_RX_STATE_FINISHED; // don't listen to IR codes per default
+uint8_t  ir_rx_last_pinstate = IR_SPACE;
+uint32_t ir_rx_last_time = 0;
+
+// length between pin changes, first value is length of first MARK ('active') state
+// TIMER1 units (which should run at 10MHz, but use macros)
+__xdata uint32_t ir_rx_buffer[IR_RX_BUFFER_SIZE];
+uint8_t ir_rx_count = 0;
+
 
 ///////////////////////////////////////////////////////////////////////////////
 void pwm_init(uint16_t period, uint8_t timer, uint8_t mode)
@@ -32,34 +42,109 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode)
     PORTC |= 0x02; // with pull-up
 }
 ///////////////////////////////////////////////////////////////////////////////
-void infrared_init()
+void infrared_init_tx(uint16_t khz)
 {
     // this should give us approximately 38kHz (38.0228...)
     //pwm_init(263, IO_PWM_TIMER2, IO_TIMER_MODE_DIV_TRIANGLE);
 
     // 37.9kHz
-    pwm_init(264, IO_PWM_TIMER2, IO_TIMER_MODE_DIV_TRIANGLE);
+    //pwm_init(264, IO_PWM_TIMER2, IO_TIMER_MODE_DIV_TRIANGLE);
 
-    input_rec_idx = 0;
+#ifdef USE_DBGLINK
+    if (DBGLNKSTAT & 0x10) {
+		dbglink_writestr("setting PWM to ");
+		dbglink_writenum16(khz, 5, 0);
+	}
+#endif
 
-    // enable GPIO change interrupt on C1:
-    INTCHGC |= 0x02;
-    IE_3 = 1; // GPIO interrupts enable
+	// PWM runs from 20 MHz clock, toggle twice per period -> period *= 2
+	khz = 10000 / khz;
+	pwm_init(khz, IO_PWM_TIMER2, IO_TIMER_MODE_DIV_TRIANGLE);
+
+#ifdef USE_DBGLINK
+    if (DBGLNKSTAT & 0x10) {
+		dbglink_writestr(" kHz = period of ");
+		dbglink_writenum16(khz, 10, 0);
+	}
+#endif
 }
 ///////////////////////////////////////////////////////////////////////////////
-void record_input()
+__xdata struct wtimer_callback ir_rx_wtimer_cb_handle;
+void (*ir_rx_callback)(__xdata struct ir_packet* data) = 0;
+
+void ir_rx_wtimer_callback(struct wtimer_callback __xdata *desc)
 {
-    if (input_rec_idx < 100) {
-        input_recording[input_rec_idx] = wtimer1_curtime();
-        input_recording_state[input_rec_idx] = PINC_1 ? 0 : 1;
-        input_rec_idx++;
-    }
-    /*
-    if (PINC & 0x01) {
-        input_recording[input_rec_idx++] = T2CNT | 0x01;
-    } else {
-        input_recording[input_rec_idx++] = T2CNT & 0xFE;
-    }*/
+	desc;
+
+	// is somebody even interested in our results?
+	if (ir_rx_callback != 0) {
+		// try to parse what we received
+		__xdata struct ir_packet packet;
+		packet.data = 0;
+		packet.protocol = 0;
+
+		if (infrared_parse_samsung(&packet.data)) {
+			packet.protocol = IR_PROTOCOL_SAMSUNG;
+			(*ir_rx_callback)(&packet);
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void register_ir_rx_callback(void (*callback)(__xdata struct ir_packet* packet))
+{
+	ir_rx_callback = callback;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// called from GPIO interrupt handler
+void handle_pin_change()
+{
+	uint8_t  ir_rx_cur_pinstate = IR_RX_READ();
+
+	// did our pin actually change or was this interrupt called for another one?
+	if (ir_rx_cur_pinstate != ir_rx_last_pinstate) {
+
+		uint32_t cur_time   = wtimer1_curtime();
+		uint32_t time_delta = cur_time - ir_rx_last_time;
+
+		ir_rx_last_pinstate = ir_rx_cur_pinstate;
+
+		switch (ir_rx_state) {
+			case IR_RX_STATE_READY: // in between two recordings
+				if (ir_rx_cur_pinstate == IR_MARK) {
+					// a new sequence has started!
+					ir_rx_last_time = cur_time;
+					ir_rx_count = 0;
+					ir_rx_state = IR_RX_STATE_RECEIVING;
+				}
+				break;
+
+			case IR_RX_STATE_RECEIVING:
+				if ((time_delta < WTIMER1_UNITS(IR_RX_TIMEOUT)) && (ir_rx_count < IR_RX_BUFFER_SIZE)) {
+						// record pin change
+						ir_rx_buffer[ir_rx_count++] = time_delta;
+						ir_rx_last_time = cur_time;
+				} else {
+					// we've waited long enough or our buffer is full, this sequence is done
+					ir_rx_state = IR_RX_STATE_FINISHED;
+
+					// deregister interrupt handler here (i.e. disable GPIO interrupts)
+					IE_3 = 1; // GPIO interrupts enable
+
+					// add callback to parse and notify user
+					ir_rx_wtimer_cb_handle.handler = &ir_rx_wtimer_callback;
+					wtimer_add_callback(&ir_rx_wtimer_cb_handle);
+				}
+				break;
+
+			case IR_RX_STATE_FINISHED:
+			default:
+				// ignore, nothing to do
+				break;
+		}
+	}
 }
 ///////////////////////////////////////////////////////////////////////////////
 void print_recorded_input()
@@ -67,8 +152,9 @@ void print_recorded_input()
 #ifdef USE_DBGLINK
     if (DBGLNKSTAT & 0x10) {
         uint8_t i = 0;
-        dbglink_writestr("recording:\n");
-        /*for (; i < input_rec_idx; ++i) {
+		uint32_t code;
+        /*dbglink_writestr("recording:\n");
+        for (; i < input_rec_idx; ++i) {
             if (i>0) {
                 dbglink_writeu32(input_recording[i], 10);
                 dbglink_tx(',');
@@ -84,12 +170,41 @@ void print_recorded_input()
             dbglink_tx('\n');
         }*/
 		dbglink_writestr("parsed: ");
-		dbglink_writehexu32(parse_input_samsung(), 8);
+		if (infrared_parse_samsung(&code))
+			dbglink_writehexu32(code, 8);
+		else
+			dbglink_writestr("ERROR");
 		dbglink_tx('\n');
     }
 #endif // USE_DBGLINK
-    input_rec_idx = 0;
+    //input_rec_idx = 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////
+
+void infrared_transmit(uint8_t protocol, uint32_t data)
+{
+	switch (protocol) {
+		case IR_PROTOCOL_SAMSUNG:
+			infrared_transmit_samsung(data);
+			break;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void infrared_start_rx()
+{
+	// init buffer
+	ir_rx_last_time = 0;
+	ir_rx_count = 0;
+	ir_rx_state = IR_RX_STATE_READY;
+
+    // enable GPIO change interrupt on C1:
+    INTCHGC |= 0x02;
+    IE_3 = 1; // GPIO interrupts enable
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // format:
 // start bit: 4.5ms 1, 4.5ms 0
@@ -97,67 +212,52 @@ void print_recorded_input()
 //	1 bit: 0.59ms 1, 1.69ms 0
 //	0 bit: 0.59ms 1, 0.59ms 0
 // stop bit: same as 0
-#define JITTER	100 // in microseconds
-#define LENGTH(length) ( (((length)-JITTER) < (delta)) && (delta) < (((length)+JITTER)) )
 
 #define NEXT_BIT()	do { \
     ++i; \
-	if (i >= input_rec_idx) return 0; \
-	state = input_recording_state[i-1]; \
-	delta = input_recording[i]; \
-	delta -= input_recording[i-1]; \
-	delta /= WTIMER1_CYCLES_PER_US; /* convert to microseconds */ \
+	if (i >= ir_rx_count) return 0; \
 } while (0);
 
-#define PRINT_DELTA()   do { dbglink_writestr("delta: "); dbglink_writeu32(delta, 10); dbglink_tx('\n'); } while(0)
-
-uint32_t parse_input_samsung()
+// returns 1 on successful parse
+uint8_t infrared_parse_samsung(uint32_t* result)
 {
-    uint32_t delta = 0, result = 0;
 	uint8_t i = 0;
 
-	while (i < input_rec_idx) {
-        uint8_t state;
+	*result = 0;
+
+	if (TIME_IN_RANGE(ir_rx_buffer[i], MS(4.5))) {
 		NEXT_BIT();
+		if (TIME_IN_RANGE(ir_rx_buffer[i], MS(4.5))) {
+			// found start bit, parse actual data
 
-        // values are timer1 units (running on 20MHz), one unit = 0.05us
+			uint8_t b = 0;
+			for (; b<32; ++b) {
 
-        if (LENGTH(4500) && state == 1) {
-            NEXT_BIT();
-            if (LENGTH(4500) && state == 0) {
-                // found start bit, parse actual data
+				NEXT_BIT();
+				if (TIME_IN_RANGE(ir_rx_buffer[i], MS(0.56))) {
 
-                uint8_t b = 0;
-                for (; b<32; ++b) {
+					NEXT_BIT();
+					if (TIME_IN_RANGE(ir_rx_buffer[i], MS(1.69))) {
+						// one bit
+						*result <<= 1;
+						*result |= 1;
+					} else if (TIME_IN_RANGE(ir_rx_buffer[i], MS(0.56))) {
+						// zero bit
+						*result <<= 1;
+					} else
+						return 0; // error
+				} else
+					return 0; // error
+			}
 
-                    NEXT_BIT();
-                    if (LENGTH(560) && state == 1) {
+			NEXT_BIT();
+			if (TIME_IN_RANGE(ir_rx_buffer[i], MS(0.56))) {
+				// last '0' can be infinitely long and isn't recorded
 
-                        NEXT_BIT();
-                        if (LENGTH(1690) && state == 0) {
-                            // one bit
-                            result <<= 1;
-                            result |= 1;
-                        } else if (LENGTH(560) && state == 0) {
-                            // zero bit
-                            result <<= 1;
-                        } else
-                            return 0; // error
-                    } else
-                        return 0; // error
-                }
-
-                NEXT_BIT();
-                if (LENGTH(560) && state == 1) {
-
-                    NEXT_BIT();
-                    if (state == 0) { // last 0 can be infinitely long ;)
-                        // success: found stop bit
-                        return result;
-                    }
-                }
-                return 0; // error
-            }
+				// success: found stop bit
+				return 1;
+			}
+			return 0; // error
 		}
 	}
 
@@ -178,27 +278,29 @@ void infrared_transmit_samsung(uint32_t data)
 
     // start bit
     infrared_B2_on();
-    delay_raw(WTIMER1_MS(4.5), 1);
+    DELAY_FROM_NOW(MS(4.5));
     infrared_B2_off();
-    delay_raw(WTIMER1_MS(4.5), 0);
+    DELAY(MS(4.5));
 
+	// actual data
     for (; i < 32; ++i) {
         infrared_B2_on();
-        delay_raw(WTIMER1_MS(0.56), 0);
+        DELAY(MS(0.56));
         infrared_B2_off();
 
         if (data & 0x80000000)
-            delay_raw(WTIMER1_MS(1.69), 0);
+            DELAY(MS(1.69));
         else
-            delay_raw(WTIMER1_MS(0.56), 0);
+            DELAY(MS(0.56));
 
         data <<= 1;
     }
 
     // stop bit
     infrared_B2_on();
-    delay_raw(WTIMER1_MS(0.56), 0);
+    DELAY(MS(0.56));
+
     infrared_B2_off();
-    delay_raw(WTIMER1_MS(0.56), 0);
+    DELAY(MS(0.56));
 }
 ///////////////////////////////////////////////////////////////////////////////
