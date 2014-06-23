@@ -73,7 +73,7 @@ void handle_keycode(uint8_t code) {
         break;
 
     case ACTION_SEND_IR_CODE:
-        infrared_transmit_samsung(ir_codes[keycode_actions[code][1]]);
+        //infrared_transmit_samsung(ir_codes[keycode_actions[code][1]]);
         led_blink_ok();
         break;
 

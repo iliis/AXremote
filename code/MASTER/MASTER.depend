@@ -430,7 +430,7 @@
 	<libmftypes.h>
 	"../COMMON/axradio.h"
 
-1403356913 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
+1403481096 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
 	"../AX_Radio_Lab_output/configmaster.h"
 	<ax8052f143.h>
 	<libmftypes.h>
@@ -461,7 +461,7 @@
 	"misc.h"
 	"../COMMON/axradio.h"
 
-1403348354 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.c
+1403480904 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.c
 	"key_routing.h"
 
 1403348354 /home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.h
@@ -679,4 +679,13 @@
 
 1403445252 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.h
 	"../infrared.h"
+
+1403444580 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.c
+	"philips_rc5.h"
+
+1403441250 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/samsung.c
+	"samsung.h"
+
+1403441217 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.c
+	"sony.h"
 

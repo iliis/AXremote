@@ -88,7 +88,7 @@ static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
 // to record infrared signals
 static void gpio_irq(void) __interrupt(INT_GPIO)
 {
-    record_input();
+    handle_pin_change();
     led3_set(PINC_1 == 0);
 }
 #endif
@@ -441,7 +441,8 @@ void main(void)
 //-----------------------------------------------------------------------------
 #else // RECEIVER
 
-    infrared_init();
+    //infrared_init();
+    // TODO: add callback for IR packets here
 
     for(;;) {
 
