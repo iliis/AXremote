@@ -16,7 +16,9 @@ obj/
 # Executables
 *.exe
 *.app
+*.pyc
 bin/
+obj/
 
 #temporary files
 *.swp

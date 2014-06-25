@@ -88,7 +88,7 @@ static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
 // to record infrared signals
 static void gpio_irq(void) __interrupt(INT_GPIO)
 {
-    record_input();
+    handle_pin_change();
     led3_set(PINC_1 == 0);
 }
 #endif
@@ -308,6 +308,8 @@ void main(void)
     led2_off();
     led3_off();
 
+//-----------------------------------------------------------------------------
+
     if (coldstart) {
         // coldstart
 
@@ -372,6 +374,7 @@ void main(void)
         IE_4 = 1; // Radio Interrupt enable
     }
 
+//-----------------------------------------------------------------------------
 #ifdef AXREMOTE_TRANSMITTER
     for(;;)
     {
@@ -434,9 +437,12 @@ void main(void)
         IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
     }
 
+
+//-----------------------------------------------------------------------------
 #else // RECEIVER
 
-    infrared_init();
+    //infrared_init();
+    // TODO: add callback for IR packets here
 
     for(;;) {
 
@@ -474,6 +480,8 @@ void main(void)
         EA = 1;
     }
 #endif // AXREMOTE_TRANSMITTER
+
+//-----------------------------------------------------------------------------
 
 terminate_radio_error:
     display_radio_error(err);

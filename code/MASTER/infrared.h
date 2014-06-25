@@ -50,44 +50,44 @@
 // TIMER
 
 // 8052 Programming Manual, Chapter 15.4 (T0CLKSRC)
-#define IO_TIMER_SRC_FRCOSC 0b000
-#define IO_TIMER_SRC_LPOSC0 0b001
+#define IO_TIMER_SRC_FRCOSC			0b000
+#define IO_TIMER_SRC_LPOSC0			0b001
 // do not select XOSC or LPXOSC unless a crystal is connected!
-#define IO_TIMER_SRC_XOSC 0b010
-#define IO_TIMER_SRC_LPXOSC 0b011
-#define IO_TIMER_SRC_RSYSCLK 0b100
-#define IO_TIMER_SRC_T0CLK 0b101
+#define IO_TIMER_SRC_XOSC			0b010
+#define IO_TIMER_SRC_LPXOSC			0b011
+#define IO_TIMER_SRC_RSYSCLK		0b100
+#define IO_TIMER_SRC_T0CLK			0b101
 // System clock may stop if processor enters standby.
-#define IO_TIMER_SRC_SYSTEM 0b110
-#define IO_TIMER_SRC_OFF 0b111
+#define IO_TIMER_SRC_SYSTEM			0b110
+#define IO_TIMER_SRC_OFF			0b111
 
-#define IO_TIMER_PRESC_X2 0b000
-#define IO_TIMER_PRESC_X1 0b001
-#define IO_TIMER_PRESC_D2 0b010
-#define IO_TIMER_PRESC_D4 0b011
-#define IO_TIMER_PRESC_D8 0b100
-#define IO_TIMER_PRESC_D16 0b101
-#define IO_TIMER_PRESC_D32 0b110
-#define IO_TIMER_PRESC_D64 0b111
+#define IO_TIMER_PRESC_X2			0b000
+#define IO_TIMER_PRESC_X1			0b001
+#define IO_TIMER_PRESC_D2			0b010
+#define IO_TIMER_PRESC_D4			0b011
+#define IO_TIMER_PRESC_D8			0b100
+#define IO_TIMER_PRESC_D16			0b101
+#define IO_TIMER_PRESC_D32			0b110
+#define IO_TIMER_PRESC_D64			0b111
 
-#define IO_TIMER_FLAG_CLK_INVERT 0x40
-#define IO_TIMER_FLAG_SYS_SYNC 0x80
+#define IO_TIMER_FLAG_CLK_INVERT	0x40
+#define IO_TIMER_FLAG_SYS_SYNC		0x80
 
 // 8052 Programming Manual, Chapter 15.5 (T0MODE)
-#define IO_TIMER_MODE_OFF 0b000
-#define IO_TIMER_MODE_DELTA_SIGMA 0b001
-#define IO_TIMER_MODE_DIV_SAWTOOTH 0b010
-#define IO_TIMER_MODE_DIV_TRIANGLE 0b011
-#define IO_TIMER_MODE_MULT_SAWTOOTH 0b100
-#define IO_TIMER_MODE_MULT_TRIANGLE 0b101
+#define IO_TIMER_MODE_OFF			0b000
+#define IO_TIMER_MODE_DELTA_SIGMA	0b001
+#define IO_TIMER_MODE_DIV_SAWTOOTH	0b010
+#define IO_TIMER_MODE_DIV_TRIANGLE	0b011
+#define IO_TIMER_MODE_MULT_SAWTOOTH	0b100
+#define IO_TIMER_MODE_MULT_TRIANGLE	0b101
 
 ///////////////////////////////////////////////////////////////////////////////
 // ANALOG OUTPUT (PWM)
 
-#define IO_PWM_TIMER_OFF 0b00
-#define IO_PWM_TIMER0 0b01
-#define IO_PWM_TIMER1 0b10
-#define IO_PWM_TIMER2 0b11
+#define IO_PWM_TIMER_OFF			0
+#define IO_PWM_TIMER0				1
+#define IO_PWM_TIMER1				2
+#define IO_PWM_TIMER2				3
 
 void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 
@@ -95,7 +95,58 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 
 #define WTIMER1_CYCLES_PER_US   10
 #define WTIMER1_CYCLES_PER_MS   (WTIMER1_CYCLES_PER_US*1000)
-#define WTIMER1_MS(ms)          ((ms) * WTIMER1_CYCLES_PER_MS)
+
+///////////////////////////////////////////////////////////////////////////////
+// TIME CONVERSIONS
+
+#define WTIMER1_UNITS_FROM_MS(ms)          ((uint32_t) ((ms) * WTIMER1_CYCLES_PER_MS))
+#define WTIMER1_UNITS_FROM_US(us)          ((uint32_t) ((us) * WTIMER1_CYCLES_PER_US))
+
+#define _WTIMER1_UNITS(unit, time)			WTIMER1_UNITS_FROM_##unit(time)
+#define WTIMER1_UNITS(...)					_WTIMER1_UNITS(__VA_ARGS__)
+
+#define US(time)							US, ((uint32_t) (time))
+#define MS(time)							MS, ((uint32_t) (time))
+#define  S(time)							 S, ((uint32_t) (time))
+
+// usage e.g.:
+// WTIMER1_UNITS(MS(100))
+
+///////////////////////////////////////////////////////////////////////////////
+
+#define DELAY_FROM_NOW(time)	delay_raw(WTIMER1_UNITS(time), 1) // use for the first delay in a function
+#define DELAY(time)				delay_raw(WTIMER1_UNITS(time), 0) // calculates delay relative to last delay call
+
+///////////////////////////////////////////////////////////////////////////////
+
+// infrared receiver outputs an inverted signal
+#define IR_RX_READ()			(PINC_1 ? IR_SPACE : IR_MARK)
+
+#define IR_MARK					1
+#define IR_SPACE				0
+
+#define IR_RX_BUFFER_SIZE		200	// uint8_t !
+
+// minimum amount of time between two infrared packets
+#define IR_RX_TIMEOUT			MS(20)
+
+#define IR_TIMING_TOLERANCE 25  // percent tolerance in measurements
+#define IR_TIMING_LTOL (1.0 - IR_TIMING_TOLERANCE/100.) 
+#define IR_TIMING_UTOL (1.0 + IR_TIMING_TOLERANCE/100.) 
+
+#define IR_TIMING_LOW(unit, time)		((uint32_t) (WTIMER1_UNITS_FROM_##unit(time) * IR_TIMING_UTOL))
+#define IR_TIMING_HIGH(unit, time)		((uint32_t) (WTIMER1_UNITS_FROM_##unit(time) * IR_TIMING_LTOL + 1))
+
+#define TIME_IN_RANGE(measured, expected)	( (IR_TIMING_LOW(expected) < (measured)) && (IR_TIMING_HIGH(expected)) )
+
+///////////////////////////////////////////////////////////////////////////////
+// INFRARED PROTOCOLS
+
+#define IR_PROTOCOL_SAMSUNG	1
+// PWR: C1C0817E
+
+#define IR_PROTOCOL_SONY		2
+#define IR_PROTOCOL_PHILIPS_RC5	3
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -108,13 +159,36 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
         PORTB_2 = 0; /* output GND on B2 */ \
 }    while(0)
 
-// PWR: C1C0817E
-void infrared_init();
-void infrared_transmit_samsung(uint32_t data);
 
-void record_input();
-void print_recorded_input();
-uint32_t parse_input_samsung();
+struct ir_packet
+{
+	uint8_t  protocol;
+	uint32_t data;
+};
+
+void infrared_transmit(uint8_t protocol, uint32_t data);
+
+void register_ir_rx_callback(void (*callback)(__xdata struct ir_packet* packet));
+
+void infrared_start_rx();
+
 ///////////////////////////////////////////////////////////////////////////////
+// internal IR functions / data
+
+// received data
+extern __xdata uint32_t ir_rx_buffer[IR_RX_BUFFER_SIZE];
+extern uint8_t ir_rx_count;
+
+#define NEXT_BIT(i)	do { \
+    ++(i); \
+	if ((i) >= ir_rx_count) return 0; \
+} while (0);
+
+void infrared_init_tx(uint32_t hz);
+void handle_pin_change();
+void print_recorded_input();
+
+///////////////////////////////////////////////////////////////////////////////
+
 
 #endif // INFRARED_H_INCLUDED
