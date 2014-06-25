@@ -1,2 +1,0 @@
-- label power 'pc' -> 'PC'
-- ground pads: grössere Brücken (Width von groundplane vergrössern)
