@@ -8,7 +8,7 @@
 </settings>
 <grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -24,13 +24,13 @@
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -58,7 +58,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -1822,6 +1822,52 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 </packages>
 </library>
+<library name="sam_icons">
+<packages>
+<package name="APERTURE_LOGO_BLACK">
+<polygon width="0.127" layer="51">
+<vertex x="-1.3" y="1.8"/>
+<vertex x="-3.7" y="-0.6" curve="-36.869898"/>
+<vertex x="-3.4" y="1.8"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="-1.8" y="-1.3"/>
+<vertex x="0.6" y="-3.7" curve="-36.869898"/>
+<vertex x="-1.8" y="-3.4"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="1.8" y="1.3"/>
+<vertex x="-0.6" y="3.7" curve="-36.869898"/>
+<vertex x="1.8" y="3.4"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="1.3" y="-1.8"/>
+<vertex x="3.7" y="0.6" curve="-36.869898"/>
+<vertex x="3.4" y="-1.8"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="-2.192028125" y="0.353553125"/>
+<vertex x="-2.192028125" y="-3.04055625" curve="-36.869898"/>
+<vertex x="-3.676953125" y="-1.13136875"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="-0.353553125" y="-2.192028125"/>
+<vertex x="3.04055625" y="-2.192028125" curve="-36.869898"/>
+<vertex x="1.13136875" y="-3.676953125"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="0.353553125" y="2.192028125"/>
+<vertex x="-3.04055625" y="2.192028125" curve="-36.869898"/>
+<vertex x="-1.13136875" y="3.676953125"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="2.192028125" y="-0.353553125"/>
+<vertex x="2.192028125" y="3.04055625" curve="-36.869898"/>
+<vertex x="3.676953125" y="1.13136875"/>
+</polygon>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2018,12 +2064,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <element name="R2" library="resistor" package="R0603" value="0" x="22.71" y="11.98"/>
 <element name="C6" library="resistor" package="C0603" value="0" x="22.71" y="14.99" rot="R90"/>
 <element name="C7" library="resistor" package="C0603" value="0" x="22.71" y="8.87" rot="R90"/>
-<element name="Q1" library="crystal" package="SM49" value="16MHz" x="29.39" y="21.71">
-<attribute name="OC_NEWARK" value="unknown" x="29.39" y="21.71" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="" x="29.39" y="21.71" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="" x="29.39" y="21.71" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="29.39" y="21.71" size="1.778" layer="27" display="off"/>
-</element>
+<element name="Q1" library="crystal" package="SM49" value="16MHz" x="29.39" y="21.71"/>
 <element name="U$1" library="sam_eagle_parts" package="TSOT-23" value="LT1761" x="37.4" y="36.8"/>
 <element name="C1" library="resistor" package="153CLV-0405" value="10uF" x="26" y="27.9" rot="R90"/>
 <element name="C2" library="resistor" package="C0603" value="0.01uF" x="37.4" y="39.4"/>
@@ -2080,6 +2121,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <element name="Q2" library="SparkFun-DiscreteSemi" package="SOT23" value="MOSFET-NCHANNELBSS138" x="41.5" y="42.1" rot="R270">
 <attribute name="PROD_ID" value="TRANS-00830" x="41.5" y="42.1" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
+<element name="U$11" library="sam_icons" package="APERTURE_LOGO_BLACK" value="" x="28" y="11" rot="MR0"/>
 </elements>
 <signals>
 <signal name="GND">
