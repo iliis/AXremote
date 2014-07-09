@@ -1,4 +1,4 @@
-// Copyright (c) 2007,2008,2009,2010,2011,2012,2013 AXSEM AG
+// Copyright (c) 2007,2008,2009,2010,2011,2012,2013, 2014 AXSEM AG
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -15,6 +15,9 @@
 //     4.All advertising materials mentioning features or use of this software
 //       must display the following acknowledgement:
 //       This product includes software developed by AXSEM AG and its contributors.
+//     5.The usage of this source code is only granted for operation with AX5043
+//       and AX8052F143. Porting to other radio or communication devices is
+//       strictly prohibited.
 //
 // THIS SOFTWARE IS PROVIDED BY AXSEM AG AND CONTRIBUTORS ``AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -33,6 +36,12 @@
 #include <libmfwtimer.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef USE_DBGLINK
+#include <libmfdbglink.h>
+#include "libminidvkled.h"
+#endif
+
 
 
 typedef enum {
@@ -340,7 +349,10 @@ static __reentrantb void receive_isr(void) __reentrant
                     int8_t r = AX5043_RSSI;
                     axradio_cb_receive.st.rx.phy.rssi = r - (int16_t)axradio_phy_rssioffset;
                 }
-                axradio_cb_receive.st.rx.phy.offset.o = signextend20(radio_read24((uint16_t)&AX5043_TRKRFFREQ2));
+				if (axradio_phy_innerfreqloop)
+					axradio_cb_receive.st.rx.phy.offset.o = axradio_conv_freq_fromreg(signextend16(radio_read16((uint16_t)&AX5043_TRKFREQ1)));
+				else
+					axradio_cb_receive.st.rx.phy.offset.o = signextend20(radio_read24((uint16_t)&AX5043_TRKRFFREQ2));
                 wtimer_add_callback(&axradio_cb_receive.cb);
                 break;
             }
@@ -359,7 +371,7 @@ static __reentrantb void receive_isr(void) __reentrant
             break;
 
         case AX5043_FIFOCMD_RFFREQOFFS:
-            if (len != 3)
+            if (axradio_phy_innerfreqloop || len != 3)
                 goto dropchunk;
             i = AX5043_FIFODATA;
             i &= 0x0F;
@@ -368,6 +380,14 @@ static __reentrantb void receive_isr(void) __reentrant
             axradio_cb_receive.st.rx.phy.offset.b.b2 = i;
             axradio_cb_receive.st.rx.phy.offset.b.b1 = AX5043_FIFODATA;
             axradio_cb_receive.st.rx.phy.offset.b.b0 = AX5043_FIFODATA;
+            break;
+
+        case AX5043_FIFOCMD_FREQOFFS:
+            if (!axradio_phy_innerfreqloop || len != 2)
+                goto dropchunk;
+            axradio_cb_receive.st.rx.phy.offset.b.b1 = AX5043_FIFODATA;
+            axradio_cb_receive.st.rx.phy.offset.b.b0 = AX5043_FIFODATA;
+            axradio_cb_receive.st.rx.phy.offset.o = axradio_conv_freq_fromreg(signextend16(axradio_cb_receive.st.rx.phy.offset.o));
             break;
 
         case AX5043_FIFOCMD_RSSI:
@@ -767,13 +787,25 @@ __interrupt void axradio_isr(void)
         break;
 
     case trxstate_rxwor:
+        //F143_WOR_TCXO
+        //AX8052F143, WOR with TCXO: MCU needs to wake up upon TCXO enable / disable in order to get the TCXO_EN singal into the frozen GPIO
+        if( AX5043_IRQREQUEST0 & 0x80 ) // vdda ready (note irqinversion does not act upon AX5043_IRQREQUEST0)
+        {
+            AX5043_IRQINVERSION0 |= 0x80; // invert pwr irq, so it does not fire continuously
+        }
+        else
+        {
+            AX5043_IRQINVERSION0 &= (uint8_t)~0x80; // drop pwr irq inversion --> armed again
+        }
+
+
         if( AX5043_IRQREQUEST1 & 0x01 ) // XTAL ready
         {
             AX5043_IRQINVERSION1 |= 0x01; // invert the xtal ready irq so it does not fire continuously
         }
         else // XTAL not running
         {
-            AX5043_IRQINVERSION1 &= ~0x01; // drop xtal ready irq inversion --> armed again for next wake-up
+            AX5043_IRQINVERSION1 &= (uint8_t)~0x01; // drop xtal ready irq inversion --> armed again for next wake-up
             AX5043_0xF30 = f30_saved;
             AX5043_0xF31 = f31_saved;
             AX5043_0xF32 = f32_saved;
@@ -831,6 +863,14 @@ __reentrantb void ax5043_receiver_on_wor(void) __reentrant
         AX5043_IRQMASK0 = 0x41; //  enable FIFO not empty / radio controller irq
     else
         AX5043_IRQMASK0 = 0x01; //  enable FIFO not empty
+
+    if( ( (PALTRADIO & 0x40) && (AX5043_PINFUNCPWRAMP & 0x07 ) ) || ( (PALTRADIO & 0x80) && ( (AX5043_PINFUNCANTSEL & 0x40 ) == 0x04 ) ) ) // pass through of TCXO_EN
+    {
+        // F143_WOR_TCXO
+        AX5043_IRQMASK0 |= 0x80; // power irq (AX8052F143 WOR with TCXO)
+        AX5043_POWIRQMASK = 0x90; // interrupt when vddana ready (AX8052F143 WOR with TCXO)
+    }
+
     AX5043_IRQMASK1 = 0x01; // xtal ready
     {
         uint16_t wp = axradio_wor_period;
@@ -921,7 +961,7 @@ static void ax5043_init_registers(void)
 #endif
     AX5043_PKTLENOFFSET += axradio_framing_swcrclen; // add len offs for software CRC16 (used for both, fixed and variable length packets
     AX5043_PINFUNCIRQ = 0x03; // use as IRQ pin
-    AX5043_PKTSTOREFLAGS = 0x15; // store RF offset, RSSI and delimiter timing
+    AX5043_PKTSTOREFLAGS = axradio_phy_innerfreqloop ? 0x13 : 0x15; // store RF offset, RSSI and delimiter timing
     axradio_setaddrregs();
 }
 
@@ -1273,7 +1313,6 @@ static void axradio_receive_callback_fwd(struct wtimer_callback __xdata *desc)
 {
     //struct axradio_status __xdata *st = (struct axradio_status __xdata *)(desc + 1);
     desc;
-
     if (axradio_cb_receive.st.error != AXRADIO_ERR_NOERROR) {
         axradio_statuschange((struct axradio_status __xdata *)&axradio_cb_receive.st);
         return;
@@ -1290,7 +1329,7 @@ static void axradio_receive_callback_fwd(struct wtimer_callback __xdata *desc)
                                       axradio_mode == AXRADIO_MODE_STREAM_RECEIVE_SCRAM)) {
         uint16_t __autodata len = axradio_cb_receive.st.rx.pktlen;
         len += axradio_framing_maclen;
-        if (!axradio_framing_check_crc((__xdata uint8_t *)axradio_cb_receive.st.rx.mac.raw, len)) {
+        if (!axradio_framing_check_crc((uint8_t __xdata *)axradio_cb_receive.st.rx.mac.raw, len)) {
             // receive error
             goto endcb;
         }
@@ -1478,7 +1517,6 @@ uint8_t axradio_init(void)
     // range all channels
     AX5043_PWRMODE = AX5043_PWRSTATE_XTAL_ON;
     axradio_wait_for_xtal();
-
     for (i = 0; i < axradio_phy_nrchannels; ++i) {
         uint8_t __autodata iesave;
         {
@@ -1573,7 +1611,6 @@ uint8_t axradio_init(void)
     for (i = 0; i < axradio_phy_nrchannels; ++i)
         if ((axradio_phy_chanpllrng_rx[i] | axradio_phy_chanpllrng_tx[i]) & 0x20)
             return AXRADIO_ERR_RANGING;
-
     return AXRADIO_ERR_NOERROR;
 }
 
@@ -1879,28 +1916,28 @@ int32_t axradio_get_freqoffset(void)
     return axradio_curfreqoffset;
 }
 
-void axradio_set_local_address(const struct axradio_address_mask *addr)
+void axradio_set_local_address(const struct axradio_address_mask __generic *addr)
 {
     memcpy_xdatageneric(&axradio_localaddr, addr, sizeof(axradio_localaddr));
     axradio_setaddrregs();
 }
 
-void axradio_get_local_address(struct axradio_address_mask *addr)
+void axradio_get_local_address(struct axradio_address_mask __generic *addr)
 {
     memcpy_genericxdata(addr, &axradio_localaddr, sizeof(axradio_localaddr));
 }
 
-void axradio_set_default_remote_address(const struct axradio_address *addr)
+void axradio_set_default_remote_address(const struct axradio_address __generic *addr)
 {
     memcpy_xdatageneric(&axradio_default_remoteaddr, addr, sizeof(axradio_default_remoteaddr));
 }
 
-void axradio_get_default_remote_address(struct axradio_address *addr)
+void axradio_get_default_remote_address(struct axradio_address __generic *addr)
 {
     memcpy_genericxdata(addr, &axradio_default_remoteaddr, sizeof(axradio_default_remoteaddr));
 }
 
-uint8_t axradio_transmit(const struct axradio_address *addr, const uint8_t *pkt, uint16_t pktlen)
+uint8_t axradio_transmit(const struct axradio_address __generic *addr, const uint8_t __generic *pkt, uint16_t pktlen)
 {
     switch (axradio_mode) {
     case AXRADIO_MODE_STREAM_TRANSMIT:
@@ -1973,7 +2010,6 @@ uint8_t axradio_transmit(const struct axradio_address *addr, const uint8_t *pkt,
             axradio_framing_append_crc(axradio_txbuffer, axradio_txbuffer_len);
             axradio_txbuffer_len += axradio_framing_swcrclen;
         }
-
         if (axradio_phy_pn9)
             pn9_buffer(axradio_txbuffer, axradio_txbuffer_len, 0x1ff, -(AX5043_ENCODING & 0x01));
         if (axradio_mode == AXRADIO_MODE_SYNC_MASTER ||

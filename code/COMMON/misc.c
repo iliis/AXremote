@@ -113,6 +113,8 @@ __reentrantb void delay_ms(uint16_t ms) __reentrant
 //              0: relative to last issued delay
 __reentrantb void delay_raw(uint32_t cycles, uint8_t relative) __reentrant
 {
+    // TODO: use another timer here! wtimer1 back to it's original frequency of 20MHz/2^6 or something
+
     wtimer_remove(&delaymstimer);
     delaymstimer.handler = delayms_callback;
 

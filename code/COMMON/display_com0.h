@@ -45,11 +45,11 @@
     #define display_txidle()          (1)
 #endif
 
-
+extern __reentrantb void com0_inituart0(void) __reentrant;
 extern __reentrantb void com0_portinit(void) __reentrant;
 extern __reentrantb void com0_init(void) __reentrant;
 extern __reentrantb void com0_setpos(uint8_t v) __reentrant;
-extern __reentrantb void com0_writestr(const char* msg) __reentrant;
+extern __reentrantb void com0_writestr(const char __generic * msg) __reentrant;
 extern __reentrantb void com0_tx(uint8_t val) __reentrant;
 extern __reentrantb void com0_clear(uint8_t pos, uint8_t len) __reentrant;
 

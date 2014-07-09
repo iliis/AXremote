@@ -85,6 +85,33 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/misc.h" />
+		<Unit filename="infared_protocols/philips_rc5.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infared_protocols/philips_rc5.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infared_protocols/samsung.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infared_protocols/samsung.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infared_protocols/sony.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infared_protocols/sony.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Unit filename="infrared.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug Receiver" />

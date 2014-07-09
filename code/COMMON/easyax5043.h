@@ -1,7 +1,4 @@
-#ifndef HEADER_A74177A7F3A0E8EC
-#define HEADER_A74177A7F3A0E8EC
-
-// Copyright (c) 2007,2008,2009,2010,2011,2012,2013 AXSEM AG
+// Copyright (c) 2007,2008,2009,2010,2011,2012,2013, 2014 AXSEM AG
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -18,6 +15,9 @@
 //     4.All advertising materials mentioning features or use of this software
 //       must display the following acknowledgement:
 //       This product includes software developed by AXSEM AG and its contributors.
+//     5.The usage of this source code is only granted for operation with AX5043
+//       and AX8052F143. Porting to other radio or communication devices is
+//       strictly prohibited.
 //
 // THIS SOFTWARE IS PROVIDED BY AXSEM AG AND CONTRIBUTORS ``AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -38,8 +38,6 @@
 
 #include <ax8052f143.h>
 #include <libmftypes.h>
-
-#include "../COMMON/libminidvkled.h"
 
 //#define DBGPKT
 //#define FREQ_FULL_ADJUST
@@ -133,6 +131,7 @@ SFRX(AX5043_0xF44,              0x4f44)
 
 SFRX(AX5043_REF,                0x4f0d)
 SFRX(AX5043_POWCTRL1,           0x4f08)
+SFRX(AX5043_MODCFGP,            0x4f5f)
 
 
 // power states
@@ -170,11 +169,13 @@ __reentrantb void ax5043_off_xtal(void) __reentrant;
 __reentrantb void ax5043_prepare_tx(void) __reentrant;
 
 // funtions implemented in AX_Radio_output/config.c
+__reentrantb int32_t axradio_conv_freq_fromreg(int32_t f) __reentrant;
 __reentrantb void ax5043_set_registers(void) __reentrant;
 __reentrantb void ax5043_set_registers_tx(void) __reentrant;
 __reentrantb void ax5043_set_registers_rx(void) __reentrant;
-__reentrantb uint8_t axradio_framing_check_crc(const __xdata uint8_t *pkt, uint16_t cnt) __reentrant;
-__reentrantb uint16_t axradio_framing_append_crc(__xdata uint8_t *pkt, uint16_t cnt) __reentrant;
+__reentrantb uint8_t axradio_framing_check_crc(const uint8_t __xdata *pkt, uint16_t cnt) __reentrant;
+__reentrantb uint16_t axradio_framing_append_crc(uint8_t __xdata *pkt, uint16_t cnt) __reentrant;
+
 
 
 // physical layer
@@ -184,6 +185,7 @@ extern const uint32_t __code axradio_phy_chanfreq[];
 extern const uint8_t __code axradio_phy_chanpllrnginit[];
 extern uint8_t __xdata axradio_phy_chanpllrng_rx[];
 extern uint8_t __xdata axradio_phy_chanpllrng_tx[];
+extern const uint8_t __code axradio_phy_innerfreqloop;
 extern const int32_t __code axradio_phy_maxfreqoffset;
 extern const int8_t __code axradio_phy_rssioffset;
 extern const int8_t __code axradio_phy_rssireference;
@@ -243,5 +245,3 @@ extern const uint32_t __code axradio_sync_slave_rxwindow[];
 extern const uint32_t __code axradio_sync_slave_rxtimeout;
 
 #endif /* EASYAX5043_H */
-
-#endif // header guard

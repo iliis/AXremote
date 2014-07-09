@@ -1,4 +1,4 @@
-// Copyright (c) 2007,2008,2009,2010,2011,2012,2013 AXSEM AG
+// Copyright (c) 2007,2008,2009,2010,2011,2012,2013, 2014 AXSEM AG
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -15,6 +15,9 @@
 //     4.All advertising materials mentioning features or use of this software
 //       must display the following acknowledgement:
 //       This product includes software developed by AXSEM AG and its contributors.
+//     5.The usage of this source code is only granted for operation with AX5043
+//       and AX8052F143. Porting to other radio or communication devices is
+//       strictly prohibited.
 //
 // THIS SOFTWARE IS PROVIDED BY AXSEM AG AND CONTRIBUTORS ``AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -124,17 +127,17 @@ extern uint8_t axradio_set_channel(uint8_t chnum);
 extern uint8_t axradio_get_channel(void);
 extern uint8_t axradio_get_pllrange(void);
 extern uint8_t axradio_get_pllrange_tx(void);
-extern void axradio_set_local_address(const struct axradio_address_mask *addr);
-extern void axradio_get_local_address(struct axradio_address_mask *addr);
-extern void axradio_set_default_remote_address(const struct axradio_address *addr);
-extern void axradio_get_default_remote_address(struct axradio_address *addr);
+extern void axradio_set_local_address(const struct axradio_address_mask __generic *addr);
+extern void axradio_get_local_address(struct axradio_address_mask __generic *addr);
+extern void axradio_set_default_remote_address(const struct axradio_address __generic *addr);
+extern void axradio_get_default_remote_address(struct axradio_address __generic *addr);
 extern uint8_t axradio_set_freqoffset(int32_t offs);
 extern int32_t axradio_get_freqoffset(void);
 extern __reentrantb int32_t axradio_conv_freq_tohz(int32_t f) __reentrant;
 extern __reentrantb int32_t axradio_conv_freq_fromhz(int32_t f) __reentrant;
 extern __reentrantb int32_t axradio_conv_timeinterval_totimer0(int32_t dt) __reentrant;
 extern __reentrantb uint32_t axradio_conv_time_totimer0(uint32_t dt) __reentrant;
-extern uint8_t axradio_transmit(const struct axradio_address *addr, const uint8_t *pkt, uint16_t pktlen);
+extern uint8_t axradio_transmit(const struct axradio_address __generic *addr, const uint8_t __generic *pkt, uint16_t pktlen);
 extern void axradio_statuschange(struct axradio_status __xdata *st);
 extern uint8_t axradio_agc_freeze(void);
 extern uint8_t axradio_agc_thaw(void);

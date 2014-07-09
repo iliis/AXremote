@@ -101,6 +101,8 @@ static void transmit_packet(uint8_t key)
 
     axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT);
 
+    delay_ms(5); // give hardware time to start up
+
     axradio_transmit(&remoteaddr, packet, sizeof(packet));
 
 #ifdef USE_DBGLINK
@@ -131,7 +133,7 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         led0_off();
 #ifdef AXREMOTE_TRANSMITTER
         // power down radio when not actively transmitting keypresses
-        delay_ms(10);
+        delay_ms(2);
         axradio_set_mode(AXRADIO_MODE_OFF);
 #endif
 
@@ -197,7 +199,7 @@ uint8_t _sdcc_external_startup(void)
 {
     LPXOSCGM = 0x8A;
     wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
-    wtimer1_setclksrc(CLKSRC_FRCOSC, 2); // 20MHz / 2
+    wtimer1_setclksrc(CLKSRC_FRCOSC, 7); // 2); // why: 20MHz / 2 ????
 
     LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
 
@@ -271,11 +273,16 @@ void main(void)
     dbglink_init();
 #endif
 
-    // display a nice startup animation
     led0_off();
     led1_off();
     led2_off();
     led3_off();
+
+#ifdef USE_DBGLINK
+    if (DBGLNKSTAT & 0x10)
+        dbglink_writestr("initializing ...\n");
+
+    // display a nice startup animation
     delay_ms(100);
 
     led0_on();
@@ -307,6 +314,7 @@ void main(void)
     led1_off();
     led2_off();
     led3_off();
+#endif
 
 //-----------------------------------------------------------------------------
 
@@ -355,7 +363,7 @@ void main(void)
 #endif // USE_DBGLINK
 
 #ifdef AXREMOTE_TRANSMITTER
-        // don't turn on radio, we only need if when a key gets pressed
+        // don't turn on radio, we only need it when a key gets pressed
         err = axradio_set_mode(AXRADIO_MODE_OFF);
 #else
         err = axradio_set_mode(AXRADIO_MODE_ASYNC_RECEIVE);
@@ -472,9 +480,9 @@ void main(void)
 #endif // MCU_SLEEP
 
             // green led on if chip is active
-            led2_off();
+            led3_off();
             wtimer_idle(flg);
-            led2_on();
+            led3_on();
         }
         // turn interrupts back on
         EA = 1;
@@ -493,6 +501,9 @@ terminate_error:
 #endif // USE_DBGLINK
 
     led0_on();
+    led1_on();
+    led2_on();
+    led3_on();
 
     for (;;) {
 
@@ -503,7 +514,7 @@ terminate_error:
         led3_off();
 
         led0_toggle();
-        delay_ms(400);
+        delay_ms(200);
 
         {
             uint8_t flg = WTFLAG_CANSTANDBY;

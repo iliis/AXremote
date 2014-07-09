@@ -145,7 +145,7 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 #define IR_PROTOCOL_SAMSUNG	1
 // PWR: C1C0817E
 
-#define IR_PROTOCOL_SONY		2
+#define IR_PROTOCOL_SONY	2
 #define IR_PROTOCOL_PHILIPS_RC5	3
 
 ///////////////////////////////////////////////////////////////////////////////

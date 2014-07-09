@@ -1,4 +1,3 @@
-
 #include "display_com0.h"
 
 #include <ax8052f143.h>
@@ -6,7 +5,7 @@
 #include <libmfuart.h>
 #include <libmfuart0.h>
 
-static const __code char *lcd_border=
+static const __code char lcd_border[]=
 "\x1b[0;8;44;30m\x1b[1;1f"
 "******************\x1b[2;1f"
 "*                *\x1b[3;1f"
@@ -16,6 +15,15 @@ static const __code char *lcd_border=
 uint8_t __xdata cmd[8] = {0x1b, '[', 0xFF, ';', 0xFF,0xFF, 'f', 0};
 uint8_t __xdata row;
 uint8_t __xdata column;
+
+#if 0
+__reentrantb void com0_inituart0(void) __reentrant
+{
+    // need this if libmfuart0.h is included. Including but not inizializing the uart prevents sleeping (wtimer_cansleep will evaluate uart0_txidle() which does not work without clock)
+    uart_timer0_baud(CLKSRC_SYSCLK, 115200, 20000000UL);
+    uart0_init(0, 8, 1);
+}
+#endif
 
 __reentrantb void com0_portinit(void) __reentrant
 {
@@ -65,7 +73,7 @@ __reentrantb void com0_setpos(uint8_t v) __reentrant
     uart0_writestr(cmd);
 }
 
-__reentrantb void com0_writestr(const char *msg) __reentrant
+__reentrantb void com0_writestr(const char __generic *msg) __reentrant
 {
     for (;;) {
         char ch = *msg;
@@ -94,3 +102,4 @@ __reentrantb void com0_clear(uint8_t pos, uint8_t len) __reentrant
         com0_tx(' ');
     } while (--len);
 }
+

@@ -689,3 +689,126 @@
 1403441217 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.c
 	"sony.h"
 
+1404932949 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
+	"../COMMON/easyax5043.h"
+	<libmftypes.h>
+	<libmfcrc.h>
+	<libmfdbglink.h>
+
+1404932101 /home/samuel/projects/AXremote/code/COMMON/easyax5043.h
+	"axradio.h"
+	<ax8052f143.h>
+	<libmftypes.h>
+
+1404931990 /home/samuel/projects/AXremote/code/COMMON/axradio.h
+	<libmftypes.h>
+
+1400491294 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/configmaster.c
+	"../COMMON/axradio.h"
+
+1404932042 source:/home/samuel/projects/AXremote/code/COMMON/display_com0.c
+	"display_com0.h"
+	<ax8052f143.h>
+	<libmf.h>
+	<libmfuart.h>
+	<libmfuart0.h>
+
+1404932042 /home/samuel/projects/AXremote/code/COMMON/display_com0.h
+	<libmf.h>
+
+1404935131 source:/home/samuel/projects/AXremote/code/COMMON/easyax5043.c
+	"easyax5043.h"
+	<libmfcrc.h>
+	<libmfradio.h>
+	<libmfwtimer.h>
+	<stdlib.h>
+	<string.h>
+	<libmfdbglink.h>
+	"libminidvkled.h"
+
+1404934405 source:/home/samuel/projects/AXremote/code/COMMON/misc.c
+	<ax8052.h>
+	<libmftypes.h>
+	<libmfwtimer.h>
+	<libaxlcd2.h>
+	"misc.h"
+	"../COMMON/axradio.h"
+
+1400491294 /home/samuel/projects/AXremote/code/COMMON/misc.h
+	<libmftypes.h>
+	"../COMMON/axradio.h"
+
+1400491294 source:/home/samuel/projects/AXremote/code/MASTER/keymatrix.c
+	"keymatrix.h"
+
+1400491294 /home/samuel/projects/AXremote/code/MASTER/keymatrix.h
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfdbglink.h>
+	"../COMMON/misc.h"
+
+1404936105 source:/home/samuel/projects/AXremote/code/MASTER/main.c
+	"../AX_Radio_Lab_output/configmaster.h"
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfradio.h>
+	<libmfflash.h>
+	<libmfwtimer.h>
+	<libmfdbglink.h>
+	<string.h>
+	"../COMMON/libminidvkled.h"
+	"../COMMON/misc.h"
+	"keymatrix.h"
+	"key_routing.h"
+	<libmfuart0.h>
+	"infrared.h"
+
+1400491294 /home/samuel/projects/AXremote/code/AX_Radio_Lab_output/configmaster.h
+	"../COMMON/axradio.h"
+
+1400491294 /home/samuel/projects/AXremote/code/COMMON/libminidvkled.h
+	<libmftypes.h>
+	"../COMMON/misc.h"
+
+1400491294 /home/samuel/projects/AXremote/code/MASTER/key_routing.h
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfuart.h>
+	<libmfuart0.h>
+	"../COMMON/libminidvkled.h"
+	"../MASTER/infrared.h"
+
+1404933035 /home/samuel/projects/AXremote/code/MASTER/infrared.h
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfwtimer.h>
+	<libmfdbglink.h>
+	"../COMMON/misc.h"
+
+1404323272 source:/home/samuel/projects/AXremote/code/MASTER/infrared.c
+	"infrared.h"
+	"infared_protocols/samsung.h"
+	"infared_protocols/sony.h"
+	"infared_protocols/philips_rc5.h"
+
+1403687102 /home/samuel/projects/AXremote/code/MASTER/infared_protocols/samsung.h
+	"../infrared.h"
+
+1403687102 /home/samuel/projects/AXremote/code/MASTER/infared_protocols/sony.h
+	"../infrared.h"
+
+1403687102 /home/samuel/projects/AXremote/code/MASTER/infared_protocols/philips_rc5.h
+	"../infrared.h"
+
+1403687102 source:/home/samuel/projects/AXremote/code/MASTER/key_routing.c
+	"key_routing.h"
+
+1403687102 source:/home/samuel/projects/AXremote/code/MASTER/infared_protocols/philips_rc5.c
+	"philips_rc5.h"
+
+1403687102 source:/home/samuel/projects/AXremote/code/MASTER/infared_protocols/samsung.c
+	"samsung.h"
+
+1403687102 source:/home/samuel/projects/AXremote/code/MASTER/infared_protocols/sony.c
+	"sony.h"
+
