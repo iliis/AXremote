@@ -5,10 +5,6 @@
 #include <libmftypes.h>
 #include <libmfcrc.h>
 
-#ifdef USE_DBGLINK
-#include <libmfdbglink.h>
-#endif
-
 // TX: fcarrier=868.300MHz dev= 20.000kHz br= 80.000kBit/s pwr= 15.0dBm
 // RX: fcarrier=868.300MHz bw=120.000kHz br= 80.000kBit/s
 
@@ -33,8 +29,8 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_MAXDROFFSET1            = 0x00;
 	AX5043_MAXDROFFSET0            = 0x00;
 	AX5043_MAXRFOFFSET2            = 0x80;
-	AX5043_MAXRFOFFSET1            = 0x00;
-	AX5043_MAXRFOFFSET0            = 0x00;
+	AX5043_MAXRFOFFSET1            = 0x47;
+	AX5043_MAXRFOFFSET0            = 0x22;
 	AX5043_FSKDMAX1                = 0x00;
 	AX5043_FSKDMAX0                = 0xA6;
 	AX5043_FSKDMIN1                = 0xFF;
@@ -131,8 +127,8 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_DACVALUE1               = 0x00;
 	AX5043_DACVALUE0               = 0x00;
 	AX5043_DACCONFIG               = 0x00;
-	AX5043_0xF10                   = 0x04;
-	AX5043_0xF11                   = 0x00;
+	AX5043_0xF10                   = 0x03;
+	AX5043_0xF11                   = 0x07;
 	AX5043_0xF1C                   = 0x07;
 	AX5043_0xF21                   = 0x5C;
 	AX5043_0xF22                   = 0x53;
@@ -150,7 +146,7 @@ __reentrantb void ax5043_set_registers_tx(void) __reentrant
 	AX5043_PLLCPI                  = 0x02;
 	AX5043_PLLVCODIV               = 0x20;
 	AX5043_PLLVCOI                 = 0x99;
-	AX5043_XTALCAP                 = 0x00;
+	AX5043_XTALCAP                 = 0x0C;
 	AX5043_0xF00                   = 0x0F;
 	AX5043_REF                     = 0x03;
 	AX5043_0xF18                   = 0x06;
@@ -163,7 +159,7 @@ __reentrantb void ax5043_set_registers_rx(void) __reentrant
 	AX5043_PLLCPI                  = 0x01;
 	AX5043_PLLVCODIV               = 0x20;
 	AX5043_PLLVCOI                 = 0x99;
-	AX5043_XTALCAP                 = 0x00;
+	AX5043_XTALCAP                 = 0x0C;
 	AX5043_0xF00                   = 0x0F;
 	AX5043_REF                     = 0x03;
 	AX5043_0xF18                   = 0x06;
@@ -269,15 +265,7 @@ __reentrantb void axradio_byteconv_buffer(uint8_t __xdata *buf, uint16_t buflen)
 
 __reentrantb uint8_t axradio_framing_check_crc(const uint8_t __xdata *pkt, uint16_t cnt) __reentrant
 {
-	if (crc_crc16(pkt, cnt, 0xFFFF) == 0xB001)
-	   return 1;
-	else {
-#ifdef USE_DBGLINK
-	   if (DBGLNKSTAT & 0x10)
-		  dbglink_writestr("CRC fail!\n");
-#endif
-	   return 0;
-	}
+	return crc_crc16(pkt, cnt, 0xFFFF) == 0xB001;
 }
 
 
@@ -301,7 +289,7 @@ const uint32_t __code axradio_phy_chanfreq[1] = { 0x3644cccd };
 const uint8_t __code axradio_phy_chanpllrnginit[1] = { 0x0a };
 uint8_t __xdata axradio_phy_chanpllrng_rx[1];
 uint8_t __xdata axradio_phy_chanpllrng_tx[1];
-const int32_t __code axradio_phy_maxfreqoffset = 0;
+const int32_t __code axradio_phy_maxfreqoffset = 54630;
 const int8_t __code axradio_phy_rssioffset = 32;
 // axradio_phy_rssioffset is added to AX5043_RSSIREFERENCE and subtracted from chip RSSI value to prevent overflows (8bit RSSI only goes down to -128)
 // axradio_phy_rssioffset is also added to AX5043_RSSIABSTHR
@@ -359,6 +347,6 @@ const uint8_t __code axradio_sync_slave_resyncloss = 11;  // resyncloss is one m
 // window 1 is the window normally used when there are no lost packets
 // window 2 is used after one packet is lost, etc
 const uint8_t __code axradio_sync_slave_nrrx = 3;
-const uint32_t __code axradio_sync_slave_rxadvance[] = { 153, 105, 150 };// 4.663ms, 3.198ms, 4.572ms
-const uint32_t __code axradio_sync_slave_rxwindow[] = { 167, 71, 161 }; // 5.091ms, 2.161ms, 4.908ms
+const uint32_t __code axradio_sync_slave_rxadvance[] = { 153, 105, 150 };// 4.664ms, 3.199ms, 4.572ms
+const uint32_t __code axradio_sync_slave_rxwindow[] = { 167, 71, 161 }; // 5.092ms, 2.162ms, 4.909ms
 const uint32_t __code axradio_sync_slave_rxtimeout = 57; // 1.7ms, maximum duration of a packet

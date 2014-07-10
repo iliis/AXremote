@@ -689,11 +689,10 @@
 1403441217 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.c
 	"sony.h"
 
-1404932949 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
+1405006189 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
 	"../COMMON/easyax5043.h"
 	<libmftypes.h>
 	<libmfcrc.h>
-	<libmfdbglink.h>
 
 1404932101 /home/samuel/projects/AXremote/code/COMMON/easyax5043.h
 	"axradio.h"
@@ -703,7 +702,7 @@
 1404931990 /home/samuel/projects/AXremote/code/COMMON/axradio.h
 	<libmftypes.h>
 
-1400491294 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/configmaster.c
+1405005864 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/configmaster.c
 	"../COMMON/axradio.h"
 
 1404932042 source:/home/samuel/projects/AXremote/code/COMMON/display_com0.c
@@ -763,7 +762,7 @@
 	<libmfuart0.h>
 	"infrared.h"
 
-1400491294 /home/samuel/projects/AXremote/code/AX_Radio_Lab_output/configmaster.h
+1405005864 /home/samuel/projects/AXremote/code/AX_Radio_Lab_output/configmaster.h
 	"../COMMON/axradio.h"
 
 1400491294 /home/samuel/projects/AXremote/code/COMMON/libminidvkled.h
