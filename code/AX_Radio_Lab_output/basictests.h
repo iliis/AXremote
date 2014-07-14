@@ -5,6 +5,6 @@
 #define MCU_SLEEP
 
 //#define BASICTESTS 1
-#define BASICTESTS 3
+#define BASICTESTS 0
 #define BASICTESTS_TXPATTERN 0x55555555
 #define BERDIGITS 4
