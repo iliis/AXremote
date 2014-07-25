@@ -492,8 +492,15 @@ void main(void)
 //-----------------------------------------------------------------------------
 
 terminate_radio_error:
+#ifndef DEBUG
+    goto terminate_error;
+#endif
     display_radio_error(err);
+
 terminate_error:
+#ifndef DEBUG
+    for (;;) PCON |= 0x10; // reset in release build
+#endif
 
 #ifdef USE_DBGLINK
     if (DBGLNKSTAT & 0x10)
