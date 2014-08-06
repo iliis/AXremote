@@ -50,10 +50,24 @@
 					<Add option="-DAXREMOTE_RECEIVER" />
 				</Compiler>
 			</Target>
+			<Target title="Debug Transmitter DVK2b">
+				<Option output="bin/DebugTX2b/MASTER.omf" prefix_auto="1" extension_auto="0" />
+				<Option object_output="obj/DebugTX2b/" />
+				<Option type="1" />
+				<Option compiler="sdcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="--debug" />
+					<Add option="-DUSE_DBGLINK" />
+					<Add option="-DAXREMOTE_TRANSMITTER" />
+					<Add option="-DDVK2B" />
+				</Compiler>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-mmcs51" />
 			<Add option="--verbose" />
+			<Add option="--debug" />
 			<Add option="--model-small" />
 			<Add option="-DMASTER" />
 		</Compiler>
@@ -66,6 +80,14 @@
 		</Linker>
 		<Unit filename="../AX_Radio_Lab_output/config_16MHz.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug Transmitter" />
+			<Option target="Release Transmitter" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="../AX_Radio_Lab_output/config_48MHz_DVK2b.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Transmitter DVK2b" />
 		</Unit>
 		<Unit filename="../AX_Radio_Lab_output/configmaster.c">
 			<Option compilerVar="CC" />
@@ -133,10 +155,12 @@
 			<Option compilerVar="CPP" />
 			<Option target="Debug Transmitter" />
 			<Option target="Release Transmitter" />
+			<Option target="Debug Transmitter DVK2b" />
 		</Unit>
 		<Unit filename="keymatrix.h">
 			<Option target="Debug Transmitter" />
 			<Option target="Release Transmitter" />
+			<Option target="Debug Transmitter DVK2b" />
 		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />

@@ -4,7 +4,11 @@
 #include <libmftypes.h>
 #include "../COMMON/misc.h"
 
-#ifdef AXREMOTE_TRANSMITTER
+#ifdef DVK2B
+
+#include <libdvk2leds.h>
+
+#elif defined(AXREMOTE_TRANSMITTER)
 
 #define led0_toggle() do { PORTA ^= 0x10; } while (0)
 #define led0_set(x)   do { PORTA_4 = (x); } while (0)

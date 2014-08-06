@@ -1,83 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release Transmitter" />
-	<File name="../AX_Radio_Lab_output/configmaster.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../AX_Radio_Lab_output/config_48MHz_DVK2b.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="238" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="infrared.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3567" topLine="93" />
-		</Cursor>
-	</File>
-	<File name="../COMMON/axradio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4098" topLine="35" />
-		</Cursor>
-	</File>
-	<File name="../AX_Radio_Lab_output/configmaster.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="381" topLine="0" />
+			<Cursor1 position="5952" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="0" />
-			<Collapse line="6" />
-			<Collapse line="9" />
-		</Folding>
-	</File>
-	<File name="infrared.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3184" topLine="75" />
-		</Cursor>
-		<Folding>
-			<Collapse line="163" />
-		</Folding>
-	</File>
-	<File name="../COMMON/libminidvkled.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1868" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="key_routing.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="307" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="3" />
-			<Collapse line="43" />
-			<Collapse line="49" />
-			<Collapse line="66" />
-		</Folding>
-	</File>
-	<File name="keymatrix.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="174" topLine="45" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="13337" topLine="37" />
-		</Cursor>
-		<Folding>
-			<Collapse line="0" />
-			<Collapse line="76" />
-			<Collapse line="89" />
-			<Collapse line="96" />
-			<Collapse line="115" />
-			<Collapse line="198" />
-			<Collapse line="251" />
-		</Folding>
-	</File>
-	<File name="../COMMON/easyax5043.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="75513" topLine="1813" />
-		</Cursor>
-		<Folding>
-			<Collapse line="116" />
-			<Collapse line="142" />
-			<Collapse line="233" />
-			<Collapse line="242" />
+			<Collapse line="11" />
+			<Collapse line="156" />
 		</Folding>
 	</File>
 	<File name="../COMMON/display_com0.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -85,9 +15,9 @@
 			<Cursor1 position="1423" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../COMMON/easyax5043.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../AX_Radio_Lab_output/configmaster.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1904" topLine="0" />
+			<Cursor1 position="217" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="../AX_Radio_Lab_output/config_16MHz.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -103,31 +33,155 @@
 			<Collapse line="284" />
 		</Folding>
 	</File>
-	<File name="keymatrix.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="keymatrix.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="355" topLine="0" />
+			<Cursor1 position="174" topLine="45" />
 		</Cursor>
+	</File>
+	<File name="../COMMON/easyax5043.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="66481" topLine="226" />
+		</Cursor>
+		<Folding>
+			<Collapse line="46" />
+			<Collapse line="74" />
+			<Collapse line="87" />
+			<Collapse line="99" />
+			<Collapse line="109" />
+			<Collapse line="125" />
+			<Collapse line="154" />
+			<Collapse line="173" />
+			<Collapse line="193" />
+			<Collapse line="213" />
+			<Collapse line="251" />
+			<Collapse line="259" />
+			<Collapse line="274" />
+			<Collapse line="289" />
+			<Collapse line="444" />
+			<Collapse line="599" />
+			<Collapse line="824" />
+			<Collapse line="851" />
+			<Collapse line="884" />
+			<Collapse line="896" />
+			<Collapse line="902" />
+			<Collapse line="911" />
+			<Collapse line="928" />
+			<Collapse line="955" />
+			<Collapse line="967" />
+			<Collapse line="972" />
+			<Collapse line="977" />
+			<Collapse line="982" />
+			<Collapse line="988" />
+			<Collapse line="1004" />
+			<Collapse line="1013" />
+			<Collapse line="1017" />
+			<Collapse line="1307" />
+			<Collapse line="1312" />
+			<Collapse line="1468" />
+			<Collapse line="1478" />
+			<Collapse line="1483" />
+			<Collapse line="1617" />
+			<Collapse line="1625" />
+			<Collapse line="1643" />
+			<Collapse line="1841" />
+			<Collapse line="1846" />
+			<Collapse line="1876" />
+			<Collapse line="1881" />
+			<Collapse line="1886" />
+			<Collapse line="1891" />
+			<Collapse line="1903" />
+			<Collapse line="1914" />
+			<Collapse line="1919" />
+			<Collapse line="1925" />
+			<Collapse line="1930" />
+			<Collapse line="1935" />
+			<Collapse line="1940" />
+			<Collapse line="2057" />
+			<Collapse line="2067" />
+			<Collapse line="2072" />
+		</Folding>
 	</File>
 	<File name="../COMMON/misc.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2268" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="key_routing.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="307" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="3" />
+			<Collapse line="43" />
+			<Collapse line="49" />
+			<Collapse line="66" />
+		</Folding>
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11707" topLine="75" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="79" />
+			<Collapse line="92" />
+			<Collapse line="99" />
+			<Collapse line="118" />
+			<Collapse line="203" />
+			<Collapse line="265" />
+		</Folding>
+	</File>
 	<File name="key_routing.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="236" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../COMMON/misc.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="keymatrix.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3903" topLine="6" />
+			<Cursor1 position="355" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/libminidvkled.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="445" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/axradio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4098" topLine="35" />
+		</Cursor>
+	</File>
+	<File name="infrared.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3184" topLine="75" />
 		</Cursor>
 		<Folding>
-			<Collapse line="38" />
-			<Collapse line="47" />
-			<Collapse line="76" />
-			<Collapse line="82" />
-			<Collapse line="114" />
+			<Collapse line="163" />
 		</Folding>
+	</File>
+	<File name="../COMMON/easyax5043.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1904" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="infrared.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3567" topLine="93" />
+		</Cursor>
+	</File>
+	<File name="../AX_Radio_Lab_output/configmaster.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="381" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="6" />
+			<Collapse line="9" />
+		</Folding>
+	</File>
+	<File name="../COMMON/misc.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2097" topLine="21" />
+		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

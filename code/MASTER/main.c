@@ -66,12 +66,15 @@
 #error Please define either AXREMOTE_TRANSMITTER or AXREMOTE_RECEIVER
 #endif
 
+#define RADIO_POWERMODE_OFF AXRADIO_MODE_DEEPSLEEP
+//#define RADIO_POWERMODE_OFF AXRADIO_MODE_OFF
 
 #if defined(SDCC)
 extern uint8_t _start__stack[];
 #endif
 
 uint8_t __data coldstart = 1; // caution: initialization with 1 is necessary! Variables are initialized upon _sdcc_external_startup returning 0 -> the coldstart value returned from _sdcc_external startup does not survive in the coldstart case
+__bit tx_in_progress = 0;
 
 static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
 {
@@ -101,7 +104,7 @@ static void transmit_packet(uint8_t key)
 
     axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT);
 
-    delay_ms(5); // give hardware time to start up
+    //delay_ms(5); // give hardware time to start up
 
     axradio_transmit(&remoteaddr, packet, sizeof(packet));
 
@@ -127,14 +130,16 @@ void axradio_statuschange(struct axradio_status __xdata *st)
     {
     case AXRADIO_STAT_TRANSMITSTART:
         led0_on();
+        tx_in_progress = 1;
         break;
 
     case AXRADIO_STAT_TRANSMITEND:
         led0_off();
+        tx_in_progress = 0;
 #ifdef AXREMOTE_TRANSMITTER
         // power down radio when not actively transmitting keypresses
         delay_ms(2);
-        axradio_set_mode(AXRADIO_MODE_OFF);
+        axradio_set_mode(RADIO_POWERMODE_OFF);
 #endif
 
         if (st->error != AXRADIO_ERR_NOERROR) {
@@ -207,10 +212,20 @@ uint8_t _sdcc_external_startup(void)
 
     ANALOGA = 0x00; // every PA pin is used in digital mode (no analog I/O)
 
-#ifdef AXREMOTE_TRANSMITTER
+#ifdef DVK2B
+    PORTA = 0xC0 | (0x25); 	// pull-up for PA[6,7] which are not bonded, no pull up for PA[3,4] (LPXOSC). Output 0 in PA[0,1,2,5] to prevent current consumption in all DIP switch states
+    PORTB = 0xFE; //PB[0,1]  (LCD RS, LCD RST) are overwritten by lcd2_portinit(), enable pull-ups for PB[2..7]  (PB[2,3] for buttons, PB[4..7] unused)
+    PORTC = 0xF3 | (0x08); 	// set PC0 = 1 (LCD SEL), PC1 = 1 (LCD SCK), PC2 = 0 (LCD MOSI), PC3 =0 (LED), enable pull-ups for PC[4..7] which are not bonded Mind: PORTC[0:1] is set to 0x3 by lcd2_portinit()
+    PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
 
-    PORTA = 0xCE | (PINA & 0x30); // pull-up for PA[6,7] which are not bonded, Output 0 in PA0, pull-up PA[1..3] (unused rows)
-    // init LEDs to previous (frozen) state
+
+    DIRA = 0x27; // output 0 on PA[0,1,2,5] to prevent current consumption in all DIP switch states. Other PA are inputs, PA[3,4] (LPXOSC) must have disabled digital output drivers
+    DIRB = 0x03; // PB[0,1] are outputs (LCD RS, LCD RST), PB[2..7] are inputs (PB[2,3] for buttons,  PB[4..7]  unused)
+    DIRC = 0x0F; // PC[0..3] are outputs (LCD SEL, LCD,SCK, LCD MOSI, LED), PC[4..7] are inputs (not bonded).
+    DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
+#elif defined(AXREMOTE_TRANSMITTER)
+
+    PORTA = 0xFE; // pull-up for PA[6,7] which are not bonded, Output 0 in PA0, pull-up PA[1..3] (unused rows)
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
     PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
@@ -220,10 +235,9 @@ uint8_t _sdcc_external_startup(void)
     DIRC = 0x1F; // PC[0..4] are outputs (rows), PC[5..7] are inputs (not bonded).
     DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
 
-#else
+#elif defined(AXREMOTE_RECEIVER)
 
-    PORTA = 0xC0 | (PINA & 0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[1..2], A0 (button) floating (has external pull-down)
-    // init LEDs to previous (frozen) state
+    PORTA = 0xC0 | (0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[1..2], A0 (button) floating (has external pull-down)
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
     PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
@@ -236,7 +250,8 @@ uint8_t _sdcc_external_startup(void)
 #endif // AXREMOTE_RECEIVER
 
     DPS = 0;
-    IE = 0x40;
+    //IE = 0x42; // power management interrupt, wakeup timer
+    IE = 0;
     EIE = 0x00;
     E2IE = 0x00;
 
@@ -264,10 +279,26 @@ void main(void)
                           __endasm;
 #endif
 
+
     EA = 1;
     flash_apply_calibration();
     CLKCON = 0x00;
     wtimer_init();
+
+
+    led1_off();// green
+    while (1) {
+        IE=0x00; // nobody shall wake me! (only power management resets)
+        //led1_on();
+        led0_off(); // red
+        //enter_sleep();
+        wtimer_idle(WTFLAG_CANSLEEP);
+        //led1_off();
+        led0_on();
+    }
+    led1_on();
+
+
 
 #ifdef USE_DBGLINK
     dbglink_init();
@@ -316,6 +347,8 @@ void main(void)
     led3_off();
 #endif
 
+    led1_on();
+
 //-----------------------------------------------------------------------------
 
     if (coldstart) {
@@ -333,11 +366,11 @@ void main(void)
             }
 
 #ifdef USE_DBGLINK
-                if (DBGLNKSTAT & 0x10) {
-                    dbglink_writestr("error initializing radio: ");
-                    dbglink_writehexu16(err, 2);
-                    dbglink_tx('\n');
-                }
+            if (DBGLNKSTAT & 0x10) {
+                dbglink_writestr("error initializing radio: ");
+                dbglink_writehexu16(err, 2);
+                dbglink_tx('\n');
+            }
 #endif // USE_DBGLINK
             goto terminate_radio_error;
         }
@@ -364,7 +397,7 @@ void main(void)
 
 #ifdef AXREMOTE_TRANSMITTER
         // don't turn on radio, we only need it when a key gets pressed
-        err = axradio_set_mode(AXRADIO_MODE_OFF);
+        err = axradio_set_mode(RADIO_POWERMODE_OFF);
 #else
         err = axradio_set_mode(AXRADIO_MODE_ASYNC_RECEIVE);
 #endif
@@ -375,7 +408,6 @@ void main(void)
 #ifdef AXREMOTE_RECEIVER
         uart_init();
 #endif // AXREMOTE_RECEIVER
-
     } else {
         // warmstart
         ax5043_commsleepexit();
@@ -384,21 +416,27 @@ void main(void)
 
 //-----------------------------------------------------------------------------
 #ifdef AXREMOTE_TRANSMITTER
+
+    // input
+    DIRB &= (uint8_t) ~0x04; // PB2
+    PORTC |= 0x04; // with pull-up
     for(;;)
     {
 
-        uint8_t key = scan_keymatrix();
+        //uint8_t key = scan_keymatrix();
+        uint8_t key = (~PINB) & 0x04; // key is connected to ground
 
         wtimer_runcallbacks();
 
         if (key > 0) {
             //led0_on();
-            if (key != prev_key) {
+            if (key != prev_key && !tx_in_progress) {
 
 #ifdef USE_DBGLINK
                 if (DBGLNKSTAT & 0x10) {
                     dbglink_writenum16(key, 2, 0);
                     dbglink_tx('\n');
+                    dbglink_wait_txdone();
                 }
 #endif // USE_DBGLINK
 
@@ -411,7 +449,8 @@ void main(void)
         prev_key = key;
 
         // drive all rows, so if any button is pressed we will wake up
-        INIT_MATRIX_FOR_SLEEP();
+        //INIT_MATRIX_FOR_SLEEP();
+        INTCHGB |= 0x04;
 
 
         // everything output HIGH
@@ -428,17 +467,19 @@ void main(void)
         IE = 0x18; // no interrupts at all, save for GPIO and radio
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
-#ifdef MCU_SLEEP
             if (axradio_cansleep()
 #ifdef USE_DBGLINK
-                    && dbglink_txidle()
+             && dbglink_txidle()
 #endif
-                    )
+            ) {
                 flg |= WTFLAG_CANSLEEP;
-#endif // MCU_SLEEP
+                led1_off();
+            }
             // green led on if chip is active
-            led1_off();
-            wtimer_idle(flg);
+
+            //wtimer_idle(flg);
+            if (flg & WTFLAG_CANSLEEP)
+                enter_sleep();
             led1_on();
         }
         // turn interrupts back on
@@ -492,19 +533,22 @@ void main(void)
 //-----------------------------------------------------------------------------
 
 terminate_radio_error:
-#ifndef DEBUG
+#ifndef USE_DBGLINK
     goto terminate_error;
 #endif
     display_radio_error(err);
 
 terminate_error:
-#ifndef DEBUG
+#ifndef USE_DBGLINK
     for (;;) PCON |= 0x10; // reset in release build
 #endif
 
 #ifdef USE_DBGLINK
-    if (DBGLNKSTAT & 0x10)
-        dbglink_writestr("TERMINATE ERROR\n");
+    if (DBGLNKSTAT & 0x10) {
+        dbglink_writestr("TERMINATE ERROR: 0x");
+        dbglink_writehexu16(err, 2);
+        dbglink_tx('\n');
+    }
 #endif // USE_DBGLINK
 
     led0_on();
