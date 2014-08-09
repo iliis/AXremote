@@ -106,11 +106,14 @@ static void transmit_packet(uint8_t key)
 
     //delay_ms(5); // give hardware time to start up
 
-    axradio_transmit(&remoteaddr, packet, sizeof(packet));
+    key = axradio_transmit(&remoteaddr, packet, sizeof(packet));
 
 #ifdef USE_DBGLINK
     if (DBGLNKSTAT & 0x10) {
-        //dbglink_writestr("sending packet\n");
+        if (key != AXRADIO_ERR_NOERROR) {
+            dbglink_writestr("error sending packet: ");
+            HEX8(key); NL(); WAIT_DONE();
+        }
     }
 #endif // USE_DBGLINK
 }
@@ -131,14 +134,16 @@ void axradio_statuschange(struct axradio_status __xdata *st)
     case AXRADIO_STAT_TRANSMITSTART:
         led0_on();
         tx_in_progress = 1;
+        LOG(STR("start tx ..."));
         break;
 
     case AXRADIO_STAT_TRANSMITEND:
         led0_off();
         tx_in_progress = 0;
+        LOG(STR(" done\n"));
 #ifdef AXREMOTE_TRANSMITTER
         // power down radio when not actively transmitting keypresses
-        delay_ms(2);
+        //delay_ms(2);
         axradio_set_mode(RADIO_POWERMODE_OFF);
 #endif
 
@@ -255,6 +260,11 @@ uint8_t _sdcc_external_startup(void)
     EIE = 0x00;
     E2IE = 0x00;
 
+    led0_off();
+    led1_off();
+    led2_off();
+    led3_off();
+
     GPIOENABLE = 1; // unfreeze GPIO
 #if defined(__ICC8051__)
     return coldstart;
@@ -274,9 +284,9 @@ void main(void)
 
 #if defined(SDCC)
     __asm
-    G$_start__stack$0$0 = __start__stack
-                          .globl G$_start__stack$0$0
-                          __endasm;
+        G$_start__stack$0$0 = __start__stack
+        .globl G$_start__stack$0$0
+        __endasm;
 #endif
 
 
@@ -336,7 +346,7 @@ void main(void)
 
     led1_on();
 
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
 
     if (coldstart) {
         // coldstart
@@ -373,12 +383,12 @@ void main(void)
         if (DBGLNKSTAT & 0x10) {
             dbglink_writestr("RNG = ");
             dbglink_writenum16(axradio_get_pllrange(), 2, 0);
-            #ifdef AXREMOTE_TRANSMITTER
-                dbglink_writestr("\n\nTRANSMITTER\n");
-            #endif // AXREMOTE_TRANSMITTER
-            #ifdef AXREMOTE_RECEIVER
-                dbglink_writestr("\n\nRECEIVER\n");
-            #endif
+#ifdef AXREMOTE_TRANSMITTER
+            dbglink_writestr("\n\nTRANSMITTER\n");
+#endif // AXREMOTE_TRANSMITTER
+#ifdef AXREMOTE_RECEIVER
+            dbglink_writestr("\n\nRECEIVER\n");
+#endif
         }
 #endif // USE_DBGLINK
 
@@ -398,8 +408,6 @@ void main(void)
     } else {
         // warmstart
 
-        nop(); nop(); nop();
-
         LOG(STR("warmstarting ...\n"));
 
 
@@ -407,41 +415,16 @@ void main(void)
         IE_4 = 1; // Radio Interrupt enable
     }
 
-    led1_on();
-    led0_on();
 
-    while(1);
+#ifdef USE_DBGLINK
+    dbglink_wait_txdone();
+#endif
 
-    led1_off();// green
-    while (1) {
-        IE=0x00; // nobody shall wake me! (only power management resets)
-
-        // disable all wakeup timers
-        WTCFGA = 3;
-        WTCFGB = 3;
-
-        //led1_on();
-        led0_off(); // red
-        //enter_sleep();
-        wtimer_idle(WTFLAG_CANSLEEP);
-        //led1_off();
-        led0_on();
-    }
-    led1_on();
-
-
-
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
 #ifdef AXREMOTE_TRANSMITTER
 
-    // input
-    DIRB &= (uint8_t) ~0x04; // PB2
-    PORTC |= 0x04; // with pull-up
-    for(;;)
     {
-
-        //uint8_t key = scan_keymatrix();
-        uint8_t key = (~PINB) & 0x04; // key is connected to ground
+        uint8_t key = scan_keymatrix();
 
         wtimer_runcallbacks();
 
@@ -451,6 +434,7 @@ void main(void)
 
 #ifdef USE_DBGLINK
                 if (DBGLNKSTAT & 0x10) {
+                    dbglink_writestr("TX ");
                     dbglink_writenum16(key, 2, 0);
                     dbglink_tx('\n');
                     dbglink_wait_txdone();
@@ -466,18 +450,24 @@ void main(void)
         prev_key = key;
 
         // drive all rows, so if any button is pressed we will wake up
-        //INIT_MATRIX_FOR_SLEEP();
-        INTCHGB |= 0x04;
+        INIT_MATRIX_FOR_SLEEP();
+        //INTCHGB |= 0x04;
+    }
 
 
-        // everything output HIGH
-        /*DIRA |= (uint8_t) (0x0F);
-        DIRB |= (uint8_t) (0x3F);
-        DIRC |= (uint8_t) (0x1F);
+    // everything output HIGH
+    /*DIRA |= (uint8_t) (0x0F);
+      DIRB |= (uint8_t) (0x3F);
+      DIRC |= (uint8_t) (0x1F);
 
-        PORTA |= 0x0F;
-        PORTB |= 0x3F;
-        PORTC |= 0x1F;*/
+      PORTA |= 0x0F;
+      PORTB |= 0x3F;
+      PORTC |= 0x1F;*/
+
+    // input
+    for(;;)
+    {
+        wtimer_runcallbacks();
 
         // disable interrupts before going to sleep
         EA = 0;
@@ -486,25 +476,35 @@ void main(void)
             uint8_t flg = WTFLAG_CANSTANDBY;
             if (axradio_cansleep()
 #ifdef USE_DBGLINK
-             && dbglink_txidle()
+                    && dbglink_txidle()
 #endif
-            ) {
+               ) {
                 flg |= WTFLAG_CANSLEEP;
                 led1_off();
             }
             // green led on if chip is active
 
             //wtimer_idle(flg);
-            if (flg & WTFLAG_CANSLEEP)
+            if (flg & WTFLAG_CANSLEEP) {
+                // disable all wakeup timers
+                WTCFGA = 7;
+                WTCFGB = 7;
+
+                LOG(STR("enter sleep\n"), WAIT_DONE());
+
                 enter_sleep();
-            led1_on();
+                led1_on(); // should never be executed
+            } else {
+                led1_on();
+                wtimer_idle(WTFLAG_CANSTANDBY);
+            }
         }
         // turn interrupts back on
         IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
     }
 
 
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
 #else // RECEIVER
 
     //infrared_init();
@@ -517,11 +517,11 @@ void main(void)
 
         // TODO: solder pull-down to correct button-pin
         /*DIRA &= ~0x01; // input
-        PORTA_0 = 0; // no pull up
-        led3_set(PINA & 0x01 == 1);
+          PORTA_0 = 0; // no pull up
+          led3_set(PINA & 0x01 == 1);
 
-        if (PINA & 0x01) {
-            //print_recorded_input();
+          if (PINA & 0x01) {
+        //print_recorded_input();
         }*/
 
         EA = 0;
@@ -533,7 +533,7 @@ void main(void)
 #ifdef USE_DBGLINK
                     && dbglink_txidle()
 #endif
-                    )
+               )
                 flg |= WTFLAG_CANSLEEP;
 #endif // MCU_SLEEP
 
@@ -547,18 +547,19 @@ void main(void)
     }
 #endif // AXREMOTE_TRANSMITTER
 
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
 
 terminate_radio_error:
 #ifndef USE_DBGLINK
     goto terminate_error;
-#endif
+#else
     display_radio_error(err);
+#endif
 
 terminate_error:
 #ifndef USE_DBGLINK
     for (;;) PCON |= 0x10; // reset in release build
-#endif
+#else
 
 #ifdef USE_DBGLINK
     if (DBGLNKSTAT & 0x10) {
@@ -591,10 +592,11 @@ terminate_error:
 #ifdef USE_DBGLINK
                     && dbglink_txidle()
 #endif
-                    )
+               )
                 flg |= WTFLAG_CANSLEEP;
 #endif
             wtimer_idle(flg);
         }
     }
+#endif
 }
