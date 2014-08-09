@@ -84,8 +84,8 @@
 <REGISTER name="AX5043_TXRATE2" addr="0x165" value="0x01" xpertvalue="0x01" mask="0xFF" usexpertvalue="0x00"/>
 <REGISTER name="AX5043_TXRATE1" addr="0x166" value="0x47" xpertvalue="0x47" mask="0xFF" usexpertvalue="0x00"/>
 <REGISTER name="AX5043_TXRATE0" addr="0x167" value="0xAE" xpertvalue="0xAE" mask="0xFF" usexpertvalue="0x00"/>
-<REGISTER name="AX5043_TXPWRCOEFFB1" addr="0x16A" value="0x0F" xpertvalue="0x0F" mask="0xFF" usexpertvalue="0x00"/>
-<REGISTER name="AX5043_TXPWRCOEFFB0" addr="0x16B" value="0xFF" xpertvalue="0xFF" mask="0xFF" usexpertvalue="0x00"/>
+<REGISTER name="AX5043_TXPWRCOEFFB1" addr="0x16A" value="0x02" xpertvalue="0x02" mask="0xFF" usexpertvalue="0x00"/>
+<REGISTER name="AX5043_TXPWRCOEFFB0" addr="0x16B" value="0x07" xpertvalue="0x07" mask="0xFF" usexpertvalue="0x00"/>
 <REGISTER name="AX5043_PLLRNGCLK" addr="0x183" value="0x03" xpertvalue="0x03" mask="0xFF" usexpertvalue="0x00"/>
 <REGISTER name="AX5043_BBTUNE" addr="0x188" value="0x09" xpertvalue="0x09" mask="0xFF" usexpertvalue="0x00"/>
 <REGISTER name="AX5043_BBOFFSCAP" addr="0x189" value="0x77" xpertvalue="0x77" mask="0x77" usexpertvalue="0x00"/>
@@ -215,7 +215,7 @@
 <modulation>0x0A</modulation>
 <modh>0.500000</modh>
 <halfdev>20000.000000</halfdev>
-<txpwr>15.000000</txpwr>
+<txpwr>0.000000</txpwr>
 <bw>120000.000000</bw>
 <encoding>0x00</encoding>
 <xtalcap>0x0C</xtalcap>

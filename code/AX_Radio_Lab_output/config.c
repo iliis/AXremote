@@ -5,7 +5,7 @@
 #include <libmftypes.h>
 #include <libmfcrc.h>
 
-// TX: fcarrier=868.300MHz dev= 20.000kHz br= 80.000kBit/s pwr= 15.0dBm
+// TX: fcarrier=868.300MHz dev= 20.000kHz br= 80.000kBit/s pwr=  0.0dBm
 // RX: fcarrier=868.300MHz bw=120.000kHz br= 80.000kBit/s
 
 __reentrantb void ax5043_set_registers(void) __reentrant
@@ -91,8 +91,8 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_TXRATE2                 = 0x01;
 	AX5043_TXRATE1                 = 0x47;
 	AX5043_TXRATE0                 = 0xAE;
-	AX5043_TXPWRCOEFFB1            = 0x0F;
-	AX5043_TXPWRCOEFFB0            = 0xFF;
+	AX5043_TXPWRCOEFFB1            = 0x02;
+	AX5043_TXPWRCOEFFB0            = 0x07;
 	AX5043_PLLRNGCLK               = 0x03;
 	AX5043_BBTUNE                  = 0x09;
 	AX5043_BBOFFSCAP               = 0x77;
