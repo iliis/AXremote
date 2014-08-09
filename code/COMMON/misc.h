@@ -42,4 +42,27 @@ extern __reentrantb void delay_raw(uint32_t cycles, uint8_t relative) __reentran
 extern void stop_with_error(uint8_t *str);
 extern void display_radio_error(uint8_t err);
 
+#ifdef USE_DBGLINK
+#define NL()        dbglink_tx('\n');
+#define WAIT_DONE() dbglink_wait_txdone();
+#define STR(s)      dbglink_writestr(s);
+#define CHAR(x)     dbglink_tx(x);
+#define NUM8(x)     dbglink_writenum16(x, 3, 0);
+#define HEX8(x)     dbglink_writehexu16(x, 2);
+#define NUM16(x)    dbglink_writenum16(x, 5, 0);
+#define HEX16(x)    dbglink_writehexu16(x, 4);
+#define NUM32(x)    dbglink_writenum32(x, 10, 0);
+#define HEX32(x)    dbglink_writehexu32(x, 8);
+// ...
+
+#define NOP
+#define LOG(...) LOG_(__VA_ARGS__, NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP,NOP)
+#define LOG_(_1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, ...) \
+    do { if(DBGLNKSTAT & 0x10) { _1 _2 _3 _4 _5 _6 _7 _8 _9 _10 _11 _12 _13 _14 _15 _16 } } while(0)
+
+#else
+#define LOG(...)    do { } while(0)
+#endif
+
+
 #endif // MISC_H_INCLUDED

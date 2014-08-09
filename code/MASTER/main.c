@@ -204,7 +204,7 @@ uint8_t _sdcc_external_startup(void)
 {
     LPXOSCGM = 0x8A;
     wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
-    wtimer1_setclksrc(CLKSRC_FRCOSC, 7); // 2); // why: 20MHz / 2 ????
+    wtimer1_setclksrc(CLKSRC_FRCOSC, 7); // 2); // why: 20MHz / 2 -> for IR timing
 
     LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
 
@@ -281,22 +281,9 @@ void main(void)
 
 
     EA = 1;
-    flash_apply_calibration();
+    err = !flash_apply_calibration();
     CLKCON = 0x00;
     wtimer_init();
-
-
-    led1_off();// green
-    while (1) {
-        IE=0x00; // nobody shall wake me! (only power management resets)
-        //led1_on();
-        led0_off(); // red
-        //enter_sleep();
-        wtimer_idle(WTFLAG_CANSLEEP);
-        //led1_off();
-        led0_on();
-    }
-    led1_on();
 
 
 
@@ -354,14 +341,16 @@ void main(void)
     if (coldstart) {
         // coldstart
 
+        LOG(STR("coldstarting, init radio ...\n"));
+
+        if (err)
+            LOG(STR("warning: no calibration data found\n"));
+
         err = axradio_init();
         if (err != AXRADIO_ERR_NOERROR) {
             if (err == AXRADIO_ERR_NOCHIP) {
 
-#ifdef USE_DBGLINK
-                if (DBGLNKSTAT & 0x10)
-                    dbglink_writestr("No AX5043 RF chip found \n");
-#endif // USE_DBGLINK
+                LOG(STR("No AX5043 RF chip found \n"));
                 goto terminate_error;
             }
 
@@ -375,10 +364,8 @@ void main(void)
             goto terminate_radio_error;
         }
 
-#ifdef USE_DBGLINK
-       if (DBGLNKSTAT & 0x10)
-            dbglink_writestr("found AX5043\n");
-#endif // USE_DBGLINK
+        LOG(STR("found AX5043\n"));
+
         axradio_set_local_address(&localaddr);
         axradio_set_default_remote_address(&remoteaddr);
 
@@ -410,9 +397,39 @@ void main(void)
 #endif // AXREMOTE_RECEIVER
     } else {
         // warmstart
+
+        nop(); nop(); nop();
+
+        LOG(STR("warmstarting ...\n"));
+
+
         ax5043_commsleepexit();
         IE_4 = 1; // Radio Interrupt enable
     }
+
+    led1_on();
+    led0_on();
+
+    while(1);
+
+    led1_off();// green
+    while (1) {
+        IE=0x00; // nobody shall wake me! (only power management resets)
+
+        // disable all wakeup timers
+        WTCFGA = 3;
+        WTCFGB = 3;
+
+        //led1_on();
+        led0_off(); // red
+        //enter_sleep();
+        wtimer_idle(WTFLAG_CANSLEEP);
+        //led1_off();
+        led0_on();
+    }
+    led1_on();
+
+
 
 //-----------------------------------------------------------------------------
 #ifdef AXREMOTE_TRANSMITTER

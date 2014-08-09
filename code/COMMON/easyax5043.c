@@ -40,6 +40,7 @@
 #ifdef USE_DBGLINK
 #include <libmfdbglink.h>
 #include "libminidvkled.h"
+#include "../COMMON/misc.h"
 #endif
 
 
@@ -911,6 +912,8 @@ __reentrantb void ax5043_off_xtal(void) __reentrant
 void axradio_wait_for_xtal(void)
 {
     uint8_t __autodata iesave = IE & 0x80;
+
+    LOG(STR("waiting for XTAL ..."), WAIT_DONE());
     EA = 0;
     axradio_trxstate = trxstate_wait_xtal;
     AX5043_IRQMASK1 |= 0x01; // enable xtal ready interrupt
@@ -923,6 +926,8 @@ void axradio_wait_for_xtal(void)
         wtimer_runcallbacks();
     }
     IE |= iesave;
+
+    LOG(STR(" OK\n"));
 }
 
 static void axradio_setaddrregs(void)
