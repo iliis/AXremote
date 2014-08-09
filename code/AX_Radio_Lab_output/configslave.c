@@ -12,7 +12,7 @@ const struct axradio_address_mask __code localaddr = {
 };
 
 
-const uint8_t __code framing_insert_counter = 0;
+const uint8_t __code framing_insert_counter = 1;
 const uint8_t __code framing_counter_pos = 0;
 
 const uint16_t __code lposckfiltmax = 0x20c4;
