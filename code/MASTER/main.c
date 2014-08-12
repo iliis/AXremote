@@ -102,7 +102,8 @@ static void transmit_packet(uint8_t key)
 
     packet[1] = key;
 
-    axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT);
+    if (axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT) != AXRADIO_ERR_NOERROR)
+        LOG(STR("ERROR enabling radio\n"));
 
     //delay_ms(5); // give hardware time to start up
 
@@ -144,7 +145,8 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 #ifdef AXREMOTE_TRANSMITTER
         // power down radio when not actively transmitting keypresses
         //delay_ms(2);
-        axradio_set_mode(RADIO_POWERMODE_OFF);
+        if (axradio_set_mode(RADIO_POWERMODE_OFF) != AXRADIO_ERR_NOERROR)
+            LOG(STR("ERROR disabling radio\n"));
 #endif
 
         if (st->error != AXRADIO_ERR_NOERROR) {
@@ -233,7 +235,7 @@ uint8_t _sdcc_external_startup(void)
     PORTA = 0xFE; // pull-up for PA[6,7] which are not bonded, Output 0 in PA0, pull-up PA[1..3] (unused rows)
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
-    PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
+    PORTR = 0x0B; // overwritten by ax5043_reset, ax5043_comminit()
 
     DIRA = 0x31; // PA[0] is output (row5), PA[1..3] is inputs (unused rows), PA4 and 5 are LEDs, PA[6..7] are not bonded
     DIRB = 0x00; // PB[0..5] are inputs (cols), B6 and 7 are debug connections (inputs as well)
@@ -410,9 +412,9 @@ void main(void)
 
         LOG(STR("warmstarting ...\n"));
 
-
-        ax5043_commsleepexit();
-        IE_4 = 1; // Radio Interrupt enable
+        // radio isn't running here
+        //ax5043_commsleepexit();
+        //IE_4 = 1; // Radio Interrupt enable
     }
 
 

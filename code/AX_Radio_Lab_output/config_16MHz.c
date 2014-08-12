@@ -127,7 +127,8 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_DACVALUE1               = 0x00;
 	AX5043_DACVALUE0               = 0x00;
 	AX5043_DACCONFIG               = 0x00;
-	AX5043_0xF10                   = 0x03;
+	//AX5043_0xF10                   = 0x03; // increase this! (XTAL power)
+	AX5043_0xF10                   = 0x08;
 	AX5043_0xF11                   = 0x07;
 	AX5043_0xF1C                   = 0x07;
 	AX5043_0xF21                   = 0x5C;
