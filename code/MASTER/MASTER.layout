@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Release Transmitter" />
-	<File name="../COMMON/easyax5043.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<ActiveTarget name="Debug Transmitter" />
+	<File name="../COMMON/easyax5043.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="59026" topLine="140" />
 		</Cursor>
+		<Folding>
+			<Collapse line="47" />
+			<Collapse line="75" />
+			<Collapse line="88" />
+			<Collapse line="100" />
+			<Collapse line="126" />
+			<Collapse line="155" />
+			<Collapse line="174" />
+			<Collapse line="194" />
+			<Collapse line="214" />
+			<Collapse line="243" />
+			<Collapse line="252" />
+			<Collapse line="260" />
+			<Collapse line="275" />
+			<Collapse line="290" />
+			<Collapse line="445" />
+			<Collapse line="600" />
+			<Collapse line="825" />
+			<Collapse line="852" />
+			<Collapse line="885" />
+			<Collapse line="897" />
+			<Collapse line="903" />
+			<Collapse line="912" />
+			<Collapse line="937" />
+			<Collapse line="964" />
+			<Collapse line="976" />
+			<Collapse line="981" />
+			<Collapse line="986" />
+			<Collapse line="991" />
+			<Collapse line="997" />
+			<Collapse line="1013" />
+			<Collapse line="1022" />
+			<Collapse line="1026" />
+			<Collapse line="1316" />
+			<Collapse line="1321" />
+			<Collapse line="1477" />
+			<Collapse line="1487" />
+			<Collapse line="1492" />
+			<Collapse line="1626" />
+			<Collapse line="1634" />
+			<Collapse line="1652" />
+			<Collapse line="1850" />
+			<Collapse line="1855" />
+			<Collapse line="1885" />
+			<Collapse line="1890" />
+			<Collapse line="1895" />
+			<Collapse line="1900" />
+			<Collapse line="1912" />
+			<Collapse line="1923" />
+			<Collapse line="1928" />
+			<Collapse line="1934" />
+			<Collapse line="1939" />
+			<Collapse line="1944" />
+			<Collapse line="1949" />
+			<Collapse line="2066" />
+			<Collapse line="2076" />
+			<Collapse line="2081" />
+		</Folding>
 	</File>
 	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2499" topLine="42" />
+			<Cursor1 position="14170" topLine="438" />
 		</Cursor>
 	</File>
 	<File name="keymatrix.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -114,7 +172,7 @@
 	</File>
 	<File name="../COMMON/libminidvkled.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="445" topLine="0" />
+			<Cursor1 position="445" topLine="20" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

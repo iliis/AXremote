@@ -102,10 +102,12 @@ static void transmit_packet(uint8_t key)
 
     packet[1] = key;
 
+    /*
     if (axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT) != AXRADIO_ERR_NOERROR)
         LOG(STR("ERROR enabling radio\n"));
+    */
 
-    //delay_ms(5); // give hardware time to start up
+    delay_ms(5); // give hardware time to start up
 
     key = axradio_transmit(&remoteaddr, packet, sizeof(packet));
 
@@ -144,9 +146,13 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         LOG(STR(" done\n"));
 #ifdef AXREMOTE_TRANSMITTER
         // power down radio when not actively transmitting keypresses
-        //delay_ms(2);
-        if (axradio_set_mode(RADIO_POWERMODE_OFF) != AXRADIO_ERR_NOERROR)
+        //delay_ms(5);
+        /*if (axradio_set_mode(RADIO_POWERMODE_OFF) != AXRADIO_ERR_NOERROR) {
             LOG(STR("ERROR disabling radio\n"));
+            led0_on();
+        }*/
+
+        //ax5043_enter_deepsleep();
 #endif
 
         if (st->error != AXRADIO_ERR_NOERROR) {
@@ -267,6 +273,8 @@ uint8_t _sdcc_external_startup(void)
     led2_off();
     led3_off();
 
+    PALTRADIO = 0; // don't output PWRAMP/ANTSEL
+
     GPIOENABLE = 1; // unfreeze GPIO
 #if defined(__ICC8051__)
     return coldstart;
@@ -312,6 +320,7 @@ void main(void)
     if (DBGLNKSTAT & 0x10)
         dbglink_writestr("initializing ...\n");
 
+    #if 0
     // display a nice startup animation
     delay_ms(100);
 
@@ -344,9 +353,10 @@ void main(void)
     led1_off();
     led2_off();
     led3_off();
+    #endif
 #endif
 
-    led1_on();
+    led1_on(); // green = MCU is running
 
     //-----------------------------------------------------------------------------
 
@@ -396,7 +406,8 @@ void main(void)
 
 #ifdef AXREMOTE_TRANSMITTER
         // don't turn on radio, we only need it when a key gets pressed
-        err = axradio_set_mode(RADIO_POWERMODE_OFF);
+        //err = axradio_set_mode(RADIO_POWERMODE_OFF);
+        err = axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT);
 #else
         err = axradio_set_mode(AXRADIO_MODE_ASYNC_RECEIVE);
 #endif
@@ -412,9 +423,12 @@ void main(void)
 
         LOG(STR("warmstarting ...\n"));
 
+#ifdef AXREMOTE_TRANSMITTER
         // radio isn't running here
-        //ax5043_commsleepexit();
-        //IE_4 = 1; // Radio Interrupt enable
+#else
+        ax5043_commsleepexit();
+        IE_4 = 1; // Radio Interrupt enable
+#endif
     }
 
 
@@ -425,6 +439,8 @@ void main(void)
     //-----------------------------------------------------------------------------
 #ifdef AXREMOTE_TRANSMITTER
 
+    IE_4 = 1; // Radio Interrupt enable
+    while (1)
     {
         uint8_t key = scan_keymatrix();
 
@@ -454,7 +470,6 @@ void main(void)
         // drive all rows, so if any button is pressed we will wake up
         INIT_MATRIX_FOR_SLEEP();
         //INTCHGB |= 0x04;
-    }
 
 
     // everything output HIGH
@@ -466,9 +481,10 @@ void main(void)
       PORTB |= 0x3F;
       PORTC |= 0x1F;*/
 
-    // input
-    for(;;)
-    {
+    LOG(WAIT_DONE());
+
+    //for(;;)
+    //
         wtimer_runcallbacks();
 
         // disable interrupts before going to sleep
@@ -476,33 +492,44 @@ void main(void)
         IE = 0x18; // no interrupts at all, save for GPIO and radio
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
-            if (axradio_cansleep()
+            /*if (tx_in_progress == 0
+                    && axradio_cansleep()
 #ifdef USE_DBGLINK
                     && dbglink_txidle()
 #endif
                ) {
                 flg |= WTFLAG_CANSLEEP;
-                led1_off();
             }
-            // green led on if chip is active
+            */
 
             //wtimer_idle(flg);
             if (flg & WTFLAG_CANSLEEP) {
+
+                //LOG(STR("enter sleep\n"), WAIT_DONE());
+
+                led0_off();
+                led1_off();
+
                 // disable all wakeup timers
                 WTCFGA = 7;
                 WTCFGB = 7;
 
-                LOG(STR("enter sleep\n"), WAIT_DONE());
-
                 enter_sleep();
-                led1_on(); // should never be executed
-            } else {
+
+                led0_on(); // should never be executed
                 led1_on();
+            } else {
+
                 wtimer_idle(WTFLAG_CANSTANDBY);
+                // green led on if chip is active
+                led0_on();
             }
         }
         // turn interrupts back on
         IE = 0xD2; // power, radio and wakeup timer (no GPIO as we poll them when awake)
+        EA = 1;
+
+        //LOG(CHAR('x'));
     }
 
 

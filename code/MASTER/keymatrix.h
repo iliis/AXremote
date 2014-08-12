@@ -89,6 +89,10 @@
         /* drive to GND */ \
         PORTC &= (uint8_t) ~0x1F;    \
         PORTA &= (uint8_t) ~0x0F;    \
+        /* read pin state to clear latches */ \
+        PINA; \
+        PINB; \
+        PINC; \
         /* enable interrupt on change for columns (PB[0..5])*/ \
         INTCHGA = 0; \
         INTCHGB = 0x3F; \

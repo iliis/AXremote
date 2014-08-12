@@ -40,9 +40,9 @@
 #ifdef USE_DBGLINK
 #include <libmfdbglink.h>
 #include "libminidvkled.h"
-#include "../COMMON/misc.h"
 #endif
 
+#include "../COMMON/misc.h"
 
 
 typedef enum {
@@ -892,6 +892,8 @@ __reentrantb void ax5043_prepare_tx(void) __reentrant
     axradio_trxstate = trxstate_tx_xtalwait;
     AX5043_IRQMASK0 = 0x00;
     AX5043_IRQMASK1 = 0x01; // enable xtal ready interrupt
+
+    LOG(STR("prepare_tx()\n"));
 }
 
 __reentrantb void ax5043_off(void) __reentrant
@@ -907,15 +909,16 @@ __reentrantb void ax5043_off_xtal(void) __reentrant
     AX5043_PWRMODE = AX5043_PWRSTATE_XTAL_ON;
     AX5043_LPOSCCONFIG = 0x00; // LPOSC off
     axradio_trxstate = trxstate_off;
+
+    LOG(STR("off_xtal()\n"));
 }
 
 void axradio_wait_for_xtal(void)
 {
     uint8_t __autodata iesave = IE & 0x80;
 
-#ifdef USE_DBGLINK
     LOG(STR("waiting for XTAL ..."), WAIT_DONE());
-#endif
+
     EA = 0;
     axradio_trxstate = trxstate_wait_xtal;
     AX5043_IRQMASK1 |= 0x01; // enable xtal ready interrupt
@@ -929,9 +932,7 @@ void axradio_wait_for_xtal(void)
     }
     IE |= iesave;
 
-#ifdef USE_DBGLINK
     LOG(STR(" OK\n"));
-#endif // USE_DBGLINK
 }
 
 static void axradio_setaddrregs(void)
@@ -1719,6 +1720,7 @@ uint8_t axradio_set_mode(uint8_t mode)
         return AXRADIO_ERR_NOERROR;
 
     case AXRADIO_MODE_DEEPSLEEP:
+        LOG(STR("put radio into deepsleep\n"));
         ax5043_enter_deepsleep();
         axradio_mode = AXRADIO_MODE_DEEPSLEEP;
         return AXRADIO_ERR_NOERROR;
