@@ -85,10 +85,6 @@
 			<Option target="Debug Receiver" />
 			<Option target="Release Receiver" />
 		</Unit>
-		<Unit filename="../AX_Radio_Lab_output/config_48MHz_DVK2b.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug Transmitter DVK2b" />
-		</Unit>
 		<Unit filename="../AX_Radio_Lab_output/configmaster.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -102,11 +98,20 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/easyax5043.h" />
-		<Unit filename="../COMMON/libminidvkled.h" />
+		<Unit filename="../COMMON/leds.h" />
 		<Unit filename="../COMMON/misc.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/misc.h" />
+		<Unit filename="gpio.c">
+			<Option compilerVar="CPP" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="gpio.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Unit filename="infared_protocols/philips_rc5.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug Receiver" />

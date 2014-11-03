@@ -49,7 +49,7 @@
 
 #include <string.h>
 
-#include "../COMMON/libminidvkled.h"
+#include "../COMMON/leds.h"
 #include "../COMMON/misc.h"
 
 #ifdef AXREMOTE_TRANSMITTER
@@ -60,6 +60,20 @@
 #include "key_routing.h"
 #include <libmfuart0.h>
 #include "infrared.h"
+#include "gpio.h"
+
+void gpio_button0_pressed(struct wtimer_callback __xdata *desc)
+{
+    LOG(STR("button 0 pressed\n"));
+
+    print_recorded_input();
+}
+
+void gpio_button1_pressed(struct wtimer_callback __xdata *desc)
+{
+    LOG(STR("button 1 pressed\n"));
+}
+
 #endif
 
 #if !defined(AXREMOTE_RECEIVER) && !defined(AXREMOTE_TRANSMITTER)
@@ -86,15 +100,6 @@ static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
     for (;;)
         PCON |= 0x01;
 }
-
-#ifdef AXREMOTE_RECEIVER
-// to record infrared signals
-static void gpio_irq(void) __interrupt(INT_GPIO)
-{
-    handle_pin_change();
-    led3_set(PINC_1 == 0);
-}
-#endif
 
 static void transmit_packet(uint8_t key)
 {
@@ -167,7 +172,6 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 
 #ifdef AXREMOTE_RECEIVER
     case AXRADIO_STAT_RECEIVE:
-        print_recorded_input();
 
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
@@ -250,13 +254,13 @@ uint8_t _sdcc_external_startup(void)
 
 #elif defined(AXREMOTE_RECEIVER)
 
-    PORTA = 0xC0 | (0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA[1..2], A0 (button) floating (has external pull-down)
+    PORTA = 0xC0 | (0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA2, A0 and A1 (button) floating (has external pull-down)
     PORTB = 0xFF; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
     PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
 
-    DIRA = 0x3E; // PA0 is input (button), PA1 not connected (output), PA[2..5] are LEDs
-    DIRB = 0x0F; // PB[0..3] are outputs (IR LEDs etc.), B[4..7] are debug connections (inputs) and UART
+    DIRA = 0x3C; // PA0 and PA1 are inputs (buttons), PA[2..5] are LEDs
+    DIRB = 0x07; // PB[0..2] are outputs (IR LEDs etc.), B3 is IR receiver (input), B[4..7] are debug connections (inputs) and UART
     DIRC = 0x03; // PC[0..1] are outputs (IR LEDs), PC[2..7] are inputs (not bonded / connected).
     DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
 
@@ -320,7 +324,7 @@ void main(void)
     if (DBGLNKSTAT & 0x10)
         dbglink_writestr("initializing ...\n");
 
-    #if 0
+    #if 1
     // display a nice startup animation
     delay_ms(100);
 
@@ -356,7 +360,11 @@ void main(void)
     #endif
 #endif
 
+#ifdef AXREMOTE_TRANSMITTER
     led1_on(); // green = MCU is running
+#else
+    led3_on();
+#endif
 
     //-----------------------------------------------------------------------------
 
@@ -416,7 +424,7 @@ void main(void)
             goto terminate_radio_error;
 
 #ifdef AXREMOTE_RECEIVER
-        uart_init();
+        //uart_init();
 #endif // AXREMOTE_RECEIVER
     } else {
         // warmstart
@@ -536,22 +544,15 @@ void main(void)
     //-----------------------------------------------------------------------------
 #else // RECEIVER
 
-    //infrared_init();
+    infrared_start_rx();
     // TODO: add callback for IR packets here
+
+    // listen for button presses
+    init_gpio();
 
     for(;;) {
 
         wtimer_runcallbacks();
-
-
-        // TODO: solder pull-down to correct button-pin
-        /*DIRA &= ~0x01; // input
-          PORTA_0 = 0; // no pull up
-          led3_set(PINA & 0x01 == 1);
-
-          if (PINA & 0x01) {
-        //print_recorded_input();
-        }*/
 
         EA = 0;
         {

@@ -382,55 +382,55 @@
 1389908821 z:\sam\axremote\axtest\asdfasdf\common\libminidvkled.h
 	"libmftypes.h"
 
-1392814956 source:/home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
+1414945536 source:/home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
 	"../COMMON/easyax5043.h"
 	<libmftypes.h>
 	<libmfcrc.h>
 
-1392814956 /home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.h
 	"axradio.h"
 	<ax8052f143.h>
 	<libmftypes.h>
-	"../COMMON/libminidvkled.h"
 
-1392814956 /home/samuel/projects/elektronik/AXremote/code/COMMON/axradio.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/COMMON/axradio.h
 	<libmftypes.h>
 
-1392814956 source:/home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.c
+1414945536 source:/home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.c
 	"../COMMON/axradio.h"
 
-1392814956 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/display_com0.c
+1414945536 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/display_com0.c
 	"display_com0.h"
 	<ax8052f143.h>
 	<libmf.h>
 	<libmfuart.h>
 	<libmfuart0.h>
 
-1392814956 /home/samuel/projects/elektronik/AXremote/code/COMMON/display_com0.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/COMMON/display_com0.h
 	<libmf.h>
 
-1392814956 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.c
+1415034520 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/easyax5043.c
 	"easyax5043.h"
 	<libmfcrc.h>
 	<libmfradio.h>
 	<libmfwtimer.h>
 	<stdlib.h>
 	<string.h>
+	"../COMMON/misc.h"
 
 1399801136 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/keymatrix.c
 	"keymatrix.h"
 
-1403348354 /home/samuel/projects/elektronik/AXremote/code/MASTER/keymatrix.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/MASTER/keymatrix.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfdbglink.h>
 	"../COMMON/misc.h"
 
-1403348354 /home/samuel/projects/elektronik/AXremote/code/COMMON/misc.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/COMMON/misc.h
 	<libmftypes.h>
 	"../COMMON/axradio.h"
 
-1403481096 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
+1415034929 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/main.c
 	"../AX_Radio_Lab_output/configmaster.h"
 	<ax8052f143.h>
 	<libmftypes.h>
@@ -439,21 +439,23 @@
 	<libmfwtimer.h>
 	<libmfdbglink.h>
 	<string.h>
-	"../COMMON/libminidvkled.h"
+	"../COMMON/leds.h"
 	"../COMMON/misc.h"
 	"keymatrix.h"
 	"key_routing.h"
 	<libmfuart0.h>
 	"infrared.h"
+	"gpio.h"
 
-1392814956 /home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/AX_Radio_Lab_output/configmaster.h
 	"../COMMON/axradio.h"
 
-1403348354 /home/samuel/projects/elektronik/AXremote/code/COMMON/libminidvkled.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/COMMON/libminidvkled.h
 	<libmftypes.h>
 	"../COMMON/misc.h"
+	<libdvk2leds.h>
 
-1403356412 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/misc.c
+1414945536 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/misc.c
 	<ax8052.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
@@ -461,15 +463,15 @@
 	"misc.h"
 	"../COMMON/axradio.h"
 
-1403480904 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.c
+1403726047 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.c
 	"key_routing.h"
 
-1403348354 /home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.h
+1415030189 /home/samuel/projects/elektronik/AXremote/code/MASTER/key_routing.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfuart.h>
 	<libmfuart0.h>
-	"../COMMON/libminidvkled.h"
+	"../COMMON/leds.h"
 	"../MASTER/infrared.h"
 
 1392815892 source:z:\userspaces\sam\axremote\code\ax_radio_lab_output\config_16mhz.c
@@ -648,13 +650,13 @@
 1398090165 source:x:\sam\axremote\code\master\key_routing.c
 	"key_routing.h"
 
-1403445125 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.c
+1415034332 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.c
 	"infrared.h"
 	"infared_protocols/samsung.h"
 	"infared_protocols/sony.h"
 	"infared_protocols/philips_rc5.h"
 
-1403442218 /home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.h
+1414945536 /home/samuel/projects/elektronik/AXremote/code/MASTER/infrared.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
@@ -671,22 +673,22 @@
 1400345403 source:z:\userspaces\sam\axremote\code\master\infrared.c
 	"infrared.h"
 
-1403445239 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/samsung.h
+1403726047 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/samsung.h
 	"../infrared.h"
 
-1403445263 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.h
+1403726047 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.h
 	"../infrared.h"
 
-1403445252 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.h
+1403726047 /home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.h
 	"../infrared.h"
 
-1403444580 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.c
+1403726047 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/philips_rc5.c
 	"philips_rc5.h"
 
-1403441250 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/samsung.c
+1403726047 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/samsung.c
 	"samsung.h"
 
-1403441217 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.c
+1403726047 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/infared_protocols/sony.c
 	"sony.h"
 
 1407864119 source:/home/samuel/projects/AXremote/code/AX_Radio_Lab_output/config_16MHz.c
@@ -817,4 +819,19 @@
 	"../COMMON/easyax5043.h"
 	<libmftypes.h>
 	<libmfcrc.h>
+
+1415033561 /home/samuel/projects/elektronik/AXremote/code/MASTER/gpio.h
+	<ax8052f143.h>
+	<libmftypes.h>
+	<libmfwtimer.h>
+	"../COMMON/leds.h"
+	"infrared.h"
+
+1415034566 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/gpio.c
+	"gpio.h"
+
+1414945536 /home/samuel/projects/elektronik/AXremote/code/COMMON/leds.h
+	<libmftypes.h>
+	"../COMMON/misc.h"
+	<libdvk2leds.h>
 

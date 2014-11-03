@@ -204,8 +204,8 @@ void infrared_start_rx()
     ir_rx_count = 0;
     ir_rx_state = IR_RX_STATE_READY;
 
-    // enable GPIO change interrupt on C1:
-    INTCHGC |= 0x02;
+    // enable GPIO change interrupt on B3:
+    INTCHGB |= 0x08;
     IE_3 = 1; // GPIO interrupts enable
 }
 
