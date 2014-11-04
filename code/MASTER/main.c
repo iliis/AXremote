@@ -61,6 +61,7 @@
 #include <libmfuart0.h>
 #include "infrared.h"
 #include "gpio.h"
+#include "usb_ftdi.h"
 
 void gpio_button0_pressed(struct wtimer_callback __xdata *desc)
 {
@@ -424,7 +425,7 @@ void main(void)
             goto terminate_radio_error;
 
 #ifdef AXREMOTE_RECEIVER
-        //uart_init();
+        ftdi_spi_init();
 #endif // AXREMOTE_RECEIVER
     } else {
         // warmstart

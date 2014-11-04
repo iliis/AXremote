@@ -90,6 +90,15 @@
 		</Unit>
 		<Unit filename="../AX_Radio_Lab_output/configmaster.h" />
 		<Unit filename="../COMMON/axradio.h" />
+		<Unit filename="../COMMON/buffer.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="../COMMON/buffer.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Unit filename="../COMMON/display_com0.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -169,6 +178,15 @@
 		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usb_ftdi.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
 		</Unit>
 		<Extensions>
 			<code_completion />

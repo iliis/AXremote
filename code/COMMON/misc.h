@@ -43,6 +43,7 @@ extern void stop_with_error(uint8_t *str);
 extern void display_radio_error(uint8_t err);
 
 #ifdef USE_DBGLINK
+#include <libmfdbglink.h>
 #define NL()        dbglink_tx('\n');
 #define WAIT_DONE() dbglink_wait_txdone();
 #define STR(s)      dbglink_writestr(s);

@@ -1,39 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug Receiver" />
-	<File name="keymatrix.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../COMMON/axradio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="174" topLine="45" />
+			<Cursor1 position="5302" topLine="35" />
 		</Cursor>
 	</File>
-	<File name="../COMMON/misc.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="usb_ftdi.h" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2268" topLine="0" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="14170" topLine="438" />
-		</Cursor>
-	</File>
-	<File name="infrared.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4217" topLine="75" />
-		</Cursor>
-		<Folding>
-			<Collapse line="163" />
-		</Folding>
-	</File>
-	<File name="key_routing.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="307" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="3" />
-			<Collapse line="43" />
-			<Collapse line="49" />
-			<Collapse line="66" />
-		</Folding>
 	</File>
 	<File name="../AX_Radio_Lab_output/configmaster.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -45,32 +21,9 @@
 			<Collapse line="9" />
 		</Folding>
 	</File>
-	<File name="../COMMON/misc.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../COMMON/misc.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2097" topLine="21" />
-		</Cursor>
-	</File>
-	<File name="../AX_Radio_Lab_output/config_16MHz.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8489" topLine="203" />
-		</Cursor>
-		<Folding>
-			<Collapse line="160" />
-			<Collapse line="179" />
-			<Collapse line="194" />
-			<Collapse line="208" />
-			<Collapse line="226" />
-			<Collapse line="284" />
-		</Folding>
-	</File>
-	<File name="infrared.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3567" topLine="93" />
-		</Cursor>
-	</File>
-	<File name="../COMMON/display_com0.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1423" topLine="0" />
+			<Cursor1 position="2377" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="keymatrix.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -78,44 +31,9 @@
 			<Cursor1 position="355" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="../COMMON/axradio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="keymatrix.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4098" topLine="35" />
-		</Cursor>
-	</File>
-	<File name="../COMMON/easyax5043.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2185" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="99" />
-			<Collapse line="125" />
-			<Collapse line="154" />
-			<Collapse line="173" />
-			<Collapse line="193" />
-			<Collapse line="213" />
-			<Collapse line="242" />
-			<Collapse line="251" />
-		</Folding>
-	</File>
-	<File name="key_routing.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="183" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="gpio.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="152" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="gpio.h" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="../COMMON/leds.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="604" topLine="0" />
+			<Cursor1 position="174" topLine="45" />
 		</Cursor>
 	</File>
 	<File name="../COMMON/easyax5043.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -123,9 +41,94 @@
 			<Cursor1 position="2118" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="../COMMON/buffer.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="gpio.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="152" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../AX_Radio_Lab_output/config_16MHz.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="334" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="159" />
+			<Collapse line="177" />
+			<Collapse line="192" />
+			<Collapse line="206" />
+			<Collapse line="224" />
+		</Folding>
+	</File>
+	<File name="infrared.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5720" topLine="75" />
+		</Cursor>
+		<Folding>
+			<Collapse line="163" />
+		</Folding>
+	</File>
+	<File name="gpio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="150" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/buffer.h" open="1" top="1" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="key_routing.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="183" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14170" topLine="438" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/easyax5043.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="58044" topLine="1421" />
+		</Cursor>
+	</File>
+	<File name="usb_ftdi.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/leds.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="604" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/display_com0.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1423" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="key_routing.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="307" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../COMMON/misc.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2097" topLine="21" />
+		</Cursor>
+	</File>
 	<File name="../AX_Radio_Lab_output/configmaster.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="519" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="infrared.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3224" topLine="96" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
