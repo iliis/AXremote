@@ -21,6 +21,15 @@ uint8_t __reentrantb buffer_read (struct Buffer __xdata * const buf) __reentrant
     return '\0'; // TODO: Handle error.
 }
 ///////////////////////////////////////////////////////////////////////////////
+uint16_t __reentrantb buffer_read16_rev(struct Buffer __xdata * const buf) __reentrant
+{
+    uint8_t b = buffer_read(buf);
+    uint16_t value = buffer_read(buf);
+    value <<= 8;
+    value += b;
+    return value;
+}
+///////////////////////////////////////////////////////////////////////////////
 /// returns the number of bytes written (eg. 1 if successfull, 0 on error)
 uint8_t __reentrantb buffer_write(struct Buffer __xdata * const buf, const uint8_t val) __reentrant
 {
@@ -103,6 +112,13 @@ uint8_t buffer_pocke_copy(const struct Buffer __xdata * buf, uint8_t __xdata * d
 
 		memcpy(dest, buf->data, destsize);
 		return n + destsize;
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+void buffer_move(struct Buffer __xdata * source, struct Buffer __xdata * target)
+{
+    while (!buffer_empty(source) && !buffer_full(target)) {
+        buffer_write(target, buffer_read(source));
     }
 }
 ///////////////////////////////////////////////////////////////////////////////

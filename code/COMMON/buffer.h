@@ -44,6 +44,9 @@ uint8_t __reentrantb buffer_write_arr(struct Buffer __xdata * const buf, const _
 /// read a byte from buf and deletes it
 uint8_t __reentrantb buffer_read (struct Buffer __xdata * const buf) __reentrant;
 
+/// read two bytes in LSB first order from buf and deletes them
+uint16_t __reentrantb buffer_read16_rev(struct Buffer __xdata * const buf) __reentrant;
+
 /// calculate the amount of empty bytes in buf
 uint8_t __reentrantb buffer_free (struct Buffer __xdata * const buf) __reentrant;
 
@@ -62,6 +65,9 @@ uint8_t __reentrantb buffer_count(struct Buffer __xdata * const buf) __reentrant
 void    buffer_copy(struct Buffer __xdata * buf, uint8_t __xdata * dest, uint8_t destsize);
 /// same as buffer_copy, but doesn't modify buffer. returns number of bytes copied.
 uint8_t buffer_pocke_copy(const struct Buffer __xdata * buf, uint8_t __xdata * dest, uint8_t destsize);
+
+/// moves data from source buffer into target buffer (source is empty afterwards)
+void buffer_move(struct Buffer __xdata * source, struct Buffer __xdata * target);
 
 /// checks if idx is part of buf
 uint8_t buffer_contains(const struct Buffer __xdata * buf, uint8_t idx);

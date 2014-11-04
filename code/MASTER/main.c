@@ -65,6 +65,8 @@
 
 void gpio_button0_pressed(struct wtimer_callback __xdata *desc)
 {
+    UNUSED(desc);
+
     LOG(STR("button 0 pressed\n"));
 
     print_recorded_input();
@@ -72,6 +74,8 @@ void gpio_button0_pressed(struct wtimer_callback __xdata *desc)
 
 void gpio_button1_pressed(struct wtimer_callback __xdata *desc)
 {
+    UNUSED(desc);
+
     LOG(STR("button 1 pressed\n"));
 }
 

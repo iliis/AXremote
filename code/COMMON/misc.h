@@ -65,5 +65,6 @@ extern void display_radio_error(uint8_t err);
 #define LOG(...)    do { } while(0)
 #endif
 
+#define UNUSED(x)   ((void) x)
 
 #endif // MISC_H_INCLUDED
