@@ -58,23 +58,13 @@ void infrared_init_tx(uint32_t hz)
     // 37.9kHz
     //pwm_init(264, IO_PWM_TIMER2, IO_TIMER_MODE_DIV_TRIANGLE);
 
-#ifdef USE_DBGLINK
-    if (DBGLNKSTAT & 0x10) {
-        dbglink_writestr("setting PWM to ");
-        dbglink_writenum16(hz, 5, 0);
-    }
-#endif
+    LOG(STR("setting PWM to "), NUM16(hz));
 
     // PWM runs from 20 MHz clock, toggle twice per period -> period *= 2
     hz = 10000000 / hz;
     pwm_init(hz, IO_PWM_TIMER2, IO_TIMER_MODE_DIV_TRIANGLE);
 
-#ifdef USE_DBGLINK
-    if (DBGLNKSTAT & 0x10) {
-        dbglink_writestr(" Hz = period of ");
-        dbglink_writenum16(hz, 10, 0);
-    }
-#endif
+    LOG(STR(" Hz = period of "), NUM16(hz), NL());
 }
 ///////////////////////////////////////////////////////////////////////////////
 __xdata struct wtimer_callback ir_rx_wtimer_cb_handle;
@@ -92,7 +82,7 @@ void ir_rx_wtimer_callback(struct wtimer_callback __xdata *desc)
         packet.data = 0;
         packet.protocol = 0;
 
-        LOG(STR("rx timer callback\n"));
+        //LOG(STR("rx timer callback\n"));
         print_recorded_input();
 
         if (infrared_parse_samsung(&packet.data)) {
@@ -102,7 +92,7 @@ void ir_rx_wtimer_callback(struct wtimer_callback __xdata *desc)
     }
 
     // get ready for another packet
-    //infrared_start_rx();
+    infrared_start_rx();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -119,7 +109,7 @@ __reentrantb void ir_rx_pin_change_irq() __reentrant
     uint8_t  ir_rx_cur_pinstate = IR_RX_READ();
 
     // did our pin actually change or was this interrupt called for another one?
-    if (ir_rx_cur_pinstate != ir_rx_last_pinstate) {
+    if ((ir_rx_state != IR_RX_STATE_FINISHED) && (ir_rx_cur_pinstate != ir_rx_last_pinstate)) {
 
         led0_set(ir_rx_cur_pinstate == IR_MARK ? 1 : 0);
 
@@ -239,13 +229,27 @@ void infrared_transmit(uint8_t protocol, uint32_t data)
         case IR_PROTOCOL_SAMSUNG:
             infrared_transmit_samsung(data);
             break;
+
+        case IR_PROTOCOL_SONY:
+            infrared_transmit_sony(data);
+            break;
+
+        case IR_PROTOCOL_PHILIPS_RC5:
+            infrared_transmit_philips_rc5(data);
+            break;
+
+        case IR_PROTOCOL_NEC:
+            infrared_transmit_nec(data);
+            break;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-
 void infrared_start_rx()
 {
+    // TODO: we have a race condition somewhere, this helps a bit...
+    delay_ms(500);
+
     // init buffer
     ir_rx_last_time = 0;
     ir_rx_current_time = 0;
@@ -260,7 +264,7 @@ void infrared_start_rx()
     INTCHGB |= 1<<3;
     IE_3 = 1; // GPIO interrupts enable
 
-    LOG(STR("start IR RX\n"));
+    //LOG(STR("start IR RX\n"));
 }
 
 ///////////////////////////////////////////////////////////////////////////////

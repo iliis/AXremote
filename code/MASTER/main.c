@@ -63,13 +63,16 @@
 #include "gpio.h"
 #include "usb_ftdi.h"
 
+#include "infared_protocols/nec.h"
+
 void gpio_button0_pressed(struct wtimer_callback __xdata *desc)
 {
     UNUSED(desc);
 
     LOG(STR("button 0 pressed\n"));
 
-    print_recorded_input();
+    //print_recorded_input();
+    infrared_transmit_nec(0x00FFB04F); // ON
 }
 
 void gpio_button1_pressed(struct wtimer_callback __xdata *desc)
@@ -77,7 +80,8 @@ void gpio_button1_pressed(struct wtimer_callback __xdata *desc)
     UNUSED(desc);
 
     LOG(STR("button 1 pressed\n"));
-    infrared_start_rx();
+    //infrared_start_rx();
+    infrared_transmit_nec(0x00FFF807); // OFF
 }
 
 #endif
@@ -264,11 +268,12 @@ uint8_t _sdcc_external_startup(void)
 #elif defined(AXREMOTE_RECEIVER)
 
     PORTA = 0xC0 | (0x3C); // pull-up for PA[6,7] which are not bonded, Output 0 in PA2, A0 and A1 (button) floating (has external pull-down)
-    PORTB = 0xFF; // pull-ups on everything
+    PORTB = 0xF8; // pull-ups on everything
     PORTC = 0xE0; // output 0 on rows, pull-ups for not-bonded outputs (PA[5..7])
     PORTR = 0xCB; // overwritten by ax5043_reset, ax5043_comminit()
 
     DIRA = 0x3C; // PA0 and PA1 are inputs (buttons), PA[2..5] are LEDs
+    // TODO: these outputs have changed a bit (B4 and B5 are outputs too)
     DIRB = 0x07; // PB[0..2] are outputs (IR LEDs etc.), B3 is IR receiver (input), B[4..7] are debug connections (inputs) and UART
     DIRC = 0x03; // PC[0..1] are outputs (IR LEDs), PC[2..7] are inputs (not bonded / connected).
     DIRR = 0x15; // overwritten by ax5043_reset, ax5043_comminit()
@@ -561,8 +566,8 @@ void main(void)
 #else // RECEIVER
 
     register_ir_rx_callback(ir_rx_packet_callback);
-    infrared_start_rx();
-    // TODO: add callback for IR packets here
+    // don't receive when we transmit -.-
+    //infrared_start_rx();
 
     // listen for button presses
     init_gpio();

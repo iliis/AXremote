@@ -177,6 +177,8 @@ void infrared_transmit(uint8_t protocol, uint32_t data);
 
 void register_ir_rx_callback(void (*callback)(__xdata struct ir_packet* packet));
 
+void infrared_test_reset();
+
 void infrared_start_rx();
 
 ///////////////////////////////////////////////////////////////////////////////
