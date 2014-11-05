@@ -16169,7 +16169,7 @@ High-power, low thermal resistance package.</description>
 <part name="Q3" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS138"/>
 <part name="R17" library="resistor" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="P+10" library="supply1" deviceset="VCC" device=""/>
-<part name="R18" library="resistor" deviceset="R-EU_" device="R0603" value="100"/>
+<part name="R18" library="resistor" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="GND48" library="supply1" deviceset="GND" device=""/>
 <part name="R11" library="resistor" deviceset="R-EU_" device="R0603" value="100"/>
 <part name="R13" library="resistor" deviceset="R-EU_" device="R0603" value="100"/>
@@ -16193,7 +16193,7 @@ High-power, low thermal resistance package.</description>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="U$10" library="sam" deviceset="SWITCH" device="SMD"/>
 <part name="P+12" library="supply1" deviceset="VCC" device=""/>
-<part name="R15" library="resistor" deviceset="R-EU_" device="R0603" value="100"/>
+<part name="R15" library="resistor" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="JP1" library="jumper" deviceset="JP2E" device=""/>
 <part name="GND37" library="supply1" deviceset="GND" device=""/>

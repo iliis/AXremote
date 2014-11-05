@@ -82,10 +82,14 @@ void ir_rx_wtimer_callback(struct wtimer_callback __xdata *desc)
 
     // is somebody even interested in our results?
     if (ir_rx_callback != 0) {
+
         // try to parse what we received
         __xdata struct ir_packet packet;
         packet.data = 0;
         packet.protocol = 0;
+
+        LOG(STR("rx timer callback\n"));
+        print_recorded_input();
 
         if (infrared_parse_samsung(&packet.data)) {
             packet.protocol = IR_PROTOCOL_SAMSUNG;
@@ -137,6 +141,8 @@ void handle_pin_change()
                     // deregister interrupt handler here (i.e. disable GPIO interrupts)
                     IE_3 = 1; // GPIO interrupts enable
 
+                    LOG(STR("ir state FINISHED\n"));
+
                     // add callback to parse and notify user
                     ir_rx_wtimer_cb_handle.handler = &ir_rx_wtimer_callback;
                     wtimer_add_callback(&ir_rx_wtimer_cb_handle);
@@ -173,8 +179,18 @@ void print_recorded_input()
             dbglink_writeu16(input_recording_state[i], 1);
             dbglink_tx('\n');
         }*/
+
+        LOG(STR("raw:\n"));
+        for (i = 0; i < ir_rx_count; i++) {
+            LOG(NUM32(ir_rx_buffer[i]), NL());
+        }
+
         dbglink_writestr("parsed: ");
         if (infrared_parse_samsung(&code))
+            dbglink_writehexu32(code, 8);
+        else if (infrared_parse_philips_rc5(&code))
+            dbglink_writehexu32(code, 8);
+        else if (infrared_parse_sony(&code))
             dbglink_writehexu32(code, 8);
         else
             dbglink_writestr("ERROR");
@@ -204,9 +220,11 @@ void infrared_start_rx()
     ir_rx_count = 0;
     ir_rx_state = IR_RX_STATE_READY;
 
-    // enable GPIO change interrupt on C1:
-    INTCHGC |= 0x02;
+    // enable GPIO change interrupt on B3:
+    INTCHGB |= 1<<3;
     IE_3 = 1; // GPIO interrupts enable
+
+    LOG(STR("start IR RX\n"));
 }
 
 ///////////////////////////////////////////////////////////////////////////////

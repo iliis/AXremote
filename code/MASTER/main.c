@@ -92,7 +92,7 @@ static void pwrmgmt_irq(void) __interrupt(INT_POWERMGMT)
 static void gpio_irq(void) __interrupt(INT_GPIO)
 {
     handle_pin_change();
-    led3_set(PINC_1 == 0);
+    led3_set(IR_RX_READ() == IR_MARK);
 }
 #endif
 
@@ -169,6 +169,8 @@ void axradio_statuschange(struct axradio_status __xdata *st)
     case AXRADIO_STAT_RECEIVE:
         print_recorded_input();
 
+        infrared_start_rx();
+
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {
             dbglink_writestr("got packet (");
@@ -217,7 +219,8 @@ uint8_t _sdcc_external_startup(void)
 {
     LPXOSCGM = 0x8A;
     wtimer0_setclksrc(WTIMER0_CLKSRC, WTIMER0_PRESCALER);
-    wtimer1_setclksrc(CLKSRC_FRCOSC, 7); // 2); // why: 20MHz / 2 -> for IR timing
+    //wtimer1_setclksrc(CLKSRC_FRCOSC, 7); // 2); // why: 20MHz / 2 -> for IR timing
+    wtimer1_setclksrc(CLKSRC_FRCOSC, 2); // why: 20MHz / 2 -> for IR timing
 
     LPOSCCONFIG = 0x09; // Slow, PRESC /1, no cal. Does NOT enable LPOSC. LPOSC is enabled upon configuring WTCFGA (MODE_TX_PERIODIC and receive_ack() )
 
@@ -281,6 +284,12 @@ uint8_t _sdcc_external_startup(void)
 #else
     return !coldstart; // coldstart -> return 0 -> var initialization; start from sleep -> return 1 -> no var initialization
 #endif
+}
+
+
+void ir_rx_packet_callback(__xdata struct ir_packet* packet)
+{
+    LOG(STR("got valid IR packet\n"));
 }
 
 void main(void)
@@ -416,7 +425,8 @@ void main(void)
             goto terminate_radio_error;
 
 #ifdef AXREMOTE_RECEIVER
-        uart_init();
+        // TODO: implement communication with FTDI
+        //uart_init();
 #endif // AXREMOTE_RECEIVER
     } else {
         // warmstart
@@ -536,7 +546,8 @@ void main(void)
     //-----------------------------------------------------------------------------
 #else // RECEIVER
 
-    //infrared_init();
+    register_ir_rx_callback(ir_rx_packet_callback);
+    infrared_start_rx();
     // TODO: add callback for IR packets here
 
     for(;;) {

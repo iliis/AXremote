@@ -120,7 +120,7 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 ///////////////////////////////////////////////////////////////////////////////
 
 // infrared receiver outputs an inverted signal
-#define IR_RX_READ()			(PINC_1 ? IR_SPACE : IR_MARK)
+#define IR_RX_READ()			(PINB_3 ? IR_SPACE : IR_MARK)
 
 #define IR_MARK					1
 #define IR_SPACE				0
@@ -131,8 +131,8 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 #define IR_RX_TIMEOUT			MS(20)
 
 #define IR_TIMING_TOLERANCE 25  // percent tolerance in measurements
-#define IR_TIMING_LTOL (1.0 - IR_TIMING_TOLERANCE/100.) 
-#define IR_TIMING_UTOL (1.0 + IR_TIMING_TOLERANCE/100.) 
+#define IR_TIMING_LTOL (1.0 - IR_TIMING_TOLERANCE/100.)
+#define IR_TIMING_UTOL (1.0 + IR_TIMING_TOLERANCE/100.)
 
 #define IR_TIMING_LOW(unit, time)		((uint32_t) (WTIMER1_UNITS_FROM_##unit(time) * IR_TIMING_UTOL))
 #define IR_TIMING_HIGH(unit, time)		((uint32_t) (WTIMER1_UNITS_FROM_##unit(time) * IR_TIMING_LTOL + 1))

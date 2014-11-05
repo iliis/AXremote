@@ -2097,7 +2097,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <attribute name="PROD_ID" value="TRANS-00830" x="37.4" y="42.1" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R17" library="resistor" package="R0603" value="10k" x="41.4" y="15.4" rot="R90"/>
-<element name="R18" library="resistor" package="R0603" value="100" x="32.4" y="32.6" rot="R180"/>
+<element name="R18" library="resistor" package="R0603" value="10k" x="32.4" y="32.6" rot="R180"/>
 <element name="R11" library="resistor" package="R0603" value="100" x="47.7" y="42.2" rot="R270"/>
 <element name="R13" library="resistor" package="R0603" value="100" x="45.5" y="42.9"/>
 <element name="U$7" library="sam" package="TACTILE_SWITCH_FSM2JSMA" value="SWITCHSMD" x="32.6" y="36.8"/>
@@ -2110,7 +2110,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <element name="R9" library="resistor" package="R0603" value="10k" x="37.4" y="4.4"/>
 <element name="R10" library="resistor" package="R0603" value="10k" x="40.4" y="4.4" rot="R180"/>
 <element name="U$10" library="sam" package="TACTILE_SWITCH_FSM2JSMA" value="SWITCHSMD" x="26.2" y="36.8" rot="R180"/>
-<element name="R15" library="resistor" package="R0603" value="100" x="26.4" y="32.6"/>
+<element name="R15" library="resistor" package="R0603" value="10k" x="26.4" y="32.6"/>
 <element name="JP1" library="jumper" package="JP2" value="" x="45.9" y="1.7" rot="R180"/>
 <element name="X2" library="axsem_osc_v1-2" package="X3225" value="" x="29.5" y="22.5" rot="R270"/>
 <element name="R16" library="resistor" package="R0603" value="NC" x="26.4" y="23.4"/>
