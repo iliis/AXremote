@@ -822,13 +822,13 @@
 	<libmftypes.h>
 	<libmfcrc.h>
 
-1415120711 /home/samuel/projects/elektronik/AXremote/code/MASTER/gpio.h
+1415183424 /home/samuel/projects/elektronik/AXremote/code/MASTER/gpio.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
 	"../COMMON/leds.h"
 	"infrared.h"
-	"usb_ftdi.h"
+	"usb_ftdi_isr.h"
 
 1415120969 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/gpio.c
 	"gpio.h"
@@ -838,14 +838,14 @@
 	"../COMMON/misc.h"
 	<libdvk2leds.h>
 
-1415131448 /home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi.h
+1415184365 /home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi.h
 	<ax8052f143.h>
 	<libmftypes.h>
 	<libmfwtimer.h>
 	"../COMMON/misc.h"
 	"../COMMON/buffer.h"
 
-1415127269 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi.c
+1415184270 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi.c
 	"usb_ftdi.h"
 
 1415128412 /home/samuel/projects/elektronik/AXremote/code/COMMON/buffer.h
@@ -854,4 +854,14 @@
 
 1415128420 source:/home/samuel/projects/elektronik/AXremote/code/COMMON/buffer.c
 	"buffer.h"
+
+1415184361 /home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi_isr.h
+	"usb_ftdi.h"
+	"usb_ftdi_protocol.h"
+
+1415184452 /home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi_protocol.h
+	"usb_ftdi.h"
+
+1415184322 source:/home/samuel/projects/elektronik/AXremote/code/MASTER/usb_ftdi_isr.c
+	"usb_ftdi_isr.h"
 

@@ -188,6 +188,24 @@
 			<Option target="Debug Receiver" />
 			<Option target="Release Receiver" />
 		</Unit>
+		<Unit filename="usb_ftdi_isr.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_isr.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_protocol.c">
+			<Option compilerVar="CPP" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_protocol.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<debugger />

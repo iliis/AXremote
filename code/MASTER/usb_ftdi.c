@@ -21,6 +21,9 @@ struct Buffer __xdata usb_buffer;
 
 __xdata DeviceRequest device_request;
 
+
+
+
 void ftdi_spi_init()
 {
     LOG(STR("initalizing FTDI ...\n"));
@@ -203,7 +206,7 @@ void ftdi_set_mode(uint8_t config)
     buffer_write(&spi_tx_buffer, config);
     buffer_write(&spi_tx_buffer, 0x4B); // cannot change clockdiv on FT121
 
-    spi_readwrite(0);
+    spi_readwrite();
 }
 
 void usb_connect()
@@ -219,6 +222,24 @@ void usb_disconnect()
     // clock always running
     // no pullup on D+ line
     ftdi_set_mode(FT12X_NOLAZYCLOCK);
+}
+
+void ftdi_set_endpoint_status(uint8_t endpoint_nr, uint8_t stall)
+{
+    if (endpoint_nr > 5)
+        return;
+
+    buffer_write(&spi_tx_buffer, 0x50 + endpoint_nr);
+    buffer_write(&spi_tx_buffer, stall & 0x01);
+
+    spi_readwrite();
+}
+
+void usb_stall_endpoint0()
+{
+    ftdi_set_endpoint_status(0, 1);
+    ftdi_set_endpoint_status(1, 1);
+    LOG(STR("stalling ep0\n"));
 }
 
 uint8_t ftdi_read_last_transaction_status(uint8_t endpoint_nr)
@@ -255,6 +276,33 @@ void usb_read_endpoint(uint8_t endpoint_nr)
     ftdi_send_cmd(0xF2);
 }
 
+void usb_write_endpoint(uint8_t endpoint_nr)
+{
+    // TODO: handle sizeof(data) > max endpoint packet size
+
+    if (endpoint_nr > 5) {
+        LOG(STR("invalid endpoint number in write endpoint\n"));
+        return;
+    }
+
+    if (buffer_count(&usb_buffer) > 16) {
+        LOG(STR("WARNING: writing more than ep0 max packetsize\n"));
+    }
+
+    // select endpoint
+    ftdi_read1(endpoint_nr);
+
+
+    buffer_write(&spi_tx_buffer, 0xF0); // write buffer command
+    buffer_write(&spi_tx_buffer, 0); // length in msb (ignored in default mode)
+    buffer_write(&spi_tx_buffer, buffer_count(&usb_buffer));
+    buffer_move(&usb_buffer, &spi_tx_buffer);
+    spi_readwrite(); // actually transmit data via SPI
+
+    // validate buffer (i.e. tell FTDI this is everything)
+    ftdi_send_cmd(0xFA);
+}
+
 void usb_ack_endpoint(uint8_t endpoint_nr)
 {
     if (endpoint_nr > 5) {
@@ -274,135 +322,4 @@ void usb_ack_endpoint(uint8_t endpoint_nr)
     }
 
     LOG(STR("ACK ep"), NUM8(endpoint_nr), NL());
-}
-
-void ftdi_handle_interrupt(struct wtimer_callback __xdata * desc)
-{
-    uint16_t interrupt_reg = ftdi_read2(0xF4);
-    UNUSED(desc);
-
-    LOG(STR("got interrupt from FTDI: "), HEX16(interrupt_reg), NL());
-
-    if (interrupt_reg & FT12X_INT_BUSRESET) {
-        // TODO: reset
-        LOG(STR("bus reset\n"));
-    } else {
-
-        if (interrupt_reg & FT12X_INT_EOT) {
-            LOG(STR("DMA EOT\n"));
-        }
-
-        if (interrupt_reg & FT12X_INT_SUSPENDCHANGE) {
-            LOG(STR("suspend change\n"));
-        }
-
-        if (interrupt_reg & FT12X_INT_ENDP0IN) {
-            LOG(STR("ep0 tx done\n"));
-            ftdi_ep0_txdone();
-        }
-
-        if (interrupt_reg & FT12X_INT_ENDP0OUT) {
-            LOG(STR("ep0 rx done\n"));
-            ftdi_ep0_rxdone();
-        }
-
-        if (interrupt_reg & FT12X_INT_ENDP1IN) {
-            LOG(STR("ep1 tx done\n"));
-            ftdi_ep1_txdone();
-        }
-
-        if (interrupt_reg & FT12X_INT_ENDP1OUT) {
-            LOG(STR("ep1 rx done\n"));
-            ftdi_ep1_rxdone();
-        }
-
-        if (interrupt_reg & FT12X_INT_ENDP2IN) {
-            LOG(STR("ep2 tx done\n"));
-            ftdi_ep2_txdone();
-        }
-
-        if (interrupt_reg & FT12X_INT_ENDP2OUT) {
-            LOG(STR("ep2 rx done\n"));
-            ftdi_ep2_rxdone();
-        }
-    }
-}
-
-void ftdi_ep0_txdone()
-{
-    uint8_t trans_state = ftdi_read_last_transaction_status(1); // clear interrupt flag
-}
-
-void ftdi_ep0_rxdone()
-{
-    uint8_t trans_state = ftdi_read_last_transaction_status(0); // clear interrupt flag
-
-    if (trans_state & FT12X_SETUPPACKET) {
-
-        LOG(STR("got setup packet\n"));
-
-        usb_read_endpoint(0);
-
-        // parse SETUP packet
-        device_request.request_type = buffer_read(&usb_buffer);
-        device_request.request      = buffer_read(&usb_buffer);
-        device_request.value        = buffer_read16_rev(&usb_buffer);
-        device_request.index        = buffer_read16_rev(&usb_buffer);
-        device_request.length       = buffer_read16_rev(&usb_buffer);
-
-        // assert(buffer_empty(&usb_buffer))
-
-        usb_ack_endpoint(0);
-        usb_ack_endpoint(1);
-
-        if (device_request.request_type & USB_ENDPOINT_DIRECTION_MASK) {
-
-            uint8_t type = device_request.request_type & USB_REQUEST_TYPE_MASK;
-            uint8_t req  = device_request.request & USB_REQUEST_MASK;
-
-            LOG(STR("SETUP: get command\n"));
-
-            if (type == USB_STANDARD_REQUEST) {
-                LOG(STR("SETUP: standard request "), HEX8(req), NL());
-
-                switch (req) {
-                    // TODO
-                }
-
-            } else if (type == USB_CLASS_REQUEST) {
-                LOG(STR("SETUP: class request "), HEX8(req), NL());
-                // TODO
-            } else {
-                LOG(STR("SETUP: unknown request type "), HEX8(type), STR(" req "), HEX8(req), NL());
-                // TODO: stall ep0 here
-            }
-
-        } else {
-            if (device_request.length == 0) {
-                LOG(STR("SETUP: set command\n"));
-            } else {
-                LOG(STR("SETUP: length = "), NUM16(device_request.length), NL());
-            }
-        }
-    }
-}
-
-void ftdi_ep1_txdone()
-{
-    uint8_t trans_state = ftdi_read_last_transaction_status(3); // clear interrupt flag
-}
-
-void ftdi_ep1_rxdone()
-{
-    uint8_t trans_state = ftdi_read_last_transaction_status(2); // clear interrupt flag
-}
-
-void ftdi_ep2_txdone()
-{
-    uint8_t trans_state = ftdi_read_last_transaction_status(5); // clear interrupt flag
-}
-
-void ftdi_ep2_rxdone()
-{
-    uint8_t trans_state = ftdi_read_last_transaction_status(4); // clear interrupt flag
 }

@@ -7,7 +7,7 @@
 
 #include "../COMMON/leds.h"
 #include "infrared.h"
-#include "usb_ftdi.h"
+#include "usb_ftdi_isr.h"
 
 // TODO: add init function/macro here for sdcc_external_startup
 
