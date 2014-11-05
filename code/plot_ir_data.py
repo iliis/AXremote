@@ -53,8 +53,9 @@ raw_data = [ wtimer_to_ms(int(d)) for d in raw_data ]
 
 state = 1
 time = 0
-data_state = [state]
-data_times = [time]
+# prepend some SPACE for more intuitive visualization
+data_state = [0,   0,    state]
+data_times = [-10, time, time]
 for d in raw_data:
     time = time + d
     data_times.append(time)
