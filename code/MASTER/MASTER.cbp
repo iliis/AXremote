@@ -85,15 +85,20 @@
 			<Option target="Debug Receiver" />
 			<Option target="Release Receiver" />
 		</Unit>
-		<Unit filename="../AX_Radio_Lab_output/config_48MHz_DVK2b.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug Transmitter DVK2b" />
-		</Unit>
 		<Unit filename="../AX_Radio_Lab_output/configmaster.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../AX_Radio_Lab_output/configmaster.h" />
 		<Unit filename="../COMMON/axradio.h" />
+		<Unit filename="../COMMON/buffer.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="../COMMON/buffer.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Unit filename="../COMMON/display_com0.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -102,11 +107,20 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/easyax5043.h" />
-		<Unit filename="../COMMON/libminidvkled.h" />
+		<Unit filename="../COMMON/leds.h" />
 		<Unit filename="../COMMON/misc.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../COMMON/misc.h" />
+		<Unit filename="gpio.c">
+			<Option compilerVar="CPP" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="gpio.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Unit filename="infared_protocols/philips_rc5.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug Receiver" />
@@ -164,6 +178,33 @@
 		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usb_ftdi.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_isr.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_isr.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_protocol.c">
+			<Option compilerVar="CPP" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="usb_ftdi_protocol.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
 		</Unit>
 		<Extensions>
 			<code_completion />

@@ -6,7 +6,7 @@
 #include <libmfuart.h>
 #include <libmfuart0.h>
 
-#include "../COMMON/libminidvkled.h"
+#include "../COMMON/leds.h"
 #include "../MASTER/infrared.h"
 
 ///////////////////////////////////////////////////////////////////////////////
