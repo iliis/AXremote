@@ -95,16 +95,14 @@ void ir_rx_wtimer_callback(struct wtimer_callback __xdata *desc)
         LOG(STR("rx timer callback\n"));
         print_recorded_input();
 
-
         if (infrared_parse_samsung(&packet.data)) {
             packet.protocol = IR_PROTOCOL_SAMSUNG;
             (*ir_rx_callback)(&packet);
         }
-
     }
 
     // get ready for another packet
-    ir_rx_state = IR_RX_STATE_READY;
+    //infrared_start_rx();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -126,6 +124,7 @@ __reentrantb void ir_rx_pin_change_irq() __reentrant
         led0_set(ir_rx_cur_pinstate == IR_MARK ? 1 : 0);
 
         if (ir_rx_current_time != 0) {
+            // this shouldn't happen! it means the mainloop is too slow to handle the infrared data
             LOG(STR("ERR\n"));
         }
 
@@ -163,10 +162,11 @@ void handle_pin_change(struct wtimer_callback __xdata *desc)
                 // we've waited long enough or our buffer is full, this sequence is done
                 ir_rx_state = IR_RX_STATE_FINISHED;
 
-                // deregister interrupt handler here (i.e. disable GPIO interrupts)
-                IE_3 = 1; // GPIO interrupts enable
+                // deregister interrupt handler here
+                // disable GPIO change interrupt on B3:
+                INTCHGB &= (uint8_t) ~(1<<3);
 
-                LOG(STR("ir state FINISHED\n"));
+                //LOG(STR("ir state FINISHED\n"));
 
                 // add callback to parse and notify user
                 ir_rx_wtimer_cb_handle.handler = &ir_rx_wtimer_callback;
@@ -206,12 +206,13 @@ void print_recorded_input()
             dbglink_tx('\n');
         }*/
 
+#if 0
         LOG(STR("raw:\n"));
-        /*for (i = 0; i < ir_rx_count; i++) {
+        for (i = 0; i < ir_rx_count; i++) {
             LOG(NUM32(ir_rx_buffer[i]), NL());
         }
-        */
-        LOG(NUM32(ir_rx_count), STR(" levelchanges\n"));
+#endif
+        //LOG(NUM32(ir_rx_count), STR(" levelchanges\n"));
 
         dbglink_writestr("parsed:\n");
         if (infrared_parse_samsung(&code))
@@ -247,8 +248,10 @@ void infrared_start_rx()
 {
     // init buffer
     ir_rx_last_time = 0;
+    ir_rx_current_time = 0;
     ir_rx_count = 0;
     ir_rx_state = IR_RX_STATE_READY;
+    ir_rx_last_pinstate = IR_SPACE;
 
     // offload main work from interrupt service routine into mainloop
     ir_rx_pin_handler.handler = handle_pin_change;

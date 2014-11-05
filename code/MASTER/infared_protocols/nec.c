@@ -10,14 +10,27 @@ uint8_t infrared_parse_nec(uint32_t* result)
     *result = 0;
 
     // first half of start bit
-    if (!TIME_IN_RANGE(ir_rx_buffer[i], MS(9))) {
-        return 0;
+    while (!TIME_IN_RANGE(ir_rx_buffer[i], MS(9))) {
+        //LOG(STR("first bit wrong length: "), NUM32(ir_rx_buffer[i]), NL());
+        // return 0;
+        NEXT_BIT(i);
     }
 
     NEXT_BIT(i);
 
     // second half of start bit
     if (!TIME_IN_RANGE(ir_rx_buffer[i], MS(4.5))) {
+        if (TIME_IN_RANGE(ir_rx_buffer[i], MS(2.25))) {
+
+            NEXT_BIT(i);
+            if (TIME_IN_RANGE(ir_rx_buffer[i], MS(0.56))) {
+                LOG(STR("repeat code\n"));
+                *result = 0xFFFF;
+                return 1;
+            }
+        }
+
+        LOG(STR("second bit wrong length: "), NUM32(ir_rx_buffer[i]), NL());
         return 0;
     }
 
@@ -55,40 +68,36 @@ uint8_t infrared_parse_nec(uint32_t* result)
 ///////////////////////////////////////////////////////////////////////////////
 void infrared_transmit_nec(uint32_t data)
 {
-#if 0
     uint8_t i = 0;
-    // MSB encodes length of data
-    const uint8_t bitnum = data >> 24;
 
-    if (bitnum != 12 && bitnum != 15 && bitnum != 20)
-        return; // invalid data length
-
-    infrared_init_tx(IR_PROTOCOL_FREQ_SONY);
-
-    // left-align bits
-    data <<= 32-bitnum;
+    infrared_init_tx(IR_PROTOCOL_FREQ_NEC);
 
     // start bit
     infrared_B2_on();
-    DELAY_FROM_NOW(MS(2.4));
+    DELAY_FROM_NOW(MS(9));
     infrared_B2_off();
-    DELAY(MS(0.6));
+    DELAY(MS(4.5));
 
     // actual data
-    for (; i < bitnum; ++i) {
-        infrared_B2_on();
+    for (; i < 32; ++i) {
 
-        if (data & 0x80000000)
-            DELAY(MS(1.2));
-        else
-            DELAY(MS(0.6));
+        infrared_B2_on();
+        DELAY(MS(0.56));
 
         infrared_B2_off();
-        DELAY(MS(0.6));
+
+        if (data & 0x80000000)
+            DELAY(MS(1.69));
+        else
+            DELAY(MS(0.56));
 
         data <<= 1;
     }
-#endif
+
+    // stop bit
+    infrared_B2_on();
+    DELAY_FROM_NOW(MS(0.56));
+    infrared_B2_off();
 }
 ///////////////////////////////////////////////////////////////////////////////
 

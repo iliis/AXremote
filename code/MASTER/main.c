@@ -77,6 +77,7 @@ void gpio_button1_pressed(struct wtimer_callback __xdata *desc)
     UNUSED(desc);
 
     LOG(STR("button 1 pressed\n"));
+    infrared_start_rx();
 }
 
 #endif
