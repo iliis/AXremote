@@ -206,7 +206,7 @@ void ftdi_set_mode(uint8_t config)
     buffer_write(&spi_tx_buffer, config);
     buffer_write(&spi_tx_buffer, 0x4B); // cannot change clockdiv on FT121
 
-    spi_readwrite();
+    spi_readwrite(0);
 }
 
 void usb_connect()
@@ -232,7 +232,7 @@ void ftdi_set_endpoint_status(uint8_t endpoint_nr, uint8_t stall)
     buffer_write(&spi_tx_buffer, 0x50 + endpoint_nr);
     buffer_write(&spi_tx_buffer, stall & 0x01);
 
-    spi_readwrite();
+    spi_readwrite(0);
 }
 
 void usb_stall_endpoint0()
@@ -297,7 +297,7 @@ void usb_write_endpoint(uint8_t endpoint_nr)
     buffer_write(&spi_tx_buffer, 0); // length in msb (ignored in default mode)
     buffer_write(&spi_tx_buffer, buffer_count(&usb_buffer));
     buffer_move(&usb_buffer, &spi_tx_buffer);
-    spi_readwrite(); // actually transmit data via SPI
+    spi_readwrite(0); // actually transmit data via SPI
 
     // validate buffer (i.e. tell FTDI this is everything)
     ftdi_send_cmd(0xFA);

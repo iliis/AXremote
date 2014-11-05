@@ -438,7 +438,8 @@ void main(void)
             goto terminate_radio_error;
 
 #ifdef AXREMOTE_RECEIVER
-        ftdi_spi_init();
+        // usb isn't completely implement yet and we don't need it anyway
+        //ftdi_spi_init();
 #endif // AXREMOTE_RECEIVER
     } else {
         // warmstart

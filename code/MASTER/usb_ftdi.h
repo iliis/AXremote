@@ -32,7 +32,7 @@ extern void spi_irq(void) __interrupt(INT_SPI0);
 #define spi_enable_ss()  do { PORTC_0 = 0; } while(0)
 #define spi_disable_ss() do { PORTC_0 = 1; } while(0)
 
-void spi_readwrite(uint8_t readlen = 0);
+void spi_readwrite(uint8_t readlen);
 
 
 #define FTDI_ID_CHIP				0xFD
