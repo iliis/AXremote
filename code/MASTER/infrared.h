@@ -10,6 +10,7 @@
 #endif // USE_DBGLINK
 
 #include "../COMMON/misc.h"
+#include "../COMMON/leds.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 // ANALOG INPUT
@@ -93,21 +94,26 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 
 ///////////////////////////////////////////////////////////////////////////////
 
-#define WTIMER1_CYCLES_PER_US   10
-#define WTIMER1_CYCLES_PER_MS   (WTIMER1_CYCLES_PER_US*1000)
+#define WTIMER0_CYCLES_PER_US   0.000640
+#define WTIMER0_CYCLES_PER_MS   0.640
+#define WTIMER0_CYCLES_PER_S    640.0
+
+#define WTIMER1_CYCLES_PER_US   10.0
+#define WTIMER1_CYCLES_PER_MS   10000.0 //(WTIMER1_CYCLES_PER_US*1000)
+#define WTIMER1_CYCLES_PER_S    10000000.0 //(WTIMER1_CYCLES_PER_MS*1000)
 
 ///////////////////////////////////////////////////////////////////////////////
 // TIME CONVERSIONS
 
-#define WTIMER1_UNITS_FROM_MS(ms)          ((uint32_t) ((ms) * WTIMER1_CYCLES_PER_MS))
-#define WTIMER1_UNITS_FROM_US(us)          ((uint32_t) ((us) * WTIMER1_CYCLES_PER_US))
+#define _WTIMER0_UNITS(unit, time)          ((uint32_t) ((time) * WTIMER0_CYCLES_PER_##unit + 0.5))
+#define WTIMER0_UNITS(...)                  _WTIMER0_UNITS(__VA_ARGS__)
 
-#define _WTIMER1_UNITS(unit, time)			WTIMER1_UNITS_FROM_##unit(time)
-#define WTIMER1_UNITS(...)					_WTIMER1_UNITS(__VA_ARGS__)
+#define _WTIMER1_UNITS(unit, time)          ((uint32_t) ((time) * WTIMER1_CYCLES_PER_##unit + 0.5))
+#define WTIMER1_UNITS(...)                  _WTIMER1_UNITS(__VA_ARGS__)
 
-#define US(time)							US, ((uint32_t) (time))
-#define MS(time)							MS, ((uint32_t) (time))
-#define  S(time)							 S, ((uint32_t) (time))
+#define US(time)                            US, (time)
+#define MS(time)                            MS, (time)
+#define SEC(time)                            S, (time)
 
 // usage e.g.:
 // WTIMER1_UNITS(MS(100))
@@ -134,19 +140,20 @@ void pwm_init(uint16_t period, uint8_t timer, uint8_t mode);
 #define IR_TIMING_LTOL (1.0 - IR_TIMING_TOLERANCE/100.)
 #define IR_TIMING_UTOL (1.0 + IR_TIMING_TOLERANCE/100.)
 
-#define IR_TIMING_LOW(unit, time)		((uint32_t) (WTIMER1_UNITS_FROM_##unit(time) * IR_TIMING_UTOL))
-#define IR_TIMING_HIGH(unit, time)		((uint32_t) (WTIMER1_UNITS_FROM_##unit(time) * IR_TIMING_LTOL + 1))
+#define IR_TIMING_LOW(unit, time)		((uint32_t) ((time) * WTIMER1_CYCLES_PER_##unit * IR_TIMING_LTOL))
+#define IR_TIMING_HIGH(unit, time)		((uint32_t) ((time) * WTIMER1_CYCLES_PER_##unit * IR_TIMING_UTOL + 1))
 
-#define TIME_IN_RANGE(measured, expected)	( (IR_TIMING_LOW(expected) < (measured)) && (IR_TIMING_HIGH(expected)) )
+#define TIME_IN_RANGE(measured, expected)	( (IR_TIMING_LOW(expected) < (measured)) && ((measured) < IR_TIMING_HIGH(expected)) )
 
 ///////////////////////////////////////////////////////////////////////////////
 // INFRARED PROTOCOLS
 
-#define IR_PROTOCOL_SAMSUNG	1
+#define IR_PROTOCOL_SAMSUNG     1
 // PWR: C1C0817E
 
-#define IR_PROTOCOL_SONY	2
-#define IR_PROTOCOL_PHILIPS_RC5	3
+#define IR_PROTOCOL_SONY        2
+#define IR_PROTOCOL_PHILIPS_RC5 3
+#define IR_PROTOCOL_NEC         4
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -185,7 +192,9 @@ extern uint8_t ir_rx_count;
 } while (0);
 
 void infrared_init_tx(uint32_t hz);
-void handle_pin_change();
+__reentrantb void ir_rx_pin_change_irq() __reentrant;
+void handle_pin_change(struct wtimer_callback __xdata *desc);
+
 void print_recorded_input();
 
 ///////////////////////////////////////////////////////////////////////////////

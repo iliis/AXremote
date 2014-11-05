@@ -121,6 +121,15 @@
 			<Option target="Debug Receiver" />
 			<Option target="Release Receiver" />
 		</Unit>
+		<Unit filename="infared_protocols/nec.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
+		<Unit filename="infared_protocols/nec.h">
+			<Option target="Debug Receiver" />
+			<Option target="Release Receiver" />
+		</Unit>
 		<Unit filename="infared_protocols/philips_rc5.c">
 			<Option compilerVar="CC" />
 			<Option target="Debug Receiver" />

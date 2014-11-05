@@ -1,3 +1,6 @@
+#ifndef SONY_H_INCLUDED
+#define SONY_H_INCLUDED
+
 #include "../infrared.h"
 
 // format:
@@ -12,3 +15,4 @@
 void    infrared_transmit_sony(uint32_t data);
 uint8_t infrared_parse_sony(uint32_t* result);
 
+#endif /* end of include guard: SONY_H_INCLUDED */

@@ -47,6 +47,10 @@ extern void display_radio_error(uint8_t err);
 #define NL()        dbglink_tx('\n');
 #define WAIT_DONE() dbglink_wait_txdone();
 #define STR(s)      dbglink_writestr(s);
+#define STRINGIFY(x) _STRINGIFY(x);
+
+#define _STRINGIFY(x...) dbglink_writestr(#x);
+
 #define CHAR(x)     dbglink_tx(x);
 #define NUM8(x)     dbglink_writenum16(x, 3, 0);
 #define HEX8(x)     dbglink_writehexu16(x, 2);

@@ -23,12 +23,10 @@ void gpio_irq(void) __interrupt(INT_GPIO)
         wtimer_add_callback(&gpio_ftdi_interrupt_handle);
     }
 
-    if (PINCHGB & 0x08)
-        // TODO: implement this more efficient
-        //       -> move main functionality into main-loop (add handler)
-        handle_pin_change();
+    if (PINCHGB & 0x08) {
+        ir_rx_pin_change_irq();
+    }
 
-    led0_set(PINB_3 == 0);
     led1_set(BUTTON0_STATE());
     led2_set(BUTTON1_STATE());
 
