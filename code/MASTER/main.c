@@ -186,7 +186,7 @@ void axradio_statuschange(struct axradio_status __xdata *st)
 #ifdef AXREMOTE_RECEIVER
     case AXRADIO_STAT_RECEIVE:
 
-        infrared_start_rx();
+        //infrared_start_rx();
 
 #ifdef USE_DBGLINK
         if (DBGLNKSTAT & 0x10) {

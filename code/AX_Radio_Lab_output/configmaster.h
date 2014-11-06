@@ -4,14 +4,16 @@ Manual changes are overwritten! */
 #include "../COMMON/axradio.h"
 
 
+
 //#define USE_LCD
+
 //#define USE_COM0
 //#define DEBUGMSG
-#define MCU_SLEEP
+//#define MCU_SLEEP
 #define WTIMER0_CLKSRC	CLKSRC_LPOSC
 #define WTIMER0_PRESCALER 0x01
-#define TX_ON_DEMAND
-
+#define WTIMER0_PERIOD    0x0280
+#define RADIO_MODE        AXRADIO_MODE_ASYNC_TRANSMIT
 extern const struct axradio_address __code remoteaddr;
 extern const struct axradio_address_mask __code localaddr;
 extern const uint8_t __code demo_packet[6];
