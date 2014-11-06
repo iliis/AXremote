@@ -145,6 +145,10 @@ extern uint8_t axradio_agc_thaw(void);
 extern const uint8_t __code axradio_framing_maclen;
 extern const uint8_t __code axradio_framing_addrlen;
 
+// funtions implemented in AX_Radio_output/config.c
+__reentrantb void axradio_setup_pincfg1(void) __reentrant;
+__reentrantb void axradio_setup_pincfg2(void) __reentrant;
+
 #if defined(SDCC)
 // this is needed to make SDCC include this ISR into the vector table
 #define INT_RADIO        4

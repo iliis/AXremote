@@ -110,7 +110,6 @@ extern volatile uint8_t __data EASY_RADIO_saved_radiostate;
 
 // additional AX5043 registers & definitions
 SFRX(AX5043_0xF00,              0x4f00)
-SFRX(AX5043_0xF01,              0x4f01)
 SFRX(AX5043_0xF0C,              0x4f0c)
 SFRX(AX5043_0xF10,              0x4f10)
 SFRX(AX5043_0xF11,              0x4f11)
@@ -120,7 +119,6 @@ SFRX(AX5043_0xF21,              0x4f21)
 SFRX(AX5043_0xF22,              0x4f22)
 SFRX(AX5043_0xF23,              0x4f23)
 SFRX(AX5043_0xF26,              0x4f26)
-SFRX(AX5043_0xF2F,              0x4f2f)
 SFRX(AX5043_0xF30,              0x4f30)
 SFRX(AX5043_0xF31,              0x4f31)
 SFRX(AX5043_0xF32,              0x4f32)
@@ -132,6 +130,8 @@ SFRX(AX5043_0xF44,              0x4f44)
 SFRX(AX5043_REF,                0x4f0d)
 SFRX(AX5043_POWCTRL1,           0x4f08)
 SFRX(AX5043_MODCFGP,            0x4f5f)
+SFRX(AX5043_XTALOSC,              0x4f10)
+SFRX(AX5043_XTALAMPL,              0x4f11)
 
 
 // power states
@@ -173,6 +173,8 @@ __reentrantb int32_t axradio_conv_freq_fromreg(int32_t f) __reentrant;
 __reentrantb void ax5043_set_registers(void) __reentrant;
 __reentrantb void ax5043_set_registers_tx(void) __reentrant;
 __reentrantb void ax5043_set_registers_rx(void) __reentrant;
+__reentrantb void ax5043_set_registers_rxwor(void) __reentrant;
+__reentrantb void ax5043_set_registers_rxcont(void) __reentrant;
 __reentrantb uint8_t axradio_framing_check_crc(const uint8_t __xdata *pkt, uint16_t cnt) __reentrant;
 __reentrantb uint16_t axradio_framing_append_crc(uint8_t __xdata *pkt, uint16_t cnt) __reentrant;
 
@@ -194,8 +196,7 @@ extern const uint8_t __code axradio_phy_cs_enabled;
 extern const uint16_t __code axradio_phy_cs_period;
 extern const uint8_t __code axradio_phy_lbt_retries;
 extern const uint8_t __code axradio_phy_lbt_forcetx;
-extern const uint8_t __code axradio_phy_tmgrxpreamble1_wor;
-extern const uint8_t __code axradio_phy_tmgrxpreamble1_cont;
+
 
 extern const uint16_t __code axradio_phy_preamble_wor_longlen;
 extern const uint16_t __code axradio_phy_preamble_longlen;

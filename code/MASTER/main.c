@@ -117,12 +117,12 @@ static void transmit_packet(uint8_t key)
 
     packet[1] = key;
 
-    /*
+#if 0
     if (axradio_set_mode(AXRADIO_MODE_ASYNC_TRANSMIT) != AXRADIO_ERR_NOERROR)
         LOG(STR("ERROR enabling radio\n"));
-    */
 
     delay_ms(5); // give hardware time to start up
+#endif
 
     key = axradio_transmit(&remoteaddr, packet, sizeof(packet));
 
@@ -160,14 +160,17 @@ void axradio_statuschange(struct axradio_status __xdata *st)
         tx_in_progress = 0;
         LOG(STR(" done\n"));
 #ifdef AXREMOTE_TRANSMITTER
+
+#if 0
         // power down radio when not actively transmitting keypresses
         //delay_ms(5);
-        /*if (axradio_set_mode(RADIO_POWERMODE_OFF) != AXRADIO_ERR_NOERROR) {
+        if (axradio_set_mode(RADIO_POWERMODE_OFF) != AXRADIO_ERR_NOERROR) {
             LOG(STR("ERROR disabling radio\n"));
             led0_on();
-        }*/
+        }
 
         //ax5043_enter_deepsleep();
+#endif
 #endif
 
         if (st->error != AXRADIO_ERR_NOERROR) {
@@ -280,6 +283,7 @@ uint8_t _sdcc_external_startup(void)
 
 #endif // AXREMOTE_RECEIVER
 
+    axradio_setup_pincfg1();
     DPS = 0;
     //IE = 0x42; // power management interrupt, wakeup timer
     IE = 0;
@@ -304,6 +308,7 @@ uint8_t _sdcc_external_startup(void)
 
 void ir_rx_packet_callback(__xdata struct ir_packet* packet)
 {
+    UNUSED(packet);
     LOG(STR("got valid IR packet\n"));
 }
 
@@ -454,11 +459,18 @@ void main(void)
 
 #ifdef AXREMOTE_TRANSMITTER
         // radio isn't running here
+        ax5043_commsleepexit();
+        IE_4 = 1; // Radio Interrupt enable
+        /*err = axradio_set_mode(RADIO_POWERMODE_OFF);
+        if (err != AXRADIO_ERR_NOERROR)
+            goto terminate_radio_error;*/
 #else
         ax5043_commsleepexit();
         IE_4 = 1; // Radio Interrupt enable
 #endif
     }
+
+    axradio_setup_pincfg2();
 
 
 #ifdef USE_DBGLINK
@@ -521,7 +533,7 @@ void main(void)
         IE = 0x18; // no interrupts at all, save for GPIO and radio
         {
             uint8_t flg = WTFLAG_CANSTANDBY;
-            /*if (tx_in_progress == 0
+            if (tx_in_progress == 0
                     && axradio_cansleep()
 #ifdef USE_DBGLINK
                     && dbglink_txidle()
@@ -529,7 +541,6 @@ void main(void)
                ) {
                 flg |= WTFLAG_CANSLEEP;
             }
-            */
 
             //wtimer_idle(flg);
             if (flg & WTFLAG_CANSLEEP) {
@@ -549,9 +560,10 @@ void main(void)
                 led1_on();
             } else {
 
+                led1_off();
                 wtimer_idle(WTFLAG_CANSTANDBY);
                 // green led on if chip is active
-                led0_on();
+                led1_on();
             }
         }
         // turn interrupts back on

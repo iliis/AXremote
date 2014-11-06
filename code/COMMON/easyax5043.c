@@ -36,8 +36,8 @@
 #include <libmfwtimer.h>
 #include <stdlib.h>
 #include <string.h>
+#include <libmfdbglink.h>
 
-#include "../COMMON/misc.h"
 
 
 typedef enum {
@@ -823,6 +823,9 @@ __reentrantb void ax5043_receiver_on_continuous(void) __reentrant
     if(rschanged_int)
         AX5043_RADIOEVENTMASK0 = 0x04;
     AX5043_RSSIREFERENCE = axradio_phy_rssireference;
+    ax5043_set_registers_rxcont();
+
+#if 0
     if (axradio_mode == AXRADIO_MODE_ASYNC_RECEIVE ||
         axradio_mode == AXRADIO_MODE_ACK_RECEIVE ||
         axradio_mode == AXRADIO_MODE_STREAM_RECEIVE ||
@@ -834,6 +837,10 @@ __reentrantb void ax5043_receiver_on_continuous(void) __reentrant
         AX5043_TMGRXPREAMBLE1 = 0x00;
         AX5043_PKTSTOREFLAGS &= (uint8_t)~0x40;
     }
+#endif
+    AX5043_PKTSTOREFLAGS &= (uint8_t)~0x40;
+
+
     AX5043_FIFOSTAT = 3; // clear FIFO data & flags
     AX5043_PWRMODE = AX5043_PWRSTATE_FULL_RX;
     axradio_trxstate = trxstate_rx;
@@ -851,8 +858,10 @@ __reentrantb void ax5043_receiver_on_wor(void) __reentrant
         AX5043_RADIOEVENTMASK0 = 0x04;
     AX5043_FIFOSTAT = 3; // clear FIFO data & flags
     AX5043_LPOSCCONFIG = 0x01; // start LPOSC, slow mode
-    AX5043_TMGRXPREAMBLE1 = axradio_phy_tmgrxpreamble1_wor;
     AX5043_RSSIREFERENCE = axradio_phy_rssireference;
+    ax5043_set_registers_rxwor();
+    AX5043_PKTSTOREFLAGS &= (uint8_t)~0x40;
+
     AX5043_PWRMODE = AX5043_PWRSTATE_WOR_RX;
     axradio_trxstate = trxstate_rxwor;
     if(axradio_framing_enable_sfdcallback)
@@ -860,7 +869,7 @@ __reentrantb void ax5043_receiver_on_wor(void) __reentrant
     else
         AX5043_IRQMASK0 = 0x01; //  enable FIFO not empty
 
-    if( ( (PALTRADIO & 0x40) && (AX5043_PINFUNCPWRAMP & 0x07 ) ) || ( (PALTRADIO & 0x80) && ( (AX5043_PINFUNCANTSEL & 0x40 ) == 0x04 ) ) ) // pass through of TCXO_EN
+    if( ( (PALTRADIO & 0x40) && ((AX5043_PINFUNCPWRAMP & 0x0F) == 0x07) ) || ( (PALTRADIO & 0x80) && ( (AX5043_PINFUNCANTSEL & 0x07 ) == 0x04 ) ) ) // pass through of TCXO_EN
     {
         // F143_WOR_TCXO
         AX5043_IRQMASK0 |= 0x80; // power irq (AX8052F143 WOR with TCXO)
@@ -887,6 +896,7 @@ __reentrantb void ax5043_prepare_tx(void) __reentrant
     axradio_trxstate = trxstate_tx_xtalwait;
     AX5043_IRQMASK0 = 0x00;
     AX5043_IRQMASK1 = 0x01; // enable xtal ready interrupt
+    AX5043_POWSTICKYSTAT; // clear pwr management sticky status --> brownout gate works
 }
 
 __reentrantb void ax5043_off(void) __reentrant
@@ -907,7 +917,6 @@ __reentrantb void ax5043_off_xtal(void) __reentrant
 void axradio_wait_for_xtal(void)
 {
     uint8_t __autodata iesave = IE & 0x80;
-
     EA = 0;
     axradio_trxstate = trxstate_wait_xtal;
     AX5043_IRQMASK1 |= 0x01; // enable xtal ready interrupt
@@ -1244,14 +1253,20 @@ static void axradio_timer_callback(struct wtimer_desc __xdata *desc)
             break;
 
         case syncstate_slave_rxsfdwindow:
-            if (!(0x0F & (uint8_t)~AX5043_RADIOSTATE)) {
-                axradio_syncstate = syncstate_slave_rxpacket;
-                wtimer_remove(&axradio_timer);
-                axradio_timer.time += axradio_sync_slave_rxtimeout;
-                wtimer0_addabsolute(&axradio_timer);
-                break;
+            {
+                uint8_t __autodata rs = AX5043_RADIOSTATE;
+                if( !rs )
+                    break;
+
+                if (!(0x0F & (uint8_t)~rs)) {
+                    axradio_syncstate = syncstate_slave_rxpacket;
+                    wtimer_remove(&axradio_timer);
+                    axradio_timer.time += axradio_sync_slave_rxtimeout;
+                    wtimer0_addabsolute(&axradio_timer);
+                    break;
+                }
+                // fall through
             }
-            // fall through
 
         case syncstate_slave_rxpacket:
             ax5043_off();
@@ -1713,24 +1728,24 @@ uint8_t axradio_set_mode(uint8_t mode)
 
     case AXRADIO_MODE_ASYNC_TRANSMIT:
     case AXRADIO_MODE_ACK_TRANSMIT:
-        ax5043_init_registers_tx();
-        axradio_ack_seqnr = 0xff;
         axradio_mode = mode;
+        axradio_ack_seqnr = 0xff;
+        ax5043_init_registers_tx();
         return AXRADIO_ERR_NOERROR;
 
     case AXRADIO_MODE_WOR_TRANSMIT:
     case AXRADIO_MODE_WOR_ACK_TRANSMIT:
-        ax5043_init_registers_tx();
-        axradio_ack_seqnr = 0xff;
         axradio_mode = mode;
+        axradio_ack_seqnr = 0xff;
+        ax5043_init_registers_tx();
         return AXRADIO_ERR_NOERROR;
 
     case AXRADIO_MODE_ASYNC_RECEIVE:
     case AXRADIO_MODE_ACK_RECEIVE:
+        axradio_mode = mode;
+        axradio_ack_seqnr = 0xff;
         ax5043_init_registers_rx();
         ax5043_receiver_on_continuous();
-        axradio_ack_seqnr = 0xff;
-        axradio_mode = mode;
     enablecs:
         if (axradio_phy_cs_enabled) {
             wtimer_remove(&axradio_timer);
@@ -1741,10 +1756,10 @@ uint8_t axradio_set_mode(uint8_t mode)
 
     case AXRADIO_MODE_WOR_RECEIVE:
     case AXRADIO_MODE_WOR_ACK_RECEIVE:
-        ax5043_init_registers_rx();
-        ax5043_receiver_on_wor();
         axradio_ack_seqnr = 0xff;
         axradio_mode = mode;
+        ax5043_init_registers_rx();
+        ax5043_receiver_on_wor();
         return AXRADIO_ERR_NOERROR;
 
     case AXRADIO_MODE_STREAM_TRANSMIT:
@@ -1772,6 +1787,7 @@ uint8_t axradio_set_mode(uint8_t mode)
     case AXRADIO_MODE_STREAM_RECEIVE:
     case AXRADIO_MODE_STREAM_RECEIVE_UNENC:
     case AXRADIO_MODE_STREAM_RECEIVE_SCRAM:
+        axradio_mode = mode;
         ax5043_init_registers_rx();
         if (axradio_mode == AXRADIO_MODE_STREAM_RECEIVE_UNENC)
             AX5043_ENCODING = 0;
@@ -1780,11 +1796,11 @@ uint8_t axradio_set_mode(uint8_t mode)
         AX5043_FRAMING = 0;
         AX5043_PKTCHUNKSIZE = 8; // 64 byte
         AX5043_RXPARAMSETS = 0x00;
-        axradio_mode = mode;
         ax5043_receiver_on_continuous();
         goto enablecs;
 
     case AXRADIO_MODE_CW_TRANSMIT:
+        axradio_mode = AXRADIO_MODE_CW_TRANSMIT;
         ax5043_init_registers_tx();
         AX5043_MODULATION = 8;   // Set an FSK mode
         AX5043_FSKDEV2 = 0x00;
@@ -1794,7 +1810,6 @@ uint8_t axradio_set_mode(uint8_t mode)
         AX5043_TXRATE1 = 0x00;
         AX5043_TXRATE0 = 0x01;
         AX5043_PINFUNCDATA = 0x04;
-        axradio_mode = AXRADIO_MODE_CW_TRANSMIT;
         AX5043_PWRMODE = AX5043_PWRSTATE_FIFO_ON;
         axradio_trxstate = trxstate_txcw_xtalwait;
         AX5043_IRQMASK0 = 0x00;

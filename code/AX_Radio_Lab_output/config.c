@@ -5,8 +5,10 @@
 #include <libmftypes.h>
 #include <libmfcrc.h>
 
-// TX: fcarrier=868.300MHz dev= 20.000kHz br= 80.000kBit/s pwr=  0.0dBm
-// RX: fcarrier=868.300MHz bw=120.000kHz br= 80.000kBit/s
+// 16MHz XTAL, a bit more power
+
+// TX: fcarrier=868.300MHz dev= 16.000kHz br= 48.000kBit/s pwr= 15.0dBm
+// RX: fcarrier=868.300MHz bw= 72.000kHz br= 48.000kBit/s
 
 __reentrantb void ax5043_set_registers(void) __reentrant
 {
@@ -19,12 +21,12 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_PINFUNCANTSEL           = 0x82;
 	AX5043_PINFUNCPWRAMP           = 0x82;
 	AX5043_WAKEUPXOEARLY           = 0x01;
-	AX5043_IFFREQ1                 = 0x0D;
-	AX5043_IFFREQ0                 = 0xBD;
-	AX5043_DECIMATION              = 0x01;
+	AX5043_IFFREQ1                 = 0x0C;
+	AX5043_IFFREQ0                 = 0xCD;
+	AX5043_DECIMATION              = 0x02;
 	AX5043_RXDATARATE2             = 0x00;
-	AX5043_RXDATARATE1             = 0x64;
-	AX5043_RXDATARATE0             = 0x00;
+	AX5043_RXDATARATE1             = 0x53;
+	AX5043_RXDATARATE0             = 0x55;
 	AX5043_MAXDROFFSET2            = 0x00;
 	AX5043_MAXDROFFSET1            = 0x00;
 	AX5043_MAXDROFFSET0            = 0x00;
@@ -37,64 +39,63 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_FSKDMIN0                = 0x5A;
 	AX5043_AMPLFILTER              = 0x00;
 	AX5043_RXPARAMSETS             = 0xF4;
-	AX5043_AGCGAIN0                = 0x84;
-	AX5043_AGCTARGET0              = 0x76;
-	AX5043_TIMEGAIN0               = 0xC9;
-	AX5043_DRGAIN0                 = 0xC3;
-	AX5043_PHASEGAIN0              = 0x43;
+	AX5043_AGCGAIN0                = 0x93;
+	AX5043_AGCTARGET0              = 0x84;
+	AX5043_TIMEGAIN0               = 0xA9;
+	AX5043_DRGAIN0                 = 0xA3;
+	AX5043_PHASEGAIN0              = 0x83;
 	AX5043_FREQUENCYGAINA0         = 0x0F;
 	AX5043_FREQUENCYGAINB0         = 0x1F;
 	AX5043_FREQUENCYGAINC0         = 0x04;
 	AX5043_FREQUENCYGAIND0         = 0x04;
-	AX5043_AMPLITUDEGAIN0          = 0x46;
+	AX5043_AMPLITUDEGAIN0          = 0x06;
 	AX5043_FREQDEV10               = 0x00;
 	AX5043_FREQDEV00               = 0x00;
-	AX5043_FOURFSK0                = 0x00;
 	AX5043_BBOFFSRES0              = 0x00;
-	AX5043_AGCGAIN1                = 0x84;
-	AX5043_AGCTARGET1              = 0x76;
+	AX5043_AGCGAIN1                = 0x93;
+	AX5043_AGCTARGET1              = 0x84;
 	AX5043_AGCAHYST1               = 0x00;
 	AX5043_AGCMINMAX1              = 0x00;
-	AX5043_TIMEGAIN1               = 0xC7;
-	AX5043_DRGAIN1                 = 0xC2;
-	AX5043_PHASEGAIN1              = 0x43;
+	AX5043_TIMEGAIN1               = 0xA7;
+	AX5043_DRGAIN1                 = 0xA2;
+	AX5043_PHASEGAIN1              = 0x83;
 	AX5043_FREQUENCYGAINA1         = 0x0F;
 	AX5043_FREQUENCYGAINB1         = 0x1F;
 	AX5043_FREQUENCYGAINC1         = 0x04;
 	AX5043_FREQUENCYGAIND1         = 0x04;
-	AX5043_AMPLITUDEGAIN1          = 0x46;
+	AX5043_AMPLITUDEGAIN1          = 0x06;
 	AX5043_FREQDEV11               = 0x00;
-	AX5043_FREQDEV01               = 0x38;
-	AX5043_FOURFSK1                = 0x00;
+	AX5043_FREQDEV01               = 0x43;
+	AX5043_FOURFSK1                = 0x16;
 	AX5043_BBOFFSRES1              = 0x00;
 	AX5043_AGCGAIN3                = 0xFF;
-	AX5043_AGCTARGET3              = 0x76;
+	AX5043_AGCTARGET3              = 0x84;
 	AX5043_AGCAHYST3               = 0x00;
 	AX5043_AGCMINMAX3              = 0x00;
-	AX5043_TIMEGAIN3               = 0xC6;
-	AX5043_DRGAIN3                 = 0xC1;
-	AX5043_PHASEGAIN3              = 0x43;
+	AX5043_TIMEGAIN3               = 0xA6;
+	AX5043_DRGAIN3                 = 0xA1;
+	AX5043_PHASEGAIN3              = 0x83;
 	AX5043_FREQUENCYGAINA3         = 0x0F;
 	AX5043_FREQUENCYGAINB3         = 0x1F;
 	AX5043_FREQUENCYGAINC3         = 0x08;
 	AX5043_FREQUENCYGAIND3         = 0x08;
-	AX5043_AMPLITUDEGAIN3          = 0x46;
+	AX5043_AMPLITUDEGAIN3          = 0x06;
 	AX5043_FREQDEV13               = 0x00;
-	AX5043_FREQDEV03               = 0x38;
-	AX5043_FOURFSK3                = 0x00;
+	AX5043_FREQDEV03               = 0x43;
+	AX5043_FOURFSK3                = 0x16;
 	AX5043_BBOFFSRES3              = 0x00;
 	AX5043_MODCFGF                 = 0x03;
 	AX5043_FSKDEV2                 = 0x00;
-	AX5043_FSKDEV1                 = 0x51;
-	AX5043_FSKDEV0                 = 0xEC;
+	AX5043_FSKDEV1                 = 0x41;
+	AX5043_FSKDEV0                 = 0x89;
 	AX5043_MODCFGA                 = 0x05;
-	AX5043_TXRATE2                 = 0x01;
-	AX5043_TXRATE1                 = 0x47;
-	AX5043_TXRATE0                 = 0xAE;
-	AX5043_TXPWRCOEFFB1            = 0x02;
-	AX5043_TXPWRCOEFFB0            = 0x07;
+	AX5043_TXRATE2                 = 0x00;
+	AX5043_TXRATE1                 = 0xC4;
+	AX5043_TXRATE0                 = 0x9C;
+	AX5043_TXPWRCOEFFB1            = 0x0F;
+	AX5043_TXPWRCOEFFB0            = 0xFF;
 	AX5043_PLLRNGCLK               = 0x03;
-	AX5043_BBTUNE                  = 0x09;
+	AX5043_BBTUNE                  = 0x0F;
 	AX5043_BBOFFSCAP               = 0x77;
 	AX5043_PKTADDRCFG              = 0x00;
 	AX5043_PKTLENCFG               = 0x80;
@@ -110,33 +111,31 @@ __reentrantb void ax5043_set_registers(void) __reentrant
 	AX5043_MATCH1PAT0              = 0x55;
 	AX5043_MATCH1LEN               = 0x8A;
 	AX5043_MATCH1MAX               = 0x0A;
+	AX5043_TMGTXBOOST              = 0x32;
+	AX5043_TMGTXSETTLE             = 0x14;
 	AX5043_TMGRXBOOST              = 0x32;
 	AX5043_TMGRXSETTLE             = 0x14;
-	AX5043_TMGRXOFFSACQ            = 0x73;
-	AX5043_TMGRXCOARSEAGC          = 0x0C;
-	AX5043_TMGRXAGC                = 0x00;
-	AX5043_TMGRXRSSI               = 0x08;
+	AX5043_TMGRXOFFSACQ            = 0x00;
+	AX5043_TMGRXCOARSEAGC          = 0x73;
+	AX5043_TMGRXRSSI               = 0x03;
 	AX5043_TMGRXPREAMBLE2          = 0x35;
-	AX5043_RSSIREFERENCE           = 0x24;
-	AX5043_RSSIABSTHR              = 0xC6;
-	AX5043_BGNDRSSIGAIN            = 0x02;
+	AX5043_RSSIABSTHR              = 0xE9;
 	AX5043_BGNDRSSITHR             = 0x00;
 	AX5043_PKTCHUNKSIZE            = 0x0D;
-	AX5043_PKTMISCFLAGS            = 0x03;
 	AX5043_PKTACCEPTFLAGS          = 0x20;
 	AX5043_DACVALUE1               = 0x00;
 	AX5043_DACVALUE0               = 0x00;
 	AX5043_DACCONFIG               = 0x00;
-	AX5043_0xF10                   = 0x03;
-	AX5043_0xF11                   = 0x07;
+	AX5043_XTALOSC                 = 0x06;
+	AX5043_XTALAMPL                = 0x07;
 	AX5043_0xF1C                   = 0x07;
-	AX5043_0xF21                   = 0x5C;
-	AX5043_0xF22                   = 0x53;
-	AX5043_0xF23                   = 0x76;
-	AX5043_0xF26                   = 0x92;
+	AX5043_0xF21                   = 0x68;
+	AX5043_0xF22                   = 0xFF;
+	AX5043_0xF23                   = 0x84;
+	AX5043_0xF26                   = 0x98;
 	AX5043_0xF34                   = 0x08;
 	AX5043_0xF35                   = 0x10;
-	AX5043_0xF44                   = 0x24;
+	AX5043_0xF44                   = 0x25;
 }
 
 
@@ -166,18 +165,456 @@ __reentrantb void ax5043_set_registers_rx(void) __reentrant
 }
 
 
-
-__reentrantb void setup_pincfg1(void) __reentrant
+__reentrantb void ax5043_set_registers_rxwor(void) __reentrant
 {
-	PALTRADIO = 0x00; //pass through  
+	AX5043_TMGRXAGC                = 0x0A;
+	AX5043_TMGRXPREAMBLE1          = 0x19;
+	AX5043_PKTMISCFLAGS            = 0x03;
 }
 
-__reentrantb void setup_pincfg2(void) __reentrant
+
+__reentrantb void ax5043_set_registers_rxcont(void) __reentrant
+{
+	AX5043_TMGRXAGC                = 0x00;
+	AX5043_TMGRXPREAMBLE1          = 0x00;
+	AX5043_PKTMISCFLAGS            = 0x00;
+}
+
+
+
+__reentrantb void axradio_setup_pincfg1(void) __reentrant
+{
+	PALTRADIO = 0x00; //pass through
+}
+
+__reentrantb void axradio_setup_pincfg2(void) __reentrant
 {
 	PORTR = (PORTR & 0x3F) | 0x00; //AX8052F143 --> no pull-ups on PR6, PR7
 }
 
 
+
+#if defined SDCC
+
+#define CONST #
+
+#define CONSTMULFIX24(x)			\
+	__asm					\
+	mov	r0,dpl				\
+	mov	r1,dph				\
+	mov	r2,b				\
+	mov	r3,a				\
+	push	acc				\
+	jnb	acc.7,00000$			\
+	clr	c				\
+	clr	a				\
+	subb	a,r0				\
+	mov	r0,a				\
+	clr	a				\
+	subb	a,r1				\
+	mov	r1,a				\
+	clr	a				\
+	subb	a,r2				\
+	mov	r2,a				\
+	clr	a				\
+	subb	a,r3				\
+	mov	r3,a				\
+00000$:	clr	a				\
+	mov	r4,a				\
+	mov	r5,a				\
+	mov	r6,a				\
+	mov	r7,a				\
+	;; stage -1				\
+	.if	(((x)>>16)&0xff)		\
+	mov	a,CONST (((x)>>16)&0xff)	\
+	mov	b,r0				\
+	mul	ab				\
+	mov	r7,a				\
+	mov	r4,b				\
+	.endif					\
+	.if	(((x)>>8)&0xff)			\
+	mov	a,CONST (((x)>>8)&0xff)		\
+	mov	b,r1				\
+	mul	ab				\
+	.if	(((x)>>16)&0xff)		\
+	add	a,r7				\
+	mov	r7,a				\
+	mov	a,b				\
+	addc	a,r4				\
+	mov	r4,a				\
+	clr	a				\
+	addc	a,r5				\
+	mov	r5,a				\
+	.else					\
+	mov	r7,a				\
+	mov	r4,b				\
+	.endif					\
+	.endif					\
+	.if	((x)&0xff)			\
+	mov	a,CONST ((x)&0xff)		\
+	mov	b,r2				\
+	mul	ab				\
+	.if	(((x)>>8)&0xffff)		\
+	add	a,r7				\
+	mov	r7,a				\
+	mov	a,b				\
+	addc	a,r4				\
+	mov	r4,a				\
+	clr	a				\
+	addc	a,r5				\
+	mov	r5,a				\
+	.else					\
+	mov	r7,a				\
+	mov	r4,b				\
+	.endif					\
+	.endif					\
+	;; clear precision extension		\
+	clr	a				\
+	mov	r7,a				\
+	;; stage 0				\
+	.if	(((x)>>24)&0xff)		\
+	mov	a,CONST (((x)>>24)&0xff)	\
+	mov	b,r0				\
+	mul	ab				\
+	add	a,r4				\
+	mov	r4,a				\
+	mov	a,b				\
+	addc	a,r5				\
+	mov	r5,a				\
+	clr	a				\
+	addc	a,r6				\
+	mov	r6,a				\
+	.endif					\
+	.if	(((x)>>16)&0xff)		\
+	mov	a,CONST (((x)>>16)&0xff)	\
+	mov	b,r1				\
+	mul	ab				\
+	add	a,r4				\
+	mov	r4,a				\
+	mov	a,b				\
+	addc	a,r5				\
+	mov	r5,a				\
+	clr	a				\
+	addc	a,r6				\
+	mov	r6,a				\
+	.endif					\
+	.if	(((x)>>8)&0xff)			\
+	mov	a,CONST (((x)>>8)&0xff)		\
+	mov	b,r2				\
+	mul	ab				\
+	add	a,r4				\
+	mov	r4,a				\
+	mov	a,b				\
+	addc	a,r5				\
+	mov	r5,a				\
+	clr	a				\
+	addc	a,r6				\
+	mov	r6,a				\
+	.endif					\
+	.if	((x)&0xff)			\
+	mov	a,CONST ((x)&0xff)		\
+	mov	b,r3				\
+	mul	ab				\
+	add	a,r4				\
+	mov	r4,a				\
+	mov	a,b				\
+	addc	a,r5				\
+	mov	r5,a				\
+	clr	a				\
+	addc	a,r6				\
+	mov	r6,a				\
+	.endif					\
+	;; stage 1				\
+	.if	(((x)>>24)&0xff)		\
+	mov	a,CONST (((x)>>24)&0xff)	\
+	mov	b,r1				\
+	mul	ab				\
+	add	a,r5				\
+	mov	r5,a				\
+	mov	a,b				\
+	addc	a,r6				\
+	mov	r6,a				\
+	clr	a				\
+	addc	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	.if	(((x)>>16)&0xff)		\
+	mov	a,CONST (((x)>>16)&0xff)	\
+	mov	b,r2				\
+	mul	ab				\
+	add	a,r5				\
+	mov	r5,a				\
+	mov	a,b				\
+	addc	a,r6				\
+	mov	r6,a				\
+	clr	a				\
+	addc	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	.if	(((x)>>8)&0xff)			\
+	mov	a,CONST (((x)>>8)&0xff)		\
+	mov	b,r3				\
+	mul	ab				\
+	add	a,r5				\
+	mov	r5,a				\
+	mov	a,b				\
+	addc	a,r6				\
+	mov	r6,a				\
+	clr	a				\
+	addc	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	;; stage 2				\
+	.if	(((x)>>24)&0xff)		\
+	mov	a,CONST (((x)>>24)&0xff)	\
+	mov	b,r2				\
+	mul	ab				\
+	add	a,r6				\
+	mov	r6,a				\
+	mov	a,b				\
+	addc	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	.if	(((x)>>16)&0xff)		\
+	mov	a,CONST (((x)>>16)&0xff)	\
+	mov	b,r3				\
+	mul	ab				\
+	add	a,r6				\
+	mov	r6,a				\
+	mov	a,b				\
+	addc	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	;; stage 3				\
+	.if	(((x)>>24)&0xff)		\
+	mov	a,CONST (((x)>>24)&0xff)	\
+	mov	b,r3				\
+	mul	ab				\
+	add	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	pop	acc				\
+	jnb	acc.7,00001$			\
+	clr	c				\
+	clr	a				\
+	subb	a,r4				\
+	mov	dpl,a				\
+	clr	a				\
+	subb	a,r5				\
+	mov	dph,a				\
+	clr	a				\
+	subb	a,r6				\
+	mov	b,a				\
+	clr	a				\
+	subb	a,r7				\
+	sjmp	00002$				\
+00001$:	mov	dpl,r4				\
+	mov	dph,r5				\
+	mov	b,r6				\
+	mov	a,r7				\
+00002$:						\
+	__endasm
+
+#define CONSTMULFIX16(x)			\
+	__asm					\
+	mov	r0,dpl				\
+	mov	a,dph				\
+	mov	r1,a				\
+	push	acc				\
+	jnb	acc.7,00000$			\
+	clr	c				\
+	clr	a				\
+	subb	a,r0				\
+	mov	r0,a				\
+	clr	a				\
+	subb	a,r1				\
+	mov	r1,a				\
+00000$:	clr	a				\
+	mov	r4,a				\
+	mov	r5,a				\
+	mov	r6,a				\
+	mov	r7,a				\
+	;; stage -1				\
+	.if	(((x)>>16)&0xff)		\
+	mov	a,CONST (((x)>>16)&0xff)	\
+	mov	b,r0				\
+	mul	ab				\
+	mov	r7,a				\
+	mov	r4,b				\
+	.endif					\
+	.if	(((x)>>8)&0xff)			\
+	mov	a,CONST (((x)>>8)&0xff)		\
+	mov	b,r1				\
+	mul	ab				\
+	.if	(((x)>>16)&0xff)		\
+	add	a,r7				\
+	mov	r7,a				\
+	mov	a,b				\
+	addc	a,r4				\
+	mov	r4,a				\
+	clr	a				\
+	addc	a,r5				\
+	mov	r5,a				\
+	.else					\
+	mov	r7,a				\
+	mov	r4,b				\
+	.endif					\
+	.endif					\
+	;; clear precision extension		\
+	clr	a				\
+	mov	r7,a				\
+	;; stage 0				\
+	.if	(((x)>>24)&0xff)		\
+	mov	a,CONST (((x)>>24)&0xff)	\
+	mov	b,r0				\
+	mul	ab				\
+	add	a,r4				\
+	mov	r4,a				\
+	mov	a,b				\
+	addc	a,r5				\
+	mov	r5,a				\
+	clr	a				\
+	addc	a,r6				\
+	mov	r6,a				\
+	.endif					\
+	.if	(((x)>>16)&0xff)		\
+	mov	a,CONST (((x)>>16)&0xff)	\
+	mov	b,r1				\
+	mul	ab				\
+	add	a,r4				\
+	mov	r4,a				\
+	mov	a,b				\
+	addc	a,r5				\
+	mov	r5,a				\
+	clr	a				\
+	addc	a,r6				\
+	mov	r6,a				\
+	.endif					\
+	;; stage 1				\
+	.if	(((x)>>24)&0xff)		\
+	mov	a,CONST (((x)>>24)&0xff)	\
+	mov	b,r1				\
+	mul	ab				\
+	add	a,r5				\
+	mov	r5,a				\
+	mov	a,b				\
+	addc	a,r6				\
+	mov	r6,a				\
+	clr	a				\
+	addc	a,r7				\
+	mov	r7,a				\
+	.endif					\
+	pop	acc				\
+	jnb	acc.7,00001$			\
+	clr	c				\
+	clr	a				\
+	subb	a,r4				\
+	mov	dpl,a				\
+	clr	a				\
+	subb	a,r5				\
+	mov	dph,a				\
+	clr	a				\
+	subb	a,r6				\
+	mov	b,a				\
+	clr	a				\
+	subb	a,r7				\
+	sjmp	00002$				\
+00001$:	mov	dpl,r4				\
+	mov	dph,r5				\
+	mov	b,r6				\
+	mov	a,r7				\
+00002$:						\
+	__endasm
+
+#else // SDCC
+
+#define MUL8_16(x,y) ((uint8_t)((x)&0xff)*(uint16_t)(uint8_t)((y)&0xff))
+
+#define CONSTMULFIX24(x)					\
+	if (f >= 0) {						\
+		uint32_t r = MUL8_16((x)>>16,f);		\
+		r += MUL8_16((x)>>8,f>>8);			\
+		r += MUL8_16((x),f>>16);			\
+		r >>= 8;					\
+		r += MUL8_16((x)>>24,f);			\
+		r += MUL8_16((x)>>16,f>>8);			\
+		r += MUL8_16((x)>>8,f>>16);			\
+		r += MUL8_16((x),f>>24);			\
+		r += ((uint32_t)MUL8_16((x)>>24,f>>8))<<8;	\
+		r += ((uint32_t)MUL8_16((x)>>16,f>>16))<<8;	\
+		r += ((uint32_t)MUL8_16((x)>>8,f>>24))<<8;	\
+		r += ((uint32_t)MUL8_16((x)>>24,f>>16))<<16;	\
+		r += ((uint32_t)MUL8_16((x)>>16,f>>24))<<16;	\
+		r += ((uint32_t)MUL8_16((x)>>24,f>>24))<<24;	\
+		return r;					\
+	}							\
+	{							\
+		int32_t r;					\
+		f = -f;						\
+		r = -(uint32_t)MUL8_16((x)>>16,f);		\
+		r -= (uint32_t)MUL8_16((x)>>8,f>>8);		\
+		r -= (uint32_t)MUL8_16((x),f>>16);		\
+		r >>= 8;					\
+		r -= (uint32_t)MUL8_16((x)>>24,f);		\
+		r -= (uint32_t)MUL8_16((x)>>16,f>>8);		\
+		r -= (uint32_t)MUL8_16((x)>>8,f>>16);		\
+		r -= (uint32_t)MUL8_16((x),f>>24);		\
+		r -= ((uint32_t)MUL8_16((x)>>24,f>>8))<<8;	\
+		r -= ((uint32_t)MUL8_16((x)>>16,f>>16))<<8;	\
+		r -= ((uint32_t)MUL8_16((x)>>8,f>>24))<<8;	\
+		r -= ((uint32_t)MUL8_16((x)>>24,f>>16))<<16;	\
+		r -= ((uint32_t)MUL8_16((x)>>16,f>>24))<<16;	\
+		r -= ((uint32_t)MUL8_16((x)>>24,f>>24))<<24;	\
+		return r;					\
+	}
+
+#define CONSTMULFIX16(x)					\
+	if (f >= 0) {						\
+		uint32_t r = MUL8_16((x)>>16,f);		\
+		r += MUL8_16((x)>>8,f>>8);			\
+		r >>= 8;					\
+		r += MUL8_16((x)>>24,f);			\
+		r += MUL8_16((x)>>16,f>>8);			\
+		r += ((uint32_t)MUL8_16((x)>>24,f>>8))<<8;	\
+		return r;					\
+	}							\
+	{							\
+		int32_t r;					\
+		f = -f;						\
+		r = -(uint32_t)MUL8_16((x)>>16,f);		\
+		r -= (uint32_t)MUL8_16((x)>>8,f>>8);		\
+		r >>= 8;					\
+		r -= (uint32_t)MUL8_16((x)>>24,f);		\
+		r -= (uint32_t)MUL8_16((x)>>16,f>>8);		\
+		r -= ((uint32_t)MUL8_16((x)>>24,f>>8))<<8;	\
+		return r;					\
+	}
+
+#endif // SDCC
+
+#if defined SDCC
+// do not mark as reentrant, otherwise the register allocator will generate suboptimal code
+#pragma nooverlay
+int32_t axradio_conv_freq_fromhz(int32_t f)
+#else
+__reentrantb int32_t axradio_conv_freq_fromhz(int32_t f) __reentrant
+#endif
+{
+	/* scale by 1.048576 (true 1.048576) */
+	CONSTMULFIX24(0x10c6f7a);
+}
+
+#if defined SDCC
+// do not mark as reentrant, otherwise the register allocator will generate suboptimal code
+#pragma nooverlay
+int32_t axradio_conv_freq_tohz(int32_t f)
+#else
+__reentrantb int32_t axradio_conv_freq_tohz(int32_t f) __reentrant
+#endif
+{
+	/* scale by 0.953674 (true 0.953674) */
+	CONSTMULFIX24(0xf42400);
+}
 
 const uint8_t __code axradio_phy_innerfreqloop = 0;
 
@@ -190,45 +627,7 @@ __reentrantb int32_t axradio_conv_freq_fromreg(int32_t f) __reentrant
 #endif
 {
 	/* scale by 1.000000 (true 1.000000) */
-	int32_t r;
-	r = f;
-	return r;
-}
-
-#if defined SDCC
-// do not mark as reentrant, otherwise the register allocator will generate suboptimal code
-#pragma nooverlay
-int32_t axradio_conv_freq_fromhz(int32_t f)
-#else
-__reentrantb int32_t axradio_conv_freq_fromhz(int32_t f) __reentrant
-#endif
-{
-	/* scale by 1.046875 (true 1.048576) */
-	int32_t r;
-	r = f;
-	f >>= 4;
-	r += f;
-	f >>= 2;
-	r -= f;
-	return r;
-}
-
-#if defined SDCC
-// do not mark as reentrant, otherwise the register allocator will generate suboptimal code
-#pragma nooverlay
-int32_t axradio_conv_freq_tohz(int32_t f)
-#else
-__reentrantb int32_t axradio_conv_freq_tohz(int32_t f) __reentrant
-#endif
-{
-	/* scale by 0.953125 (true 0.953674) */
-	int32_t r;
-	r = f;
-	f >>= 4;
-	r -= f;
-	f >>= 2;
-	r += f;
-	return r;
+	CONSTMULFIX16(0x1000000);
 }
 
 #if defined SDCC
@@ -289,20 +688,17 @@ const uint32_t __code axradio_phy_chanfreq[1] = { 0x3644cccd };
 const uint8_t __code axradio_phy_chanpllrnginit[1] = { 0x0a };
 uint8_t __xdata axradio_phy_chanpllrng_rx[1];
 uint8_t __xdata axradio_phy_chanpllrng_tx[1];
-const int32_t __code axradio_phy_maxfreqoffset = 54630;
-const int8_t __code axradio_phy_rssioffset = 32;
+const int32_t __code axradio_phy_maxfreqoffset = 54629;
+const int8_t __code axradio_phy_rssioffset = 64;
 // axradio_phy_rssioffset is added to AX5043_RSSIREFERENCE and subtracted from chip RSSI value to prevent overflows (8bit RSSI only goes down to -128)
 // axradio_phy_rssioffset is also added to AX5043_RSSIABSTHR
-const int8_t __code axradio_phy_rssireference = 0x24;
-const int8_t __code axradio_phy_channelbusy = -90 + 32;
+const int8_t __code axradio_phy_rssireference = 0xF9 + 64;
+const int8_t __code axradio_phy_channelbusy = -87 + 64;
 const uint16_t __code axradio_phy_cs_period = 7; // timer0 units, 10ms
 const uint8_t __code axradio_phy_cs_enabled = 0;
 const uint8_t __code axradio_phy_lbt_retries = 0;
 const uint8_t __code axradio_phy_lbt_forcetx = 0;
-const uint8_t __code axradio_phy_tmgrxpreamble1_wor = 0x19;
-const uint8_t __code axradio_phy_tmgrxpreamble1_cont = 0x00;
-
-const uint16_t __code axradio_phy_preamble_wor_longlen = 75; // wor_longlen + wor_len totals to 240.0ms plus 32bits
+const uint16_t __code axradio_phy_preamble_wor_longlen = 45; // wor_longlen + wor_len totals to 240.0ms plus 32bits
 const uint16_t __code axradio_phy_preamble_wor_len = 32;
 const uint16_t __code axradio_phy_preamble_longlen = 0;
 const uint16_t __code axradio_phy_preamble_len = 32;
@@ -326,7 +722,7 @@ const uint8_t __code axradio_framing_syncword[] = { 0xcc, 0xaa, 0xcc, 0xaa};
 const uint8_t __code axradio_framing_syncflags = 0x18;
 const uint8_t __code axradio_framing_enable_sfdcallback = 0;
 
-const uint32_t __code axradio_framing_ack_timeout = 4; // 4.2ms in wtimer0 units (640Hz)
+const uint32_t __code axradio_framing_ack_timeout = 5; // 5.4ms in wtimer0 units (640Hz)
 const uint32_t __code axradio_framing_ack_delay = 313; // 1.0ms in wtimer1 units (20MHz/64)
 const uint8_t __code axradio_framing_ack_retransmissions = 0;
 const uint8_t __code axradio_framing_ack_seqnrpos = 0xff;
@@ -347,6 +743,6 @@ const uint8_t __code axradio_sync_slave_resyncloss = 11;  // resyncloss is one m
 // window 1 is the window normally used when there are no lost packets
 // window 2 is used after one packet is lost, etc
 const uint8_t __code axradio_sync_slave_nrrx = 3;
-const uint32_t __code axradio_sync_slave_rxadvance[] = { 153, 105, 150 };// 4.664ms, 3.199ms, 4.572ms
-const uint32_t __code axradio_sync_slave_rxwindow[] = { 167, 71, 161 }; // 5.092ms, 2.162ms, 4.909ms
-const uint32_t __code axradio_sync_slave_rxtimeout = 57; // 1.7ms, maximum duration of a packet
+const uint32_t __code axradio_sync_slave_rxadvance[] = { 176, 128, 173 };// 5.355ms, 3.890ms, 5.264ms
+const uint32_t __code axradio_sync_slave_rxwindow[] = { 190, 94, 184 }; // 5.782ms, 2.853ms, 5.599ms
+const uint32_t __code axradio_sync_slave_rxtimeout = 95; // 2.9ms, maximum duration of a packet

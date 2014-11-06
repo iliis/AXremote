@@ -8,11 +8,14 @@ Manual changes are overwritten! */
 //#define USE_COM0
 //#define DEBUGMSG
 #define MCU_SLEEP
-
 #define WTIMER0_CLKSRC	CLKSRC_LPOSC
 #define WTIMER0_PRESCALER 0x01
+#define TX_ON_DEMAND
 
 extern const struct axradio_address __code remoteaddr;
 extern const struct axradio_address_mask __code localaddr;
+extern const uint8_t __code demo_packet[6];
+extern const uint8_t __code framing_insert_counter;
+extern const uint8_t __code framing_counter_pos;
 
 extern const uint16_t __code lpxosc_settlingtime;

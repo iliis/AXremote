@@ -78,12 +78,8 @@
 			<Add library="libmf" />
 			<Add library="libaxdvk2" />
 		</Linker>
-		<Unit filename="../AX_Radio_Lab_output/config_16MHz.c">
+		<Unit filename="../AX_Radio_Lab_output/config.c">
 			<Option compilerVar="CC" />
-			<Option target="Debug Transmitter" />
-			<Option target="Release Transmitter" />
-			<Option target="Debug Receiver" />
-			<Option target="Release Receiver" />
 		</Unit>
 		<Unit filename="../AX_Radio_Lab_output/configmaster.c">
 			<Option compilerVar="CC" />
