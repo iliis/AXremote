@@ -15,8 +15,6 @@ uint8_t  ir_rx_state = IR_RX_STATE_FINISHED; // don't listen to IR codes per def
 uint8_t  ir_rx_last_pinstate = IR_SPACE;
 
 uint32_t ir_rx_last_time = 0;
-uint32_t ir_rx_current_time = 0;
-__xdata struct wtimer_callback ir_rx_pin_handler;
 
 // length between pin changes, first value is length of first MARK ('active') state
 // TIMER1 units (which should run at 10MHz, but use macros)
@@ -109,68 +107,54 @@ __reentrantb void ir_rx_pin_change_irq() __reentrant
     uint8_t  ir_rx_cur_pinstate = IR_RX_READ();
 
     // did our pin actually change or was this interrupt called for another one?
-    if ((ir_rx_state != IR_RX_STATE_FINISHED) && (ir_rx_cur_pinstate != ir_rx_last_pinstate)) {
+    if (ir_rx_cur_pinstate != ir_rx_last_pinstate) {
+
+        uint32_t ir_rx_current_time = wtimer1_curtime();
+        uint32_t time_delta = ir_rx_current_time - ir_rx_last_time;
 
         led0_set(ir_rx_cur_pinstate == IR_MARK ? 1 : 0);
 
-        if (ir_rx_current_time != 0) {
-            // this shouldn't happen! it means the mainloop is too slow to handle the infrared data
-            LOG(STR("ERR\n"));
-        }
-
-        ir_rx_current_time = wtimer1_curtime();
-
         ir_rx_last_pinstate = ir_rx_cur_pinstate;
 
-        wtimer_add_callback(&ir_rx_pin_handler);
+        switch (ir_rx_state) {
+            case IR_RX_STATE_READY: // in between two recordings
+                if (ir_rx_last_pinstate == IR_MARK) {
+                    // a new sequence has started!
+                    ir_rx_last_time = ir_rx_current_time;
+                    ir_rx_count = 0;
+                    ir_rx_state = IR_RX_STATE_RECEIVING;
+                }
+                break;
+
+            case IR_RX_STATE_RECEIVING:
+                if ((time_delta < WTIMER1_UNITS(IR_RX_TIMEOUT)) && (ir_rx_count < IR_RX_BUFFER_SIZE)) {
+                    // record pin change
+                    ir_rx_buffer[ir_rx_count++] = time_delta;
+                    ir_rx_last_time = ir_rx_current_time;
+                } else {
+                    // we've waited long enough or our buffer is full, this sequence is done
+                    ir_rx_state = IR_RX_STATE_FINISHED;
+
+                    // deregister interrupt handler here
+                    // disable GPIO change interrupt on B3:
+                    INTCHGB &= (uint8_t) ~(1<<3);
+
+                    //LOG(STR("ir state FINISHED\n"));
+
+                    // add callback to parse and notify user
+                    ir_rx_wtimer_cb_handle.handler = &ir_rx_wtimer_callback;
+                    wtimer_add_callback(&ir_rx_wtimer_cb_handle);
+                }
+                break;
+
+            case IR_RX_STATE_FINISHED:
+            default:
+                // ignore, nothing to do
+                break;
+        }
+
+        ir_rx_current_time = 0; // mark event as processed
     }
-}
-
-// this is executed in main loop
-void handle_pin_change(struct wtimer_callback __xdata *desc)
-{
-    uint32_t time_delta = ir_rx_current_time - ir_rx_last_time;
-
-    UNUSED(desc);
-
-    switch (ir_rx_state) {
-        case IR_RX_STATE_READY: // in between two recordings
-            if (ir_rx_last_pinstate == IR_MARK) {
-                // a new sequence has started!
-                ir_rx_last_time = ir_rx_current_time;
-                ir_rx_count = 0;
-                ir_rx_state = IR_RX_STATE_RECEIVING;
-            }
-            break;
-
-        case IR_RX_STATE_RECEIVING:
-            if ((time_delta < WTIMER1_UNITS(IR_RX_TIMEOUT)) && (ir_rx_count < IR_RX_BUFFER_SIZE)) {
-                // record pin change
-                ir_rx_buffer[ir_rx_count++] = time_delta;
-                ir_rx_last_time = ir_rx_current_time;
-            } else {
-                // we've waited long enough or our buffer is full, this sequence is done
-                ir_rx_state = IR_RX_STATE_FINISHED;
-
-                // deregister interrupt handler here
-                // disable GPIO change interrupt on B3:
-                INTCHGB &= (uint8_t) ~(1<<3);
-
-                //LOG(STR("ir state FINISHED\n"));
-
-                // add callback to parse and notify user
-                ir_rx_wtimer_cb_handle.handler = &ir_rx_wtimer_callback;
-                wtimer_add_callback(&ir_rx_wtimer_cb_handle);
-            }
-            break;
-
-        case IR_RX_STATE_FINISHED:
-        default:
-            // ignore, nothing to do
-            break;
-    }
-
-    ir_rx_current_time = 0; // mark event as processed
 }
 ///////////////////////////////////////////////////////////////////////////////
 void print_recorded_input()
@@ -252,13 +236,9 @@ void infrared_start_rx()
 
     // init buffer
     ir_rx_last_time = 0;
-    ir_rx_current_time = 0;
     ir_rx_count = 0;
     ir_rx_state = IR_RX_STATE_READY;
     ir_rx_last_pinstate = IR_SPACE;
-
-    // offload main work from interrupt service routine into mainloop
-    ir_rx_pin_handler.handler = handle_pin_change;
 
     // enable GPIO change interrupt on B3:
     INTCHGB |= 1<<3;
