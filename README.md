@@ -1,3 +1,8 @@
+NOTE on AX5043 / AX8052F143 support
+===================================
+
+If you need help with an AX5043 based project please contact AxsemSupport@onsemi.com first ;)
+
 AXremote
 ========
 
